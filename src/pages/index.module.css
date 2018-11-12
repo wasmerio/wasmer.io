@@ -80,7 +80,7 @@
   white-space: nowrap;
   background: #202020;
   border-radius: 2px;
-  font-family: Consolas;
+  font-family: Consolas, monaco, monospace;
   font-size: 22px;
   display: block;
   color: #ffffff;
