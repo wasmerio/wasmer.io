@@ -1,0 +1,126 @@
+.slogan {
+  font-family: 'Open Sans';
+  font-weight: 600;
+  font-size: 32px;
+  color: #171717;
+  line-height: 43px;
+  letter-spacing: -0.8px;
+  padding: 20px 0 100px 0;
+}
+
+.slogan u {
+  color: #533ac9;
+}
+
+.instruction {
+  padding: 60px 0;
+  position: relative;
+  margin-bottom: -100px;
+  padding-bottom: 100px;
+}
+.instruction::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 30px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 0;
+  background: #654ff0;
+}
+.instruction::after {
+  content: '';
+  position: absolute;
+  top: 0px;
+  width: 60px;
+  height: 60px;
+  left: 50%;
+  margin-left: -30px;
+  background: white;
+  display: block;
+  border-radius: 30px;
+}
+
+.instruction__inner {
+  position: relative;
+  max-width: 480px;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+.instruction__inner::before {
+  content: '1';
+  position: absolute;
+  left: -160px;
+  opacity: 0.2;
+  font-family: 'Open Sans';
+  font-weight: 600;
+  font-size: 240px;
+  width: 100px;
+  text-align: center;
+  color: #b8aef3;
+  letter-spacing: -6px;
+  top: -20px;
+  z-index: 0;
+}
+
+.instruction h3 {
+  margin-top: 20px;
+  font-family: 'Open Sans';
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 18px;
+  color: #ffffff;
+  letter-spacing: 0;
+}
+
+.instruction code {
+  margin-top: 20px;
+  overflow: auto;
+  white-space: nowrap;
+  background: #202020;
+  border-radius: 2px;
+  font-family: Consolas;
+  font-size: 22px;
+  display: block;
+  color: #ffffff;
+  padding: 20px;
+  letter-spacing: -0.55px;
+}
+
+.instruction[data-item='1']::before {
+  background: #654ff0;
+  transform: skew(0, -3deg);
+}
+.instruction[data-item='1']::after {
+  background: white;
+}
+.instruction[data-item='1'] .instruction__inner::before {
+  content: '1';
+}
+
+.instruction[data-item='2']::before {
+  background: #533ac9;
+  transform: skew(0, 3deg);
+}
+.instruction[data-item='2']::after {
+  background: #654ff0;
+}
+.instruction[data-item='2'] .instruction__inner::before {
+  content: '2';
+}
+
+.instruction[data-item='3'] {
+  padding-bottom: 30px;
+  overflow: hidden;
+}
+.instruction[data-item='3']::before {
+  background: #3f2fa6;
+  transform: skew(0, 0deg);
+}
+.instruction[data-item='3']::after {
+  background: #533ac9;
+}
+.instruction[data-item='3'] .instruction__inner::before {
+  content: '3';
+}
