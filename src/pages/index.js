@@ -8,9 +8,9 @@ const IndexPage = () => (
   <Layout>
     <div className="container">
       <h1 className={styles.slogan}>
-        A new era has just begun.
+        Build Once, Run Anywhere.
         <br />
-        <u>Universal Binaries</u> powered by WebAssembly.
+        <u>Universal Binaries</u> powered by WebAssembly
       </h1>
     </div>
     <div className={styles.instructionSet}>
