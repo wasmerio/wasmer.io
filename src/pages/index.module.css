@@ -16,8 +16,8 @@
 .instruction {
   padding: 60px 0;
   position: relative;
-  margin-bottom: -100px;
-  padding-bottom: 100px;
+  margin-bottom: -180px;
+  padding-bottom: 180px;
 }
 .instruction::before {
   content: '';
