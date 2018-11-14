@@ -1,5 +1,5 @@
 .slogan {
-  font-family: 'Open Sans';
+  font-family: 'Open Sans', sans-serif;
   font-weight: 600;
   font-size: 32px;
   color: #171717;
@@ -54,7 +54,7 @@
   position: absolute;
   left: -160px;
   opacity: 0.2;
-  font-family: 'Open Sans';
+  font-family: 'Open Sans', sans-serif;
   font-weight: 600;
   font-size: 240px;
   width: 100px;
@@ -67,7 +67,7 @@
 
 .instruction h3 {
   margin-top: 20px;
-  font-family: 'Open Sans';
+  font-family: 'Open Sans', sans-serif;
   font-weight: 700;
   text-transform: uppercase;
   font-size: 18px;
