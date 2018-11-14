@@ -3,6 +3,7 @@ import { Link } from 'gatsby'
 import styles from './index.module.css'
 
 import Layout from '../components/layout'
+import { CopyToClipboard } from 'react-copy-to-clipboard'
 
 const IndexPage = () => (
   <Layout>
@@ -17,7 +18,9 @@ const IndexPage = () => (
       <div className={styles.instruction} data-item="1">
         <div className={styles.instruction__inner}>
           <h3>Install Wasmer</h3>
-          <code>curl https://get.wasmer.io -sSf | sh</code>
+          <CopyToClipboard text="curl https://get.wasmer.io -sSfL | sh">
+            <code>curl https://get.wasmer.io -sSfL | sh</code>
+          </CopyToClipboard>
         </div>
       </div>
       <div className={styles.instruction} data-item="2">

@@ -14,6 +14,7 @@
     "gatsby-source-filesystem": "^2.0.4",
     "gatsby-transformer-sharp": "^2.1.4",
     "react": "^16.5.1",
+    "react-copy-to-clipboard": "^5.0.1",
     "react-dom": "^16.5.1",
     "react-helmet": "^5.2.0",
     "rupture": "^0.7.1",
