@@ -17,6 +17,7 @@
     "react-copy-to-clipboard": "^5.0.1",
     "react-dom": "^16.5.1",
     "react-helmet": "^5.2.0",
+    "react-icons": "^3.2.2",
     "rupture": "^0.7.1",
     "typeface-open-sans": "^0.0.54"
   },
