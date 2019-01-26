@@ -2,7 +2,8 @@ const rupture = require('rupture')
 
 module.exports = {
   siteMetadata: {
-    title: 'Wasmer',
+    title: 'Wasmer - Universal WebAssembly Runtime',
+    description: 'Wasmer is a Standalone JIT WebAssembly runtime, aiming to be fully compatible with Emscripten, Rust and Go.',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
