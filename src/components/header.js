@@ -1,7 +1,7 @@
 import React from 'react'
 import WasmerLogo from '../images/wasmer-logo.png'
 import styles from './header.module.css'
-import { FaGithub, FaTwitter } from 'react-icons/fa'
+import { FaGithub, FaTwitter, FaNewspaper, FaComments } from 'react-icons/fa'
 
 const Header = ({ siteTitle }) => (
   <div className="container">
@@ -10,6 +10,14 @@ const Header = ({ siteTitle }) => (
         <img src={WasmerLogo} style={{ width: 200, height: 55 }} />
       </a>
       <div className={styles.navbar}>
+        <a href="https://spectrum.chat/wasmer" className={styles.twitter}>
+          <FaComments className={styles.twitterIcon} />
+          Community
+        </a>
+        <a href="https://medium.com/wasmer" className={styles.twitter}>
+          <FaNewspaper className={styles.twitterIcon} />
+          Blog
+        </a>
         <a href="https://twitter.com/wasmerio" className={styles.twitter}>
           <FaTwitter className={styles.twitterIcon} />
           Twitter
