@@ -1,0 +1,37 @@
+.gridWrap1 {
+  text-align: center;
+  position: relative;
+}
+
+.grid {
+  background: repeat center top
+    url("../images/dot-pattern/dot-pattern-tablet-small-desktop.svg");
+  background-size: 36px 36px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  position: absolute;
+  z-index: -1;
+}
+.gridWrap1 .grid {
+  bottom: 220px;
+}
+
+.gridWrap2 {
+  position: relative;
+  padding-top: 184px;
+}
+.gridWrap2 .grid {
+  left: 50%;
+  background-position: left top;
+}
+
+.gridSeparator {
+  background: repeat center top
+    url("../images/dot-pattern/dot-pattern-tablet-small-desktop.svg");
+  background-size: 36px 36px;
+  height: 108px; /* 3 units */
+  width: 100%;
+  display: block;
+}
