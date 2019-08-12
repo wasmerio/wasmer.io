@@ -23,6 +23,14 @@
 
 .headerLinks li {
   display: inline-block;
+  vertical-align: middle;
+}
+
+.headerLinks img {
+  display: block;
+}
+.github {
+  margin-left: 16px;
 }
 
 .headerLinks a {
@@ -31,7 +39,8 @@
   letter-spacing: 0.02em;
   text-decoration: none;
   font-weight: 500;
-  padding: 0 16px;
+  margin: 0 8px;
+  padding: 0 8px;
 
   color: #231044;
 }

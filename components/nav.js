@@ -2,6 +2,8 @@ import React from "react";
 import Link from "next/link";
 import Logo from "../images/logo.svg";
 
+import Github from "../images/github.svg";
+
 import css from "./nav.css";
 
 const Nav = () => (
@@ -26,6 +28,11 @@ const Nav = () => (
           <Link href="/about">
             <a>About</a>
           </Link>
+        </li>
+        <li className={css.github}>
+          <a href="https://github.com/wasmerio/wasmer">
+            <img src={Github} />
+          </a>
         </li>
       </ul>
     </div>
