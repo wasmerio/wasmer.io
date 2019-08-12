@@ -17,6 +17,8 @@
 }
 .headerLinks {
   flex: 1;
+  margin: 0;
+  padding: 0;
   text-align: right;
   list-style: none;
 }
