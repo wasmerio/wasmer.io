@@ -20,6 +20,13 @@ import secureIcon from "../images/secure.svg";
 
 import installVideo from "../images/install.svg";
 
+import cosmosLogo from "../images/companies/cosmos.svg";
+import spacemeshLogo from "../images/companies/spacemesh.svg";
+import mozillaLogo from "../images/companies/mozilla.svg";
+import netlifyLogo from "../images/companies/netlify.svg";
+import zeitLogo from "../images/companies/zeit.svg";
+import linkerdLogo from "../images/companies/linkerd.svg";
+
 import css from "./index.css";
 import grid from "../components/grid.css";
 
@@ -241,7 +248,15 @@ const Home = () => (
       </a>
     </div>
 
-    <div className={css.trustedBy} />
+    <div className={css.trustedBy}>
+      Trusted by:
+      <img src={cosmosLogo} title="Cosmos logo" />
+      <img src={spacemeshLogo} title="Spacemesh logo" />
+      {/* <img src={mozillaLogo} title="Mozilla logo" /> */}
+      <img src={netlifyLogo} title="Netlify logo" />
+      <img src={zeitLogo} title="Zeit logo" />
+      <img src={linkerdLogo} title="Linkerd logo" />
+    </div>
 
     <Footer />
   </div>
