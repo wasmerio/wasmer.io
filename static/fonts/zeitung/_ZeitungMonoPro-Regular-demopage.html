@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+	"http://www.w3.org/TR/html4/loose.dtd">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>Webfont quick test</title>
+<link rel="stylesheet" type="text/css" href="ZeitungMonoPro-Regular_WebfontsKit.css">
+<script language="javascript" type="text/javascript">
+	var curSize = 38;
+	function update_language()	{
+		document.getElementById("language_sample").innerHTML= document.getElementById("language_selecter").value;;
+	}
+	function larger() {
+		document.getElementById("content").style.fontSize = ++curSize + "px";
+	}
+
+	function smaller() {
+		document.getElementById("content").style.fontSize = --curSize + "px";
+	}
+	function inverse() {
+		if  (document.getElementById("body").style.backgroundColor=="rgb(0, 0, 0)"){
+			document.getElementById("body").style.color = "#000";
+			document.getElementById("body").style.backgroundColor = "#fff";
+		}
+		else{
+			document.getElementById("body").style.color = "#fff";
+			document.getElementById("body").style.backgroundColor = "#000";
+		}
+	}
+</script>
+<style type="text/css">
+	body{
+		background:#fff;
+		padding:0;
+		margin:0;
+	}
+	a, a:visited{
+		color: #ff6600;
+		text-decoration: none;
+	}
+	a:hover, a:visited:hover{ 
+		text-decoration: none;
+		color: #ff0000; 
+	}
+	#wrapper{
+		height:100%;
+	}
+	#content{
+		font-size:38px;
+		line-height:1.4em;
+		padding: 20px 0 0 30px;
+		margin:0;
+		min-width:800px;
+		width:auto;
+		height:100%;
+		position:absolute;
+		left:220px;
+		z-index:1;
+		text-rendering:optimizeLegibility;
+	}
+	#info{
+		width:180px;
+		position:fixed;
+		background:#eeeee0;
+		top:0;
+		left:0; 
+		-moz-box-shadow: 2px 0px 5px #aaa; /* Firefox */  
+		-webkit-box-shadow: 2px 0px 5px #aaa; /* Safari, Chrome */  
+		box-shadow: 2px 0px 5px #aaa; /* CSS3 */ 
+		height:100%;
+		padding:50px 20px 20px 20px; 
+		font-size:0.7em;
+		line-height:1.4em;
+		font-family:Verdana;
+		color:#666;
+		z-index:2;
+	} 
+	h1 {
+		font-size: 28px;
+		font-weight: normal;
+		margin-bottom: 0px;
+	}
+	h2 {
+		font-size: 28px;
+		line-height: 40px;
+		margin-bottom: 0px;
+		font-weight: normal;
+		color:#777;
+	}
+	h3 {
+		margin-top: 0px;
+		font-size: 18px;
+		line-height: 10px;
+		margin-bottom: 0px;
+		font-weight: normal;
+		color:#777;
+	}
+</style>
+</head>
+<body id='body'>
+<div id='wrapper'>
+	<div id='info'>
+		<img src='http://www.underware.nl/_media/_underware_logos/logo_homepage_72dpi.png' alt='logo' style='margin: 0 0 20px 0;'>
+		<p>Thanks for purchasing the font<br>
+		<b>ZeitungMonoPro-Regular</b>.<br>
+		Did you know that Underware webfonts supports over 200 languages? Here a tiny selection to start with.</p>
+		<select style='width:180px;' id ="language_selecter" onchange="update_language();">
+		<option value="<h1>English</h1><h3>spoken by 310 million people</h3><p>Don’t be a cuckoo if you're a nightingale.<br>Don’t be a nightingale or a flycatcher, if you're a dog.<br>But anyone can make sound.<br>We are Underware.</p>">English</option><option value="<h1>Brazilian Portuguese</h1><h3>spoken by 186 million people</h3><p>Não seja um cuco se você é um rouxinol.<br>Não seja um rouxinol ou um bem-te-vi se você é um cachorro.<br>Porque qualquer pessoa pode fazer barulho.<br>Nós somos Underware.</p>">Brazilian Portuguese</option><option value="<h1>Catalan</h1><h3>spoken by 9 million people</h3><p>No siguis un cucut si ets un rossinyol.<br>No siguis un rossinyol o un papamosques, si ets un gos.<br>Però qualsevol pot fer so.<br>Som Underware.</p>">Catalan</option><option value="<h1>Czech</h1><h3>spoken by 12 million people</h3><p>Nechtej byt neco co nejsi.<br>Nezkousej byt co nejsi kdyz muzes byt kdo jsi<br>Kde kdo muze mluvit<br>Kazdy jsme ve sve vlastni kuzi.</p>">Czech</option><option value="<h1>Danish</h1><h3>spoken by 5 million people</h3><p>Vær ingen gøg, hvis du er en nattergal.<br>Vær ingen nattergal eller en stær, hvis du er en hund.<br>Men hvem som helst kan lave lyd.<br>Vi er Underware.</p>">Danish</option><option value="<h1>Dutch</h1><h3>spoken by 20 million people</h3><p>Wees geen koekoek als je een nachtegaal bent.<br>Wees geen nachtegaal of lijster, als je een hond bent.<br>Maar iedereen maakt geluid.<br>Wij zijn Underware.</p>">Dutch</option><option value="<h1>Dutch, Wanssum dialect</h1><h3>spoken by 1.970 people</h3><p>Bin genne koekkoek als ge enne nachtegaal bint.<br>Bin gen nachtegaal of parkietje, als ge enne hónd ziet.<br>Mar iederien makt geluid.<br>Weej zien Önderwaer.</p>">Dutch, Wanssum dialect</option><option value="<h1>Estonian</h1><h3>spoken by 1 million people</h3><p>Ära ole kägu, kui sa oled kärbsenäpp.<br>Ära ole ei ööbik ega kärbsenäpp, kui oled koer.<br>Kuid igaüks võib teha häält.<br>Meie oleme Aluspesu.</p>">Estonian</option><option value="<h1>Finnish</h1><h3>spoken by 6 million people</h3><p>Älä ole käki, jos olet satakieli.<br>Älä ole satakieli tai sieppo, jos olet koira.<br>Äänellä omalla hoilota voimalla.<br>Me olemme Underware.</p>">Finnish</option><option value="<h1>French</h1><h3>spoken by 65 million people</h3><p>Ne fais pas le coucou si tu es un rossignol.<br>Ne fais pas le rossignol ou le gobe-mouches si tu es un chien.<br>Mais n’importe qui peut produire un son.<br>Nous sommes Underware.</p>">French</option><option value="<h1>German</h1><h3>spoken by 95 million people</h3><p>Sei kein Kuckuck wenn du eine Nachtigall bist,<br>Und keine Nachtigall oder Fliegenschnäpper wenn Du ein Hund bist.<br>Aber jeder kann Geräusche machen.<br>Wir sind Underware.</p>">German</option><option value="<h1>German, St. Leon Rot dialect</h1><h3>spoken by 12.894 people</h3><p>Du musch keen Guguk sei, wennen Nachtigall bisch.<br>Un keen Nachtifall oda Vliecheschnäpfer wennen Hund bisch.<br>Awa jeda kann sei gosch gebrauche.<br>Mir sin Anderwär.</p>">German, St. Leon Rot dialect</option><option value="<h1>German, Walldorf dialect</h1><h3>spoken by 14.957 people</h3><p>Du musch kohn Guguk sei, wennen Nachtigall bisch.<br>Un koh Nachtifall oda Vliecheschnäpfer wennen Hund bisch.<br>Awa jeda kann sei gosch gebrauche.<br>Alla hop, mir sin Anderwär.</p>">German, Walldorf dialect</option><option value="<h1>Hungarian</h1><h3>spoken by 13 million people</h3><p>Ne légy kakukk csengő hangú fülemüle létedre,<br>sem csalogány vagy légykapó, ha eb vagy.<br>Ám zajt csapni szerencsére mindenki tud.<br>Az Underware mi vagyunk.<br></p>">Hungarian</option><option value="<h1>Italian</h1><h3>spoken by 62 million people</h3><p>Non fare il cuculo se sei un usignolo.<br>Non fare l'usignolo o il passero se sei un cane.<br>Ma chiunque può produrre suoni.<br>Noi siamo Underware.</p>">Italian</option><option value="<h1>Irish</h1><h3>spoken by 355.000 people</h3><p>Ná bí mar chuach, más filiméala thú.<br>Ná bí mar fhiliméala ná mar chuilire, más gadhar tú.<br>Ach tá glór i ngach duine.<br>Underware sinne.<br></p>">Irish</option><option value="<h1>Icelandic</h1><h3>spoken by 320.000 people</h3><p>Ekki gala líkt og gaukur ef þú ert í raun næturgali.<br>Ekki syngja eins og næturgali eða skógarþröstur ef þú ert í raun hundur.<br>Hver sem er getur skapað hljóð.<br>Við erum Underware.</p>">Icelandic</option><option value="<h1>Kurdish</h1><h3>spoken by 16 million people</h3><p>Daar kunkara maba,agar balendayake andaleb buet.<br>Balendayake andaleb yan hashra xoreshe maba, agar sag buet.<br>Hamu kasek atwanet dang drust bkat.<br>Ema jlubarge zerawen.</p>">Kurdish</option><option value="<h1>Kannada</h1><h3>spoken by 44 million people</h3><p>Kuhoo Ennabeda Neenu Kogile Aagiddare.<br>Kogile Athava Hulhahidiyuvanaadare, Naayi Aagabeda.<br>Aadare Yaaradaru Saddu Maadabahudu.<br>Naavu Underware.</p>">Kannada</option><option value="<h1>Latvian</h1><h3>spoken by 2.5 million people</h3><p>Neesi dzeguze, ja esi lakstīgala.<br>Neesi lakstīgala vai zvirbulis, ja tu esi suns.<br>Tomēr jeburš no mums spēj radīt skaņu.<br>Mēs esam Underware.</p>">Latvian</option><option value="<h1>Lithuanian</h1><h3>spoken by 4 million people</h3><p>Nebūk gegute, jei esi lakštingala,<br>Nebūk lakštingala ar musinukė, jei esi šuva,<br>Bet kas gali išleisti garsą<br>O mes esame Underware.</p>">Lithuanian</option><option value="<h1>Norwegian Norsk</h1><h3>spoken by 5 million people</h3><p>Ikke vær en gjøk, hvis du er en nattergal.<br>Ikke vær en nattergal eller en spurv, hvis du er en hund.<br>Men hvem som helst kan lage lyd.<br>Vi er Undertøy.</p>">Norwegian Norsk</option><option value="<h1>Norwegian, Trondheim dialect, spoken by trøndersk people</h1><h3>spoken by 197.464 people</h3><p>Itj vær en gjøk, hvis du e en nattergal.<br>Itj vær en nattergal eller en spurv, hvis du e en hoinn.<br>Men kæm som helst kainn lag lyd.<br>Vi e Poinnbrok.</p>">Norwegian, Trondheim dialect (trøndersk)</option><option value="<h1>Norwegian, deep up in the mountains of Telemark</h1><h3>spoken by 743 people</h3><p>Ikkje ver ein gjøk, om du er ein nattergal.<br>Ikkje ver ein nattergal eller ein spurv, om du er ei bikkje.<br>Men kvæn som helst kan lage lyd.<br>Mi æ Underbukse.</p>">Norwegian, deep up in the mountains of Telemark</option><option value="<h1>Polish</h1><h3>spoken by 43 million people</h3><p>Nie bądź kukułką jeżeli jesteś słowikiem.<br>Nie bądź słowikiem lub muchołówką jeżeli jesteś psem.<br>Mimo to każdy może wydawać dźwięki.<br>Jesteśmy Underware.</p>">Polish</option><option value="<h1>Portuguese</h1><h3>spoken by 177 million people</h3><p>Não sejas um cuco se na verdade és um rouxinol.<br>Não sejas um rouxinol ou um pardal se na verdade és um cão.<br>Mas qualquer um pode produzir som.<br>Nós somos a Underware.</p>">Portuguese</option><option value="<h1>Quechua</h1><h3>spoken by 8 million people</h3><p>Ama Pillpintup llikanchu kay,<br>Michiqoto kashaspa<br>Ama michiqoto kaychu, alqo kashaspa<br>ichaq, mayqempas warararanmi<br>tukuymi tutayaqpi kanchis-- underware</p>">Quechua</option><option value="<h1>Swedish</h1><h3>spoken by 9 million people</h3><p>Var inte en gök om du är en näktergal.<br>Var inte näktergalen eller flugsnappare, om du är en hund.<br>Men alla kan göra ljud.<br>Vi är Underware.</p>">Swedish</option><option value="<h1>Spanish</h1><h3>spoken by 322 million people</h3><p>No seas un cuco si eres un ruiseñor.<br>No seas un ruiseñor o un papamoscas, si eres un perro.<br>Pero cualquiera puede hacer sonido.<br>Somos Underware.</p>">Spanish</option><option value="<h1>Slovene</h1><h3>spoken by 2.4 million people</h3><p>Ne bodi kukavica, če si slavček.<br>Ne bodi slavček ali muhar, če si pes.<br>Vsak se lahko oglasi.<br>Ker smo Underware.</p>">Slovene</option><option value="<h1>Turkish</h1><h3>spoken by 50 million people</h3><p>Bülbülsen, guguk kuşu olma.<br>Köpeksen, bülbül veya sinekçil olma.<br>Ama herbiri ses çıkartabilir.<br>Biz underware’iz.</p>">Turkish</option><option value="<h1>Tamil</h1><h3>spoken by 77 million people</h3><p>Nee kaakaa illa, kuyil.<br>Aana Naaya irundha ee pidikaadha<br>Ellaraliyum kattha mudiyum.<br>Naanga dhaan Underware.</p>">Tamil</option><option value="<h1>Tagalog</h1><h3>spoken by 25 million people</h3><p>Hindi ka maging ibon kapag ibon ka<br>Hindi ka maging ibon o kaya'y gamu-gamo kapag ika'y aso.<br>Pero lahat ay makakagawa ng tunog<br>Kami ay mga salawal.<br></p>">Tagalog</option><option value="<h1>Vienna slang</h1><h3>spoken by 1,731,236 people</h3><p>Sei ka Trottl, wennst a Vogerl sei kannst.<br>und sei ka deppats Vogerl oda goa a Fliagnwachla, wennst a wüda Hund bist.<br>Oba jeda kån an Wirbe mochn.<br>Mia san Undawär.</p>">Vienna slang</option><option value="<h1>Võro</h1><h3>spoken by 70.000 people</h3><p>Ku sinnu luudi üüsiskas, sõs olku-i kägo,<br>Ku pinis, sõs olku-i üüsisas vai määneki muu tsirk.<br>Hellü tegevä kõik, kooni helü vällä tulõ.<br>A mi, mi olõ Underware.</p>">Võro</option><option value="<h1>Welsh</h1><h3>spoken by 790.000 people</h3><p>Peidiwch â bod yn gwcw os ydych yn eos.<br>Peidiwch â bod yn eos neu'n wybedog, os ydych yn gi.<br>Ond gall unrhywun gwneud swn.<br>Ni yw Underware.</p>">Welsh</option><option value="<h1>Wufwau</h1><h3>spoken by 525 million dogs</h3><p>Wuf wau wahuuu wauauahu, blaf blafau wahauhau<br>Wuf wau wahauhau wa wauhauwuf, blaf blafau wauh.<br>Wauhwauhwauh blafblaf.<br>Wufauu Whoooooeeh.</p>">Wufwau</option><option value="<h1>Xhosa</h1><h3>spoken by 7 million people</h3><p>Ungalkulinge ube sisidenge.<br>Ungabisidebge ukuba ubamba ebusuke, okanye inja.<br>Wonke umntu uyakwazi ukungxola.<br>Singaphantsi.</p>">Xhosa</option><option value="<h1>Yiddish</h1><h3>spoken by 3 million people</h3><p>Oyb du bist a Kukavke, zing nisht vi a Nachtigl.<br>Oyb du bilst vi a hunt, fife nisht vi a faygele.<br>Nor vos? Yeder aymer ken aroy lozn a kol!<br>Mir zenen Anderwer.</p>">Yiddish</option>	</select>
+		<button id="larger" onclick="smaller()">-</button>
+		<button id="smaller" onclick="larger()">+</button>
+		<button id="inverse" onclick="inverse()">inverse</button><br><br>
+		<p>If you do not find your preferred language in this list, please send your own translation to <a href="mailto:info@underware.nl">us</a>, so we can add it.
+		A small present will be sent in return of course.</p>
+		<p>For more info, help and support, please have a look at our <a href='http://www.underware.nl/support/webfonts'>webfont support section</a>.</p>
+		
+	</div>
+	<div id='content' class='ZeitungMonoPro-Regular'>
+		<div id='language_sample'>
+			<h1>English</h1><h3>spoken by 310 million people</h3><p>Don't be a cuckoo if you're a nightingale.<br>Don't be a nightingale or a flycatcher, if you're a dog.<br>But anyone can make sound.<br>We are Underware.</p>		</div>
+		<div id='characterset'>
+		<h2>
+			ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz<br>
+			{0123456789}+[$€£¥]&(@#*)!?<br>
+			ÀàÁáÂâÃãÄäĀāĂăÅåǺǻẠạĄąÆæǼǽĆćĈĉČčĊċÇçĎďĐđÐð<br>
+			ÈèÉéÊêẼẽĚěËëĒēĔĕĖėẸẹĘęĜĝǦǧĞğĠġĢģĤĥĦħıÌìÍíÎîĨĩÏïĪī<br>
+			İỊịĮįȷĴĵĶķĸĹĺĽľĻļŁłĿŀŃńÑñŇňŅņƝɲŊŋŉÒòÓóÔôÕõÖöŌōŎŏ<br>
+			ŐőỌọǪǫØøǾǿŒœŔŕŘřŖŗŚśŜŝŠšŞşȘșẞßŤťŢţȚțŦŧÞþ<br>
+			ÙùÚúÛûŨũÜüŪūŬŭŮůŰűỤụŲųẀẁẂẃŴŵẄẅỲỳÝýŶŷỸỹŸÿȲȳŹźŽžŻż
+		</h2>
+		</div>
+	</div>
+</div>
+</body>
+</html>
+
+
+

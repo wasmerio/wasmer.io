@@ -1,0 +1,456 @@
+:global(body) {
+  font-family: "Gilroy";
+  margin: 0;
+  padding: 0;
+}
+
+.hero {
+  /* TODO: Change to VH */
+  padding: 104px 0 150px;
+  text-align: center;
+}
+.title {
+  margin: 0;
+  font-size: 48px;
+  line-height: 68px;
+  text-align: center;
+  color: #231044;
+
+  font-weight: 500;
+}
+.title strong {
+  font-weight: 700;
+  color: #4946dd;
+  display: block;
+}
+
+.baseSnippet {
+  border-radius: 4px;
+  padding: 18px 20px;
+  display: inline-block;
+  text-align: center;
+  position: relative;
+  transition: box-shadow ease-in-out 100ms, border-radius ease-in-out 100ms;
+  cursor: pointer;
+  overflow: hidden;
+}
+.baseSnippet pre {
+  font-family: "Zeitung Mono Pro", monospace;
+  margin: 0;
+}
+
+.baseSnippet pre::before {
+  content: "$ ";
+  user-select: none;
+}
+
+/* Copy */
+.baseSnippet .copy {
+  position: absolute;
+  opacity: 0;
+  right: 3px;
+  top: 1px;
+  font-family: Gilroy;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: right;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 600;
+  transform: translateY(-10px);
+
+  transition: opacity ease-in-out 200ms, transform ease-in-out 200ms;
+}
+.baseSnippet:hover {
+  border-radius: 1px;
+}
+.baseSnippet:hover .copy {
+  transform: translateY(0px);
+  opacity: 1;
+}
+
+.snippet {
+  margin-top: 40px;
+  background: #231044;
+  box-shadow: 0px 3px 14px rgba(73, 70, 221, 0.3);
+}
+
+.snippet pre {
+  color: white;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.snippet .copy {
+  color: rgba(255, 255, 255, 0.4);
+}
+.snippet:hover {
+  box-shadow: 0px 3px 14px rgba(73, 70, 221, 0.3), 0 0 0 5px #231044;
+}
+.snippet .copy.copied {
+  color: #06d6a0;
+}
+
+.heroEmbed {
+  font-size: 14px;
+  line-height: 17px;
+  display: inline-block;
+  /* identical to box height */
+
+  color: #2310447c;
+  background: white;
+  padding: 12px;
+  font-weight: 500;
+}
+
+.heroEmbed ul {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  margin-left: 7px;
+  list-style: none;
+}
+.heroEmbed img {
+  vertical-align: middle;
+  margin: 0 4px;
+  opacity: 0.3;
+}
+.container,
+.explainer,
+.useCases,
+.media,
+.callToAction {
+  width: 992px;
+  margin: 0 auto;
+}
+.explainer {
+  margin-top: 86px;
+  margin-bottom: 100px;
+}
+.explainer h2 {
+  font-size: 38px;
+  line-height: 46px;
+  text-align: center;
+  font-weight: 400;
+  color: rgba(35, 16, 68, 0.4);
+  padding: 0 30px;
+}
+
+.useCases {
+  margin-bottom: 66px;
+}
+.useCases ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+.useCases li {
+  display: flex;
+  height: 424px;
+  box-sizing: border-box;
+  background: #4946dd;
+  box-shadow: 0px 3px 14px rgba(73, 70, 221, 0.3);
+  border-radius: 4px;
+  flex: 1;
+  margin: 0 8px;
+  font-size: 38px;
+  line-height: 46px;
+  font-weight: 600;
+  padding: 32px;
+  overflow: hidden;
+  justify-content: space-between;
+
+  flex-direction: column;
+  cursor: default;
+  position: relative;
+  color: #ffffff;
+  transition: box-shadow ease-in-out 100ms, border-radius ease-in-out 100ms;
+}
+.useCases li:hover {
+  border-radius: 1px;
+  box-shadow: 0px 3px 14px rgba(73, 70, 221, 0.3), 0 0 0 5px #4946dd;
+}
+.useCases img {
+    align-self: flex-end;
+}
+.useCases div {
+  position: relative;
+  transform: translateY(0);
+  transition: transform ease-in-out 200ms;
+}
+.useCases a {
+  transform: translateX(-30px);
+  transition: all ease-in-out 200ms;
+  position: absolute;
+  opacity: 0;
+  bottom: 32px;
+  left: 28px;
+  font-size: 28px;
+  line-height: 34px;
+  color: white;
+  text-decoration: none;
+  font-weight: 400;
+}
+.useCases a:before {
+  content: "";
+  width: 19px;
+  height: 19px;
+  background: repeat center top url("../images/arrow-white.svg");
+  margin-right: 16px;
+  display: inline-block;
+}
+.useCases li:hover div {
+  transform: translateY(-50px);
+}
+.useCases li:hover a {
+  transform: translateX(0px);
+  opacity: 1;
+}
+
+.install {
+  width: 50%;
+  display: inline-block;
+  vertical-align: top;
+  padding-left: 8px;
+  padding-right: 64px;
+  box-sizing: border-box;
+}
+.install h3 {
+  font-size: 48px;
+  line-height: 58px;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 20px;
+  /* identical to box height */
+
+  color: #231044;
+}
+.installVideo {
+    width: 50%;
+    vertical-align: top;
+    display: inline-block;
+    background: #231044;
+    box-shadow: 0px 3px 14px rgba(73, 70, 221, 0.3);
+    border-radius: 4px;
+    padding: 26px;
+    box-sizing: border-box;
+}
+.installVideo img {
+    width: 100%;
+    display: block;
+}
+.install p {
+  font-size: 28px;
+  line-height: 34px;
+  padding: 0;
+  margin: 0;
+
+  color: #231044;
+}
+
+.installSnippet {
+  margin-top: 48px;
+  background: #23104410;
+}
+
+.installSnippet pre {
+  color: #231044;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.installSnippet .copy {
+  color: #2310445a;
+}
+.installSnippet:hover {
+  box-shadow: 0 0 0 5px #23104410;
+}
+.installSnippet .copy.copied {
+  color: #06d6a0;
+}
+
+.installWindows {
+  font-size: 14px;
+  line-height: 17px;
+  /* identical to box height */
+  margin-top: 16px;
+
+  color: #23104473;
+}
+
+.installWindows a {
+  color: inherit;
+}
+
+.embed {
+  margin-top: 136px;
+  padding-bottom: 210px;
+}
+.embed p {
+    vertical-align: top;
+  font-size: 28px;
+  line-height: 34px;
+  width: 50%;
+  display: inline-block;
+  padding-right: 64px;
+  margin-top: 50px;
+  box-sizing: border-box;
+  color: #231044;
+}
+
+.embedLanguages {
+  width: 50%;
+  padding-left: 36px;
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.embedLanguages a {
+  width: 84px;
+  height: 84px;
+  box-sizing: border-box;
+  display: inline-block;
+  background: #ffffff;
+  border: 4px solid rgba(35, 16, 68, 0.13);
+  box-sizing: border-box;
+  border-radius: 1px;
+  margin: 12px;
+  position: relative;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: right;
+  color: #231044;
+  font-weight: 700;
+}
+
+.embedLanguages a:hover {
+  background: #4946dd;
+  box-shadow: 0px 3px 14px rgba(73, 70, 221, 0.3);
+  border-radius: 0px;
+  transition: all ease-in-out 100ms;
+}
+.embedLanguages a:hover {
+  border-radius: 1px;
+  border-color: transparent;
+  color: white;
+  box-shadow: 0px 3px 14px rgba(73, 70, 221, 0.3), 0 0 0 3px #4946dd;
+}
+
+.embedLanguages a span {
+  position: absolute;
+  bottom: 4px;
+  right: 10px;
+}
+
+.wapm {
+  margin-top: 64px;
+  background: #4946dd;
+  color: white;
+  padding: 75px 0 80px;
+}
+.wapm h1 {
+  margin: 0;
+  font-size: 48px;
+  line-height: 58px;
+  font-weight: 500;
+  padding-bottom: 48px;
+  width: 70%;
+}
+.wapm h1 strong {
+  font-weight: 600;
+}
+.wapm pre {
+  margin: 0;
+  font-family: "Zeitung Mono Pro", monospace;
+  font-size: 28px;
+  line-height: 34px;
+  margin-bottom: 122px;
+}
+
+.wapm pre::before {
+  content: "▌";
+  user-select: none;
+}
+
+.wapm .seeAll {
+  font-size: 28px;
+  line-height: 34px;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+}
+.wapm .seeAll:before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  margin-left: -10px;
+  background: no-repeat center top url("../images/arrow-fat-white.svg");
+  margin-right: 12px;
+  display: inline-block;
+}
+
+.media {
+  padding: 120px 0;
+}
+.media blockquote {
+  font-size: 48px;
+  line-height: 58px;
+  text-align: center;
+  width: 60%;
+  margin: 0 auto;
+}
+.media p {
+  margin: 0;
+  padding: 0;
+}
+
+.callToAction {
+  margin: 120px auto 80px;
+  text-align: center;
+}
+
+.callToAction h4 {
+  margin: 0 auto;
+  width: 50%;
+  display: block;
+  font-size: 38px;
+  line-height: 46px;
+  padding: 0;
+  font-weight: 400;
+  margin-bottom: 64px;
+}
+
+.callToAction h4 strong {
+  font-weight: 600;
+}
+
+.callToAction .button,
+.callToAction .primaryButton {
+  background: #4946dd;
+  box-shadow: 0px 3px 14px rgba(73, 70, 221, 0.3);
+  border-radius: 4px;
+  padding: 18px 24px;
+  margin: 20px;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 28px;
+  color: white;
+  text-decoration: none;
+}
+
+.callToAction .primaryButton {
+  background: #231044;
+  box-shadow: 0px 3px 14px rgba(73, 70, 221, 0.3);
+}
+
+.callToAction .button:before,
+.callToAction .primaryButton:before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  margin-left: -10px;
+  background: no-repeat center top url("../images/arrow-fat-white.svg");
+  margin-right: 12px;
+  display: inline-block;
+}

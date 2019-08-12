@@ -1,0 +1,5 @@
+
+.snippet pre::before {
+    content: '$ ';
+    user-select: none;
+}

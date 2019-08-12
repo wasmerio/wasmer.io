@@ -1,0 +1,52 @@
+.footer {
+  background: #231044;
+  color: white;
+  position: relative;
+  padding: 48px 0;
+}
+
+.footer a {
+  text-decoration: none;
+  color: white;
+}
+
+.companyInfo {
+  background: #231044;
+  display: inline-block;
+  width: 300px;
+  padding: 20px 30px;
+  box-sizing: border-box;
+  align-self: flex-end;
+  margin-bottom: -20px;
+}
+
+.companyInfo img {
+  display: block;
+}
+.companyInfo .mission {
+  margin-top: 14px;
+  font-size: 18px;
+  line-height: 22px;
+}
+.container {
+  width: 992px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav {
+  width: 300px;
+  padding: 0 54px;
+  list-style: none;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0.02em;
+}
+.nav a {
+  color: white;
+  display: inline-block;
+  padding: 8px 0;
+}
