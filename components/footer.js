@@ -15,22 +15,31 @@ const Footer = () => (
           Making software universally accessible since 2019
         </div>
       </div>
-      <ul class={css.nav}>
-        <li>
-          <a href="https://wapm.io">WAPM</a>
-        </li>
-        <li>
-          <a href="https://spectrum.chat/wasmer">Community</a>
-        </li>
-        <li>
-          <a href="https://medium.com/wasmer">Blog</a>
-        </li>
-        <li>
-          <Link href="/about">
-            <a>About</a>
-          </Link>
-        </li>
-      </ul>
+      <div class={css.nav}>
+        <ul>
+          <li>
+            <a href="https://wapm.io">WAPM</a>
+          </li>
+          <li>
+            <a href="https://spectrum.chat/wasmer">Community</a>
+          </li>
+          <li>
+            <a href="https://medium.com/wasmer">Blog</a>
+          </li>
+          <li>
+            <Link href="/about">
+              <a>About</a>
+            </Link>
+          </li>
+          <li className={css.github}>
+            <a href="https://github.com/wasmerio/wasmer">Github</a>
+          </li>
+          <li className={css.twitter}>
+            <a href="https://twitter.com/wasmerio">Twitter</a>
+          </li>
+        </ul>
+        <div className={css.copyright}>© 2019 Wasmer, Inc.</div>
+      </div>
     </div>
   </footer>
 );
