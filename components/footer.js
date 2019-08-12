@@ -7,7 +7,7 @@ import grid from "./grid.css";
 
 const Footer = () => (
   <footer className={css.footer}>
-    <div className={grid.grid} />
+    <div className={`${grid.grid} ${grid.gridWhite} ${css.footerGrid}`} />
     <div className={css.container}>
       <div className={css.companyInfo}>
         <img src={Logo} />

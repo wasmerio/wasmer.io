@@ -5,6 +5,13 @@
   padding: 48px 0;
 }
 
+.footer .footerGrid {
+  right: 50%;
+  left: -180px;
+  margin-right:-180px;
+  background-position: right top!important;
+}
+
 .footer a {
   text-decoration: none;
   color: white;
@@ -19,6 +26,7 @@
   box-sizing: border-box;
   align-self: flex-end;
   margin-bottom: -20px;
+  z-index: 1;
 }
 
 .companyInfo img {

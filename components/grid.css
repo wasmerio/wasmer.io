@@ -12,8 +12,16 @@
   bottom: 0;
   top: 0;
   position: absolute;
-  z-index: -1;
+  z-index: 0;
+  user-select: none;
 }
+
+.grid.gridWhite {
+  background: repeat center top
+    url("../images/dot-pattern/dot-pattern-tablet-small-desktop-white.svg");
+  background-size: 36px 36px;
+}
+
 .gridWrap1 .grid {
   bottom: 220px;
 }
