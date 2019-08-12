@@ -249,7 +249,7 @@ const Home = () => (
     </div>
 
     <div className={css.trustedBy}>
-      Trusted by:
+      <span>Trusted by:</span>
       <img src={cosmosLogo} title="Cosmos logo" />
       <img src={spacemeshLogo} title="Spacemesh logo" />
       {/* <img src={mozillaLogo} title="Mozilla logo" /> */}
