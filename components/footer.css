@@ -14,6 +14,7 @@
   background: #231044;
   display: inline-block;
   width: 300px;
+  margin-left: -30px;
   padding: 20px 30px;
   box-sizing: border-box;
   align-self: flex-end;
@@ -42,16 +43,16 @@
 }
 
 .nav .copyright {
-  color: #FFFFFF;
+  color: #ffffff;
   opacity: 0.45;
   font-size: 14px;
-line-height: 17px;
+  line-height: 17px;
 }
 
 .nav ul {
   list-style: none;
   margin: 0;
-  padding:0;
+  padding: 0;
   font-weight: 500;
   font-size: 18px;
   line-height: 22px;
@@ -78,7 +79,8 @@ line-height: 17px;
   right: 0;
 }
 
-.nav .github a, .nav .twitter a {
+.nav .github a,
+.nav .twitter a {
   text-indent: -1000px;
   width: 32px;
   height: 32px;
