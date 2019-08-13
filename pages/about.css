@@ -1,0 +1,87 @@
+.hero {
+  position: relative;
+}
+.hero .valuesGrid {
+  right: 50%;
+  background-position: right top;
+}
+
+.mainHero {
+  width: 50%;
+  padding-left: 62px;
+  box-sizing: border-box;
+  margin-left: 50%;
+}
+.hero h1 {
+  margin: 0;
+  padding-top: 74px;
+  font-size: 48px;
+  line-height: 58px;
+
+  color: #4946dd;
+  font-weight: 700;
+  padding-bottom: 22px;
+}
+.hero p {
+  margin: 0;
+  padding-top: 22px;
+  padding-bottom: 22px;
+  display: block;
+  font-size: 28px;
+  line-height: 34px;
+}
+.heroContent,
+.team,
+.investors {
+  width: 992px;
+  margin: 0 auto;
+}
+
+.team {
+  margin-top: 100px;
+}
+.team h2 {
+  font-size: 48px;
+  line-height: 58px;
+  text-align: center;
+  color: #231044;
+}
+.team ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.team li {
+  margin: 0;
+  padding: 16px;
+  width: 50%;
+  margin-bottom: 32px;
+  display: inline-block;
+  vertical-align: top;
+  box-sizing: border-box;
+}
+.team li img {
+  width: 100%;
+}
+.team h5 {
+  margin: 40px 0 16px;
+  font-size: 38px;
+  line-height: 46px;
+  color: #4946dd;
+  margin-left: 32px;
+}
+.team p {
+  font-size: 28px;
+  line-height: 34px;
+  margin: 0 32px;
+}
+
+.investors {
+  margin-top: 100px;
+}
+.investors h2 {
+  font-size: 48px;
+  line-height: 58px;
+  text-align: center;
+  color: #231044;
+}
