@@ -4,6 +4,7 @@ import Head from "next/head";
 import Nav from "../components/nav";
 import Footer from "../components/footer";
 import copy from "copy-to-clipboard";
+import handleViewport from "react-in-viewport";
 
 import goIcon from "../images/languages/go.svg";
 import rustIcon from "../images/languages/rust.svg";
@@ -18,7 +19,8 @@ import binaryIcon from "../images/binary.svg";
 import featherIcon from "../images/feather.svg";
 import secureIcon from "../images/secure.svg";
 
-import installVideo from "../images/install.svg";
+import Asciinema from "../components/asciinema";
+import cast from "./term.json";
 
 import cosmosLogo from "../images/companies/cosmos.svg";
 import spacemeshLogo from "../images/companies/spacemesh.svg";
@@ -29,6 +31,8 @@ import linkerdLogo from "../images/companies/linkerd.svg";
 
 import css from "./index.css";
 import grid from "../components/grid.css";
+
+const ViewportAsciinema = handleViewport(Asciinema);
 
 const embeddedUses = [
   {
@@ -105,161 +109,194 @@ class Snippet extends React.Component {
     );
   }
 }
-const Home = () => (
-  <div>
-    <Head>
-      <title>Wasmer</title>
-    </Head>
-    <Nav />
-
-    <div className={css.hero}>
-      <h1 className={css.title}>
-        <strong>Run any code on any client.</strong>
-        With WebAssembly and Wasmer.
-      </h1>
-    </div>
-    <div className={grid.gridWrap1}>
-      <div className={grid.grid} />
+class Home extends React.Component {
+  state = {
+    playingAscii: false,
+  };
+  render() {
+    return (
       <div>
-        <Snippet className={css.snippet} />
-      </div>
-      <div className={css.heroEmbed}>
-        or just embed it into your existing application:
-        <ul>
-          {embeddedUses.map(embed => {
-            return (
-              <a
-                href={embed.url}
-                title={`Wasmer ${embed.name} WebAssembly library`}
-              >
-                <img src={embed.image} alt={`${embed.name} icon`} />
-              </a>
-            );
-          })}
-        </ul>
-      </div>
-      <div className={css.explainer}>
-        <div className={css.animation} />
-        <h2>
-          <span className={css.explainerStep1}>
-            Use the tools you know and the languages you love.
-          </span>{" "}
-          <span className={css.explainerStep2}>
-            Compile everything to WebAssembly.
-          </span>{" "}
-          <span className={css.explainerStep3}>
-            Run it on any OS or embed it into other languages.
-          </span>
-        </h2>
-      </div>
-    </div>
-    <div className={css.useCases}>
-      <ul>
-        <li>
-          <img src={binaryIcon} />
-          <div>Create binaries that work on any platform</div>
-          <a href="">Learn more</a>
-        </li>
-        <li>
-          <img src={featherIcon} />
-          <div>Run lightweight packages on the Edge</div>
-          <a href="">Learn more</a>
-        </li>
-        <li>
-          <img src={secureIcon} />
-          <div>Execute untrusted code safely</div>
-          <a href="">Learn more</a>
-        </li>
-      </ul>
-    </div>
+        <Head>
+          <title>Wasmer</title>
+        </Head>
+        <Nav />
 
-    <div className={grid.gridWrap2}>
-      <div className={grid.grid} />
-      <div className={css.container}>
-        <div className={css.install}>
-          <h3>Try it now!</h3>
-          <p>
-            Install Wasmer by copy-pasting a single command.
-            <br />
-            It’s that easy.{" "}
-          </p>
-          <Snippet className={css.installSnippet} />
-          <div className={css.installWindows}>
-            Wasmer is also available on Windows. <a href="">Download it here</a>
+        <div className={css.hero}>
+          <h1 className={css.title}>
+            <strong>Run any code on any client.</strong>
+            With WebAssembly and Wasmer.
+          </h1>
+        </div>
+        <div className={grid.gridWrap1}>
+          <div className={grid.grid} />
+          <div>
+            <Snippet className={css.snippet} />
+          </div>
+          <div className={css.heroEmbed}>
+            or just embed it into your existing application:
+            <ul>
+              {embeddedUses.map(embed => {
+                return (
+                  <a
+                    href={embed.url}
+                    title={`Wasmer ${embed.name} WebAssembly library`}
+                  >
+                    <img src={embed.image} alt={`${embed.name} icon`} />
+                  </a>
+                );
+              })}
+            </ul>
+          </div>
+          <div className={css.explainer}>
+            <div className={css.animation} />
+            <h2>
+              <span className={css.explainerStep1}>
+                Use the tools you know and the languages you love.
+              </span>{" "}
+              <span className={css.explainerStep2}>
+                Compile everything to WebAssembly.
+              </span>{" "}
+              <span className={css.explainerStep3}>
+                Run it on any OS or embed it into other languages.
+              </span>
+            </h2>
           </div>
         </div>
-        <div className={css.installVideo}>
-          {/* echo $LINES $COLUMNS
+        <div className={css.useCases}>
+          <ul>
+            <li>
+              <img src={binaryIcon} />
+              <div>Create binaries that work on any platform</div>
+              <a href="">Learn more</a>
+            </li>
+            <li>
+              <img src={featherIcon} />
+              <div>Run lightweight packages on the Edge</div>
+              <a href="">Learn more</a>
+            </li>
+            <li>
+              <img src={secureIcon} />
+              <div>Execute untrusted code safely</div>
+              <a href="">Learn more</a>
+            </li>
+          </ul>
+        </div>
+
+        <div className={grid.gridWrap2}>
+          <div className={grid.grid} />
+          <div className={css.container}>
+            <div className={css.install}>
+              <h3>Try it now!</h3>
+              <p>
+                Install Wasmer by copy-pasting a single command.
+                <br />
+                It’s that easy.{" "}
+              </p>
+              <Snippet className={css.installSnippet} />
+              <div className={css.installWindows}>
+                Wasmer is also available on Windows.{" "}
+                <a href="">Download it here</a>
+              </div>
+            </div>
+            <div className={css.installVideo}>
+              {/* echo $LINES $COLUMNS
           16 44 */}
-          <img src={installVideo} />
-        </div>
+              <ViewportAsciinema
+                ref="asciinema"
+                options={{
+                  theme: {
+                    foreground: "#ffffff",
+                    background: "#231044",
+                    black: "fdf6e3",
+                    color0: "#231044",
+                    color1: "#ff005b",
+                    green: "#02C39A",
+                    cyan: "#4AB3FF"
+                  },
+                  cols: 43,
+                  rows: 16,
+                  lineHeight: 1.1,
+                  fontFamily: "Zeitung Mono Pro",
+                  fontSize: 17
+                }}
+                cast={cast}
+                play={this.state.playingAscii}
+                onEnterViewport={() => {
+                  this.setState({playingAscii: true});
+                }}
+              />
+            </div>
 
-        <div className={css.embed}>
-          <p>
-            ...or embed Wasmer into the language of your choice and run
-            WebAssembly everywhere.
-          </p>
-          <div className={css.embedLanguages}>
-            {embeddedUses.map(embed => {
-              return (
-                <a
-                  href={embed.url}
-                  title={`Wasmer ${embed.name} WebAssembly library`}
-                >
-                  <span>{embed.name}</span>
-                </a>
-              );
-            })}
+            <div className={css.embed}>
+              <p>
+                ...or embed Wasmer into the language of your choice and run
+                WebAssembly everywhere.
+              </p>
+              <div className={css.embedLanguages}>
+                {embeddedUses.map(embed => {
+                  return (
+                    <a
+                      href={embed.url}
+                      title={`Wasmer ${embed.name} WebAssembly library`}
+                    >
+                      <span>{embed.name}</span>
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </div>
+        <div className={css.wapm}>
+          <div className={css.container}>
+            <h1>
+              Pre-installed:
+              <br />
+              <strong>WAPM</strong>, the WebAssembly Package Manager
+            </h1>
+            <pre>wapm install optipng</pre>
+            <a className={css.seeAll} href="https://wapm.io/">
+              See all packages on wapm.io
+            </a>
+          </div>
+        </div>
+
+        <div className={css.media}>
+          <blockquote>
+            <p>
+              “This programming tool makes it easier for apps to work anywhere”
+            </p>
+          </blockquote>
+        </div>
+
+        <div className={grid.gridSeparator} />
+
+        <div className={css.callToAction}>
+          <h4>
+            <strong>Curious?</strong> Get in touch or check out our forum.
+          </h4>
+          <a className={css.button} href="https://spectrum.chat/wasmer">
+            Go to Forum
+          </a>
+          <a className={css.primaryButton} href="mailto:sales@wasmer.io">
+            Contact Sales
+          </a>
+        </div>
+
+        <div className={css.trustedBy}>
+          <span>Trusted by:</span>
+          <img src={cosmosLogo} title="Cosmos logo" />
+          <img src={spacemeshLogo} title="Spacemesh logo" />
+          {/* <img src={mozillaLogo} title="Mozilla logo" /> */}
+          <img src={netlifyLogo} title="Netlify logo" />
+          <img src={zeitLogo} title="Zeit logo" />
+          <img src={linkerdLogo} title="Linkerd logo" />
+        </div>
+
+        <Footer />
       </div>
-    </div>
-    <div className={css.wapm}>
-      <div className={css.container}>
-        <h1>
-          Pre-installed:
-          <br />
-          <strong>WAPM</strong>, the WebAssembly Package Manager
-        </h1>
-        <pre>wapm install optipng</pre>
-        <a className={css.seeAll} href="https://wapm.io/">
-          See all packages on wapm.io
-        </a>
-      </div>
-    </div>
-
-    <div className={css.media}>
-      <blockquote>
-        <p>“This programming tool makes it easier for apps to work anywhere”</p>
-      </blockquote>
-    </div>
-
-    <div className={grid.gridSeparator} />
-
-    <div className={css.callToAction}>
-      <h4>
-        <strong>Curious?</strong> Get in touch or check out our forum.
-      </h4>
-      <a className={css.button} href="https://spectrum.chat/wasmer">
-        Go to Forum
-      </a>
-      <a className={css.primaryButton} href="mailto:sales@wasmer.io">
-        Contact Sales
-      </a>
-    </div>
-
-    <div className={css.trustedBy}>
-      <span>Trusted by:</span>
-      <img src={cosmosLogo} title="Cosmos logo" />
-      <img src={spacemeshLogo} title="Spacemesh logo" />
-      {/* <img src={mozillaLogo} title="Mozilla logo" /> */}
-      <img src={netlifyLogo} title="Netlify logo" />
-      <img src={zeitLogo} title="Zeit logo" />
-      <img src={linkerdLogo} title="Linkerd logo" />
-    </div>
-
-    <Footer />
-  </div>
-);
+    );
+  }
+}
 
 export default Home;

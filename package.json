@@ -10,10 +10,18 @@
   },
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
+    "classnames": "^2.2.6",
     "copy-to-clipboard": "^3.2.0",
     "next": "9.0.3",
     "next-images": "^1.1.2",
+    "postcss-autoreset": "^2.0.2",
+    "postcss-custom-media": "^7.0.8",
+    "postcss-global-import": "^1.0.6",
+    "postcss-normalize": "^7.0.1",
+    "postcss-preset-env": "^6.6.0",
     "react": "16.9.0",
-    "react-dom": "16.9.0"
+    "react-dom": "16.9.0",
+    "react-in-viewport": "0.0.38",
+    "xterm": "^3.14.5"
   }
 }
