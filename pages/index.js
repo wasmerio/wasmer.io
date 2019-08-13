@@ -43,7 +43,7 @@ const embeddedUses = [
   {
     name: "Rust",
     image: rustIcon,
-    url: "https://github.com/wasmerio/go-ext-wasm"
+    url: "https://github.com/wasmerio/wasmer-rust-example"
   },
   {
     name: "Python",
@@ -63,17 +63,17 @@ const embeddedUses = [
   {
     name: "C",
     image: cIcon,
-    url: "https://github.com/wasmerio/php-ext-wasm"
+    url: "https://github.com/wasmerio/wasmer-c-api"
   },
   {
     name: "C++",
     image: cppIcon,
-    url: "https://github.com/wasmerio/php-ext-wasm"
+    url: "https://github.com/wasmerio/wasmer-c-api"
   },
   {
     name: "C#",
     image: cSharpIcon,
-    url: "https://github.com/wasmerio/php-ext-wasm"
+    url: "https://github.com/migueldeicaza/WasmerSharp/"
   }
 ];
 
