@@ -7,6 +7,9 @@ import classnames from "classnames";
 
 import css from "./about.css";
 import grid from "../components/grid.css";
+
+import heart from "../images/heart.svg";
+
 import syrusPhoto from "../images/team/syrus.png";
 import ivanPhoto from "../images/team/ivan.png";
 import nickPhoto from "../images/team/nick.png";
@@ -77,9 +80,10 @@ const Home = () => (
     <div className={classnames(css.hero)}>
       <div className={classnames(css.valuesGrid, grid.grid)} />
       <div className={css.heroContent}>
+        <img src={heart} className={css.heart} />
         <div className={css.mainHero}>
           <h1 className={css.title}>
-            Making software universally available since 2019.
+            Making software universally available since 2019
           </h1>
           <p>
             Wasmer was founded to solve problems we faced ourselves every day.

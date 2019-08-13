@@ -3,12 +3,24 @@
 }
 .hero .valuesGrid {
   right: 50%;
+  margin-right: 32px;
   background-position: right top;
+}
+
+.heroContent {
+    position: relative;
+}
+.heroContent .heart {
+    position: absolute;
+    right: 50%;
+    margin-right: 119px;
+    margin-top: 196px;
+    top: 35px;
 }
 
 .mainHero {
   width: 50%;
-  padding-left: 62px;
+  padding-left: 30px;
   box-sizing: border-box;
   margin-left: 50%;
 }
