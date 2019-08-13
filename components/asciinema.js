@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Terminal } from "xterm";
 import * as className from "classnames";
+import FontFaceObserver from "fontfaceobserver-es";
 
 import "./asciinema.css";
 
@@ -19,6 +20,17 @@ export default class Asciinema extends React.Component {
     Terminal.applyAddon(addon);
   }
   componentDidMount() {
+    if (this.props.options && this.props.options.fontFamily) {
+      let font = new FontFaceObserver(this.props.options.fontFamily);
+      font.load().then(() => {
+        this.initXTerm();
+      });
+    } else {
+      this.initXTerm();
+    }
+  }
+
+  initXTerm(nextProps) {
     if (this.props.addons) {
       this.props.addons.forEach(s => {
         const addon = require(`xterm/dist/addons/${s}/${s}.js`);
@@ -35,6 +47,9 @@ export default class Asciinema extends React.Component {
         "contextmenu",
         this.onContextMenu.bind(this)
       );
+    }
+    if (this.props.play) {
+      this.play();
     }
   }
   play() {
@@ -65,9 +80,9 @@ export default class Asciinema extends React.Component {
     }
   }
   componentWillReceiveProps(nextProps) {
-      if (nextProps.play) {
-          this.play();
-      }
+    if (nextProps.play) {
+      this.play();
+    }
   }
   getTerminal() {
     return this.xterm;

@@ -216,7 +216,7 @@ class Home extends React.Component {
                   cols: 43,
                   rows: 16,
                   lineHeight: 1.1,
-                  fontFamily: "'Zeitung Mono Pro', monospace",
+                  fontFamily: "Zeitung Mono Pro",
                   fontSize: 17
                 }}
                 cast={cast}
