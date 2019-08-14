@@ -41,7 +41,6 @@ export default class Asciinema extends React.Component {
     this.xterm.open(this.container);
     // this.xterm.on("focus", this.focusChanged.bind(this, true));
     // this.xterm.on("blur", this.focusChanged.bind(this, false));
-    this.xterm.focus();
     if (this.props.onContextMenu) {
       this.xterm.element.addEventListener(
         "contextmenu",
@@ -56,6 +55,7 @@ export default class Asciinema extends React.Component {
     if (this.state.played) {
       return;
     }
+    this.xterm.focus();
     this.setState({ played: true });
     let [data, ...operations] = this.props.cast;
     for (let [time, type, value] of operations) {
