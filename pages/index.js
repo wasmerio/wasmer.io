@@ -5,15 +5,34 @@ import Nav from "../components/nav";
 import Footer from "../components/footer";
 import copy from "copy-to-clipboard";
 import handleViewport from "react-in-viewport";
+import classnames from "classnames";
 
-import goIcon from "../images/languages/go.svg";
-import rustIcon from "../images/languages/rust.svg";
-import pythonIcon from "../images/languages/python.svg";
-import rubyIcon from "../images/languages/ruby.svg";
-import phpIcon from "../images/languages/php.svg";
-import cIcon from "../images/languages/c.svg";
-import cppIcon from "../images/languages/cpp.svg";
-import cSharpIcon from "../images/languages/c-sharp.svg";
+// import goIcon from "../images/languages/go.svg";
+// import rustIcon from "../images/languages/rust.svg";
+// import pythonIcon from "../images/languages/python.svg";
+// import rubyIcon from "../images/languages/ruby.svg";
+// import phpIcon from "../images/languages/php.svg";
+// import cIcon from "../images/languages/c.svg";
+// import cppIcon from "../images/languages/cpp.svg";
+// import cSharpIcon from "../images/languages/c-sharp.svg";
+
+import goIcon from "../images/languages/go-logo.svg";
+import rustIcon from "../images/languages/rust-logo.svg";
+import pythonIcon from "../images/languages/python-logo.svg";
+import rubyIcon from "../images/languages/ruby-logo.svg";
+import phpIcon from "../images/languages/php-logo.svg";
+import cIcon from "../images/languages/c-logo.svg";
+import cppIcon from "../images/languages/c++-logo.svg";
+import cSharpIcon from "../images/languages/csharp-logo.svg";
+
+import goIconColor from "../images/languages/go-logo-colored.svg";
+import rustIconColor from "../images/languages/rust-logo.svg";
+import pythonIconColor from "../images/languages/python-logo-colored.svg";
+import rubyIconColor from "../images/languages/ruby-logo-colored.svg";
+import phpIconColor from "../images/languages/php-logo.svg";
+import cIconColor from "../images/languages/c-logo-colored.svg";
+import cppIconColor from "../images/languages/c++-logo-colored.svg";
+import cSharpIconColor from "../images/languages/csharp-logo-colored.svg";
 
 import binaryIcon from "../images/binary.svg";
 import featherIcon from "../images/feather.svg";
@@ -38,41 +57,49 @@ const embeddedUses = [
   {
     name: "Go",
     image: goIcon,
+    imageColor: goIconColor,
     url: "https://github.com/wasmerio/go-ext-wasm"
   },
   {
     name: "Rust",
     image: rustIcon,
+    imageColor: rustIconColor,
     url: "https://github.com/wasmerio/wasmer-rust-example"
   },
   {
     name: "Python",
     image: pythonIcon,
+    imageColor: pythonIconColor,
     url: "https://github.com/wasmerio/python-ext-wasm"
   },
   {
     name: "Ruby",
     image: rubyIcon,
+    imageColor: rubyIconColor,
     url: "https://github.com/wasmerio/ruby-ext-wasm"
   },
   {
     name: "PHP",
     image: phpIcon,
+    imageColor: phpIconColor,
     url: "https://github.com/wasmerio/php-ext-wasm"
   },
   {
     name: "C",
     image: cIcon,
+    imageColor: cIconColor,
     url: "https://github.com/wasmerio/wasmer-c-api"
   },
   {
     name: "C++",
     image: cppIcon,
+    imageColor: cppIconColor,
     url: "https://github.com/wasmerio/wasmer-c-api"
   },
   {
     name: "C#",
     image: cSharpIcon,
+    imageColor: cSharpIconColor,
     url: "https://github.com/migueldeicaza/WasmerSharp/"
   }
 ];
@@ -111,7 +138,7 @@ class Snippet extends React.Component {
 }
 class Home extends React.Component {
   state = {
-    playingAscii: false,
+    playingAscii: false
   };
   render() {
     return (
@@ -141,14 +168,53 @@ class Home extends React.Component {
                     href={embed.url}
                     title={`Wasmer ${embed.name} WebAssembly library`}
                   >
-                    <img src={embed.image} alt={`${embed.name} icon`} />
+                    <img className={css.black} src={embed.image} alt={`${embed.name} icon`} />
+                    <img className={css.color} src={embed.imageColor} alt={`${embed.name} icon`} />
                   </a>
                 );
               })}
             </ul>
           </div>
           <div className={css.explainer}>
-            <div className={css.animation} />
+            <div className={css.animation}>
+              <div className={classnames(css.explainerLanguages, css.explainerActive)}>
+                <div className={css.gridBox}>
+                  <span>Go</span>
+                </div>
+                <div className={css.gridBox}>
+                  <span>C</span>
+                </div>
+                <div className={css.gridBox}>
+                  <span>Java</span>
+                </div>
+                <div className={classnames(css.gridBox, css.willBeActive)}>
+                  <span>Rust</span>
+                </div>
+                <div className={css.gridBox}>
+                  <span>C#</span>
+                </div>
+              </div>
+              <div className={css.arrow1} />
+              <div className={css.wasm} />
+              <div className={css.arrow1} />
+              <div className={classnames(css.explainerPlatforms)}>
+                <div className={css.gridBox}>
+                  <span>Linux</span>
+                </div>
+                <div className={css.gridBox}>
+                  <span>Android</span>
+                </div>
+                <div className={classnames(css.gridBox, css.willBeActive)}>
+                  <span>Mac</span>
+                </div>
+                <div className={css.gridBox}>
+                  <span>WIN</span>
+                </div>
+                <div className={css.gridBox}>
+                  <span>iOS</span>
+                </div>
+              </div>
+            </div>
             <h2>
               <span className={css.explainerStep1}>
                 Use the tools you know and the languages you love.
@@ -222,7 +288,7 @@ class Home extends React.Component {
                 cast={cast}
                 play={this.state.playingAscii}
                 onEnterViewport={() => {
-                  this.setState({playingAscii: true});
+                  this.setState({ playingAscii: true });
                 }}
               />
             </div>
@@ -236,6 +302,7 @@ class Home extends React.Component {
                 {embeddedUses.map(embed => {
                   return (
                     <a
+                      className={css.gridBox}
                       href={embed.url}
                       title={`Wasmer ${embed.name} WebAssembly library`}
                     >

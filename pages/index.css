@@ -110,11 +110,29 @@
   margin-left: 7px;
   list-style: none;
 }
+.heroEmbed a {
+  margin: 0 4px;
+  position: relative;
+}
+
 .heroEmbed img {
   vertical-align: middle;
-  margin: 0 4px;
-  opacity: 0.3;
 }
+
+.heroEmbed .color {
+  display: none;
+}
+.heroEmbed .black {
+  opacity: .3;
+}
+.heroEmbed a:hover .black {
+  display: none;
+}
+.heroEmbed a:hover .color {
+  display: inline-block;
+}
+
+
 .container,
 .explainer,
 .useCases,
@@ -125,10 +143,62 @@
   margin: 0 auto;
 }
 .explainer {
-  margin-top: 86px;
+  margin-top: 76px;
   margin-bottom: 100px;
 }
+
+.explainerLanguages, .explainerPlatforms {
+  margin: -12px;
+  width: 216px;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: left;
+}
+.explainerLanguages .gridBox, 
+.explainerPlatforms .gridBox {
+  margin: 12px;
+  vertical-align: top;
+  opacity: 0;
+}
+.explainerLanguages.explainerActive .gridBox, 
+.explainerPlatforms.explainerActive .gridBox {
+  opacity: 1;
+}
+
+.explainerLanguages .gridBox.willBeActive, 
+.explainerPlatforms .gridBox.willBeActive {
+  opacity: 1;
+}
+
+.explainerPlatforms {
+  text-align: right;
+}
+.arrow1 {
+  display: inline-block;
+  vertical-align: middle;
+  height: 30px;
+  width: 132px;
+  background: white;
+}
+.arrow1::before {
+  content: "";
+  width: 50px;
+  display: inline-block;
+  height: 30px;
+  background: url("../images/full-arrow.svg");
+
+}
+.wasm {
+  width: 84px;
+  height: 84px;
+  vertical-align: middle;
+  display: inline-block;
+  background: white url("../images/wasm-logo.svg");
+}
+
 .explainer h2 {
+  margin: 0;
+  margin-top: 86px;
   font-size: 38px;
   line-height: 46px;
   text-align: center;
@@ -305,7 +375,7 @@
   display: inline-block;
 }
 
-.embedLanguages a {
+.gridBox {
   width: 84px;
   height: 84px;
   box-sizing: border-box;
@@ -314,33 +384,37 @@
   border: 4px solid rgba(35, 16, 68, 0.13);
   box-sizing: border-box;
   border-radius: 1px;
-  vertical-align: top;
-  margin: 12px;
-  position: relative;
   font-size: 18px;
   line-height: 22px;
   text-align: right;
   color: #231044;
   font-weight: 700;
+  position: relative;
 }
 
-.embedLanguages a:hover {
-  background: #4946dd;
-  box-shadow: 0px 3px 14px rgba(73, 70, 221, 0.3);
-  border-radius: 0px;
+.gridBox span {
+  position: absolute;
+  bottom: 4px;
+  right: 10px;
+}
+
+.embedLanguages a {
+  vertical-align: top;
+  margin: 12px;
   transition: all ease-in-out 100ms;
 }
-.embedLanguages a:hover {
+.explainerActive {
+
+}
+
+.gridBox.active, .embedLanguages a:hover, .explainerActive .gridBox.willBeActive {
+  background: #4946dd;
+  box-shadow: 0px 3px 14px rgba(73, 70, 221, 0.3), 0 0 0 3px #4946dd;
   border-radius: 1px;
   border-color: transparent;
   color: white;
   box-shadow: 0px 3px 14px rgba(73, 70, 221, 0.3), 0 0 0 3px #4946dd;
-}
-
-.embedLanguages a span {
-  position: absolute;
-  bottom: 4px;
-  right: 10px;
+  opacity: 1;
 }
 
 .wapm {

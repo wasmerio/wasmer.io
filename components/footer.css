@@ -10,6 +10,7 @@
   left: -180px;
   margin-right:-180px;
   background-position: right top!important;
+  z-index: 0;
 }
 
 .footer a {
