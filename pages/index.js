@@ -39,9 +39,9 @@ import cppIconColor from "../images/languages/c++-logo-colored.svg";
 import cSharpIconColor from "../images/languages/csharp-logo-colored.svg";
 
 // Use cases
-import binaryIcon from "../images/binary.svg";
-import featherIcon from "../images/feather.svg";
-import secureIcon from "../images/secure.svg";
+import binaryIcon from "../images/binary-icon.svg";
+import featherIcon from "../images/feather-icon.svg";
+import secureIcon from "../images/shield-icon.svg";
 
 // Video
 import Asciinema from "../components/asciinema";
