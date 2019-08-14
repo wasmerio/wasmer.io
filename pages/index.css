@@ -478,6 +478,13 @@
   margin: 0;
   padding: 0;
 }
+.media a {
+  margin-top: 58px;
+  display: inline-block;
+}
+.media img {
+  display: block;
+}
 
 .callToAction {
   margin: 120px auto 80px;

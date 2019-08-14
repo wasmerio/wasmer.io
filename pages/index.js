@@ -7,6 +7,9 @@ import copy from "copy-to-clipboard";
 import handleViewport from "react-in-viewport";
 import classnames from "classnames";
 
+import css from "./index.css";
+import grid from "../components/grid.css";
+
 // import goIcon from "../images/languages/go.svg";
 // import rustIcon from "../images/languages/rust.svg";
 // import pythonIcon from "../images/languages/python.svg";
@@ -16,6 +19,7 @@ import classnames from "classnames";
 // import cppIcon from "../images/languages/cpp.svg";
 // import cSharpIcon from "../images/languages/c-sharp.svg";
 
+// Languages
 import goIcon from "../images/languages/go-logo.svg";
 import rustIcon from "../images/languages/rust-logo.svg";
 import pythonIcon from "../images/languages/python-logo.svg";
@@ -34,13 +38,19 @@ import cIconColor from "../images/languages/c-logo-colored.svg";
 import cppIconColor from "../images/languages/c++-logo-colored.svg";
 import cSharpIconColor from "../images/languages/csharp-logo-colored.svg";
 
+// Use cases
 import binaryIcon from "../images/binary.svg";
 import featherIcon from "../images/feather.svg";
 import secureIcon from "../images/secure.svg";
 
+// Video
 import Asciinema from "../components/asciinema";
 import cast from "./term.json";
 
+// Media
+import wiredLogo from "../images/media/wired-logo.svg";
+
+// Trusted By
 import cosmosLogo from "../images/companies/cosmos.svg";
 import spacemeshLogo from "../images/companies/spacemesh.svg";
 import mozillaLogo from "../images/companies/mozilla.svg";
@@ -48,8 +58,6 @@ import netlifyLogo from "../images/companies/netlify.svg";
 import zeitLogo from "../images/companies/zeit.svg";
 import linkerdLogo from "../images/companies/linkerd.svg";
 
-import css from "./index.css";
-import grid from "../components/grid.css";
 
 const ViewportAsciinema = handleViewport(Asciinema);
 
@@ -333,6 +341,7 @@ class Home extends React.Component {
             <p>
               “This programming tool makes it easier for apps to work anywhere”
             </p>
+            <a href="https://www.wired.com/story/programming-tool-makes-easier-apps-work-anywhere/"><img src={wiredLogo} /></a>
           </blockquote>
         </div>
 
