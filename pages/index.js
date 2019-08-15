@@ -58,7 +58,6 @@ import netlifyLogo from "../images/companies/netlify.svg";
 import zeitLogo from "../images/companies/zeit.svg";
 import linkerdLogo from "../images/companies/linkerd.svg";
 
-
 const ViewportAsciinema = handleViewport(Asciinema);
 
 const embeddedUses = [
@@ -111,6 +110,51 @@ const embeddedUses = [
     url: "https://github.com/migueldeicaza/WasmerSharp/"
   }
 ];
+
+const packages = [
+  {
+    name: "webp",
+    description:
+      "WebP is a modern image format that provides superior lossless and lossy compression for images...",
+    version: "0.0.2",
+    username: "syrusakbary"
+  },
+  {
+    name: "optipng",
+    description:
+      "OptiPNG is a PNG optimizer that recompresses image files to a smaller size, without losing any...",
+    version: "0.1.2",
+    username: "syrusakbary"
+  },
+  {
+    name: "openssl",
+    description:
+      "OpenSSL is a robust, commercial-grade, and full-featured toolkit for the Transport Layer...",
+    version: "0.1.0",
+    username: "syrusakbary"
+  },
+  {
+    name: "jedisct1/encpipe",
+    description: "A small and secure file (and stream) encryption tool",
+    version: "0.1.2",
+    username: "jedisct1"
+  },
+  {
+    name: "viu",
+    description:
+      "A small command-line application to view images from the terminal",
+    version: "0.1.1",
+    username: "syrusakbary"
+  },
+  {
+    name: "robert/md5",
+    description: "MD5 algorithm.",
+    version: "0.1.2",
+    username: "robert"
+  }
+];
+
+const highlightedPackage = "openssl";
 
 class Snippet extends React.Component {
   state = {
@@ -176,8 +220,16 @@ class Home extends React.Component {
                     href={embed.url}
                     title={`Wasmer ${embed.name} WebAssembly library`}
                   >
-                    <img className={css.black} src={embed.image} alt={`${embed.name} icon`} />
-                    <img className={css.color} src={embed.imageColor} alt={`${embed.name} icon`} />
+                    <img
+                      className={css.black}
+                      src={embed.image}
+                      alt={`${embed.name} icon`}
+                    />
+                    <img
+                      className={css.color}
+                      src={embed.imageColor}
+                      alt={`${embed.name} icon`}
+                    />
                   </a>
                 );
               })}
@@ -185,7 +237,12 @@ class Home extends React.Component {
           </div>
           <div className={css.explainer}>
             <div className={css.animation}>
-              <div className={classnames(css.explainerLanguages, css.explainerActive)}>
+              <div
+                className={classnames(
+                  css.explainerLanguages,
+                  css.explainerActive
+                )}
+              >
                 <div className={css.gridBox}>
                   <span>Go</span>
                 </div>
@@ -334,6 +391,23 @@ class Home extends React.Component {
               See all packages on wapm.io
             </a>
           </div>
+          <ul class={css.packages}>
+            {packages.map(pack => {
+              return (
+                <li
+                  className={classnames({
+                    [css.highlighted]: highlightedPackage === pack.name
+                  })}
+                >
+                  <h5>{pack.name}</h5>
+                  <p>{pack.description}</p>
+                  <div>
+                    {pack.version} • {pack.username}
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
         </div>
 
         <div className={css.media}>
@@ -341,7 +415,9 @@ class Home extends React.Component {
             <p>
               “This programming tool makes it easier for apps to work anywhere”
             </p>
-            <a href="https://www.wired.com/story/programming-tool-makes-easier-apps-work-anywhere/"><img src={wiredLogo} /></a>
+            <a href="https://www.wired.com/story/programming-tool-makes-easier-apps-work-anywhere/">
+              <img src={wiredLogo} />
+            </a>
           </blockquote>
         </div>
 

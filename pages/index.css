@@ -422,6 +422,8 @@
   background: #4946dd;
   color: white;
   padding: 75px 0 80px;
+  position: relative;
+  overflow: hidden;
 }
 .wapm h1 {
   margin: 0;
@@ -464,6 +466,50 @@
   display: inline-block;
 }
 
+.packages {
+  position: absolute;
+  left: 70%;
+  right: -260px;
+  top: -72px;
+  /* top: 50%;
+  margin-top: -50%; */
+  list-style: none;
+}
+.packages li {
+  display: inline-block;
+  border: 4px solid #FFFFFF5A;
+  box-sizing: border-box;
+  border-radius: 1px;
+  padding: 24px;
+  margin: 8px;
+  width: 286px;
+  box-sizing: border-box;
+  opacity: .3;
+}
+.packages li.highlighted {
+  opacity: .7;
+}
+.packages h5 {
+  font-size: 28px;
+  line-height: 34px;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;  
+  margin-bottom: 8px;
+}
+.packages p {
+  font-size: 18px;
+  line-height: 22px;
+  height: 88px;
+  margin: 0;
+  padding: 0;  
+}
+.packages div {
+  font-size: 14px;
+  line-height: 17px;
+  margin-top: 12px;  
+  opacity: 0.6;
+}
 .media {
   padding: 120px 0;
 }
