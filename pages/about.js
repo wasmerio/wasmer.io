@@ -113,9 +113,9 @@ const Home = () => (
       </ul>
     </div>
 
-    <div className={css.investors}>
+    {/* <div className={css.investors}>
       <h2>...and the investors</h2>
-    </div>
+    </div> */}
 
     <Footer />
   </div>
