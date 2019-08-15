@@ -159,6 +159,7 @@
   margin: 12px;
   vertical-align: top;
   opacity: 0;
+  color: #2310449A;
 }
 .explainerLanguages.explainerActive .gridBox, 
 .explainerPlatforms.explainerActive .gridBox {
@@ -186,8 +187,39 @@
   display: inline-block;
   height: 30px;
   background: url("../images/full-arrow.svg");
-
 }
+
+.wasmer {
+  display: inline-block;
+  vertical-align: middle;
+  width: 84px;
+  height: 100px;
+  background: white;
+}
+.wasmer::before {
+  content: "";
+  width: 84px;
+  display: inline-block;
+  height: 100px;
+  background: url("../images/wasmer.svg");
+}
+
+.plus {
+  display: inline-block;
+  vertical-align: middle;
+  height: 26px;
+  margin: 0 18px;
+  width: 26px;
+  background: white;
+}
+.plus::before {
+  content: "";
+  width: 26px;
+  display: inline-block;
+  height: 26px;
+  background: url("../images/plus.svg");
+}
+
 .wasm {
   width: 84px;
   height: 84px;
@@ -395,7 +427,7 @@
 .gridBox span {
   position: absolute;
   bottom: 4px;
-  right: 10px;
+  right: 8px;
 }
 
 .embedLanguages a {

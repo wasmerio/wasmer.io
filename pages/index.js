@@ -262,6 +262,8 @@ class Home extends React.Component {
               <div className={css.arrow1} />
               <div className={css.wasm} />
               <div className={css.arrow1} />
+              <div className={css.wasmer} />
+              <div className={css.plus} />
               <div className={classnames(css.explainerPlatforms)}>
                 <div className={css.gridBox}>
                   <span>Linux</span>
