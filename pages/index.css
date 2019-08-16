@@ -1,5 +1,5 @@
 :global(body) {
-  font-family: "Gilroy";
+  font-family: "Gilroy", Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -50,7 +50,6 @@
   opacity: 0;
   right: 3px;
   top: 1px;
-  font-family: Gilroy;
   font-size: 12px;
   line-height: 14px;
   text-align: right;
