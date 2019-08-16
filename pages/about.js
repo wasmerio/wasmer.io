@@ -83,17 +83,17 @@ const Home = () => (
         <img src={heart} className={css.heart} />
         <div className={css.mainHero}>
           <h1 className={css.title}>
-            Making software universally available since 2019
+            Making software universally available
           </h1>
           <p>
             Wasmer was founded to solve problems we faced ourselves every day.
-            Now, we strive to contribute to developers and companies around the
-            world reaching their full potential and we do it with a smile.
+            Now, we strive to contribute to developers around the
+            world so they can reach their full potential - and we do it with a smile :)
           </p>
           <p>
             Our team is distributed but connected by a culture of diligence,
-            amplified by passion rather than pressure. We don’t blame, we stay
-            kind and value each other.
+            amplified by the passion we have for our shared mission.
+            We care and value one another.
           </p>
         </div>
       </div>

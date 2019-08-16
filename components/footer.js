@@ -12,7 +12,7 @@ const Footer = () => (
       <div className={css.companyInfo}>
         <img src={Logo} />
         <div className={css.mission}>
-          Making software universally accessible since 2019
+          Making software universally accessible
         </div>
       </div>
       <div class={css.nav}>
