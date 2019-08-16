@@ -10,8 +10,10 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-        <link rel="stylesheet" href="/static/fonts/gilroy/Gilroy.css" />
-        <link rel="stylesheet" href="/static/fonts/zeitung/Zeitung.css" />
+          <link rel="stylesheet" href="/static/fonts/gilroy/Gilroy.css" />
+          <link rel="stylesheet" href="/static/fonts/zeitung/Zeitung.css" />
+          <meta name="description" content="Wasmer - The Universal WebAssembly Runtime"/>
+          <meta name="keywords" content="webassembly, wasm, heroku, cloudflare, docker"/>
         </Head>
         <body>
           <Main />

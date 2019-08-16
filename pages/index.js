@@ -196,7 +196,7 @@ class Home extends React.Component {
     return (
       <div>
         <Head>
-          <title>Wasmer</title>
+          <title>Wasmer - The Universal WebAssembly Runtime</title>
         </Head>
         <Nav />
 
