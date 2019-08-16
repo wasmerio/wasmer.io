@@ -35,7 +35,7 @@
 }
 
 .headerLinks .github a {
-  font-size: 16px;
+  font-size: 17px;
   line-height: 18px;
 }
 .github img {
@@ -47,16 +47,17 @@
   border: 1px solid rgba(35, 16, 68, 0.15);
   box-sizing: border-box;
   border-radius: 3px;
-  padding: 9px 11px 7px;
+  padding: 9px 11px 8px 9px;
 }
 .github .githubStars {
   border: 1px solid rgba(35, 16, 68, 0.15);
   box-sizing: border-box;
   border-radius: 3px;
-  padding: 9px 11px 7px 10px;
+  padding: 9px 11px 8px;
   margin-left: 10px;
   position: relative;
 }
+
 .github .githubStars:before {
   content: '';
   width: 7px;
