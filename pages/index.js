@@ -154,7 +154,7 @@ const packages = [
   }
 ];
 
-const highlightedPackage = "openssl";
+const highlightedPackage = "optipng";
 
 class Snippet extends React.Component {
   state = {
