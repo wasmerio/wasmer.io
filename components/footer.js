@@ -15,7 +15,7 @@ const Footer = () => (
           Making software universally available
         </div>
       </div>
-      <div class={css.nav}>
+      <div className={css.nav}>
         <ul>
           <li>
             <a href="https://wapm.io">WAPM</a>

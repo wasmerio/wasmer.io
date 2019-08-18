@@ -217,6 +217,7 @@ class Home extends React.Component {
               {embeddedUses.map(embed => {
                 return (
                   <a
+                    key={embed.name}
                     href={embed.url}
                     title={`Wasmer ${embed.name} WebAssembly library`}
                   >
@@ -375,6 +376,7 @@ class Home extends React.Component {
                 {embeddedUses.map(embed => {
                   return (
                     <a
+                      key={embed.name}
                       className={css.gridBox}
                       href={embed.url}
                       title={`Wasmer ${embed.name} WebAssembly library`}
@@ -399,10 +401,11 @@ class Home extends React.Component {
               See all packages on wapm.io
             </a>
           </div>
-          <ul class={css.packages}>
+          <ul className={css.packages}>
             {packages.map(pack => {
               return (
                 <li
+                  key={pack.name}
                   className={classnames({
                     [css.highlighted]: highlightedPackage === pack.name
                   })}
