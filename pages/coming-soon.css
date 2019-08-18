@@ -1,0 +1,13 @@
+.hero {
+  /* TODO: Change to VH */
+  padding: 104px 0 150px;
+  text-align: center;
+  margin: 0;
+  font-size: 48px;
+  line-height: 68px;
+  text-align: center;
+  color: #231044;
+  font-weight: 700;
+  color: #4946dd;
+  display: block;
+}

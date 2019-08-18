@@ -300,17 +300,23 @@ class Home extends React.Component {
             <li>
               <img src={binaryIcon} />
               <div>Create binaries that work on any platform</div>
-              <a href="">Learn more</a>
+              <Link href="/coming-soon">
+                <a>Learn more</a>
+              </Link>
             </li>
             <li>
               <img src={featherIcon} />
               <div>Run lightweight packages on the Edge</div>
-              <a href="">Learn more</a>
+              <Link href="/coming-soon">
+                <a>Learn more</a>
+              </Link>
             </li>
             <li>
               <img src={secureIcon} />
               <div>Execute untrusted code safely</div>
-              <a href="">Learn more</a>
+              <Link href="/coming-soon">
+                <a>Learn more</a>
+              </Link>
             </li>
           </ul>
         </div>
