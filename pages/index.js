@@ -120,17 +120,17 @@ const packages = [
     username: "syrusakbary"
   },
   {
-    name: "optipng",
-    description:
-      "OptiPNG is a PNG optimizer that recompresses image files to a smaller size, without losing any...",
-    version: "0.1.2",
-    username: "syrusakbary"
-  },
-  {
     name: "openssl",
     description:
       "OpenSSL is a robust, commercial-grade, and full-featured toolkit for the Transport Layer...",
     version: "0.1.0",
+    username: "syrusakbary"
+  },
+  {
+    name: "optipng",
+    description:
+      "OptiPNG is a PNG optimizer that recompresses image files to a smaller size, without losing any...",
+    version: "0.1.2",
     username: "syrusakbary"
   },
   {
