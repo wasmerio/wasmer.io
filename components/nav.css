@@ -48,6 +48,7 @@
   box-sizing: border-box;
   border-radius: 3px;
   padding: 9px 11px 8px 9px;
+  white-space:nowrap;
 }
 .github .githubStars {
   border: 1px solid rgba(35, 16, 68, 0.15);

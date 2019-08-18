@@ -444,7 +444,7 @@ class Home extends React.Component {
           {/* <img src={mozillaLogo} title="Mozilla logo" /> */}
           <img src={netlifyLogo} title="Netlify logo" />
           <img src={zeitLogo} title="Zeit logo" />
-          <img src={linkerdLogo} title="Linkerd logo" />
+          {/* <img src={linkerdLogo} title="Linkerd logo" /> */}
         </div>
 
         <Footer />

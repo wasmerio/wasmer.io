@@ -2,6 +2,22 @@
   font-family: "Gilroy", Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
+  min-width: 1024px;
+}
+:global(.mobileOptimized) {
+  display: none;
+  text-align: center;
+  background:#231044;
+  /* border-bottom: 1px solid #CCC; */
+  color: white;
+  font-size: 34px;
+  padding: 30px;
+}
+
+@media only screen and (max-width: 640px) {
+  :global(.mobileOptimized) {
+    display: block;
+  }
 }
 
 .hero {
