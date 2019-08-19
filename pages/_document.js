@@ -16,8 +16,8 @@ class MyDocument extends Document {
           <meta name="keywords" content="webassembly, wasm, heroku, cloudflare, docker"/>
 
           {/* Icons */}
-          <meta name="twitter:image" content="/static/icons/social-icon.png">
-          <meta property="og:image" content="/static/icons/social-icon.png">
+          <meta name="twitter:image" content="/static/icons/social-icon.png" />
+          <meta property="og:image" content="/static/icons/social-icon.png" />
           <link rel="shortcut icon" href="/static/icons/favicon-32x32.png" />
           <link rel="apple-touch-icon" sizes="57x57" href="/static/icons/apple-icon-57x57.png" />
           <link rel="apple-touch-icon" sizes="60x60" href="/static/icons/apple-icon-60x60.png" />
