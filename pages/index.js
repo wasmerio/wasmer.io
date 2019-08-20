@@ -445,16 +445,16 @@ class Home extends React.Component {
             Contact Sales
           </a>
         </div>
-
+        
+        {/*
         <div className={css.trustedBy}>
           <span>Trusted by:</span>
           <img src={cosmosLogo} title="Cosmos logo" />
           <img src={spacemeshLogo} title="Spacemesh logo" />
-          {/* <img src={mozillaLogo} title="Mozilla logo" /> */}
           <img src={netlifyLogo} title="Netlify logo" />
           <img src={zeitLogo} title="Zeit logo" />
-          {/* <img src={linkerdLogo} title="Linkerd logo" /> */}
         </div>
+        */}
 
         <Footer />
       </div>
