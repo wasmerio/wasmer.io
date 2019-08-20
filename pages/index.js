@@ -335,7 +335,7 @@ class Home extends React.Component {
               <Snippet className={css.installSnippet} />
               <div className={css.installWindows}>
                 Wasmer is also available on Windows.{" "}
-                <a href="">Download it here</a>
+                <a href="https://github.com/wasmerio/wasmer/releases">Download it here</a>
               </div>
             </div>
             <div className={css.installVideo}>
