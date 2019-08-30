@@ -29,7 +29,7 @@ const team = [
     name: "Ivan Enderlin",
     photo: ivanPhoto,
     description:
-      "A versatile software engineer passionate about WebAssembly. Prior joining Wasmer he was working at Automattic and Mozilla. Ivan also created Tagua-VM a popular PHP Virtual Machine made in Rust.",
+      "A versatile polyglot software engineer passionate about WebAssembly. Prior joining Wasmer he was working at Automattic and Mozilla.",
     twitter: "mnt_io",
     github: "Hywan"
   },
