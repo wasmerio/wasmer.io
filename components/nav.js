@@ -34,7 +34,7 @@ const Nav = () => (
             <span className={css.githubAction}><img src={GithubLogo} />
             Star</span>
             <span className={css.githubStars}>
-              4,875
+              4,925
             </span>
           </a>
         </li>
