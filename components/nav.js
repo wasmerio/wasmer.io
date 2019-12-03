@@ -16,6 +16,9 @@ const Nav = () => (
       </Link>
       <ul className={css.headerLinks}>
         <li>
+          <a href="https://docs.wasmer.io/">Docs</a>
+        </li>
+        <li>
           <a href="https://wapm.io">WAPM</a>
         </li>
         <li>
@@ -24,17 +27,12 @@ const Nav = () => (
         <li>
           <a href="https://medium.com/wasmer">Blog</a>
         </li>
-        <li>
-          <Link href="/about">
-            <a>About</a>
-          </Link>
-        </li>
         <li className={css.github}>
           <a href="https://github.com/wasmerio/wasmer">
             <span className={css.githubAction}><img src={GithubLogo} />
             Star</span>
             <span className={css.githubStars}>
-              5,000
+              5,050
             </span>
           </a>
         </li>
