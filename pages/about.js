@@ -12,8 +12,8 @@ import heart from "../images/heart.svg";
 
 import syrusPhoto from "../images/team/syrus.png";
 import ivanPhoto from "../images/team/ivan.png";
-import nickPhoto from "../images/team/nick.png";
-import aaronPhoto from "../images/team/aaron.png";
+// import nickPhoto from "../images/team/nick.png";
+// import aaronPhoto from "../images/team/aaron.png";
 import genericPhoto from "../images/team/generic.png";
 
 const team = [
@@ -47,21 +47,21 @@ const team = [
       "Expert compiler engineer. Chocolatier. Ex-Google, with more than 10 year tenure on the company and LLVM core contributor.",
     github: "nlewycky"
   },
-  {
-    name: "Aaron Turner",
-    photo: aaronPhoto,
-    description:
-      "WebAssembly frontend developer and dev advocate. Skateboarder, musician, Ex-Google. Previous to joining Wasmer he created wasmbyexample and WasmBoy",
-    twitter: "torch2424",
-    github: "torch2424"
-  },
-  {
-    name: "Brandon Fish",
-    photo: genericPhoto,
-    description:
-      "Senior engineer with experience with language runtimes. He previously worked in Oracle-Labs in the Truffle framework, accelerating the execution of the Ruby runtime.",
-    github: "bjfish"
-  },
+  // {
+  //   name: "Aaron Turner",
+  //   photo: aaronPhoto,
+  //   description:
+  //     "WebAssembly frontend developer and dev advocate. Skateboarder, musician, Ex-Google. Previous to joining Wasmer he created wasmbyexample and WasmBoy",
+  //   twitter: "torch2424",
+  //   github: "torch2424"
+  // },
+  // {
+  //   name: "Brandon Fish",
+  //   photo: genericPhoto,
+  //   description:
+  //     "Senior engineer with experience with language runtimes. He previously worked in Oracle-Labs in the Truffle framework, accelerating the execution of the Ruby runtime.",
+  //   github: "bjfish"
+  // },
   {
     name: "Heyang Zhou",
     photo: genericPhoto,
