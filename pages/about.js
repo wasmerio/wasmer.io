@@ -12,7 +12,7 @@ import heart from "../images/heart.svg";
 
 import syrusPhoto from "../images/team/syrus.png";
 import ivanPhoto from "../images/team/ivan.png";
-// import nickPhoto from "../images/team/nick.png";
+import nickPhoto from "../images/team/nick.png";
 // import aaronPhoto from "../images/team/aaron.png";
 import genericPhoto from "../images/team/generic.png";
 
