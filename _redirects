@@ -1,5 +1,9 @@
 http://get.wasmer.io/ https://raw.githubusercontent.com/wasmerio/wasmer/master/scripts/install.sh 301!
 https://get.wasmer.io/ https://raw.githubusercontent.com/wasmerio/wasmer/master/scripts/install.sh 301!
+# http://get.wasmer.io/ https://raw.githubusercontent.com/wasmerio/wasmer-install/master/install.sh 301!
+# https://get.wasmer.io/ https://raw.githubusercontent.com/wasmerio/wasmer-install/master/install.sh 301!
+http://win.wasmer.io/ https://raw.githubusercontent.com/wasmerio/wasmer-install/master/install.ps1 301!
+https://win.wasmer.io/ https://raw.githubusercontent.com/wasmerio/wasmer-install/master/install.ps1 301!
 
 http://wasmer.io/static/wasmer.mp4 https://www.youtube.com/watch?v=dQw4w9WgXcQ 301!
 https://wasmer.io/static/wasmer.mp4 https://www.youtube.com/watch?v=dQw4w9WgXcQ 301!
