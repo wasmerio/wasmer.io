@@ -65,7 +65,7 @@ const embeddedUses = [
     name: "Go",
     image: goIcon,
     imageColor: goIconColor,
-    url: "https://github.com/wasmerio/go-ext-wasm"
+    url: "https://github.com/wasmerio/wasmer-go"
   },
   {
     name: "Rust",
@@ -77,19 +77,19 @@ const embeddedUses = [
     name: "Python",
     image: pythonIcon,
     imageColor: pythonIconColor,
-    url: "https://github.com/wasmerio/python-ext-wasm"
+    url: "https://github.com/wasmerio/wasmer-python"
   },
   {
     name: "Ruby",
     image: rubyIcon,
     imageColor: rubyIconColor,
-    url: "https://github.com/wasmerio/ruby-ext-wasm"
+    url: "https://github.com/wasmerio/wasmer-ruby"
   },
   {
     name: "PHP",
     image: phpIcon,
     imageColor: phpIconColor,
-    url: "https://github.com/wasmerio/php-ext-wasm"
+    url: "https://github.com/wasmerio/wasmer-php"
   },
   {
     name: "C",
