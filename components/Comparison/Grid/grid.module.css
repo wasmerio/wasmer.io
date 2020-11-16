@@ -1,0 +1,186 @@
+/* .root {
+  @apply mt-spacer-1;
+} */
+
+.text {
+  @apply mb-8;
+}
+
+.grid {
+  @apply bg-left-top left-0;
+}
+
+/* .rootContainer {
+  @apply py-10;
+} */
+
+.gridContainer {
+  @apply pt-4 px-4 pb-3 flex flex-col relative flex-shrink-0;
+}
+
+.root :global(.label) {
+  @apply relative text-small leading-none font-semibold flex items-center whitespace-no-wrap h-dot-3;
+}
+
+.root :global(.label) span {
+  @apply pr-3 bg-white;
+}
+
+.root :global(.boxedLabel) {
+  @apply p-1 font-bold;
+}
+
+.root :global(.label):global(.boxedLabel) {
+  @apply p-0 font-bold -mb-1;
+}
+
+.root :global(.label).gridLabel {
+  @apply relative -ml-1 text-grey-30 items-end;
+  height: calc(var(--size-1) * 1 - var(--dot-size));
+  margin-top: calc(var(--spacing) * 2);
+}
+
+.root :global(.label).gridLabel span {
+  @apply relative;
+  top: 0.375rem;
+}
+
+/* No Margins */
+
+.root.noTopMargin {
+  @apply mt-0;
+}
+
+.root.noBottomMargin {
+  @apply mb-0;
+}
+
+.root.noTopMargin .rootContainer {
+  @apply pt-0;
+}
+
+.root.noBottomMargin .rootContainer {
+  @apply pb-0;
+}
+
+/* Hero */
+.root.hero .rootContainer,
+.root.heroSingle .rootContainer {
+  @apply flex flex-col-reverse;
+}
+
+.root.hero .text,
+.root.heroSingle .text {
+  @apply mb-0 mt-8;
+}
+
+/* Full Width */
+
+.root.fullWidth .grid,
+.root.hero.fullWidth .grid {
+  @apply w-screen;
+}
+
+.root.fullWidth .rootContainer {
+  @apply flex-row;
+}
+
+.root.fullWidth .gridContainer {
+  @apply w-full;
+  width: calc(100% + 2rem);
+}
+
+/* Plain */
+.root.plain .grid {
+  background-position: 12px top;
+  width: 90%;
+}
+
+/* Alternating */
+
+@media (min-width: 650px) {
+  .rootContainer {
+    @apply flex items-center;
+  }
+
+  .gridContainer {
+    /* @apply w-1/2; */
+    min-width: 50%;
+  }
+
+  .root.reversed .rootContainer,
+  .root.hero .rootContainer {
+    @apply flex-row-reverse;
+  }
+
+  .root.heroSingle .rootContainer {
+    @apply flex-row;
+  }
+
+  .root.reversed .gridContainer {
+    @apply items-end;
+  }
+
+  .root.reversed .grid {
+    @apply bg-right-top left-auto right-0;
+  }
+
+  .root.hero .grid {
+    @apply w-full;
+  }
+
+  .root.hero .grid:before,
+  .root.fullWidth .grid:before {
+    content: '';
+    @apply absolute top-0 select-none w-screen h-full;
+    right: 100%;
+    background: right top var(--dots-on-light);
+    background-size: 28px 28px;
+  }
+
+  .text,
+  .root.heroSingle .text {
+    @apply my-0 mr-12;
+  }
+
+  .root.reversed .text,
+  .root.hero .text {
+    @apply mr-0 ml-12;
+  }
+
+  .root :global(.label).gridLabel {
+    margin-top: calc(var(--spacing) * 3);
+  }
+
+  .root.reversed .gridLabel {
+    @apply ml-0 -mr-1;
+  }
+
+  .root.reversed .gridLabel span {
+    @apply pr-0 pl-3;
+  }
+
+  .root.fullWidth .gridContainer {
+    @apply m-0 w-full;
+  }
+
+  .root.plain .grid {
+    background-position: left top;
+    width: 100vw;
+  }
+
+  .root.plain.reversed .grid {
+    background-position: right top;
+  }
+}
+
+@media (min-width: 1024px) {
+  .text {
+    @apply mb-0 mr-24;
+  }
+
+  .root.reversed .text,
+  .root.hero .text {
+    @apply mr-0 ml-24;
+  }
+}

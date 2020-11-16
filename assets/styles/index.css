@@ -1,0 +1,196 @@
+@import "variables.css";
+
+
+@tailwind base;
+
+/* Write your own custom base styles here */
+
+/* Start purging... */
+@tailwind components;
+/* Stop purging. */
+
+/* Start purging... */
+@tailwind utilities;
+/* Stop purging. */
+
+/* Your own custom utilities */
+
+@layer utilities {
+  @responsive {
+    .card-horizontal {
+      width: calc(100% - var(--iconWidth) - var(--iconSpacing));
+    }
+  }
+}
+
+@import 'xterm/src/xterm.css';
+
+html, body {
+  font-family: 'Gilroy', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+  color: #231044;
+  line-height: 1.35;
+  font-weight: 500;
+}
+
+nav {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+button {
+  outline: none!important;
+}
+
+/* Container */
+
+.container {
+  @apply px-8 mx-auto w-full;
+  max-width: var(--page-max-width);
+}
+
+@media (min-width: 650px) {
+  .container {
+    @apply px-16;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    @apply px-20;
+  }
+}
+
+/* Responsive Vertical Page Spacing */
+
+/* .page-spacing {
+  margin-top: var(--page-spacing);
+  margin-bottom: var(--page-spacing);
+}
+
+.page-padding {
+  padding-top: var(--page-spacing);
+  padding-bottom: var(--page-spacing);
+}
+
+.page-spacing.half {
+  margin-top: var(--page-spacing-half);
+  margin-bottom: var(--page-spacing-half);
+}
+
+.page-padding.half {
+  padding-top: var(--page-spacing-half);
+  padding-bottom: var(--page-spacing-half);
+}
+
+.page-spacing.no-top-spacing,
+.page-spacing.half.no-top-spacing {
+  @apply mt-0;
+}
+
+.page-spacing.no-bottom-spacing,
+.page-spacing.half.no-bottom-spacing {
+  @apply mb-0;
+} */
+
+/* Headlines */
+
+h1,
+.heading {
+  line-height: 1.2;
+  @apply text-2xl font-medium;
+}
+
+h2,
+.subheading {
+  line-height: 1.2;
+  @apply text-xl font-medium;
+}
+
+h3 {
+  line-height: 1.2;
+  @apply text-lg font-medium;
+}
+
+p {
+  line-height: 1.35;
+  @apply text-base;
+}
+
+/* Small (sm) */
+/* @media (max-width: 765px) {
+  .container {
+    padding: 0 16px;
+  }
+} */
+
+/* Custom classes */
+
+/* Dot Background */
+
+.dot-background {
+  background-image: var(--dots-on-light);
+  background-size: 28px 28px;
+}
+
+.dot-background.on-dark {
+  background-image: var(--dots-on-dark);
+}
+
+.dot-grid {
+  @apply select-none absolute top-0 w-screen h-full;
+}
+
+/* Boxes on Grid */
+.grid-container {
+  @apply relative text-small leading-none box-content;
+}
+
+.grid-box {
+  @apply relative rounded box-content flex;
+}
+
+.grid-box-absolute {
+  @apply absolute rounded box-content flex;
+}
+
+.grid-box.extended,
+.grid-box-absolute.extended {
+  @apply rounded -m-2 p-2;
+}
+
+/* Filters */
+.filter-white {
+  filter: brightness(0) invert(1);
+}
+
+.fill-lightgrey {
+  fill: rgba(35, 16, 68, 0.5);
+}
+
+/* Testimonial slide */
+
+.carousel-root {
+  margin: auto !important;
+  margin-top: 3% !important;
+}
+
+.carousel .slide {
+  background: #fff !important;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+@media(min-width: 650px) {
+  .carousel .slide:first-child img, .carousel .slide:last-child img{
+    display:none;
+  }
+
+  .carousel .slider-wrapper {
+    height: 100%;
+  }
+}

@@ -1,0 +1,27 @@
+.container > li {
+  @apply inline-block;
+}
+
+.container li + li {
+  @apply ml-2;
+}
+
+.container > li:first-child {
+  margin-left: 0;
+}
+
+.container > li svg {
+  fill: #bdb7c7;
+  height: 2rem;
+  transition: fill 0.2s ease;
+}
+
+.container > li a:hover svg {
+  fill: #7b708f;
+}
+
+@media (min-width: 650px) {
+  .container li + li {
+    @apply ml-3;
+  }
+}

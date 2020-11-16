@@ -1,0 +1,13 @@
+.grid {
+  height: 70%;
+  background: repeat center top
+    url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyOCAyOCI+PGRlZnM+PHN0eWxlPi5jbHMtMXtvcGFjaXR5OjAuMTM7fS5jbHMtMntmaWxsOiMyMzEwNDQ7fTwvc3R5bGU+PC9kZWZzPjx0aXRsZT5kb3QtcGF0dGVybi10YWJsZXQtc21hbGwtZGVza3RvcDwvdGl0bGU+PGcgY2xhc3M9ImNscy0xIj48Y2lyY2xlIGNsYXNzPSJjbHMtMiIgY3g9IjE0IiBjeT0iMTQiIHI9IjIiLz48L2c+PC9zdmc+);
+  background-size: 36px 36px;
+  @apply w-full left-0 bottom-0 absolute block;
+}
+
+@media (max-width: 649px) {
+  .grid {
+    background-size: 23px 23px;
+  }
+}

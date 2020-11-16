@@ -1,0 +1,32 @@
+.root {
+  @apply overflow-hidden inline-flex;
+}
+.animation {
+  @apply flex flex-col leading-none overflow-hidden;
+  height: var(--h1-size);
+}
+
+.animationContainer {
+  margin-top: 3px;
+  transition: transform 0.4s cubic-bezier(0.25, 0, 0, 1);
+}
+
+.animationContainer span {
+  @apply flex flex-col;
+}
+
+.animation.update .animationContainer {
+  transform: translate3D(0, calc(var(--h1-size) * -1), 0);
+}
+
+@media (min-width: 1024px) {
+  .animationContainer {
+    margin-top: 4px;
+  }
+}
+
+@media (min-width: 1800px) {
+  .animationContainer {
+    margin-top: 5px;
+  }
+}

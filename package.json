@@ -1,29 +1,43 @@
 {
-  "name": "wasmer.io",
-  "version": "0.1.0",
-  "private": true,
+  "name": "wasmer",
+  "version": "1.0.0",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build && next export && cp _redirects out/",
-    "export": "next export",
-    "start": "next start"
+    "dev": "next",
+    "build": "next build && next export -o build",
+    "start": "next start",
+    "linter": "eslint '{components,pages}/**/*.js' --max-warnings=0",
+    "fixer": "eslint --fix {components,pages}/**/*.js",
+    "prettier": "prettier --write '{components,pages}/**/*.{css,ts,json,tsx,js,jsx}'",
+    "cleanup": "eslint --fix {components,pages}/**/*.js && prettier --write '{components,pages}/**/*.{css,ts,json,tsx,js,jsx}'",
+    "postinstall": "husky install"
   },
   "dependencies": {
-    "@zeit/next-css": "^1.0.1",
     "classnames": "^2.2.6",
-    "copy-to-clipboard": "^3.2.0",
-    "fontfaceobserver": "^2.1.0",
-    "fontfaceobserver-es": "^3.3.1",
-    "next": "9.0.3",
-    "next-images": "^1.1.2",
-    "postcss-autoreset": "^2.0.2",
-    "postcss-custom-media": "^7.0.8",
-    "postcss-global-import": "^1.0.6",
-    "postcss-normalize": "^7.0.1",
-    "postcss-preset-env": "^6.6.0",
-    "react": "16.9.0",
-    "react-dom": "16.9.0",
-    "react-in-viewport": "0.0.38",
-    "xterm": "^3.14.5"
-  }
+    "copy-to-clipboard": "^3.3.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "fontfaceobserver-es": "^3.3.3",
+    "gsap": "^3.5.1",
+    "intersection-observer": "^0.11.0",
+    "next": "latest",
+    "next-react-svg": "^1.1.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-gsap": "^2.2.1",
+    "react-in-viewport": "^1.0.0-alpha.14",
+    "react-responsive-carousel": "^3.2.10",
+    "react-scrollmagic": "^2.2.0",
+    "xterm": "3.14.5"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.13.0",
+    "eslint-plugin-react": "^7.21.5",
+    "husky": "^5.0.0-beta.0",
+    "pinst": "^2.0.0",
+    "postcss-flexbugs-fixes": "4.2.1",
+    "postcss-preset-env": "^6.7.0",
+    "prettier": "^2.1.2",
+    "tailwindcss": "^1.7.4"
+  },
+  "license": "MIT"
 }

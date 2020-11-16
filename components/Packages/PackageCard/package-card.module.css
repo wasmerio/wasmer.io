@@ -1,0 +1,22 @@
+.highlighted {
+  @apply opacity-75;
+}
+.animatedHighlighted {
+  animation: fadein-highlighted 2500ms;
+  @apply opacity-75;
+}
+
+@keyframes fadein-highlighted {
+  0% {
+    opacity: 0.1;
+  }
+  10% {
+    opacity: 0.75;
+  }
+  90% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 0.1;
+  }
+}

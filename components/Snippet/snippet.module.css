@@ -1,0 +1,179 @@
+.container {
+  @apply relative inline-flex items-center z-10 justify-center;
+  position: relative;
+  max-width: 100%;
+  --transition-easing: 0.2s cubic-bezier(0.25, 0, 0, 1);
+}
+
+.snippet {
+  @apply h-10 box-content cursor-pointer overflow-scroll rounded flex items-center justify-center;
+  transition: box-shadow var(--transition-easing),
+    border-radius var(--transition-easing);
+  /* box-shadow: 0 0 0 0 #231044; */
+  background: #e9e7ec;
+}
+
+.snippet:before {
+  content: '';
+  @apply absolute top-0 left-0 right-0 bottom-0 rounded -m-2 bg-lightgrey;
+  transition: margin var(--transition-easing);
+}
+
+.dark .snippet:before {
+  @apply bg-primary shadow-darkpurple;
+}
+
+.dark .snippet {
+  @apply bg-primary shadow-darkpurple h-dot-2;
+}
+
+.snippet pre {
+  font-family: 'Zeitung Mono Pro', monospace;
+  /* color: #231044; */
+  /* font-size: 16px; */
+
+  @apply px-2 text-small text-primary w-full relative;
+}
+
+.dark .snippet pre {
+  color: #fff;
+  @apply text-base leading-none;
+  /* font-size: 21px; */
+  /* line-height: 24px; */
+  letter-spacing: -0.03rem;
+}
+
+/* Copy */
+.container .copy {
+  position: absolute;
+  opacity: 0;
+  right: -6px;
+  top: -7px;
+  z-index: 10;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: right;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 700;
+  transform: translateY(-10px);
+  transition: opacity var(--transition-easing),
+    transform var(--transition-easing);
+}
+
+.container .copy {
+  color: #2310445a;
+}
+
+.container.dark .copy {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.container .copy.copied {
+  color: #06d6a0;
+}
+
+/* .snippet:hover {
+  border-radius: 1px;
+  box-shadow: 0 0 0 5px #E9E7EC;
+} */
+
+.snippet:hover:before {
+  @apply -m-3;
+}
+
+.container:hover .copy {
+  transform: translateY(0px);
+  opacity: 1;
+}
+
+/* Scroll fade outs */
+.container:before,
+.container:after {
+  content: '';
+  position: absolute;
+  top: 0.25rem;
+  bottom: 0.25rem;
+  pointer-events: none;
+}
+
+.container:before {
+  background: linear-gradient(to left, #f0eef200 0%, #f0eef2 90%);
+  left: -0.5rem;
+  width: 1rem;
+}
+
+.container:after {
+  background: linear-gradient(to right, #f0eef200 0%, #f0eef2 90%);
+  right: -0.5rem;
+  width: 2.5rem;
+}
+
+.dark.container:before {
+  background: linear-gradient(to left, #23104400 0%, #231044 90%);
+}
+
+.dark.container:after {
+  background: linear-gradient(to right, #23104400 0%, #231044 90%);
+}
+
+/* Responsiveness */
+/* -------------- */
+
+@media (min-width: 460px) {
+  .container {
+    overflow: visible; /* Avoid empty scrollbars on WIN */
+  }
+
+  .container:before,
+  .container:after {
+    @apply hidden; /* Only show scroll shadows when snippet gets cut off */
+  }
+}
+
+@media (min-width: 650px) {
+  .container .copy {
+    right: -5px;
+    top: -6px;
+  }
+
+  /* .snippet {
+        @apply h-10;
+    } */
+
+  .snippet pre {
+    @apply px-4;
+  }
+
+  .dark .snippet {
+    @apply h-dot-3 w-dot-19;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container:not(.dark) .snippet pre {
+    font-size: 16px;
+  }
+
+  .dark .snippet {
+    @apply w-dot-21;
+  }
+}
+
+@media (min-width: 1800px) {
+  .snippet pre {
+    font-size: 17px;
+  }
+
+  .dark .snippet pre {
+    font-size: 21px;
+  }
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+/* @media (max-width: 575.98px) {
+    .dark .snippet pre,
+    .snippet pre {
+        font-size: 14px;
+    }
+} */

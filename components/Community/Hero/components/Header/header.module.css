@@ -1,0 +1,27 @@
+.container {
+  min-height: var(--hero-height);
+  max-width: 300px;
+  /* margin: 5rem auto; */
+  @apply flex flex-col items-start justify-center py-20;
+}
+
+@media (min-width: 650px) {
+  .container {
+    @apply items-center mx-auto;
+    max-width: 350px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    height: auto;
+    max-width: 450px;
+  }
+}
+
+@media (min-width: 1800px) {
+  .container {
+    height: auto;
+    max-width: 500px;
+  }
+}

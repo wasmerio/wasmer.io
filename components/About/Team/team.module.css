@@ -1,0 +1,35 @@
+.teamContainer {
+  @apply grid gap-4 gap-y-10 -mx-4;
+}
+
+.teamContainer img {
+  max-width: 200px;
+}
+
+@media (min-width: 520px) {
+  .teamContainer {
+    @apply grid-cols-2;
+  }
+
+  .teamContainer img {
+    @apply max-w-full;
+  }
+}
+
+@media (min-width: 650px) {
+  .teamContainer {
+    @apply gap-8 gap-y-16;
+  }
+}
+
+@media (min-width: 900px) {
+  .teamContainer {
+    @apply grid-cols-3;
+  }
+}
+
+@media (min-width: 1800px) {
+  .teamContainer {
+    @apply gap-12 gap-y-20;
+  }
+}

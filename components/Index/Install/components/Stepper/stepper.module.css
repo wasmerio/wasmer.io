@@ -1,0 +1,151 @@
+.root {
+  color: #f0eef2;
+  bottom: 16px;
+  right: 16px;
+  width: 100%;
+  @apply z-30 text-grey-60 absolute flex flex-row justify-end;
+  font-weight: 600;
+}
+
+.root > li {
+  @apply ml-4 relative;
+}
+
+.root > li:first-child {
+  color: #7187ff;
+}
+
+.root > li:last-child {
+  animation-delay: 12s;
+  animation-name: highlight;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes highlight {
+  0% {
+    color: #f0eef2;
+  }
+  100% {
+    color: #7187ff;
+  }
+}
+
+.counter {
+  position: absolute;
+  top: 2px;
+  font-size: 13px;
+  z-index: 1000;
+  width: 18px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.root > li:last-child .counter::before {
+  content: '';
+  display: block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #7b708f;
+  border-radius: 50%;
+  position: absolute;
+  top: -2px;
+  z-index: 9;
+  animation-delay: 12s;
+  animation-name: hide;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes hide {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.wrapper {
+  width: 20px; /* Set the size of the progress bar */
+  height: 20px;
+  position: absolute; /* Enable clipping */
+  clip: rect(0px, 20px, 20px, 10px); /* Hide half of the progress bar */
+}
+
+/* Set the sizes of the elements that make up the progress bar */
+.circle {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #7187ff;
+  border-radius: 50%;
+  position: absolute;
+  clip: rect(0px, 10px, 20px, 0px);
+  z-index: 10;
+}
+/* Using the data attributes for the animation selectors. */
+/* Base settings for all animated elements */
+.base {
+  animation-iteration-count: 1; /* Only run once */
+  animation-fill-mode: forwards; /* Hold the last keyframe */
+  animation-timing-function: linear; /* Linear animation */
+}
+
+.wrapper {
+  animation-duration: 0.01s; /* Complete keyframes asap */
+  animation-delay: 6s; /* Wait half of the animation */
+  animation-name: close-wrapper; /* Keyframes name */
+}
+
+.circle.left {
+  animation-duration: 12s; /* Full animation time */
+  animation-name: left-spin;
+}
+
+.circle.right {
+  animation-duration: 6s; /* Half animation time */
+  animation-name: right-spin;
+}
+
+.base.second {
+  animation-delay: 12s;
+}
+
+.wrapper.second {
+  animation-delay: 20s;
+}
+
+.circle.left.second {
+  animation-duration: 16s; /* Full animation time */
+  animation-name: left-spin;
+}
+
+.circle.right.second {
+  animation-duration: 8s; /* Half animation time */
+  animation-name: right-spin;
+}
+
+/* Rotate the right side of the progress bar from 0 to 180 degrees */
+@keyframes right-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+}
+/* Rotate the left side of the progress bar from 0 to 360 degrees */
+@keyframes left-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* Set the wrapper clip to auto, effectively removing the clip */
+@keyframes close-wrapper {
+  to {
+    clip: rect(auto, auto, auto, auto);
+  }
+}
