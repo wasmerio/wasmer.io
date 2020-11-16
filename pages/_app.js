@@ -28,11 +28,11 @@ function App({ Component, pageProps }) {
         />
         <meta
           name="twitter:image"
-          content="https://wasmerio.netlify.app/images/og-image.png"
+          content="https://wasmer.io/images/og-image.png"
         />
         <meta
           property="og:image"
-          content="https://wasmerio.netlify.app/images/og-image.png"
+          content="https://wasmer.io/images/og-image.png"
         />
         <link rel="shortcut icon" href="/images/icons/favicon-32x32.png" />
         <link
