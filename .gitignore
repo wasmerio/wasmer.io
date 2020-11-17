@@ -38,8 +38,9 @@ lerna-debug.log*
 !.vscode/extensions.json
 *.code-workspace
 
-### build ###
+### build directory ###
 build
+out
 
 ### environment ###
 .env
