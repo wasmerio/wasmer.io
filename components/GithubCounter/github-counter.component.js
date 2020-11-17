@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
 import styles from './github-counter.module.css';
 
+// The default number of stars to show
+const DEFAULT_NUM_STARS = 6750;
+
 export class GithubCounterComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      counter: 6122,
+      counter: DEFAULT_NUM_STARS,
       animate: props['animate'],
       update: false,
     };
   }
 
   getCounter = async () => {
-    if (!process.env.GITHUB_API_ACTIVE) return 6524;
+    if (!process.env.GITHUB_API_ACTIVE) return DEFAULT_NUM_STARS;
     const resource = await fetch(
       'https://api.github.com/repos/wasmerio/wasmer',
     );
