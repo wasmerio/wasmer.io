@@ -1,0 +1,87 @@
+.github {
+  margin-left: 8px;
+}
+
+.github a {
+  font-size: 17px;
+  line-height: 18px;
+}
+.github svg {
+  @apply relative;
+  vertical-align: middle;
+  margin-right: 8px;
+  display: inherit;
+}
+.github .githubAction {
+  background: linear-gradient(
+    180deg,
+    rgba(35, 16, 68, 0.0248) 0%,
+    rgba(35, 16, 68, 0.08) 100%
+  );
+  border: 1px solid rgba(35, 16, 68, 0.15);
+  box-sizing: border-box;
+  border-radius: 3px;
+  padding: 9px 11px 8px 9px;
+  white-space: nowrap;
+}
+.github .githubStars {
+  border: 1px solid rgba(35, 16, 68, 0.15);
+  box-sizing: border-box;
+  border-radius: 3px;
+  padding: 9px 11px 8px;
+  margin-left: 10px;
+  position: relative;
+  min-width: 68px;
+  display: inline-block;
+}
+
+.github .githubStars:before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  position: absolute;
+  left: -5px;
+  top: 50%;
+
+  margin-top: -4px;
+  background: white;
+  display: inline-block;
+  border: 1px solid rgba(35, 16, 68, 0.15);
+  border-bottom: none;
+  border-right: none;
+  transform: rotate(-45deg);
+}
+
+.github img {
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+.colored {
+  color: #fff;
+  margin-left: 0;
+}
+
+.colored a {
+  font-size: 14px;
+}
+
+.colored .githubAction {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0.024) 100%
+  );
+  border: 0.875px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 11px;
+}
+.colored .githubStars {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding-bottom: 11px;
+}
+
+.colored .githubStars::before {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-width: 1px 0px 0px 1px;
+  background-color: rgb(35, 16, 68);
+}

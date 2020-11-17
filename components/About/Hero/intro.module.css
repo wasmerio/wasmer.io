@@ -1,0 +1,12 @@
+.grid {
+  @apply bg-top select-none w-screen h-full absolute top-0;
+  right: 50%;
+  transform: translate(50%, 0);
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    @apply bg-right-top right-0;
+    transform: none;
+  }
+}

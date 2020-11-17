@@ -1,0 +1,13 @@
+.inactive {
+  opacity: 0.4;
+  filter: grayscale(100%); /* msie */
+
+  @apply opacity-50;
+}
+
+.quote::before {
+  content: '“';
+}
+.quote::after {
+  content: '”';
+}

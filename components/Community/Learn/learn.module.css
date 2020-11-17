@@ -1,0 +1,11 @@
+.root {
+  @apply -mx-8 pl-6 pr-2;
+}
+
+@media (min-width: 650px) {
+  .root {
+    @apply mx-0 pl-0;
+    padding-right: 0.75rem !important;
+    min-width: 40%;
+  }
+}

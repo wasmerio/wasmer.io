@@ -1,0 +1,213 @@
+.root {
+  @apply text-base no-underline font-bold leading-none inline-flex items-center;
+  transition: 0.2s ease-in-out;
+  transition-property: box-shadow, color, background-color, transform;
+
+  --lightStroke: 1.5px;
+  --lightStrokeSmall: 1px;
+  --thickStroke: 2px;
+}
+
+.root.secondary {
+  @apply text-secondary;
+}
+
+.root.inverted {
+  @apply text-white;
+}
+
+.root.isButton {
+  @apply text-white bg-primary rounded shadow-darkpurple;
+  padding: 0.875rem 1rem 0.675rem;
+}
+
+.root.isButton.secondary {
+  @apply bg-secondary;
+}
+
+.root.isButton.grey {
+  @apply text-primary bg-lightgrey shadow-none;
+}
+
+.root svg {
+  @apply relative overflow-visible mr-2;
+  fill: none;
+  stroke-width: var(--thickStroke);
+  width: 5px;
+  height: 10px;
+  top: -1px;
+  transition: 0.2s ease-in-out;
+  transition-property: stroke, transform;
+}
+
+.root svg {
+  @apply stroke-primary;
+}
+
+.root.secondary svg {
+  @apply stroke-secondary;
+}
+
+.root.isButton svg,
+.root.inverted svg {
+  @apply stroke-white;
+}
+
+.root.isButton.grey svg {
+  @apply stroke-primary;
+}
+
+/* Non interactive style (inside card) */
+
+.root.nonInteractive {
+  @apply font-medium;
+}
+
+.root.nonInteractive:hover,
+.root.nonInteractive:hover svg {
+  transform: none;
+}
+
+.root.nonInteractive svg {
+  stroke-width: var(--lightStroke);
+}
+
+/* Small style (inside small card) */
+
+.root.small {
+  @apply text-small;
+}
+
+.root.small svg {
+  stroke-width: var(--lightStrokeSmall) !important;
+}
+
+/* Interactive States */
+/* ------------------ */
+
+/* General */
+
+.root:hover svg {
+  transform: translate3D(-2px, 0, 0);
+}
+
+.root:active svg {
+  transform: translate3D(0, 0, 0);
+}
+
+/* Link-specific */
+
+.root:active:not(.isButton) {
+  color: #443460;
+}
+
+.root:active:not(.isButton) svg {
+  stroke: #443460;
+}
+
+.root.secondary:active:not(.isButton) {
+  color: #5b58e0;
+}
+
+.root.secondary:active:not(.isButton) svg {
+  stroke: #5b58e0;
+}
+
+.root.inverted:active {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.root.inverted:active svg {
+  stroke: rgba(255, 255, 255, 0.8);
+}
+
+/* Button-specific */
+
+.root.isButton:hover {
+  box-shadow: 0px 5px 20px rgba(35, 16, 68, 0.25); /* TODO: Move to variables */
+  transform: translate3D(0, -1px, 0);
+}
+
+.root.isButton.grey:hover {
+  @apply shadow-none;
+}
+
+.root.isButton:active {
+  box-shadow: 0px 1.5px 9px rgba(35, 16, 68, 0.15); /* TODO: Move to variables */
+  transform: translate3D(0, 1px, 0);
+  background-color: #352353; /* TODO: Move to variables */
+}
+.root.isButton.grey:active {
+  @apply bg-grey-10;
+}
+
+.root.isButton.secondary:active {
+  background-color: #5653df; /* TODO: Move to variables */
+}
+
+/* Responsiveness */
+/* -------------- */
+
+/* Tablet */
+
+@media (min-width: 650px) {
+  .root {
+    --lightStrokeSmall: 1.5px;
+    --lightStroke: 2px;
+    --thickStroke: 2.5px;
+  }
+
+  .root.isButton {
+    padding: 1rem 1.25rem 0.8rem;
+  }
+
+  .root svg {
+    @apply mr-3;
+    width: 6px;
+    height: 12px;
+    top: -1px;
+  }
+
+  .root.small svg {
+    @apply mr-2;
+    width: 5px;
+    height: 10px;
+  }
+}
+
+/* Small Desktop */
+
+@media (min-width: 1024px) {
+  .root {
+    --lightStrokeSmall: 1.5px;
+    --lightStroke: 2px;
+    --thickStroke: 3px;
+  }
+}
+
+/* Large Desktop */
+
+@media (min-width: 1800px) {
+  .root {
+    --lightStrokeSmall: 2px;
+    --lightStroke: 2.5px;
+    --thickStroke: 3.5px;
+  }
+
+  .root.isButton {
+    padding: 1.125rem 1.5rem 1rem;
+  }
+
+  .root svg {
+    @apply mr-4;
+    width: 8px;
+    height: 16px;
+    top: -1px;
+  }
+
+  .root.small svg {
+    @apply mr-3;
+    width: 6px;
+    height: 12px;
+  }
+}

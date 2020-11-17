@@ -1,0 +1,22 @@
+const cases = [
+  {
+    text: 'Get started with Wasmer',
+    link: 'https://docs.wasmer.io/ecosystem/wasmer/getting-started',
+    icon:
+      'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0OCA1NiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjMxMDQ0IiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJzcXVhcmUiPgo8cGF0aCBkPSJNMjIuNSw0Ni42MmMtMS42NSwzLjU3LTkuNTEsNy4xNS05LjUxLDcuMTVzLTIuMzUtOC4zMy0wLjctMTEuOXM1LjI1LTIuMTgsNi44Ny0xLjQzCglDMjAuNzgsNDEuMTksMjQuMTUsNDMuMDUsMjIuNSw0Ni42MnoiLz4KPHBhdGggZD0iTTI3LjIsMzYuNDFMMzYsMjUuNDdjNS4zOS02LjcyLDUuNzMtMTYuMTgsMC44Mi0yMy4yNmMtOC41OCwwLjg2LTE1LjU3LDcuMjUtMTcuMTgsMTUuNzFMMTcuMDEsMzEuNyIvPgo8cGF0aCBzdHJva2UtbGluZWNhcD0icm91bmQiIGQ9Ik0zNi40NiwyNS41MmMwLDAsMi4yNyw2LjA0LDAuNTEsOS44NWMtMS43NiwzLjgxLTMuNzUsOC4xNS0zLjc1LDguMTVsLTYuMDItNy4xMUwxNy4wMSwzMS43bC05LjMsMC4wNAoJYzAsMCwxLjk5LTQuMzEsMy43NS04LjEyczcuODUtNi4wMSw3Ljg1LTYuMDEiLz4KPHBhdGggZD0iTTM0Ljg3LDEzLjUxYzAuOCwyLjE4LTAuMzIsNC42MS0yLjUsNS40MXMtNC42MS0wLjMyLTUuNDEtMi41czAuMzItNC42MSwyLjUtNS40MQoJQzMxLjY0LDEwLjIxLDM0LjA3LDExLjMzLDM0Ljg3LDEzLjUxeiIvPgo8L3N2Zz4K',
+  },
+  {
+    text: 'Check out the Docs',
+    link: 'https://docs.wasmer.io',
+    icon:
+      'data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIzMTA0NCIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbGluZWNhcD0ic3F1YXJlIiB2aWV3Qm94PSIwIDAgNDguMiA0NyI+CjxwYXRoIGQ9Ik00MCw5LjNWNDVjMCwwLTE3LjYsMC0yMy41LDBjLTQsMC04LTQtOC04YzAtNy45LDAtMjkuNiwwLTI5LjYiLz4KPHBhdGggZD0iTTE2LjUsMjAuN2w0LjcsNC43TDE2LjUsMzAiLz4KPHBhdGggZD0iTTI2LjksMzAuM2g0LjciLz4KPHBhdGggZD0iTTguNSw1LjdjMC0yLDEuNi0zLjcsMy43LTMuN2gyNS43djcuM0gxMi4yQzEwLjIsOS4zLDguNSw3LjcsOC41LDUuN0w4LjUsNS43eiIvPgo8L3N2Zz4K',
+  },
+  {
+    text: 'Ask a Question in the Forum',
+    link: 'https://spectrum.chat/wasmer',
+    icon:
+      'data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIzMTA0NCIgc3Ryb2tlLXdpZHRoPSIzIiB2aWV3Qm94PSIwIDAgNDggNDIiPgo8cGF0aCBkPSJNMzMuNiwxMlYySDMuNjZ2MjBoNC42N3Y2LjQxTDE1LDIyaDMiLz4KPHBhdGggZD0iTTQ0LjM0LDE2LjAySDIyLjM2djE2Ljg0bDEwLjc1LTAuMDZsNi4wOCw1LjJ2LTUuMTRoNS4xNUM0NC4zNCwzMi44Niw0NC4zNCwxNi4wMiw0NC4zNCwxNi4wMnoiLz4KPC9zdmc+',
+  },
+];
+
+export default cases;

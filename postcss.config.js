@@ -1,26 +1,18 @@
 module.exports = {
-    plugins: {
-      "postcss-normalize": {},
-      "postcss-global-import": {},
-      "postcss-preset-env": {
-        browsers: 'last 2 versions',
+  plugins: [
+    'tailwindcss',
+    'postcss-flexbugs-fixes',
+    [
+      'postcss-preset-env',
+      {
+        autoprefixer: {
+          flexbox: 'no-2009',
+        },
+        stage: 3,
+        features: {
+          'custom-properties': false,
+        },
       },
-      "postcss-custom-media": {
-        // importFrom: "./components/media.css"
-      },
-      // "postcss-import": {
-      //   filter: () => {
-      //     // console.log(arguments);
-      //     return false;
-      //   }
-      // }
-      // "postcss-autoreset": {
-      //   reset: {
-      //     margin: 0,
-      //     padding: 0,
-      //     borderRadius: 0
-      //   }
-      // }
-    }
-  };
-  
+    ],
+  ],
+}

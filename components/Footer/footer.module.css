@@ -1,0 +1,130 @@
+.footer {
+  background-position: right 0.25rem;
+}
+
+.company {
+  width: 16.5rem; /* calculated to align with nav */
+}
+
+.nav ul {
+  width: 10.5rem;
+}
+
+.copyright {
+  @apply text-white text-xs opacity-50;
+}
+
+.logo {
+  width: 8rem;
+}
+
+.iconLink {
+  @apply absolute top-0 right-0 transition transition-opacity duration-200;
+}
+
+.iconLink:hover {
+  @apply opacity-75;
+}
+
+/* Responsiveness */
+/* -------------- */
+
+@media (min-width: 650px) {
+  .footer {
+    background-position: center 0.25rem;
+  }
+
+  .company {
+    width: 15.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .company {
+    @apply w-64;
+  }
+
+  .logo {
+    width: 9.5rem;
+  }
+
+  .nav ul {
+    width: 12.5rem;
+  }
+}
+
+@media (min-width: 1800px) {
+  .nav ul,
+  .company p {
+    font-size: 17px; /* Lock to Desktop Size */
+  }
+}
+
+/* TODO clean this up */
+
+.github {
+  @apply mt-2;
+}
+
+.twitter {
+  @apply mt-16;
+}
+
+.slack {
+  margin-top: 7.5rem;
+}
+
+.github > a,
+.twitter > a,
+.slack > a {
+  text-indent: -1000px;
+  width: 38px;
+  height: 32px;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.github > a {
+  background: no-repeat center center
+    url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzEiIHZpZXdCb3g9IjAgMCAzMiAzMSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xNiAwQzcuMTYwMjIgMCAwIDcuMTEzMzIgMCAxNS44OTUyQzAgMjIuOTIwNyA0LjU4Njg2IDI4Ljg3MjggMTAuOTQxNyAzMC45ODA1QzExLjczNzMgMzEuMTI2OSAxMi4wMzE5IDMwLjYzOSAxMi4wMzE5IDMwLjIwOTZDMTIuMDMxOSAyOS44MjkxIDEyLjAyMjEgMjguODMzOCAxMi4wMTIzIDI3LjUwNjhDNy41NjI5MiAyOC40NjMgNi42MjAwMSAyNS4zNzk2IDYuNjIwMDEgMjUuMzc5NkM1Ljg5MzE5IDIzLjU0NTIgNC44NDIyMyAyMy4wNDc1IDQuODQyMjMgMjMuMDQ3NUMzLjM4ODU4IDIyLjA2MiA0Ljk1MDI4IDIyLjA4MTUgNC45NTAyOCAyMi4wODE1QzYuNTUxMjYgMjIuMTk4NiA3LjQwNTc3IDIzLjcyMDggNy40MDU3NyAyMy43MjA4QzguODI5OTYgMjYuMTUwNSAxMS4xNDc5IDI1LjQ0NzkgMTIuMDYxNCAyNS4wMzgxQzEyLjIwODcgMjQuMDEzNSAxMi42MjEyIDIzLjMxMSAxMy4wNzMxIDIyLjkxMDlDOS41MjczMiAyMi41MjA2IDUuNzk0OTcgMjEuMTU0NSA1Ljc5NDk3IDE1LjA2NThDNS43OTQ5NyAxMy4zMjg5IDYuNDEzNzUgMTEuOTE0MSA3LjQ0NTA2IDEwLjgwMTdDNy4yNzgwOCAxMC4zOTE5IDYuNzI4MDUgOC43ODE4NyA3LjU5MjM5IDYuNTk2MTZDNy41OTIzOSA2LjU5NjE2IDguOTM4IDYuMTY2ODIgMTEuOTkyNiA4LjIyNTY5QzEzLjI2OTUgNy44NzQ0MSAxNC42MzQ3IDcuNjk4NzcgMTYgNy42ODkwMUMxNy4zNTU0IDcuNjk4NzcgMTguNzMwNSA3Ljg3NDQxIDIwLjAwNzQgOC4yMjU2OUMyMy4wNjIgNi4xNjY4MiAyNC40MDc2IDYuNTk2MTYgMjQuNDA3NiA2LjU5NjE2QzI1LjI4MTggOC43ODE4NyAyNC43MzE3IDEwLjQwMTYgMjQuNTY0OCAxMC44MDE3QzI1LjU4NjIgMTEuOTE0MSAyNi4yMDUgMTMuMzI4OSAyNi4yMDUgMTUuMDY1OEMyNi4yMDUgMjEuMTc0MSAyMi40NjI5IDIyLjUxMDkgMTguODk3NSAyMi45MTA5QzE5LjQ2NzIgMjMuMzk4OCAxOS45ODc3IDI0LjM3NDYgMTkuOTg3NyAyNS44NTc3QzE5Ljk4NzcgMjcuOTg0OSAxOS45NjgxIDI5LjY5MjUgMTkuOTY4MSAzMC4yMTk0QzE5Ljk2ODEgMzAuNjQ4NyAyMC4yNTI5IDMxLjEzNjYgMjEuMDY4MSAzMC45ODA1QzI3LjQyMyAyOC44NzI4IDMyIDIyLjkyMDcgMzIgMTUuOTA0OUMzMiA3LjExMzMxIDI0LjgzOTggMCAxNiAwWiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==);
+}
+
+.twitter > a {
+  background: no-repeat center center
+    url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzciIGhlaWdodD0iMjkiIHZpZXdCb3g9IjAgMCAzNyAyOSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTExLjYzNTggMjlDMjUuNTk4MSAyOSAzMy4yMzQ5IDE3Ljg0MTkgMzMuMjM0OSA4LjE2NTcyQzMzLjIzNDkgNy44NDg3OSAzMy4yMzQ5IDcuNTMzMyAzMy4yMTI3IDcuMjE5MjNDMzQuNjk4NiA2LjE4Mjc5IDM1Ljk4MDMgNC44OTkzOSAzNyAzLjQyODk3QzM1LjYxNDcgNC4wMjE0MiAzNC4xNDUxIDQuNDA5NzMgMzIuNjM5OSA0LjU4MTA0QzM0LjIyNSAzLjY2NTk1IDM1LjQxMDUgMi4yMjY5NCAzNS45NzczIDAuNTMwOTU3QzM0LjQ4NyAxLjM4MzIzIDMyLjg1NzUgMS45ODU2NyAzMS4xNTcgMi4zMDgzMUMyOC4yODI4IC0wLjY0MTA5NiAyMy40NzI4IC0wLjc4MjQyOCAyMC40MTY2IDEuOTg5OTZDMTguNDQ1MiAzLjc3ODczIDE3LjYwOSA2LjQ0MjYyIDE4LjIyMDMgOC45ODY1OUMxMi4xMTY4IDguNjkxMDcgNi40MjkxMiA1LjkxMDEyIDIuNTc1MiAxLjMzNjEyQzAuNTYwOTIgNC42ODA5NyAxLjU4OTUyIDguOTYyMzIgNC45MjU0NCAxMS4xMTA4QzMuNzE3NzYgMTEuMDc2NiAyLjUzNTI0IDEwLjc2MjUgMS40OCAxMC4xOTQzQzEuNDggMTAuMjI0MyAxLjQ4IDEwLjI1NTcgMS40OCAxMC4yODcxQzEuNDgxNDggMTMuNzczMyA0LjAyODU2IDE2Ljc3NTUgNy41NzAyIDE3LjQ2NTFDNi40NTI4IDE3Ljc1OTEgNS4yODA2NCAxNy44MDIgNC4xNDI1MiAxNy41OTA3QzUuMTM3MDggMjAuNTcyOSA3Ljk4NzU2IDIyLjYxNzIgMTEuMjM0NyAyMi42NzU4QzguNTQ3IDI0LjcxMjkgNS4yMjU4OCAyNS44MTkzIDEuODA3MDggMjUuODE2NUMxLjIwMzI0IDI1LjgxNSAwLjU5OTQgMjUuNzgwOCAwIDI1LjcxMDhDMy40NzIwOCAyNy44NTk0IDcuNTExIDI5IDExLjYzNTggMjguOTk0MyIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==);
+}
+
+.slack > a {
+  background: no-repeat center center
+    url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjZmZmIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMyI+CjxwYXRoIGQ9Ik02LjcyLDIwLjQxYzAsMS44NS0xLjUxLDMuMzYtMy4zNiwzLjM2UzAsMjIuMjYsMCwyMC40MWMwLTEuODUsMS41MS0zLjM2LDMuMzYtMy4zNmgzLjM2VjIwLjQxeiIvPgo8cGF0aCBkPSJNOC40MiwyMC40MWMwLTEuODUsMS41MS0zLjM2LDMuMzYtMy4zNmMxLjg1LDAsMy4zNiwxLjUxLDMuMzYsMy4zNnY4LjQyYzAsMS44NS0xLjUxLDMuMzYtMy4zNiwzLjM2CgljLTEuODUsMC0zLjM2LTEuNTEtMy4zNi0zLjM2VjIwLjQxeiIvPgo8cGF0aCBkPSJNMTEuNzgsNi45MWMtMS44NSwwLTMuMzYtMS41MS0zLjM2LTMuMzZzMS41MS0zLjM2LDMuMzYtMy4zNmMxLjg1LDAsMy4zNiwxLjUxLDMuMzYsMy4zNnYzLjM2SDExLjc4eiIvPgo8cGF0aCBkPSJNMTEuNzgsOC42MWMxLjg1LDAsMy4zNiwxLjUxLDMuMzYsMy4zNnMtMS41MSwzLjM2LTMuMzYsMy4zNkgzLjM2QzEuNTEsMTUuMzMsMCwxMy44MiwwLDExLjk3CglzMS41MS0zLjM2LDMuMzYtMy4zNkgxMS43OHoiLz4KPHBhdGggZD0iTTI1LjI4LDExLjk3YzAtMS44NSwxLjUxLTMuMzYsMy4zNi0zLjM2YzEuODUsMCwzLjM2LDEuNTEsMy4zNiwzLjM2cy0xLjUxLDMuMzYtMy4zNiwzLjM2aC0zLjM2VjExLjk3eiIvPgo8cGF0aCBkPSJNMjMuNTgsMTEuOTdjMCwxLjg1LTEuNTEsMy4zNi0zLjM2LDMuMzZjLTEuODUsMC0zLjM2LTEuNTEtMy4zNi0zLjM2VjMuNTVjMC0xLjg1LDEuNTEtMy4zNiwzLjM2LTMuMzYKCWMxLjg1LDAsMy4zNiwxLjUxLDMuMzYsMy4zNlYxMS45N3oiLz4KPHBhdGggZD0iTTIwLjIyLDI1LjQ3YzEuODUsMCwzLjM2LDEuNTEsMy4zNiwzLjM2YzAsMS44NS0xLjUxLDMuMzYtMy4zNiwzLjM2Yy0xLjg1LDAtMy4zNi0xLjUxLTMuMzYtMy4zNnYtMy4zNkgyMC4yMnoKCSIvPgo8cGF0aCBkPSJNMjAuMjIsMjMuNzdjLTEuODUsMC0zLjM2LTEuNTEtMy4zNi0zLjM2YzAtMS44NSwxLjUxLTMuMzYsMy4zNi0zLjM2aDguNDJjMS44NSwwLDMuMzYsMS41MSwzLjM2LDMuMzYKCWMwLDEuODUtMS41MSwzLjM2LTMuMzYsMy4zNkgyMC4yMnoiLz4KPC9zdmc+Cg==);
+}
+
+/* @media (max-width: 649px) {
+    .footer :global(.container) {
+        display: block;
+        align-items: flex-end;
+    }
+} */
+
+/* Extra small devices (portrait phones, less than 576px) */
+/* @media (max-width: 576px) {
+    .footer {
+        padding: 0px 0px;
+        overflow: hidden;
+    }
+
+    .footer .company {
+        padding-left: 55px;
+    }
+
+    .footer .container {
+        align-items: flex-end;
+        flex-direction: column-reverse;
+
+        width: 66vw;
+        min-width: 300px;
+        background-color: #231044;
+        margin-right: -20px;
+        padding-right: 25px;
+    }
+} */

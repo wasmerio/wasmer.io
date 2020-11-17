@@ -1,0 +1,63 @@
+.card {
+  @apply -m-2 box-content;
+  width: 100%;
+  height: calc(var(--spacing) * 4 + var(--dot-size) + 1rem);
+}
+
+.cardContentBehaviour {
+  --content-width: var(--subtract-icon-small);
+}
+
+.cardContainer {
+  @apply flex box-content;
+}
+
+.cardContainer + .cardContainer {
+  @apply mt-dot-1;
+}
+
+@media (min-width: 650px) {
+  .card {
+    width: calc(var(--spacing) * 6 + var(--dot-size) + 1rem);
+    height: calc(var(--spacing) * 7 + var(--dot-size) + 1rem);
+  }
+
+  .cardContentBehaviour {
+    --content-width: auto;
+  }
+}
+
+@media (min-width: 650px) {
+  .cardContainer + .cardContainer {
+    @apply mt-0 ml-dot-1;
+  }
+}
+
+@media (min-width: 880px) {
+  .card {
+    width: calc(var(--spacing) * 8 + var(--dot-size) + 1rem);
+    height: calc(var(--spacing) * 7 + var(--dot-size) + 1rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .card {
+    width: calc(var(--spacing) * 12 + var(--dot-size) + 1rem);
+    height: calc(var(--spacing) * 5 + var(--dot-size) + 1rem);
+  }
+
+  .cardContainer + .cardContainer {
+    @apply ml-0 mt-dot-2;
+  }
+
+  .cardContentBehaviour {
+    --content-width: var(--subtract-icon-small);
+  }
+}
+
+@media (min-width: 1800px) {
+  .card {
+    width: calc(var(--spacing) * 13 + var(--dot-size) + 1rem);
+    height: calc(var(--spacing) * 6 + var(--dot-size) + 1rem);
+  }
+}

@@ -1,0 +1,57 @@
+.hero {
+  height: calc(100vh - 107px);
+  @apply justify-between items-center flex flex-col overflow-hidden text-center;
+}
+
+.grid {
+  display: block;
+  width: 100%;
+  background: repeat center bottom var(--dots-on-light);
+  background-size: 28px 28px;
+  /* padding: 0 46px; */
+  padding: 0 1.5rem;
+  height: 23vh;
+  @apply flex flex-col justify-end;
+}
+
+.container {
+  max-width: 618px;
+  @apply mx-auto flex flex-col items-center w-full;
+}
+
+.item {
+  @apply relative no-underline block;
+}
+
+.icon {
+  opacity: 0.4;
+}
+
+.icon,
+.iconAlternative {
+  transition: opacity 0.2s ease;
+}
+
+.iconAlternative {
+  @apply absolute block top-0 left-0 w-full h-full opacity-0;
+}
+
+.item:hover .iconAlternative {
+  @apply opacity-100;
+}
+
+.languagesContainer {
+  height: 53px; /* hardcoded to keep shell command aligned on grid */
+}
+
+@media (min-width: 650px) {
+  .languagesContainer {
+    height: 25px; /* hardcoded to keep shell command aligned on grid */
+  }
+}
+
+@media (min-height: 850px) {
+  .hero {
+    height: calc(90vh - 107px);
+  }
+}

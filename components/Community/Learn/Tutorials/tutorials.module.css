@@ -1,0 +1,49 @@
+.card {
+  @apply -m-2 box-content;
+  width: 100%;
+  height: calc(var(--spacing) * 4 + var(--dot-size) + 1rem);
+}
+
+.cardContainer {
+  @apply flex box-content;
+}
+
+.cardContentBehaviour {
+  --content-width: var(--subtract-icon-small);
+}
+
+.cardContainer + .cardContainer {
+  @apply mt-dot-1;
+}
+
+@media (min-width: 650px) {
+  .card {
+    width: calc(var(--spacing) * 10 + var(--dot-size) + 1rem);
+    height: calc(var(--spacing) * 4 + var(--dot-size) + 1rem);
+  }
+}
+
+/* @media (min-width: 880px) {
+  .card {
+    width: calc(var(--spacing) * 10 + var(--dot-size) + 1rem);
+    height: calc(var(--spacing) * 4 + var(--dot-size) + 1rem);
+  }
+} */
+
+@media (min-width: 1024px) {
+  .card {
+    width: calc(var(--spacing) * 12 + var(--dot-size) + 1rem);
+    height: calc(var(--spacing) * 5 + var(--dot-size) + 1rem);
+  }
+
+  .cardContainer + .cardContainer {
+    @apply ml-0 mt-dot-2;
+  }
+}
+
+@media (min-width: 1800px) {
+  .card {
+    width: calc(var(--spacing) * 13 + var(--dot-size) + 1rem);
+    height: calc(var(--spacing) * 6 + var(--dot-size) + 1rem);
+  }
+}

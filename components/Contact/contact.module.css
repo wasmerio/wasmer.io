@@ -1,0 +1,15 @@
+.buttons a + a {
+  @apply ml-4;
+}
+
+@media (min-width: 650px) {
+  .buttons a + a {
+    @apply ml-8;
+  }
+}
+
+@media (min-width: 1800px) {
+  .buttons a + a {
+    @apply ml-12;
+  }
+}

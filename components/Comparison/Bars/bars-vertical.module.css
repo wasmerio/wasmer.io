@@ -1,0 +1,53 @@
+.root {
+  @apply flex items-end;
+}
+
+.barContainer {
+  @apply relative flex flex-col w-dot-3 ml-dot-2 mt-dot-3;
+}
+
+.bar {
+  @apply relative bg-lightgrey rounded text-primary w-full -m-2 p-2 box-content;
+}
+
+.bar.highlighted {
+  @apply py-0;
+}
+
+/* Highlighted style */
+.bar.highlighted {
+  @apply text-white bg-secondary shadow-lightpurple;
+}
+
+/* Individual styles */
+.barContainer :global(.label) {
+  margin-top: calc(var(--spacing) * 0 - var(--dot-size));
+}
+
+/* Responsiveness */
+
+@media (min-width: 650px) {
+  .root.reversed {
+    @apply justify-end;
+  }
+
+  .root.reversed .barContainer {
+    @apply ml-0 mr-dot-3;
+  }
+}
+
+@media (min-width: 1024px) {
+  .barContainer {
+    @apply w-dot-4 ml-dot-3 mt-dot-3;
+  }
+
+  .barContainer :global(.label) {
+    margin-top: calc(var(--spacing) * 1 - var(--dot-size));
+  }
+}
+
+@media (min-width: 1800px) {
+  .barContainer {
+    @apply w-dot-5;
+  }
+}

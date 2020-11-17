@@ -1,0 +1,32 @@
+.root {
+  @apply ml-dot-2 mt-dot-2;
+}
+
+.root .empty {
+  @apply border-solid border-4 border-grey-10 -m-1 p-0;
+  background: #fff no-repeat center var(--box-empty-bg);
+}
+
+.root :global(.label) {
+  margin-bottom: calc(var(--spacing) * 0 - var(--dot-size));
+}
+
+@media (min-width: 650px) {
+  .root.reversed {
+    @apply ml-0 mr-dot-2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .root {
+    @apply ml-dot-3;
+  }
+
+  .root.reversed {
+    @apply mr-dot-3;
+  }
+
+  .root :global(.label) {
+    margin-bottom: calc(var(--spacing) * 1 - var(--dot-size));
+  }
+}

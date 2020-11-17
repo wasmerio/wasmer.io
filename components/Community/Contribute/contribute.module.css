@@ -1,0 +1,65 @@
+.root {
+  @apply relative mb-dot-2 flex flex-col items-start;
+  margin-left: 32px;
+  margin-top: 48px;
+}
+
+.buttonGroup {
+  @apply flex flex-col items-start pr-2 bg-white;
+}
+
+.button + .button {
+  margin-top: 15px;
+}
+
+.buttonGroup + .buttonGroup {
+  margin-top: 2.75rem;
+}
+
+@media (min-width: 650px) {
+  .root {
+    margin-left: 46px;
+    margin-top: 45px;
+  }
+
+  .button + .button {
+    margin-top: 10px;
+  }
+
+  .buttonGroup + .buttonGroup {
+    margin-top: 36px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .root {
+    margin-top: 50px;
+    margin-left: 50px;
+  }
+
+  .buttonGroup + .buttonGroup {
+    margin-top: 50px;
+  }
+
+  .button + .button {
+    margin-top: 19px;
+  }
+
+  .buttonGroup:last-child {
+    margin-top: 42px;
+  }
+}
+
+@media (min-width: 1800px) {
+  .button + .button {
+    margin-top: 27px;
+  }
+
+  .buttonGroup + .buttonGroup {
+    margin-top: 49px;
+  }
+
+  .buttonGroup:last-child {
+    margin-top: 51px;
+  }
+}

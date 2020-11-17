@@ -1,0 +1,23 @@
+.root {
+  @apply mx-auto;
+  max-width: var(--page-max-width);
+}
+
+.navBar {
+  @apply hidden relative;
+  top: 0.125rem;
+}
+
+.mobileMenuContainer {
+  @apply flex;
+}
+
+@media (min-width: 850px) {
+  .navBar {
+    @apply flex;
+  }
+
+  .mobileMenuContainer {
+    @apply hidden;
+  }
+}

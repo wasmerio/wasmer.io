@@ -1,0 +1,45 @@
+.card {
+  height: auto;
+}
+
+.cardContentBehaviour {
+  --content-width: var(--subtract-icon);
+}
+
+/* Tablet */
+
+@media (min-width: 650px) {
+  .card {
+    height: 19rem;
+  }
+
+  .cardContentBehaviour {
+    --content-width: auto;
+  }
+}
+
+@media (min-width: 650px) and (max-width: 1023px) {
+  .card:nth-child(3) {
+    @apply col-span-2;
+    height: 10rem;
+  }
+
+  .card:nth-child(3).cardContentBehaviour {
+    --content-width: var(--subtract-icon);
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .card {
+    height: 24rem;
+  }
+}
+
+/* Large Desktop */
+
+@media (min-width: 1800px) {
+  .card {
+    height: 29rem;
+  }
+}

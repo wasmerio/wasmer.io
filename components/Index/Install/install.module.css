@@ -1,0 +1,173 @@
+.container {
+}
+
+.grid {
+  background: repeat left top var(--dots-on-light);
+  background-size: var(--spacing) var(--spacing);
+  z-index: -1;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  left: 50%;
+
+  margin-top: 8px;
+
+  @apply absolute top-0 bottom-0 right-0;
+}
+
+.install {
+  @apply w-1/2 inline-block pr-16 align-top;
+}
+
+.installVideo {
+  height: 432px;
+  @apply box-border p-4 pb-12 bg-primary shadow-lightpurple inline-block overflow-hidden align-top w-1/2 rounded relative -mx-4;
+}
+
+.embed {
+  margin-top: 124px;
+  display: flex;
+  flex-flow: row;
+}
+/* .embed h3 {
+    @apply box-border mt-12 inline-block align-top w-1/2 pr-16
+} */
+
+.embedLanguages {
+  display: flex;
+  padding-top: 28px;
+  @apply w-1/2 flex-wrap box-border pl-4 pt-8 -mt-dot-size;
+}
+
+.gridBoxContainer {
+  @apply mt-dot-1 ml-dot-1 h-dot-4 bg-white;
+  outline: 4px solid rgba(35, 16, 68, 0.13);
+}
+
+.gridBox {
+  @apply w-dot-4 h-full -m-1 p-1 box-content text-small text-primary text-right font-bold inline-block relative flex justify-end items-end;
+  border-radius: 1px;
+  -webkit-transition: all ease-in-out 200ms;
+  transition: all ease-in-out 200ms;
+}
+
+.gridBox:hover {
+  @apply shadow-lightpurple bg-secondary rounded text-white -m-2 p-2;
+}
+
+.gridBox span {
+  @apply mr-2 mb-1;
+}
+
+@media (min-width: 1800px) {
+  .gridBox {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .install {
+    width: auto;
+    padding-right: 0;
+  }
+  .installVideo {
+    width: calc(100%);
+  }
+
+  .grid {
+    top: 264px;
+    margin-top: 31px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .installVideo {
+    pointer-events: none;
+  }
+}
+
+/* Small devices (landscape phones, less than 650px) */
+@media (max-width: 650px) {
+  .grid {
+    margin-top: 340px;
+  }
+  .install {
+    margin: 0 auto 40px 0;
+    @apply w-full block text-center pr-0;
+  }
+  .install h3 {
+    width: 56%;
+    margin: 0 auto 42px auto;
+  }
+  .embed h3 {
+    margin-bottom: 50px;
+  }
+  .embedLanguages {
+    margin-left: 30px;
+    width: 100%;
+    @apply pt-3;
+  }
+
+  .install h3 br {
+    display: none;
+  }
+
+  .installVideo {
+    width: calc(100% + 2rem);
+  }
+
+  .grid {
+    display: none;
+  }
+  .embedLanguages {
+    background-image: var(--dots-on-light);
+    background-size: var(--spacing) var(--spacing);
+    padding-top: calc(
+      var(--spacing) + var(--spacing) / 2 + var(--dot-size) / 2
+    );
+    @apply pb-dot-5 bg-left-top w-screen -ml-8 pl-4;
+  }
+
+  .gridBoxContainer {
+    @apply h-dot-3;
+  }
+
+  .gridBox {
+    @apply w-dot-3;
+  }
+
+  .gridBox span {
+    position: absolute;
+    bottom: 2px;
+    right: 4px;
+    font-size: 15px;
+  }
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 576px) {
+  .grid {
+    display: none;
+  }
+  .embedLanguages {
+    background-image: var(--dots-on-light);
+    background-size: var(--spacing) var(--spacing);
+    @apply pb-dot-1 bg-left-top w-screen -ml-8 pl-4 pt-4;
+  }
+  .install {
+    text-align: left;
+    width: 100%;
+  }
+  .install h3 {
+    width: 100%;
+  }
+  .embed {
+    display: initial;
+  }
+  .embed h3 {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+}

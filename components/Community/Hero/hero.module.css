@@ -1,0 +1,39 @@
+.gridContainer {
+  @apply pt-4 pl-6 pr-2 flex flex-col relative flex-shrink-0;
+}
+
+.grid {
+  @apply left-0;
+  background-position: 12px top;
+  width: 90%;
+}
+
+@media (min-width: 650px) {
+  .gridContainer {
+    @apply px-0;
+  }
+
+  .grid {
+    @apply bg-top;
+    width: 100vw;
+  }
+}
+
+@media (min-width: 1024px) {
+  /* .root {
+    @apply pl-0;
+  } */
+
+  .gridContainer {
+    @apply pl-3;
+  }
+
+  .grid {
+    @apply bg-left-top;
+  }
+}
+
+@media (min-width: 1800px) {
+  .gridContainer {
+  }
+}
