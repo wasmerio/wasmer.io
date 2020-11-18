@@ -4,6 +4,30 @@ import { Controller, Scene } from 'react-scrollmagic';
 import styles from './explainer.module.css';
 import Wa from '../../../public/images/wa.svg';
 
+import C from '../../../public/images/languages/c.svg';
+import CPP from '../../../public/images/languages/cpp.svg';
+import CSharp from '../../../public/images/languages/c-sharp.svg';
+import Elixir from '../../../public/images/languages/elixir.svg';
+import Go from '../../../public/images/languages/go.svg';
+import Java from '../../../public/images/languages/java.svg';
+import JavaScript from '../../../public/images/languages/javascript.svg';
+import PHP from '../../../public/images/languages/php.svg';
+import Postgres from '../../../public/images/languages/postgress.svg';
+import Python from '../../../public/images/languages/python.svg';
+import R from '../../../public/images/languages/r.svg';
+import Ruby from '../../../public/images/languages/ruby.svg';
+import Rust from '../../../public/images/languages/rust.svg';
+
+import IOS from '../../../public/images/platforms/ios.svg';
+import Android from '../../../public/images/platforms/android.svg';
+import Windows from '../../../public/images/platforms/windows.svg';
+import Linux from '../../../public/images/platforms/linux.svg';
+import MacOS from '../../../public/images/platforms/macos.svg';
+
+import { LanguageComponent } from '../../Languages/language.component';
+
+
+
 export class ExplainerComponent extends Component {
   constructor(props) {
     super(props);
@@ -249,8 +273,11 @@ export class ExplainerComponent extends Component {
                               <Timeline
                                 position={1}
                                 target={
-                                  <div className={styles.white}>
-                                    <span>PHP</span>
+                                  <div className={styles.transitionContainer}>
+                                    <LanguageComponent
+                                      large
+                                      icon={<PHP />}
+                                    />
                                   </div>
                                 }
                               >
@@ -265,8 +292,11 @@ export class ExplainerComponent extends Component {
                               <Timeline
                                 position={1}
                                 target={
-                                  <div className={styles.white}>
-                                    <span>C#</span>
+                                  <div className={styles.transitionContainer}>
+                                    <LanguageComponent
+                                      large
+                                      icon={<CSharp />}
+                                    />
                                   </div>
                                 }
                               >
@@ -282,8 +312,11 @@ export class ExplainerComponent extends Component {
                                 position={1}
                                 duration={0.01}
                                 target={
-                                  <div className={styles.white}>
-                                    <span>C++</span>
+                                  <div className={styles.transitionContainer}>
+                                    <LanguageComponent
+                                      large
+                                      icon={<CPP />}
+                                    />
                                   </div>
                                 }
                               >
@@ -297,8 +330,11 @@ export class ExplainerComponent extends Component {
                               <Timeline
                                 position={1}
                                 target={
-                                  <div className={styles.white}>
-                                    <span>Python</span>
+                                  <div className={styles.transitionContainer}>
+                                    <LanguageComponent
+                                      large
+                                      icon={<Python />}
+                                    />
                                   </div>
                                 }
                               >
@@ -309,33 +345,20 @@ export class ExplainerComponent extends Component {
                                 />
                               </Timeline>
                             </div>
-                            <div>
-                              <div className={styles.white}>
-                                <span>Rust</span>
-                              </div>
+                            <div className="relative">
+                              <LanguageComponent
+                                large
+                                icon={<Rust />}
+                              />
                               <Timeline
                                 position={2}
                                 target={
-                                  <>
-                                    <div className={styles.highlight}>
-                                      <span>Rust</span>
-                                    </div>
-                                  </>
-                                }
-                              >
-                                <Tween
-                                  duration={0.01}
-                                  from={{ opacity: 1 }}
-                                  to={{ opacity: 0 }}
-                                />
-                              </Timeline>
-                            </div>
-                            <div className={styles.rest}>
-                              <Timeline
-                                position={1}
-                                target={
-                                  <div className={styles.white}>
-                                    <span>Ruby</span>
+                                  <div className={`${styles.highlight}`}>
+                                    <LanguageComponent
+                                      large
+                                      highlighted
+                                      icon={<Rust />}
+                                    />
                                   </div>
                                 }
                               >
@@ -350,8 +373,30 @@ export class ExplainerComponent extends Component {
                               <Timeline
                                 position={1}
                                 target={
-                                  <div className={styles.white}>
-                                    <span>GO</span>
+                                  <div className={styles.transitionContainer}>
+                                    <LanguageComponent
+                                      large
+                                      icon={<Ruby />}
+                                    />
+                                  </div>
+                                }
+                              >
+                                <Tween
+                                  duration={0.01}
+                                  from={{ opacity: 1 }}
+                                  to={{ opacity: 0 }}
+                                />
+                              </Timeline>
+                            </div>
+                            <div className={styles.rest}>
+                              <Timeline
+                                position={1}
+                                target={
+                                  <div className={styles.transitionContainer}>
+                                    <LanguageComponent
+                                      large
+                                      icon={<Go />}
+                                    />
                                   </div>
                                 }
                               >
@@ -366,8 +411,11 @@ export class ExplainerComponent extends Component {
                               <Timeline
                                 position={1}
                                 target={
-                                  <div className={styles.white}>
-                                    <span>PHP</span>
+                                  <div className={styles.transitionContainer}>
+                                    <LanguageComponent
+                                      large
+                                      icon={<PHP />}
+                                    />
                                   </div>
                                 }
                               >
@@ -518,8 +566,11 @@ export class ExplainerComponent extends Component {
                               <Timeline
                                 position={5}
                                 target={
-                                  <div className={styles.white}>
-                                    <span>Linux</span>
+                                  <div className={styles.transitionContainer}>
+                                    <LanguageComponent
+                                      large
+                                      icon={<IOS />}
+                                    />
                                   </div>
                                 }
                               >
@@ -534,8 +585,11 @@ export class ExplainerComponent extends Component {
                               <Timeline
                                 position={5}
                                 target={
-                                  <div className={styles.white}>
-                                    <span>Android</span>
+                                  <div className={styles.transitionContainer}>
+                                    <LanguageComponent
+                                      large
+                                      icon={<Android />}
+                                    />
                                   </div>
                                 }
                               >
@@ -550,8 +604,12 @@ export class ExplainerComponent extends Component {
                               <Timeline
                                 position={5}
                                 target={
-                                  <div className={styles.highlight}>
-                                    <span>Windows</span>
+                                  <div className={`${styles.transitionContainer} ${styles.highlight}`}>
+                                    <LanguageComponent
+                                      large
+                                      highlighted
+                                      icon={<Windows />}
+                                    />
                                   </div>
                                 }
                               >
@@ -561,16 +619,22 @@ export class ExplainerComponent extends Component {
                                   to={{ opacity: 1 }}
                                 />
                               </Timeline>
-                              <div className={styles.white}>
-                                <span>Windows</span>
+                              <div className={styles.transitionContainer}>
+                                <LanguageComponent
+                                  large
+                                  icon={<Windows />}
+                                />
                               </div>
                             </div>
                             <div className={styles.rest}>
                               <Timeline
                                 position={5}
                                 target={
-                                  <div className={styles.white}>
-                                    <span>Mac</span>
+                                  <div className={styles.transitionContainer}>
+                                    <LanguageComponent
+                                      large
+                                      icon={<Linux />}
+                                    />
                                   </div>
                                 }
                               >
@@ -586,8 +650,11 @@ export class ExplainerComponent extends Component {
                               <Timeline
                                 position={5}
                                 target={
-                                  <div className={styles.white}>
-                                    <span>iOS</span>
+                                  <div className={styles.transitionContainer}>
+                                    <LanguageComponent
+                                      large
+                                      icon={<MacOS />}
+                                    />
                                   </div>
                                 }
                               >

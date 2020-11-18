@@ -162,11 +162,23 @@ p {
 
 /* Filters */
 .filter-white {
-  filter: brightness(0) invert(1);
+  --fill: #fff;
+  fill: var(--fill);
 }
 
-.fill-lightgrey {
-  fill: rgba(35, 16, 68, 0.5);
+.fill-lightgrey svg {
+  --fill: rgba(35, 16, 68);
+  opacity: 0.5;
+  fill: var(--fill);
+}
+
+.fill-lightgrey.hoverable svg {
+  transition: fill 0.2s ease, opacity 0.2s ease;
+}
+
+.fill-lightgrey.hoverable:hover svg {
+  --fill: #fff;
+  opacity: 1;
 }
 
 /* Testimonial slide */

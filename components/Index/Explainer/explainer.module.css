@@ -6,6 +6,10 @@
   display: block;
 }
 
+.transitionContainer {
+  transition: opacity 0.2s ease;
+}
+
 .explainerContainer {
   background: repeat center top var(--dots-on-light);
   background-size: var(--spacing) var(--spacing);
@@ -25,103 +29,54 @@
 
 .languages,
 .platforms {
-  --col: calc(var(--spacing) * 4);
-
-  width: calc(var(--spacing) * 11 + var(--dot-size));
-  height: calc(var(--spacing) * 11 + var(--dot-size));
-  /* padding-top: 24px; */
-  /* margin: -1px -15px; */
-  margin-top: calc(var(--dot-size) * -1);
+  --col: calc(var(--spacing) * 2 + var(--dot-size));
   grid-template-columns: var(--col) var(--col) var(--col);
   grid-template-rows: var(--col) var(--col) var(--col);
+  gap: 24px; /* exactly the space between 2 dots */
+  @apply grid;
+}
 
-  @apply text-left grid;
+@media (min-width: 1024px) {
+  .languages,
+  .platforms {
+    --col: calc(var(--spacing) * 3 + var(--dot-size));
+  }
 }
 
 .platforms {
-  margin-top: calc(var(--dot-size) * -1);
-  margin-left: -6px;
-  width: calc(var(--spacing) * 7 + var(--dot-size));
+  /* margin-top: calc(var(--dot-size) * -1); */
+  /* margin-left: -6px; */
+  /* width: calc(var(--spacing) * 7 + var(--dot-size)); */
   grid-template-columns: var(--col) var(--col);
   grid-template-rows: var(--col) var(--col);
-
-  @apply text-right;
 }
 
 .languages > div,
 .platforms > div {
-  margin-bottom: calc(var(--spacing) - var(--dot-size));
   z-index: 1;
-  @apply w-dot-4 text-right text-primary font-bold relative rounded-sm;
+  @apply relative;
 }
 
-.languages > div {
-  width: calc(var(--spacing) * 3 + var(--dot-size));
-  height: calc(var(--spacing) * 3 + var(--dot-size));
+.languages .highlight,
+.platforms .highlight {
+  @apply absolute top-0 left-0 z-20;
+  transition: opacity 0.2s ease;
 }
 
-.languages > div > span,
-.platforms > div > span {
-  bottom: 12px;
-  right: 16px;
-  z-index: 6;
-  @apply text-white absolute;
-}
-
-.languages > div > div > span,
-.platforms > div > div > span {
-  bottom: 8px;
-  right: 12px;
-
-  @apply absolute text-white;
-}
-
-.languages > div > div,
-.platforms > div > div {
-  @apply block top-0 left-0 absolute;
-}
-
-.languages > div > .white,
-.platforms > div > .white {
-  outline: 4px solid rgba(35, 16, 68, 0.13);
-  width: calc(var(--spacing) * 3 + var(--dot-size) * 2);
-  height: calc(var(--spacing) * 3 + var(--dot-size) * 2);
-  margin-top: 5px;
-  z-index: 3;
-  transition: all ease-in-out 200ms;
-  @apply bg-white overflow-hidden;
-}
-
-.languages > div > .highlight,
-.platforms > div > .highlight {
-  left: -2px;
-  top: 1.5px;
-  width: calc(var(--spacing) * 3 + var(--dot-size) + 8px);
-  height: calc(var(--spacing) * 3 + var(--dot-size) + 8px);
-  -webkit-box-shadow: 0px 3px 14px rgba(73, 70, 221, 0.3), 0 0 0 3px #4946dd;
-  border-color: transparent;
-  box-shadow: 0px 3px 14px rgba(73, 70, 221, 0.3), 0 0 0 4px #4946dd;
-  opacity: 1;
-  transition: all ease-in-out 200ms;
+/* .languages > div > .highlight {
   z-index: 4;
+} */
 
-  @apply absolute bg-secondary block rounded-sm text-white;
-}
-
-.languages > div > .highlight {
-  z-index: 4;
-}
-
-.platforms > div > .highlight {
+.platforms .highlight {
   @apply opacity-0;
 }
 
-.languages > div > .white > span,
+/* .languages > div > .white > span,
 .platforms > div > .white > span {
   bottom: 4px;
   right: 8px;
   @apply text-primary absolute;
-}
+} */
 
 .heightSizer {
   height: calc(var(--spacing) * 11);
@@ -217,8 +172,7 @@
 }
 
 .plusContainer {
-  margin-left: -3px;
-  @apply flex justify-center bg-white w-dot-4 h-dot-2 z-0;
+  @apply flex justify-center bg-white w-dot-2 h-dot-2 z-0 mx-dot-1;
 }
 
 .plusContainerInner {

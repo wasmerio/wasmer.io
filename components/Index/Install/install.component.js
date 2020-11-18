@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import handleViewport from 'react-in-viewport';
+import { LanguageComponent } from '../../Languages/language.component';
 import { AsciinemaComponent, SnippetComponent } from './../../../components/';
 import languages from './../../Languages/languages.constants';
 import { StepperComponent } from './components/Stepper/stepper.component';
@@ -76,17 +77,15 @@ export class InstallComponent extends Component {
               WebAssembly everywhere.
             </p>
             <div className={styles.embedLanguages}>
-              {languages.map(({ name, url }, index) => (
+              {languages.map(({ name, icon, url }, index) => (
                 <div className={styles.gridBoxContainer} key={index}>
-                  <a
+                  <LanguageComponent
                     key={name}
-                    className={styles.gridBox}
-                    href={url}
-                    target="_blank"
+                    highlighted
+                    icon={icon}
+                    link={url}
                     title={`Wasmer ${name} WebAssembly library`}
-                  >
-                    <span className="leading-none pb-1">{name}</span>
-                  </a>
+                  />
                 </div>
               ))}
             </div>
