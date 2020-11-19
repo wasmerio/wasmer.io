@@ -28,8 +28,6 @@ import MacOS from '../../../public/images/platforms/macos.svg';
 
 import { LanguageComponent } from '../../Languages/language.component';
 
-
-
 export class ExplainerComponent extends Component {
   constructor(props) {
     super(props);
@@ -254,7 +252,8 @@ export class ExplainerComponent extends Component {
         icon: <Python />
       },
       {
-        icon: <Rust />
+        icon: <Rust />,
+        main: true
       },
       {
         icon: <Ruby />
@@ -272,7 +271,8 @@ export class ExplainerComponent extends Component {
         icon: <Android />
       },
       {
-        icon: <Windows />
+        icon: <Windows />,
+        main: true
       },
       {
         icon: <Linux />
@@ -332,6 +332,7 @@ export class ExplainerComponent extends Component {
                               className={`
                                 ${styles.transitionContainer}
                                 ${item.hideOnTablet ? styles.hideOnTablet : ''}
+                                ${item.main ? styles.main : ''}
                               `}
                             >
                               <LanguageComponent
@@ -387,7 +388,12 @@ export class ExplainerComponent extends Component {
                           }
 
                           return (
-                            <div className={styles.transitionContainer}>
+                            <div
+                              className={`
+                                ${styles.transitionContainer}
+                                ${item.main ? styles.main : ''}
+                              `}
+                            >
                               <LanguageComponent
                                 large
                                 icon={item.icon}

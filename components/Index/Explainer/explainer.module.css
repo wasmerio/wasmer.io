@@ -29,18 +29,13 @@
 .languages,
 .platforms {
   --col: calc(var(--spacing) * 2 + var(--dot-size));
-  grid-template-columns: var(--col) var(--col);
+  grid-template-columns: var(--col);
   gap: 24px; /* exactly the space between 2 dots */
   @apply grid;
 }
 
-.platforms {
-  grid-template-columns: var(--col) var(--col);
-}
-
 .languages > div,
 .platforms > div {
-  z-index: 1;
   @apply relative;
 }
 
@@ -146,6 +141,25 @@
   
   .breakOnDesktop {
     display: block;
+  }
+}
+
+@media (min-width: 720px) {
+  .languages,
+  .platforms {
+    grid-template-columns: var(--col) var(--col);
+  }
+  
+  .platforms {
+    grid-template-columns: var(--col) var(--col);
+  }
+}
+
+/* Hide all elements except the main one when there's not enough space */
+@media (max-width: 719px) {
+  .languages > div:not(.main),
+  .platforms > div:not(.main) {
+    display: none;
   }
 }
 
