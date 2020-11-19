@@ -1,13 +1,8 @@
+/* Container */
+/* --------- */
+
 .hero {
   @apply h-screen flex flex-col justify-start;
-}
-
-.blockOnDesktop {
-  display: block;
-}
-
-.transitionContainer {
-  transition: opacity 0.2s ease;
 }
 
 .explainerContainer {
@@ -17,38 +12,30 @@
   @apply items-baseline flex overflow-hidden;
 }
 
-.headlineContainer {
-  height: var(--explainer-textcontainer-height);
-  @apply flex justify-center items-center;
-}
-
 .explainer {
-  max-width: 1068px;
-  @apply relative h-full flex flex-row items-start justify-start mx-auto;
+  @apply relative flex items-center justify-start mx-auto;
 }
 
+/* TODO Vittorio: Remove this fix as soon as possible, probably some calculation is off */
+@media (max-width: 1090px) {
+  .explainer {
+    margin-top: 40px !important;
+  }
+}
 
 /* Languages and Platforms Grid */
+/* ---------------------------- */
 
 .languages,
 .platforms {
   --col: calc(var(--spacing) * 2 + var(--dot-size));
-  grid-template-columns: var(--col) var(--col) var(--col);
-  grid-template-rows: var(--col) var(--col) var(--col);
+  grid-template-columns: var(--col) var(--col);
   gap: 24px; /* exactly the space between 2 dots */
   @apply grid;
 }
 
-@media (min-width: 1024px) {
-  .languages,
-  .platforms {
-    --col: calc(var(--spacing) * 3 + var(--dot-size));
-  }
-}
-
 .platforms {
   grid-template-columns: var(--col) var(--col);
-  grid-template-rows: var(--col) var(--col);
 }
 
 .languages > div,
@@ -57,15 +44,21 @@
   @apply relative;
 }
 
-
-/* Arrows */
-
-.heightSizer {
-  @apply flex flex-col justify-center h-dot-12;
+/* Empty Elements below 1200px */
+.languages .empty {
+  @apply hidden;
 }
 
+/* Hide some elements on tablet and below */
+.hideOnTablet {
+  @apply hidden;
+}
+
+/* Arrows */
+/* ------ */
+
 .arrowContainer {
-  @apply relative flex justify-center items-center bg-white box-content mx-dot-1 w-dot-4 h-dot-3;
+  @apply relative flex justify-center items-center w-dot-3 h-dot-3 bg-white box-content mx-dot-1;
 }
 
 .arrowContainer:before,
@@ -80,9 +73,9 @@
 
 .arrowMask {
   @apply relative bg-grey-30;
-  width: 52px;
+  width: 40px;
   height: 32px;
-  mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MiAzMiI+Cjxwb2x5Z29uIHBvaW50cz0iMzcuODYsMS44NiAzNS4wMyw0LjY5IDQ0LjM0LDE0IDAsMTQgMCwxOCA0NC4zNCwxOCAzNS4wMywyNy4zMSAzNy44NiwzMC4xNCA1MiwxNiAiLz4KPC9zdmc+Cg==");
+  mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MCAzMiI+Cjxwb2x5Z29uIHBvaW50cz0iMjUuODYsMS44NiAyMy4wMyw0LjY5IDMyLjM0LDE0IDAsMTQgMCwxOCAzMi4zNCwxOCAyMy4wMywyNy4zMSAyNS44NiwzMC4xNCA0MCwxNiAiLz4KPC9zdmc+");
 }
 
 .arrowFill {
@@ -92,13 +85,14 @@
 
 
 /* WebAssembly & Wasmer */
+/* -------------------- */
 
 .iconContainer {
-  @apply relative bg-white w-dot-4 flex items-center justify-center;
+  @apply relative bg-white h-dot-3 w-dot-3 flex items-center justify-center;
 }
 
 .iconContainer svg {
-  @apply relative;
+  @apply relative max-h-full;
   transition: fill 0.2s ease;
   fill: #BDB7C7;
 }
@@ -108,162 +102,97 @@
 }
 
 .iconContainer.plus {
-  @apply h-dot-3;
-  width: calc(var(--spacing) * 3 - var(--dot-size))
+  @apply h-dot-3 ;
+  width: calc(var(--spacing) * 3 - var(--dot-size));
 }
 
+.iconContainer.wasmerIcon {
+  @apply z-10;
+  /* Move items closer together on tablet */
+  margin-left: calc(var(--spacing) * -0.5);  
+  margin-right: calc(var(--spacing) * -0.5);
+}
 
-/* Other Stuff */
+/* Text */
+/* ---- */
 
-.breakOnDesktop {
-  display: block;
+.headlineContainer {
+  height: var(--explainer-textcontainer-height);
+  @apply flex justify-center items-center;
 }
 
 .headline {
   @apply text-grey-30;
 }
 
-.platforms > div.restVisibleOnTablet,
-.languages > div.restVisibleOnTablet {
-  @apply hidden;
+/* Other Stuff */
+/* ----------- */
+
+.breakOnDesktop {
+  display: none;
+}
+.blockOnDesktop {
+  display: inline;
 }
 
-@media (max-width: 1090px) {
-  .explainer {
-    max-width: 1068px;
-    margin-left: 8.5px;
-    @apply relative h-full flex flex-row items-start justify-start;
-  }
-
-  .languages .empty {
-    @apply hidden;
-  }
-  .languages {
-    width: calc(var(--spacing) * 7 + var(--dot-size));
-    grid-template-columns: var(--col) var(--col);
-    grid-template-rows: var(--col) var(--col);
-    margin-left: calc(38px + var(--spacing));
-  }
-
-  .platforms {
-    margin-right: 38px;
-  }
-
-  .languages > div.restVisibleOnDesktop {
-    @apply hidden;
-  }
-
-  .platforms > div.restVisibleOnTablet,
-  .languages > div.restVisibleOnTablet {
-    @apply block;
-  }
-  .explainerContainer {
-    background: none;
-    @apply flex relative items-center overflow-hidden;
-  }
-  .explainer {
-    padding-top: 10px;
-    background: white repeat left top var(--dots-on-light);
-    background-size: var(--spacing) var(--spacing);
-    @apply absolute h-full;
-  }
-}
-
-@media (max-width: 950px) {
-  .platforms {
-    width: 100px;
-    height: 569px;
-  }
-  .platforms .empty {
-    display: none;
-  }
-  .platforms {
-    width: calc(var(--spacing) * 7 + var(--dot-size));
-    grid-template-columns: var(--col);
-    grid-template-rows: var(--col) [row2-start] var(--col);
-  }
-  .platforms > .mainItem {
-    grid-row-start: row2-start;
-  }
-  .platforms > div.rest {
-    @apply hidden;
-  }
-}
-
-@media (max-width: 850px) {
-  .languages .empty,
-  .platforms .empty {
-    @apply block;
-  }
-  .languages,
-  .platforms {
-    width: calc(var(--spacing) * 7 + var(--dot-size));
-    grid-template-columns: var(--col);
-    grid-template-rows: var(--col) [row2-start] var(--col);
-  }
-  .platforms > .mainItem {
-    grid-row-start: row2-start;
-  }
-  .explainerContainer {
-    background: none;
-    @apply flex relative items-center overflow-hidden;
-  }
-  .explainer {
-    padding-top: 10px;
-    background: white repeat left top var(--dots-on-light);
-    background-size: var(--spacing) var(--spacing);
-    @apply absolute h-full;
-  }
-  .languages,
-  .platforms {
-    width: 88px;
-    height: 84px;
-    margin-bottom: 0;
-    margin-top: -4px;
-  }
-  .languages > div.rest,
-  .platforms > div.rest {
-    @apply hidden;
-  }
-
-  .platforms > div.restVisibleOnTablet,
-  .languages > div.restVisibleOnTablet {
-    @apply hidden;
-  }
-
-  .plusContainer {
-    @apply w-dot-3;
-  }
-  .plusContainerInner {
-    @apply w-dot-2;
-  }
-}
-
-@media (max-width: 767px) {
-  .breakOnDesktop {
-    display: none;
-  }
-  .blockOnDesktop {
-    display: inline;
-  }
-  .languages {
-    margin-left: 38px;
-  }
-
-  .explainerContainer {
-    background: repeat center top var(--dots-on-light);
-    background-size: var(--spacing) var(--spacing);
-    height: var(--explainer-grid-height);
-    @apply items-baseline flex overflow-hidden;
-  }
-
+@media (min-width: 650px) {
   .headlineContainer {
     @apply flex justify-center items-center;
   }
+
+  .blockOnDesktop {
+    display: block;
+  }
+  
+  .breakOnDesktop {
+    display: block;
+  }
 }
 
-@media (max-height: 782px) {
+@media (min-width: 1024px) {
+  .languages,
+  .platforms {
+    --col: calc(var(--spacing) * 3 + var(--dot-size));
+  }
+
+  .hideOnTablet {
+    @apply block;
+  }
+
+  .arrowContainer {
+    @apply w-dot-4;
+  }
+  .arrowMask {
+    width: 52px;
+    height: 32px;
+    mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MiAzMiI+Cjxwb2x5Z29uIHBvaW50cz0iMzcuODYsMS44NiAzNS4wMyw0LjY5IDQ0LjM0LDE0IDAsMTQgMCwxOCA0NC4zNCwxOCAzNS4wMywyNy4zMSAzNy44NiwzMC4xNCA1MiwxNiAiLz4KPC9zdmc+Cg==");
+  }
+
+  .iconContainer {
+    @apply h-dot-4 w-dot-4;
+  }
+
+  .iconContainer.wasmerIcon {
+    @apply mx-0;
+  }
+
+  .platforms {
+    margin-right: var(--spacing);
+  }
+}
+
+@media (min-width: 1200px) {
+  .languages {
+    grid-template-columns: var(--col) var(--col) var(--col);
+  }
+
+  .languages .empty {
+    @apply block;
+  }
+}
+
+/* @media (max-height: 782px) {
   .languages > div.restVisibleOnTablet {
     @apply hidden;
   }
-}
+} */

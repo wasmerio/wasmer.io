@@ -110,9 +110,9 @@ export class ExplainerComponent extends Component {
     if (width < 750) {
       animateVertically = true;
     }
-    if (width < 1068) {
-      screenSmallerThanAnimation = true;
-    }
+    // if (width < 1068) {
+    //   screenSmallerThanAnimation = true;
+    // }
 
     this.setState({
       screenSmallerThanAnimation,
@@ -237,28 +237,57 @@ export class ExplainerComponent extends Component {
     const { containerWidth, animateVertically } = this.state;
 
     const languages = [
-      '',
-      <PHP />,
-      <CSharp />,
-      <CPP />,
-      <Python />,
-      <Rust />,
-      <Ruby />,
-      <Go />,
+      {
+        icon: ''
+      },
+      {
+        icon: <PHP />
+      },
+      {
+        icon: <CSharp />,
+        hideOnTablet: true
+      },
+      {
+        icon: <CPP />
+      },
+      {
+        icon: <Python />
+      },
+      {
+        icon: <Rust />
+      },
+      {
+        icon: <Ruby />
+      },
+      {
+        icon: <Go />
+      },
     ]
 
     const platforms = [
-      <IOS />,
-      <Android />,
-      <Windows />,
-      <Linux />,
-      '',
-      <MacOS />,
+      {
+        icon: <IOS />
+      },
+      {
+        icon: <Android />
+      },
+      {
+        icon: <Windows />
+      },
+      {
+        icon: <Linux />
+      },
+      {
+        icon: ''
+      },
+      {
+        icon: <MacOS />
+      },
     ]
 
     let explainerStyle = {
       marginTop: this.state.marginTop,
-      width: `${containerWidth}px`,
+      // width: `${containerWidth}px`,
     };
     if (!animateVertically) {
       explainerStyle['left'] = 0;
@@ -270,11 +299,6 @@ export class ExplainerComponent extends Component {
       explainerStyle['paddingTop'] = this.state.paddingTop + 10;
       explainerStyle['marginLeft'] = this.state.marginLeft;
     }
-
-    // new Scene({
-    //   duration: 100,
-    //   offset: 50
-    // }).setClassToggle("#languages", "active");
 
     return (
       <div>
@@ -297,17 +321,22 @@ export class ExplainerComponent extends Component {
                       {/* Languages */} {/* TODO: Toggle 1 global class for all languages */}
                       <div className={styles.languages}>
                         {languages.map((item) => {
-                          if (item === "") {
+                          if (item.icon === "") {
                             return (
                               <div className={styles.empty} />
                             )
                           }
 
                           return (
-                            <div className={styles.transitionContainer}>
+                            <div
+                              className={`
+                                ${styles.transitionContainer}
+                                ${item.hideOnTablet ? styles.hideOnTablet : ''}
+                              `}
+                            >
                               <LanguageComponent
                                 large
-                                icon={item}
+                                icon={item.icon}
                                 // TODO: Toggle .highlighted class for Rust Icon when highlighed
                               />
                             </div>
@@ -316,52 +345,42 @@ export class ExplainerComponent extends Component {
                       </div>
 
                       {/* Arrow 1 */} {/* TODO: Move left from -100% to 0 */}
-                      <div className={styles.heightSizer}>
-                        <div className={styles.arrowContainer}>
-                          <div className={styles.arrowMask}>
-                            <Tween duration={100} from={{ left: '-100%' }} to={{ left: '0' }}>
-                              <div className={styles.arrowFill} />
-                            </Tween>
-                          </div>
+                      <div className={styles.arrowContainer}>
+                        <div className={styles.arrowMask}>
+                          <Tween duration={100} from={{ left: '-100%' }} to={{ left: '0' }}>
+                            <div className={styles.arrowFill} />
+                          </Tween>
                         </div>
                       </div>
 
                       {/* WA */} {/* TODO: Toggle .highlighted class */}
-                      <div className={styles.heightSizer}>
-                        <div className={styles.iconContainer}>
-                          <WA />
-                        </div>
+                      <div className={styles.iconContainer}>
+                        <WA />
                       </div>
 
                       {/* Arrow 2 */} {/* TODO: Move left from -100% to 0, reuse markup */}
-                      <div className={styles.heightSizer}>
-                        <div className={styles.arrowContainer}>
-                          <div className={styles.arrowMask}>
-                            <Tween duration={100} from={{ left: '-100%' }} to={{ left: '0' }}>
-                              <div className={styles.arrowFill} />
-                            </Tween>
-                          </div>
+                      <div className={styles.arrowContainer}>
+                        <div className={styles.arrowMask}>
+                          <Tween duration={100} from={{ left: '-100%' }} to={{ left: '0' }}>
+                            <div className={styles.arrowFill} />
+                          </Tween>
                         </div>
                       </div>
 
                       {/* Wasmer & Plus */} {/* TODO: Toggle .highlighted class */}
                       <div className="flex items-center">
-                        <div className={styles.heightSizer}>
-                          <div className={styles.iconContainer}>
-                            <Wasmer />
-                          </div>
+                        <div className={`${styles.iconContainer} ${styles.wasmerIcon}`}>
+                          <Wasmer />
                         </div>
-                        <div className={styles.heightSizer}>
-                          <div className={`${styles.iconContainer} ${styles.plus}`}>
-                            <Plus />
-                          </div>
+                        <div className={`${styles.iconContainer} ${styles.plus}`}>
+                          <Plus />
                         </div>
                       </div>
 
                       {/* Platforms */} {/* TODO: Toggle 1 global class for all languages */}
                       <div className={styles.platforms}>
                         {platforms.map((item) => {
-                          if (item === "") {
+                          if (item.icon === "") {
                             return (
                               <div className={styles.empty} />
                             )
@@ -371,7 +390,7 @@ export class ExplainerComponent extends Component {
                             <div className={styles.transitionContainer}>
                               <LanguageComponent
                                 large
-                                icon={item}
+                                icon={item.icon}
                                 // TODO: Toggle .highlighted class for Windows Icon when highlighed
                               />
                             </div>
