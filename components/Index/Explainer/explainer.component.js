@@ -301,161 +301,165 @@ export class ExplainerComponent extends Component {
     }
 
     return (
-      <div>
-        <div id="explainer" className={styles.hero}>
-          <Controller>
-            <Scene
-              triggerHook="onLeave"
-              duration={1000}
-              pin
-              triggerElement="#explainer"
-              indicators={true}
-            >
-              {(progress, event) => (
-                <Timeline totalProgress={progress} paused>
-                  <div className={styles.explainerContainer}>
-                    <div
-                      className={styles.explainer}
-                      style={explainerStyle}
-                    >
-                      {/* Languages */} {/* TODO: Toggle 1 global class for all languages */}
-                      <div className={styles.languages}>
-                        {languages.map((item) => {
-                          if (item.icon === "") {
-                            return (
-                              <div className={styles.empty} />
-                            )
-                          }
+          <div>
+            <Controller>
+              <Scene
+                  triggerHook="onLeave"
+                  duration={1000}
+                  pin
+                  triggerElement="#explainer"
+                  indicators={true}
+              >
+                {(progress) => (
+                    <div id="explainer" className={styles.hero}>
+                      <Timeline totalProgress={progress} paused>
+                        <div className={styles.explainerContainer}>
+                          <div
+                              className={styles.explainer}
+                              style={explainerStyle}
+                          >
+                            {/* Languages */} {/* TODO: Toggle 1 global class for all languages */}
+                            <div className={styles.languages}>
+                              {languages.map((item, key) => {
+                                if (item.icon === "") {
+                                  return (
+                                      <div key={key} className={styles.empty} />
+                                  )
+                                }
 
-                          return (
-                            <div
-                              className={`
-                                ${styles.transitionContainer}
-                                ${item.hideOnTablet ? styles.hideOnTablet : ''}
-                                ${item.main ? styles.main : ''}
-                              `}
-                            >
-                              <LanguageComponent
-                                large
-                                icon={item.icon}
-                                // TODO: Toggle .highlighted class for Rust Icon when highlighed
-                              />
+                                return (
+                                    <div
+                                      key={key}
+                                      className={`
+                                        ${styles.transitionContainer}
+                                        ${item.hideOnTablet ? styles.hideOnTablet : ''}
+                                        ${item.main ? styles.main : ''}
+                                      `}
+                                    >
+                                      <LanguageComponent
+                                          large
+                                          icon={item.icon}
+                                          highlighted={item.main && progress > 0 && progress < 0.5}
+                                          // TODO: Toggle .highlighted class for Rust Icon when highlighed
+                                      />
+                                    </div>
+                                )
+                              })}
                             </div>
-                          )
-                        })}
-                      </div>
 
-                      {/* Arrow 1 */} {/* TODO: Move left from -100% to 0 */}
-                      <div className={styles.arrowContainer}>
-                        <div className={styles.arrowMask}>
-                          <Tween duration={100} from={{ left: '-100%' }} to={{ left: '0' }}>
-                            <div className={styles.arrowFill} />
-                          </Tween>
-                        </div>
-                      </div>
-
-                      {/* WA */} {/* TODO: Toggle .highlighted class */}
-                      <div className={styles.iconContainer}>
-                        <WA />
-                      </div>
-
-                      {/* Arrow 2 */} {/* TODO: Move left from -100% to 0, reuse markup */}
-                      <div className={styles.arrowContainer}>
-                        <div className={styles.arrowMask}>
-                          <Tween duration={100} from={{ left: '-100%' }} to={{ left: '0' }}>
-                            <div className={styles.arrowFill} />
-                          </Tween>
-                        </div>
-                      </div>
-
-                      {/* Wasmer & Plus */} {/* TODO: Toggle .highlighted class */}
-                      <div className="flex items-center">
-                        <div className={`${styles.iconContainer} ${styles.wasmerIcon}`}>
-                          <Wasmer />
-                        </div>
-                        <div className={`${styles.iconContainer} ${styles.plus}`}>
-                          <Plus />
-                        </div>
-                      </div>
-
-                      {/* Platforms */} {/* TODO: Toggle 1 global class for all languages */}
-                      <div className={styles.platforms}>
-                        {platforms.map((item) => {
-                          if (item.icon === "") {
-                            return (
-                              <div className={styles.empty} />
-                            )
-                          }
-
-                          return (
-                            <div
-                              className={`
-                                ${styles.transitionContainer}
-                                ${item.main ? styles.main : ''}
-                              `}
-                            >
-                              <LanguageComponent
-                                large
-                                icon={item.icon}
-                                // TODO: Toggle .highlighted class for Windows Icon when highlighed
-                              />
+                            {/* Arrow 1 */} {/* TODO: Move left from -100% to 0 */}
+                            <div className={styles.arrowContainer}>
+                              <div className={styles.arrowMask}>
+                                <Tween duration={200} from={{ left: '-100%' }} to={{ left: '0' }}>
+                                  <div className={`${ progress < 0.5 ? styles.arrowFill : 'hidden'}`} />
+                                </Tween>
+                              </div>
                             </div>
-                          )
-                        })}
-                      </div>
-                    </div>
-                  </div>
-                  <div className={styles.headlineContainer}>
-                    <h2
-                      className={`${styles.headline} text-left px-8 md:px-0 sm:text-center my-24`}
-                    >
-                      <Timeline
-                        position={2}
-                        target={
-                          <span className={styles.blockOnDesktop}>
+
+                            {/* WA */} {/* TODO: Toggle .highlighted class */}
+                            <div className={`${styles.iconContainer} ${ progress > 0.5 && progress < 1 ? styles.highlighted : ''}`}>
+                              <WA />
+                            </div>
+
+                            {/* Arrow 2 */} {/* TODO: Move left from -100% to 0, reuse markup */}
+                            <div className={styles.arrowContainer}>
+                              <div className={styles.arrowMask}>
+                                <Tween duration={200} from={{ left: '-100%' }} to={{ left: '0' }}>
+                                  <div className={`${ progress < 1 ? styles.arrowFill : 'hidden'}`} />
+                                </Tween>
+                              </div>
+                            </div>
+
+                            {/* Wasmer & Plus */} {/* TODO: Toggle .highlighted class */}
+                            <div className="flex items-center">
+                              <div className={`${styles.iconContainer} ${styles.wasmerIcon} ${progress >= 1 ? styles.highlighted : ''}`}>
+                                <Wasmer />
+                              </div>
+                              <div className={`${styles.iconContainer} ${styles.plus} ${progress >= 1 ? styles.highlighted : ''}`}>
+                                <Plus />
+                              </div>
+                            </div>
+
+                            {/* Platforms */} {/* TODO: Toggle 1 global class for all languages */}
+                            <div className={styles.platforms}>
+                              {platforms.map((item, key) => {
+                                if (item.icon === "") {
+                                  return (
+                                      <div key={key} className={styles.empty} />
+                                  )
+                                }
+
+                                return (
+                                    <div
+                                        key={key}
+                                        className={`
+                                    ${styles.transitionContainer}
+                                    ${item.main ? styles.main : ''}
+                                  `}
+                                    >
+                                      <LanguageComponent
+                                          large
+                                          icon={item.icon}
+                                          highlighted={item.main && progress >= 1}
+                                          // TODO: Toggle .highlighted class for Windows Icon when highlighed
+                                      />
+                                    </div>
+                                )
+                              })}
+                            </div>
+                          </div>
+                        </div>
+                        <div className={styles.headlineContainer}>
+                          <h2
+                              className={`${styles.headline} text-left px-8 md:px-0 sm:text-center my-24`}
+                          >
+                            <Timeline
+                                position={2}
+                                target={
+                                  <span className={styles.blockOnDesktop}>
                             Use the tools you know and the languages you love.{' '}
                           </span>
-                        }
-                      >
-                        <Tween
-                          duration={0.01}
-                          from={{ color: '#4946DD' }}
-                          to={{ color: '#BDB7C7' }}
-                        />
-                      </Timeline>
-                      <Timeline
-                        position={2}
-                        target={
-                          <span>Compile everything to WebAssembly. </span>
-                        }
-                      >
-                        <Tween duration={0.01} to={{ color: '#4946DD' }} />
-                        <Tween
-                          delay={3}
-                          duration={0.01}
-                          to={{ color: '#BDB7C7' }}
-                        />
-                      </Timeline>
-                      <Timeline
-                        position={5}
-                        target={
-                          <span>
+                                }
+                            >
+                              <Tween
+                                  duration={0.01}
+                                  from={{ color: '#4946DD' }}
+                                  to={{ color: '#BDB7C7' }}
+                              />
+                            </Timeline>
+                            <Timeline
+                                position={2}
+                                target={
+                                  <span>Compile everything to WebAssembly. </span>
+                                }
+                            >
+                              <Tween duration={0.01} to={{ color: '#4946DD' }} />
+                              <Tween
+                                  delay={3}
+                                  duration={0.01}
+                                  to={{ color: '#BDB7C7' }}
+                              />
+                            </Timeline>
+                            <Timeline
+                                position={5}
+                                target={
+                                  <span>
                             Run it on any
                             <br className={styles.breakOnDesktop} />
                             OS or embed it into other languages.
                           </span>
-                        }
-                      >
-                        <Tween duration={0.01} to={{ color: '#4946DD' }} />
+                                }
+                            >
+                              <Tween duration={0.01} to={{ color: '#4946DD' }} />
+                            </Timeline>
+                          </h2>
+                        </div>
                       </Timeline>
-                    </h2>
-                  </div>
-                </Timeline>
-              )}
-            </Scene>
-          </Controller>
-        </div>
-      </div>
+                    </div>
+                )}
+              </Scene>
+            </Controller>
+          </div>
     );
   }
 }
