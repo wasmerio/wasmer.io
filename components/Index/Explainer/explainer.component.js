@@ -3,6 +3,8 @@ import { Timeline, Tween } from 'react-gsap';
 import { Controller, Scene } from 'react-scrollmagic';
 import styles from './explainer.module.css';
 import WA from '../../../public/images/wasm-grey.svg';
+import Wasmer from '../../../public/images/wasmer.svg';
+import Plus from '../../../public/images/plus.svg';
 
 import C from '../../../public/images/languages/c.svg';
 import CPP from '../../../public/images/languages/cpp.svg';
@@ -233,6 +235,7 @@ export class ExplainerComponent extends Component {
 
   render() {
     const { containerWidth, animateVertically } = this.state;
+
     const languages = [
       '',
       <PHP />,
@@ -242,6 +245,15 @@ export class ExplainerComponent extends Component {
       <Rust />,
       <Ruby />,
       <Go />,
+    ]
+
+    const platforms = [
+      <IOS />,
+      <Android />,
+      <Windows />,
+      <Linux />,
+      '',
+      <MacOS />,
     ]
 
     let explainerStyle = {
@@ -266,50 +278,158 @@ export class ExplainerComponent extends Component {
 
     return (
       <div>
-        <Controller>
-          <Scene
-            triggerHook="onLeave"
-            duration={1400}
-            pin
-            triggerElement="#explainer"
-            indicators={true}
-          >
-            <div id="explainer" className={styles.hero}>
-              <div className={styles.explainerContainer}>
-                <div
-                  className={styles.explainer}
-                  style={explainerStyle}
-                >
-                  <Scene
-                    triggerElement="#explainer"
-                    duration={200}
-                    classToggle="highlighted"
-                    indicators={true}
-                  >
-                    <div className={styles.languages}>
-                      {languages.map((item) => {
-                        if (item === "") {
-                          return (
-                            <div className={styles.empty} />
-                          )
-                        }
+        <div id="explainer" className={styles.hero}>
+          <Controller>
+            <Scene
+              triggerHook="onLeave"
+              duration={1000}
+              pin
+              triggerElement="#explainer"
+              indicators={true}
+            >
+              {(progress, event) => (
+                <Timeline totalProgress={progress} paused>
+                  <div className={styles.explainerContainer}>
+                    <div
+                      className={styles.explainer}
+                      style={explainerStyle}
+                    >
+                      {/* Languages */} {/* TODO: Toggle 1 global class for all languages */}
+                      <div className={styles.languages}>
+                        {languages.map((item) => {
+                          if (item === "") {
+                            return (
+                              <div className={styles.empty} />
+                            )
+                          }
 
-                        return (
-                          <div className={styles.transitionContainer}>
-                            <LanguageComponent
-                              large
-                              icon={item}
-                            />
+                          return (
+                            <div className={styles.transitionContainer}>
+                              <LanguageComponent
+                                large
+                                icon={item}
+                                // TODO: Toggle .highlighted class for Rust Icon when highlighed
+                              />
+                            </div>
+                          )
+                        })}
+                      </div>
+
+                      {/* Arrow 1 */} {/* TODO: Move left from -100% to 0 */}
+                      <div className={styles.heightSizer}>
+                        <div className={styles.arrowContainer}>
+                          <div className={styles.arrowMask}>
+                            <Tween duration={100} from={{ left: '-100%' }} to={{ left: '0' }}>
+                              <div className={styles.arrowFill} />
+                            </Tween>
                           </div>
-                        )
-                      })}
-                    </div>  
-                  </Scene>
-                </div>
-              </div>
-            </div>
-          </Scene>
-        </Controller>
+                        </div>
+                      </div>
+
+                      {/* WA */} {/* TODO: Toggle .highlighted class */}
+                      <div className={styles.heightSizer}>
+                        <div className={styles.iconContainer}>
+                          <WA />
+                        </div>
+                      </div>
+
+                      {/* Arrow 2 */} {/* TODO: Move left from -100% to 0, reuse markup */}
+                      <div className={styles.heightSizer}>
+                        <div className={styles.arrowContainer}>
+                          <div className={styles.arrowMask}>
+                            <Tween duration={100} from={{ left: '-100%' }} to={{ left: '0' }}>
+                              <div className={styles.arrowFill} />
+                            </Tween>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Wasmer & Plus */} {/* TODO: Toggle .highlighted class */}
+                      <div className="flex items-center">
+                        <div className={styles.heightSizer}>
+                          <div className={styles.iconContainer}>
+                            <Wasmer />
+                          </div>
+                        </div>
+                        <div className={styles.heightSizer}>
+                          <div className={`${styles.iconContainer} ${styles.plus}`}>
+                            <Plus />
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Platforms */} {/* TODO: Toggle 1 global class for all languages */}
+                      <div className={styles.platforms}>
+                        {platforms.map((item) => {
+                          if (item === "") {
+                            return (
+                              <div className={styles.empty} />
+                            )
+                          }
+
+                          return (
+                            <div className={styles.transitionContainer}>
+                              <LanguageComponent
+                                large
+                                icon={item}
+                                // TODO: Toggle .highlighted class for Windows Icon when highlighed
+                              />
+                            </div>
+                          )
+                        })}
+                      </div>
+                    </div>
+                  </div>
+                  <div className={styles.headlineContainer}>
+                    <h2
+                      className={`${styles.headline} text-left px-8 md:px-0 sm:text-center my-24`}
+                    >
+                      <Timeline
+                        position={2}
+                        target={
+                          <span className={styles.blockOnDesktop}>
+                            Use the tools you know and the languages you love.{' '}
+                          </span>
+                        }
+                      >
+                        <Tween
+                          duration={0.01}
+                          from={{ color: '#4946DD' }}
+                          to={{ color: '#BDB7C7' }}
+                        />
+                      </Timeline>
+                      <Timeline
+                        position={2}
+                        target={
+                          <span>Compile everything to WebAssembly. </span>
+                        }
+                      >
+                        <Tween duration={0.01} to={{ color: '#4946DD' }} />
+                        <Tween
+                          delay={3}
+                          duration={0.01}
+                          to={{ color: '#BDB7C7' }}
+                        />
+                      </Timeline>
+                      <Timeline
+                        position={5}
+                        target={
+                          <span>
+                            Run it on any
+                            <br className={styles.breakOnDesktop} />
+                            OS or embed it into other languages.
+                          </span>
+                        }
+                      >
+                        <Tween duration={0.01} to={{ color: '#4946DD' }} />
+                      </Timeline>
+                    </h2>
+                  </div>
+                </Timeline>
+              )}
+            </Scene>
+          </Controller>
+        </div>
       </div>
     );
   }
