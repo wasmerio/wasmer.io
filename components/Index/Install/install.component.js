@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import handleViewport from 'react-in-viewport';
 import { ColorDots } from '../../ColorDots/color-dots.component';
-import { isMobile } from "../../../utils";
+import { isMobile } from '../../../utils';
 import { LanguageComponent } from '../../Languages/language.component';
 import { AsciinemaComponent, SnippetComponent } from './../../../components/';
 import languages from './../../Languages/languages.constants';
@@ -16,8 +16,8 @@ export class InstallComponent extends Component {
     play: false,
     fontSettings: {
       fontFamily: 'Zeitung Mono Pro',
-      fontSize: 17
-    }
+      fontSize: 17,
+    },
   };
 
   componentDidMount() {
@@ -52,9 +52,7 @@ export class InstallComponent extends Component {
                 </a>
               </p>
             </div>
-            <div
-              className={`${styles.terminal}`}
-            >
+            <div className={`${styles.terminal}`}>
               <Asciinema
                 options={{
                   theme: {
@@ -69,7 +67,7 @@ export class InstallComponent extends Component {
                   cols: 43,
                   rows: 16,
                   lineHeight: 1.1,
-                  ...fontSettings
+                  ...fontSettings,
                 }}
                 cast={scenario}
                 play={this.state.play}
@@ -89,14 +87,12 @@ export class InstallComponent extends Component {
               <div className={`dot-background dot-grid ${styles.grid}`}>
                 <ColorDots items={75} distance={[1, 50]} />
               </div>
-              <div className={`grid-container flex flex-wrap mt-dot-1 ml-dot-1 md:ml-dot-2 mb-dot-2 ${styles.gridContainer}`}>
+              <div
+                className={`grid-container flex flex-wrap mt-dot-1 ml-dot-1 md:ml-dot-2 mb-dot-2 ${styles.gridContainer}`}
+              >
                 {languages.map(({ icon, url }, index) => (
                   <div className="mr-dot-1 mb-dot-1" key={index}>
-                    <LanguageComponent
-                      icon={icon}
-                      link={url}
-                      highlighted
-                    />
+                    <LanguageComponent icon={icon} link={url} highlighted />
                   </div>
                 ))}
               </div>

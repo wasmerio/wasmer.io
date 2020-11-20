@@ -22,6 +22,7 @@ export class GithubCounterComponent extends Component {
 
   componentDidMount() {
     this.getCounter().then((counter) => {
+      counter = counter.toLocaleString();
       this.setState({ counter });
 
       if (this.state.animate) {
@@ -55,19 +56,19 @@ export class GithubCounterComponent extends Component {
     if (this.state.animate) {
       return (
         <span className={styles.root}>
-          {counter.toLocaleString().slice(0, -1)}
+          {counter.slice(0, -1)}
           <span
             className={`${styles.animation} ${update ? styles.update : ''}`}
           >
             <span className={styles.animationContainer}>
-              <span>{(counter - 1).toLocaleString().slice(-1)}</span>
-              <span>{counter.toLocaleString().slice(-1)}</span>
+              <span>{(counter - 1).slice(-1)}</span>
+              <span>{counter.slice(-1)}</span>
             </span>
           </span>
         </span>
       );
     }
 
-    return <span className={styles.root}>{counter.toLocaleString()}</span>;
+    return <span className={styles.root}>{counter}</span>;
   }
 }

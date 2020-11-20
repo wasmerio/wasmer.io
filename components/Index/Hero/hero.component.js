@@ -3,7 +3,7 @@ import { SnippetComponent } from '../..';
 import links from '../../Languages/languages-hero.constants';
 import { HeaderComponent } from './components';
 import styles from './hero.module.css';
-import {ColorDots} from "../../ColorDots/color-dots.component";
+import { ColorDots } from '../../ColorDots/color-dots.component';
 
 export const HeroComponent = () => {
   return (

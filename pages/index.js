@@ -17,36 +17,36 @@ import {
 export default function IndexPage() {
   return (
     <>
-      <HeroComponent />	
-      <ExplainerComponent />	
-      <UseCaseComponent />	
+      <HeroComponent />
+      <ExplainerComponent />
+      <UseCaseComponent />
       <InstallComponent />
-      <PackagesComponent />	
-      <TestimonialsComponent />	
-      <GridSeparatorComponent />	
-      <ContactComponent	
-        title={	
-          <>	
-            <strong>Curious?</strong> Get in touch or <br /> check out our	
-            forum.	
-          </>	
-        }	
-      >	
-        <LinkComponent	
-          isButton	
-          linkText="Go to Blog"	
-          href="https://medium.com/wasmer"	
-          target="_blank"	
-        />	
-        <LinkComponent	
-          isButton	
-          secondary	
-          linkText="Contact Sales"	
-          href="mailto:sales@wasmer.io"	
+      <PackagesComponent />
+      <TestimonialsComponent />
+      <GridSeparatorComponent />
+      <ContactComponent
+        title={
+          <>
+            <strong>Curious?</strong> Get in touch or <br /> check out our
+            forum.
+          </>
+        }
+      >
+        <LinkComponent
+          isButton
+          linkText="Go to Blog"
+          href="https://medium.com/wasmer"
+          target="_blank"
+        />
+        <LinkComponent
+          isButton
+          secondary
+          linkText="Contact Sales"
+          href="mailto:sales@wasmer.io"
           target="_blank"
           rel="noopener noreferrer"
-        />	
-      </ContactComponent>	
+        />
+      </ContactComponent>
       <TrustedByComponent />
     </>
   );

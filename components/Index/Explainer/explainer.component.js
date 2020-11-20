@@ -108,11 +108,12 @@ export class ExplainerComponent extends Component {
       screenSmallerThanAnimation = true;
     }
 
-    let animationHorizontalScroll = (1 - width / this.getAnimationWidth()) * 100;
+    let animationHorizontalScroll =
+      (1 - width / this.getAnimationWidth()) * 100;
     this.setState({
       screenSmallerThanAnimation,
       animateHorizontal,
-      animationHorizontalScroll
+      animationHorizontalScroll,
     });
   }
 
@@ -141,10 +142,12 @@ export class ExplainerComponent extends Component {
     // get the offset
     const offset = Math.round((positionedDots - animationGridHeight) / 2);
     let marginTopAmount = dotOffset + offset * dotPatternSize;
-    if(marginTopAmount < dotPatternSize * 2) {
+    if (marginTopAmount < dotPatternSize * 2) {
       marginTopAmount += dotPatternSize * 2 + 4;
     }
-    const marginTop = !this.state.screenSmallerThanAnimation ? marginTopAmount : 0;
+    const marginTop = !this.state.screenSmallerThanAnimation
+      ? marginTopAmount
+      : 0;
     this.setState({ marginTop });
   }
 
@@ -167,14 +170,15 @@ export class ExplainerComponent extends Component {
     const animationGridHeight = this.getAnimationGridHeight();
     // get the offset
     const offset = Math.round((positionedDots - animationGridHeight) / 2) - 2;
-    const paddingTop =
-      this.state.screenSmallerThanAnimation ? dotOffset + offset * dotPatternSize + 16 : 0;
+    const paddingTop = this.state.screenSmallerThanAnimation
+      ? dotOffset + offset * dotPatternSize + 16
+      : 0;
     this.setState({ paddingTop });
   }
 
   getAnimationGridHeight() {
     const { width } = this.getWindowDimensions();
-    if(width < 720) return 3;
+    if (width < 720) return 3;
     return width > 1090 ? 12 : 9;
   }
 
@@ -224,13 +228,13 @@ export class ExplainerComponent extends Component {
 
     const languages = this.getLanguages();
     const platforms = this.getPlatforms();
-    this.setState({languages, platforms});
+    this.setState({ languages, platforms });
     window.addEventListener(
-        'resize',
-        () => {
-          document.getElementById('explainer').style.marginTop = 0;
-        },
-        { passive: true },
+      'resize',
+      () => {
+        document.getElementById('explainer').style.marginTop = 0;
+      },
+      { passive: true },
     );
 
     if (!this.isTouchDevice()) {
@@ -258,169 +262,214 @@ export class ExplainerComponent extends Component {
   }
 
   render() {
-    const { containerWidth, animateHorizontal, animationHorizontalScroll } = this.state;
+    const {
+      containerWidth,
+      animateHorizontal,
+      animationHorizontalScroll,
+    } = this.state;
 
-    let {languages, platforms} = this.state;
+    let { languages, platforms } = this.state;
 
     // apply extra styles, based on
     let explainerStyle = this.getExplainerStyle(animateHorizontal);
 
     return (
-          <div className="overflow-hidden">
-            {/* REMOVE Helper */}
-            {/*<div className={styles.animationHelper}>*/}
-            {/*  <div data-step="100" style={{top: 100}}></div>*/}
-            {/*  <div data-step="200" style={{top: 200}}></div>*/}
-            {/*  <div data-step="300" style={{top: 300}}></div>*/}
-            {/*  <div data-step="400" style={{top: 400}}></div>*/}
-            {/*  <div data-step="500" style={{top: 500}}></div>*/}
-            {/*  <div data-step="600" style={{top: 600}}></div>*/}
-            {/*  <div data-step="700" style={{top: 700}}></div>*/}
-            {/*  <div data-step="800" style={{top: 800}}></div>*/}
-            {/*  <div data-step="900" style={{top: 900}}></div>*/}
-            {/*</div>*/}
-            <Controller>
-              <Scene
-                  duration={1000}
-                  pin
-                  triggerElement="#explainer"
-                  triggerHook="onLeave"
+      <div className="overflow-hidden">
+        <Controller>
+          <Scene
+            duration={1000}
+            pin
+            triggerElement="#explainer"
+            triggerHook="onLeave"
+          >
+            {(progress) => (
+              <div
+                id="explainer"
+                className={styles.hero}
+                style={{ marginTop: '0 !important' }}
               >
-                {(progress) => (
-                    <div id="explainer" className={styles.hero} style={{marginTop: '0 !important'}}>
-                      <Timeline totalProgress={progress}>
-                        <div className={styles.explainerContainer} style={{ 'transform': this.state.animateHorizontal && progress > 0.65 ? `translate3D(-${animationHorizontalScroll}%, 0, 0)` : '' }}>
-                          <div
-                              className={styles.explainer}
-                              style={explainerStyle}
-                          >
-                            {/* Languages */}
-                            <Tween duration={100} />
-                            <div
-                              className={`
+                <Timeline totalProgress={progress}>
+                  <div
+                    className={styles.explainerContainer}
+                    style={{
+                      transform:
+                        this.state.animateHorizontal && progress > 0.65
+                          ? `translate3D(-${animationHorizontalScroll}%, 0, 0)`
+                          : '',
+                    }}
+                  >
+                    <div className={styles.explainer} style={explainerStyle}>
+                      {/* Languages */}
+                      <Tween duration={100} />
+                      <div
+                        className={`
                                 ${styles.itemsGrid}
                                 ${styles.languages}
                                 ${progress > 0.3 ? styles.hideAdditional : ''}
                               `}
-                            >
-                              {languages.map((item, key) => {
-                                if (item.icon === "") {
-                                  return (
-                                    <div key={key} className={styles.empty} />
-                                  )
-                                }
+                      >
+                        {languages.map((item, key) => {
+                          if (item.icon === '') {
+                            return <div key={key} className={styles.empty} />;
+                          }
 
-                                return (
-                                  <div
-                                    key={key}
-                                    className={`
+                          return (
+                            <div
+                              key={key}
+                              className={`
                                       ${styles.transitionContainer}
-                                      ${item.hideOnTablet ? styles.hideOnTablet : ''}
+                                      ${
+                                        item.hideOnTablet
+                                          ? styles.hideOnTablet
+                                          : ''
+                                      }
                                       ${item.main ? styles.main : ''}
                                     `}
-                                  >
-                                    <LanguageComponent
-                                      large
-                                      icon={item.icon}
-                                      highlighted={item.main && progress > 0 && progress < 0.5}
-                                      className={item.main ? styles.main : ''}
-                                    />
-                                  </div>
-                                )
-                              })}
+                            >
+                              <LanguageComponent
+                                large
+                                icon={item.icon}
+                                highlighted={
+                                  item.main && progress > 0 && progress < 0.5
+                                }
+                                className={item.main ? styles.main : ''}
+                              />
                             </div>
+                          );
+                        })}
+                      </div>
 
-                            {/* Arrow 1 */}
-                            <div className={styles.arrowContainer}>
-                              <div className={styles.arrowMask}>
-                                <Tween duration={300} from={{ 'transform': 'translate3D(-100%, 0, 0)' }} to={{ 'transform': 'translate3D(0, 0, 0)' }}>
-                                  <div className={`${ progress < 0.5 ? styles.arrowFill : 'opacity-0'}`} />
-                                </Tween>
-                              </div>
-                            </div>
-
-                            {/* WA */}
-                            <Tween duration={100} />
-                            <div className={`${styles.iconContainer} ${ progress > 0.3 && progress < 0.8 ? styles.highlighted : ''}`}>
-                              <WA />
-                            </div>
-
-                            {/* Arrow 2 */}
-                            <div className={styles.arrowContainer}>
-                              <div className={styles.arrowMask}>
-                                <Tween duration={300} from={{ left: '-100%' }} to={{ left: '0' }}>
-                                  <div className={`${ progress < 0.8 ? styles.arrowFill : 'opacity-0'}`} />
-                                </Tween>
-                              </div>
-                            </div>
-
-                            {/* Wasmer & Plus */}
-                            <Tween duration={200} />
-                            <div className="flex items-center">
-                              <div className={`${styles.iconContainer} ${styles.wasmerIcon} ${progress >= 0.8 ? styles.highlighted : ''}`}>
-                                <Wasmer />
-                              </div>
-                              <div className={`${styles.iconContainer} ${styles.plus} ${progress >= 0.8 ? styles.highlighted : ''}`}>
-                                <Plus />
-                              </div>
-                            </div>
-
-                            {/* Platforms */}
+                      {/* Arrow 1 */}
+                      <div className={styles.arrowContainer}>
+                        <div className={styles.arrowMask}>
+                          <Tween
+                            duration={300}
+                            from={{ transform: 'translate3D(-100%, 0, 0)' }}
+                            to={{ transform: 'translate3D(0, 0, 0)' }}
+                          >
                             <div
-                              className={`
+                              className={`${
+                                progress < 0.5 ? styles.arrowFill : 'opacity-0'
+                              }`}
+                            />
+                          </Tween>
+                        </div>
+                      </div>
+
+                      {/* WA */}
+                      <Tween duration={100} />
+                      <div
+                        className={`${styles.iconContainer} ${
+                          progress > 0.3 && progress < 0.8
+                            ? styles.highlighted
+                            : ''
+                        }`}
+                      >
+                        <WA />
+                      </div>
+
+                      {/* Arrow 2 */}
+                      <div className={styles.arrowContainer}>
+                        <div className={styles.arrowMask}>
+                          <Tween
+                            duration={300}
+                            from={{ left: '-100%' }}
+                            to={{ left: '0' }}
+                          >
+                            <div
+                              className={`${
+                                progress < 0.8 ? styles.arrowFill : 'opacity-0'
+                              }`}
+                            />
+                          </Tween>
+                        </div>
+                      </div>
+
+                      {/* Wasmer & Plus */}
+                      <Tween duration={200} />
+                      <div className="flex items-center">
+                        <div
+                          className={`${styles.iconContainer} ${
+                            styles.wasmerIcon
+                          } ${progress >= 0.8 ? styles.highlighted : ''}`}
+                        >
+                          <Wasmer />
+                        </div>
+                        <div
+                          className={`${styles.iconContainer} ${styles.plus} ${
+                            progress >= 0.8 ? styles.highlighted : ''
+                          }`}
+                        >
+                          <Plus />
+                        </div>
+                      </div>
+
+                      {/* Platforms */}
+                      <div
+                        className={`
                                 ${styles.itemsGrid}
                                 ${styles.platforms}
                                 ${progress < 0.8 ? styles.hideAdditional : ''}
                               `}
-                            >
-                              {platforms.map((item, key) => {
-                                if (item.icon === "") {
-                                  return (
-                                      <div key={key} className={styles.empty} />
-                                  )
-                                }
+                      >
+                        {platforms.map((item, key) => {
+                          if (item.icon === '') {
+                            return <div key={key} className={styles.empty} />;
+                          }
 
-                                return (
-                                  <div
-                                    key={key}
-                                    className={`
+                          return (
+                            <div
+                              key={key}
+                              className={`
                                       ${styles.transitionContainer}
                                       ${item.main ? styles.main : ''}
                                     `}
-                                  >
-                                    <LanguageComponent
-                                        large
-                                        icon={item.icon}
-                                        highlighted={item.main && progress >= 0.8}
-                                        className={item.main ? styles.main : ''}
-                                    />
-                                  </div>
-                                )
-                              })}
+                            >
+                              <LanguageComponent
+                                large
+                                icon={item.icon}
+                                highlighted={item.main && progress >= 0.8}
+                                className={item.main ? styles.main : ''}
+                              />
                             </div>
-                          </div>
-                        </div>
-                        <div className={`container ${styles.headlineContainer}`}>
-                          <h2
-                            className={`${styles.headline} text-left md:text-center my-24`}
-                          >
-                            <span className={progress < 0.3 ? styles.highlightedText : ''}>
-                              Use the tools you know and the languages you love.{' '}
-                            </span>
-                            <span className={(progress > 0.3 && progress < 0.8) ? styles.highlightedText : ''}>
-                              Compile everything to WebAssembly. {' '}
-                            </span>
-                            <span className={(progress >= 0.8) ? styles.highlightedText : ''}>
-                              Run it on any OS or embed it into other languages.
-                            </span>
-                          </h2>
-                        </div>
-                      </Timeline>
+                          );
+                        })}
+                      </div>
                     </div>
-                )}
-              </Scene>
-            </Controller>
-          </div>
+                  </div>
+                  <div className={`container ${styles.headlineContainer}`}>
+                    <h2
+                      className={`${styles.headline} text-left md:text-center my-24`}
+                    >
+                      <span
+                        className={progress < 0.3 ? styles.highlightedText : ''}
+                      >
+                        Use the tools you know and the languages you love.{' '}
+                      </span>
+                      <span
+                        className={
+                          progress > 0.3 && progress < 0.8
+                            ? styles.highlightedText
+                            : ''
+                        }
+                      >
+                        Compile everything to WebAssembly.{' '}
+                      </span>
+                      <span
+                        className={
+                          progress >= 0.8 ? styles.highlightedText : ''
+                        }
+                      >
+                        Run it on any OS or embed it into other languages.
+                      </span>
+                    </h2>
+                  </div>
+                </Timeline>
+              </div>
+            )}
+          </Scene>
+        </Controller>
+      </div>
     );
   }
 
@@ -445,31 +494,31 @@ export class ExplainerComponent extends Component {
   getLanguages() {
     var languages = [
       {
-        icon: <PHP/>
+        icon: <PHP />,
       },
       {
-        icon: <CSharp/>
+        icon: <CSharp />,
       },
       {
-        icon: <CPP/>
+        icon: <CPP />,
       },
       {
-        icon: <Python/>
+        icon: <Python />,
       },
       {
-        icon: <Rust/>,
+        icon: <Rust />,
       },
       {
-        icon: <Ruby/>
+        icon: <Ruby />,
       },
       {
-        icon: <Go/>
+        icon: <Go />,
       },
     ];
 
     languages = this.shuffle(languages).map(function (language, key) {
       if (key === 1) {
-        language['hideOnTablet'] = true
+        language['hideOnTablet'] = true;
       }
       if (key === 4) {
         language['main'] = true;
@@ -477,32 +526,30 @@ export class ExplainerComponent extends Component {
       return language;
     });
 
-    languages.unshift(
-        {
-          icon: ''
-        })
+    languages.unshift({
+      icon: '',
+    });
     return languages;
   }
 
   getPlatforms() {
     var platforms = [
       {
-        icon: <IOS/>
+        icon: <IOS />,
       },
       {
-        icon: <Android/>
+        icon: <Android />,
       },
       {
-        icon: <Windows/>
+        icon: <Windows />,
       },
       {
-        icon: <Linux/>
+        icon: <Linux />,
       },
       {
-        icon: <MacOS/>
+        icon: <MacOS />,
       },
     ];
-
 
     platforms = this.shuffle(platforms).map(function (language, key) {
       if (key === 2) {
@@ -511,10 +558,9 @@ export class ExplainerComponent extends Component {
       return language;
     });
 
-    platforms.splice(4, 0,
-        {
-          icon: ''
-        });
+    platforms.splice(4, 0, {
+      icon: '',
+    });
     return platforms;
   }
 }

@@ -34,7 +34,9 @@
   }
 
   .grid {
-    --grid-height: calc(var(--terminal-height) + var(--embed-padding) + var(--section-top-padding));
+    --grid-height: calc(
+      var(--terminal-height) + var(--embed-padding) + var(--section-top-padding)
+    );
     top: calc(var(--grid-height) * -1);
     height: calc(100% + var(--grid-height));
     z-index: -1;
@@ -82,12 +84,11 @@
   }
 
   .gridLogos {
-    width: var(--terminal-width);  
+    width: var(--terminal-width);
   }
 }
 
 @media (min-width: 1152px) {
-
   .embedText {
     width: 40%;
   }

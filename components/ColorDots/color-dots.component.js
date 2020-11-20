@@ -166,9 +166,9 @@ export const ColorDots = ({
           position = `calc(${last.left}px) ${last.top}px`;
         }
         if (['xs', 'sm'].indexOf(screen) === -1) {
-          position = `calc(100% ${index % 2 ? '+' : '-'} ${
-            last.left
-          }px) ${last.top}px`;
+          position = `calc(100% ${index % 2 ? '+' : '-'} ${last.left}px) ${
+            last.top
+          }px`;
         }
       }
 
@@ -177,9 +177,9 @@ export const ColorDots = ({
           position = `calc(12px + ${last.left}px) ${last.top}px`;
         }
         if (['xs', 'sm'].indexOf(screen) === -1) {
-          position = `calc(100% ${index % 2 ? '+' : '-'} ${
-            last.left
-          }px) ${last.top}px`;
+          position = `calc(100% ${index % 2 ? '+' : '-'} ${last.left}px) ${
+            last.top
+          }px`;
         }
       }
 

@@ -17,9 +17,9 @@ export const MenuItemsComponent = ({ links, mobile, onClick }) => {
               className={`${
                 mobile ? 'py-4 w-full block text-white text-base' : ''
               } no-underline`}
-              target={external && '_blank'}
+              target={external ? '_blank' : ''}
               onClick={onClick}
-              rel={external && 'noopener noreferrer'}
+              rel={external ? 'noopener noreferrer' : ''}
             >
               {label}
             </a>

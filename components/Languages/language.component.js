@@ -9,11 +9,9 @@ export const LanguageComponent = ({
   className,
 }) => {
   const iconMarkup = (
-    <div className="absolute top-0 left-0 w-full h-full lg:p-1">
-      {icon}
-    </div>
-  )
-    
+    <div className="absolute top-0 left-0 w-full h-full lg:p-1">{icon}</div>
+  );
+
   if (!link) {
     return (
       <div
@@ -27,12 +25,13 @@ export const LanguageComponent = ({
       >
         {icon && iconMarkup}
       </div>
-    )
+    );
   }
   return (
     <a
       href={link}
       target="_blank"
+      rel="noreferrer"
       className={`
         grid-box extended text-white relative h-dot-2 lg:h-dot-3 w-dot-2 lg:w-dot-3
         ${styles.root}
