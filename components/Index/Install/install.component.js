@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import handleViewport from 'react-in-viewport';
+import { ColorDots } from '../../ColorDots/color-dots.component';
 import { isMobile } from "../../../utils";
 import { LanguageComponent } from '../../Languages/language.component';
 import { AsciinemaComponent, SnippetComponent } from './../../../components/';
@@ -29,7 +30,9 @@ export class InstallComponent extends Component {
     const { play, fontSettings } = this.state;
     return (
       <div className="my-page md:pb-32 relative">
-        <div className={styles.grid} />
+        <div className={styles.grid}>
+          <ColorDots items={75} distance={[1, 50]} />
+        </div>
         <div className="container flex flex-col lg:flex-row items-center">
           <div className={`md:text-center lg:text-left ${styles.install}`}>
             <h2 className="font-bold mb-4 xl:mb-6">Try it now!</h2>
