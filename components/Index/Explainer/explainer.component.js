@@ -318,100 +318,98 @@ export class ExplainerComponent extends Component {
                     <div id="explainer" className={styles.hero} style={{marginTop: '0 !important'}}>
                       <Timeline totalProgress={progress} paused>
                         <div className={styles.explainerContainer}>
-                          <Tween to={{right: 0}}>
-                            <div
-                                className={styles.explainer}
-                                style={explainerStyle}
-                            >
-                              {/* Languages */} {/* TODO: Toggle 1 global class for all languages */}
-                              <div className={styles.languages}>
-                                {languages.map((item, key) => {
-                                  if (item.icon === "" || (!item.main && progress>0.5)) {
-                                    return (
-                                        <div key={key} className={styles.empty} />
-                                    )
-                                  }
-
+                          <div
+                              className={styles.explainer}
+                              style={explainerStyle}
+                          >
+                            {/* Languages */}
+                            <div className={styles.languages}>
+                              {languages.map((item, key) => {
+                                if (item.icon === "" || (!item.main && progress>0.5)) {
                                   return (
-                                      <div
-                                          key={key}
-                                          className={`
-                                        ${styles.transitionContainer}
-                                        ${item.hideOnTablet ? styles.hideOnTablet : ''}
-                                        ${item.main ? styles.main : ''}
-                                      `}
-                                      >
-                                        <LanguageComponent
-                                            large
-                                            icon={item.icon}
-                                            highlighted={item.main && progress > 0 && progress < 0.5}
-                                        />
-                                      </div>
+                                      <div key={key} className={styles.empty} />
                                   )
-                                })}
-                              </div>
+                                }
 
-                              {/* Arrow 1 */}
-                              <div className={styles.arrowContainer}>
-                                <div className={styles.arrowMask}>
-                                  <Tween duration={200} from={{ left: '-100%' }} to={{ left: '0' }}>
-                                    <div className={`${ progress < 0.5 ? styles.arrowFill : 'hidden'}`} />
-                                  </Tween>
-                                </div>
-                              </div>
+                                return (
+                                    <div
+                                        key={key}
+                                        className={`
+                                      ${styles.transitionContainer}
+                                      ${item.hideOnTablet ? styles.hideOnTablet : ''}
+                                      ${item.main ? styles.main : ''}
+                                    `}
+                                    >
+                                      <LanguageComponent
+                                          large
+                                          icon={item.icon}
+                                          highlighted={item.main && progress > 0 && progress < 0.5}
+                                      />
+                                    </div>
+                                )
+                              })}
+                            </div>
 
-                              {/* WA */}
-                              <div className={`${styles.iconContainer} ${ progress > 0.5 && progress < 1 ? styles.highlighted : ''}`}>
-                                <WA />
-                              </div>
-
-                              {/* Arrow 2 */}
-                              <div className={styles.arrowContainer}>
-                                <div className={styles.arrowMask}>
-                                  <Tween duration={200} from={{ left: '-100%' }} to={{ left: '0' }}>
-                                    <div className={`${ progress < 1 ? styles.arrowFill : 'hidden'}`} />
-                                  </Tween>
-                                </div>
-                              </div>
-
-                              {/* Wasmer & Plus */}
-                              <div className="flex items-center">
-                                <div className={`${styles.iconContainer} ${styles.wasmerIcon} ${progress >= 1 ? styles.highlighted : ''}`}>
-                                  <Wasmer />
-                                </div>
-                                <div className={`${styles.iconContainer} ${styles.plus} ${progress >= 1 ? styles.highlighted : ''}`}>
-                                  <Plus />
-                                </div>
-                              </div>
-
-                              {/* Platforms */}
-                              <div className={styles.platforms}>
-                                {platforms.map((item, key) => {
-                                  if (item.icon === "" || (!item.main && progress<=0.5)) {
-                                    return (
-                                        <div key={key} className={styles.empty} />
-                                    )
-                                  }
-
-                                  return (
-                                      <div
-                                          key={key}
-                                          className={`
-                                    ${styles.transitionContainer}
-                                    ${item.main ? styles.main : ''}
-                                  `}
-                                      >
-                                        <LanguageComponent
-                                            large
-                                            icon={item.icon}
-                                            highlighted={item.main && progress >= 1}
-                                        />
-                                      </div>
-                                  )
-                                })}
+                            {/* Arrow 1 */}
+                            <div className={styles.arrowContainer}>
+                              <div className={styles.arrowMask}>
+                                <Tween duration={200} from={{ left: '-100%' }} to={{ left: '0' }}>
+                                  <div className={`${ progress < 0.5 ? styles.arrowFill : 'hidden'}`} />
+                                </Tween>
                               </div>
                             </div>
-                          </Tween>
+
+                            {/* WA */}
+                            <div className={`${styles.iconContainer} ${ progress > 0.5 && progress < 1 ? styles.highlighted : ''}`}>
+                              <WA />
+                            </div>
+
+                            {/* Arrow 2 */}
+                            <div className={styles.arrowContainer}>
+                              <div className={styles.arrowMask}>
+                                <Tween duration={200} from={{ left: '-100%' }} to={{ left: '0' }}>
+                                  <div className={`${ progress < 1 ? styles.arrowFill : 'hidden'}`} />
+                                </Tween>
+                              </div>
+                            </div>
+
+                            {/* Wasmer & Plus */}
+                            <div className="flex items-center">
+                              <div className={`${styles.iconContainer} ${styles.wasmerIcon} ${progress >= 1 ? styles.highlighted : ''}`}>
+                                <Wasmer />
+                              </div>
+                              <div className={`${styles.iconContainer} ${styles.plus} ${progress >= 1 ? styles.highlighted : ''}`}>
+                                <Plus />
+                              </div>
+                            </div>
+
+                            {/* Platforms */}
+                            <div className={styles.platforms}>
+                              {platforms.map((item, key) => {
+                                if (item.icon === "" || (!item.main && progress<=0.5)) {
+                                  return (
+                                      <div key={key} className={styles.empty} />
+                                  )
+                                }
+
+                                return (
+                                    <div
+                                        key={key}
+                                        className={`
+                                  ${styles.transitionContainer}
+                                  ${item.main ? styles.main : ''}
+                                `}
+                                    >
+                                      <LanguageComponent
+                                          large
+                                          icon={item.icon}
+                                          highlighted={item.main && progress >= 1}
+                                      />
+                                    </div>
+                                )
+                              })}
+                            </div>
+                          </div>
                         </div>
                         <div className={styles.headlineContainer}>
                           <h2
