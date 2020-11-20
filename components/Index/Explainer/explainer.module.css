@@ -61,7 +61,7 @@
 
 .itemsGrid > div {
   @apply relative;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.4s ease;
 }
 
 /* Empty Elements below 1200px */
@@ -72,6 +72,7 @@
 /* Main Element */
 
 .itemsGrid div.main {
+  @apply z-10;
   transition: background-color 0.2s ease;
   transition-property: background-color, box-shadow;
 }
@@ -245,7 +246,7 @@
   .itemsGrid .empty {
     @apply block;
   }
-  
+
   .hideOnTablet {
     @apply block;
   }
