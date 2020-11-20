@@ -254,4 +254,8 @@
   .hideOnTablet {
     @apply block;
   }
+
+  .headline {
+    @apply max-w-5xl;
+  }
 }
