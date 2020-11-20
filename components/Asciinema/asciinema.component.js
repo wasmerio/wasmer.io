@@ -22,7 +22,7 @@ export class AsciinemaComponent extends Component {
 
   componentDidMount() {
     if (this.props.options && this.props.options.fontFamily) {
-      let font = new FontFaceObserver(this.props.options.fontFamily);
+      let font = new FontFaceObserver(this.props.options.fontFamily, { weight: 400 });
       font.load().then(() => {
         this.initXTerm();
       });
@@ -60,7 +60,7 @@ export class AsciinemaComponent extends Component {
     if (this.state.played) {
       return;
     }
-    this.xterm.focus();
+    //this.xterm.focus();
     this.setState({ played: true });
     let [data, ...operations] = this.props.cast;
     for (let [time, type, value] of operations) {

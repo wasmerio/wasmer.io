@@ -4,4 +4,6 @@
 		 url('ZeitungMonoPro-Regular.woff') format('woff'),
 		 url('ZeitungMonoPro-Regular.ttf') format('truetype');
 	font-display: swap;
+	font-style: normal;
+	font-weight: 400;
 }
