@@ -27,7 +27,7 @@ export const HeroComponent = () => {
                     key={`${url}-${name}`}
                     className="flex-auto self-center mx-1"
                   >
-                    <a href={url} className={`${styles.item}`}>
+                    <a href={url} target="_blank" className={`${styles.item}`}>
                       <img className={styles.icon} src={icon.image} />
                       <img
                         className={styles.iconAlternative}
