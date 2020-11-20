@@ -6,17 +6,11 @@ import WA from '../../../public/images/wasm-grey.svg';
 import Wasmer from '../../../public/images/wasmer.svg';
 import Plus from '../../../public/images/plus.svg';
 
-import C from '../../../public/images/languages/c.svg';
 import CPP from '../../../public/images/languages/cpp.svg';
 import CSharp from '../../../public/images/languages/c-sharp.svg';
-import Elixir from '../../../public/images/languages/elixir.svg';
 import Go from '../../../public/images/languages/go.svg';
-import Java from '../../../public/images/languages/java.svg';
-import JavaScript from '../../../public/images/languages/javascript.svg';
 import PHP from '../../../public/images/languages/php.svg';
-import Postgres from '../../../public/images/languages/postgress.svg';
 import Python from '../../../public/images/languages/python.svg';
-import R from '../../../public/images/languages/r.svg';
 import Ruby from '../../../public/images/languages/ruby.svg';
 import Rust from '../../../public/images/languages/rust.svg';
 
@@ -234,75 +228,22 @@ export class ExplainerComponent extends Component {
     }
   }
 
+  shuffle(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
   render() {
     const { containerWidth, animateVertically } = this.state;
 
-    const languages = [
-      {
-        icon: ''
-      },
-      {
-        icon: <PHP />
-      },
-      {
-        icon: <CSharp />,
-        hideOnTablet: true
-      },
-      {
-        icon: <CPP />
-      },
-      {
-        icon: <Python />
-      },
-      {
-        icon: <Rust />,
-        main: true
-      },
-      {
-        icon: <Ruby />
-      },
-      {
-        icon: <Go />
-      },
-    ]
-
-    const platforms = [
-      {
-        icon: <IOS />
-      },
-      {
-        icon: <Android />
-      },
-      {
-        icon: <Windows />,
-        main: true
-      },
-      {
-        icon: <Linux />
-      },
-      {
-        icon: ''
-      },
-      {
-        icon: <MacOS />
-      },
-    ]
+    var languages = this.getLanguages();
+    var platforms = this.getPlatforms();
 
     // apply extra styles, based on
-    let explainerStyle = {
-      marginTop: this.state.marginTop,
-      // width: `${containerWidth}px`,
-    };
-    if (!animateVertically) {
-      explainerStyle['left'] = 0;
-    } else {
-      delete explainerStyle['left'];
-    }
-
-    if (this.state.screenSmallerThanAnimation) {
-      explainerStyle['paddingTop'] = this.state.paddingTop + 10;
-      // explainerStyle['marginLeft'] = this.state.marginLeft;
-    }
+    let explainerStyle = this.getExplainerStyle(animateVertically);
 
     return (
           <div className="overflow-hidden">
@@ -455,470 +396,98 @@ export class ExplainerComponent extends Component {
           </div>
     );
   }
+
+  getExplainerStyle(animateVertically) {
+    let explainerStyle = {
+      marginTop: this.state.marginTop,
+      // width: `${containerWidth}px`,
+    };
+    if (!animateVertically) {
+      explainerStyle['left'] = 0;
+    } else {
+      delete explainerStyle['left'];
+    }
+
+    if (this.state.screenSmallerThanAnimation) {
+      explainerStyle['paddingTop'] = this.state.paddingTop + 10;
+      // explainerStyle['marginLeft'] = this.state.marginLeft;
+    }
+    return explainerStyle;
+  }
+
+  getLanguages() {
+    var languages = [
+      {
+        icon: <PHP/>
+      },
+      {
+        icon: <CSharp/>
+      },
+      {
+        icon: <CPP/>
+      },
+      {
+        icon: <Python/>
+      },
+      {
+        icon: <Rust/>,
+      },
+      {
+        icon: <Ruby/>
+      },
+      {
+        icon: <Go/>
+      },
+    ];
+
+    languages = this.shuffle(languages).map(function (language, key) {
+      if (key === 1) {
+        language['hideOnTablet'] = true
+      }
+      if (key === 4) {
+        language['main'] = true;
+      }
+      return language;
+    });
+
+    languages.unshift(
+        {
+          icon: ''
+        })
+    return languages;
+  }
+
+  getPlatforms() {
+    var platforms = [
+      {
+        icon: <IOS/>
+      },
+      {
+        icon: <Android/>
+      },
+      {
+        icon: <Windows/>
+      },
+      {
+        icon: <Linux/>
+      },
+      {
+        icon: <MacOS/>
+      },
+    ];
+
+
+    platforms = this.shuffle(platforms).map(function (language, key) {
+      if (key === 2) {
+        language['main'] = true;
+      }
+      return language;
+    });
+
+    platforms.splice(4, 0,
+        {
+          icon: ''
+        });
+    return platforms;
+  }
 }
-
-
-// {(progress) => (
-//   <div id="explainer" className={styles.hero}>
-//     <Timeline totalProgress={progress} paused>
-//       <div className={styles.explainerContainer}>
-//         <Timeline
-//           position={0}
-//           target={
-//             <div
-//               className={styles.explainer}
-//               style={explainerStyle}
-//             >
-//               <div className={styles.languages}>
-//                 <div className={styles.empty} />
-//                 <div className={styles.restVisibleOnDesktop}>
-//                   <Timeline
-//                     position={1}
-//                     target={
-//                       <div className={styles.transitionContainer}>
-//                         <LanguageComponent
-//                           large
-//                           icon={<PHP />}
-//                         />
-//                       </div>
-//                     }
-//                   >
-//                     <Tween
-//                       duration={0.01}
-//                       from={{ opacity: 1 }}
-//                       to={{ opacity: 0 }}
-//                     />
-//                   </Timeline>
-//                 </div>
-//                 <div className={styles.rest}>
-//                   <Timeline
-//                     position={1}
-//                     target={
-//                       <div className={styles.transitionContainer}>
-//                         <LanguageComponent
-//                           large
-//                           icon={<CSharp />}
-//                         />
-//                       </div>
-//                     }
-//                   >
-//                     <Tween
-//                       duration={0.01}
-//                       from={{ opacity: 1 }}
-//                       to={{ opacity: 0 }}
-//                     />
-//                   </Timeline>
-//                 </div>
-//                 <div className={styles.rest}>
-//                   <Timeline
-//                     position={1}
-//                     duration={0.01}
-//                     target={
-//                       <div className={styles.transitionContainer}>
-//                         <LanguageComponent
-//                           large
-//                           icon={<CPP />}
-//                         />
-//                       </div>
-//                     }
-//                   >
-//                     <Tween
-//                       from={{ opacity: 1 }}
-//                       to={{ opacity: 0 }}
-//                     />
-//                   </Timeline>
-//                 </div>
-//                 <div className={styles.rest}>
-//                   <Timeline
-//                     position={1}
-//                     target={
-//                       <div className={styles.transitionContainer}>
-//                         <LanguageComponent
-//                           large
-//                           icon={<Python />}
-//                         />
-//                       </div>
-//                     }
-//                   >
-//                     <Tween
-//                       duration={0.01}
-//                       from={{ opacity: 1 }}
-//                       to={{ opacity: 0 }}
-//                     />
-//                   </Timeline>
-//                 </div>
-//                 <div className="relative">
-//                   <LanguageComponent
-//                     large
-//                     icon={<Rust />}
-//                   />
-//                   <Timeline
-//                     position={2}
-//                     target={
-//                       <div className={`${styles.highlight}`}>
-//                         <LanguageComponent
-//                           large
-//                           highlighted
-//                           icon={<Rust />}
-//                         />
-//                       </div>
-//                     }
-//                   >
-//                     <Tween
-//                       duration={0.01}
-//                       from={{ opacity: 1 }}
-//                       to={{ opacity: 0 }}
-//                     />
-//                   </Timeline>
-//                 </div>
-//                 <div className={styles.rest}>
-//                   <Timeline
-//                     position={1}
-//                     target={
-//                       <div className={styles.transitionContainer}>
-//                         <LanguageComponent
-//                           large
-//                           icon={<Ruby />}
-//                         />
-//                       </div>
-//                     }
-//                   >
-//                     <Tween
-//                       duration={0.01}
-//                       from={{ opacity: 1 }}
-//                       to={{ opacity: 0 }}
-//                     />
-//                   </Timeline>
-//                 </div>
-//                 <div className={styles.rest}>
-//                   <Timeline
-//                     position={1}
-//                     target={
-//                       <div className={styles.transitionContainer}>
-//                         <LanguageComponent
-//                           large
-//                           icon={<Go />}
-//                         />
-//                       </div>
-//                     }
-//                   >
-//                     <Tween
-//                       duration={0.01}
-//                       from={{ opacity: 1 }}
-//                       to={{ opacity: 0 }}
-//                     />
-//                   </Timeline>
-//                 </div>
-//                 <div className={styles.restVisibleOnTablet}>
-//                   <Timeline
-//                     position={1}
-//                     target={
-//                       <div className={styles.transitionContainer}>
-//                         <LanguageComponent
-//                           large
-//                           icon={<PHP />}
-//                         />
-//                       </div>
-//                     }
-//                   >
-//                     <Tween
-//                       duration={0.01}
-//                       from={{ opacity: 1 }}
-//                       to={{ opacity: 0 }}
-//                     />
-//                   </Timeline>
-//                 </div>
-//                 <div className={styles.empty} />
-//               </div>
-//               <div className={styles.heightSizer}>
-//                 <div className={styles.arrowContainer}>
-//                   <div className={styles.arrowContainerInner}>
-//                     <Timeline
-//                       position={0}
-//                       target={
-//                         <div className={styles.arrowMask}></div>
-//                       }
-//                     >
-//                       <Tween from={{ left: 0 }} to={{ left: 50 }} />
-//                     </Timeline>
-//                     <Timeline
-//                       position={1}
-//                       target={
-//                         <img
-//                           className={styles.arrow}
-//                           src="images/arrow_color.svg"
-//                         />
-//                       }
-//                     >
-//                       <Tween
-//                         from={{ zIndex: 3 }}
-//                         to={{ zIndex: 2 }}
-//                       />
-//                     </Timeline>
-//                     <img
-//                       className={styles.arrowGrey}
-//                       src="images/arrow.svg"
-//                     />
-//                   </div>
-//                 </div>
-//               </div>
-//               <div className={styles.waContainer}>
-//                 <div className={styles.waContainerInner}>
-//                   <Timeline
-//                     position={2}
-//                     target={
-//                       <div className={styles.color}>
-//                         <WA />
-//                       </div>
-//                     }
-//                   >
-//                     <Tween
-//                       duration={0.01}
-//                       toggleClass='highlighted'
-//                     />
-//                   </Timeline>
-//                   <Timeline
-//                     position={4}
-//                     target={<div className={styles.grey} />}
-//                   >
-//                     <Tween
-//                       from={{ zIndex: 3 }}
-//                       to={{ zIndex: 5 }}
-//                     />
-//                   </Timeline>
-//                 </div>
-//               </div>
-//               <div className={styles.heightSizer}>
-//                 <div className={styles.arrowContainer}>
-//                   <div className={styles.arrowContainerInner}>
-//                     <Timeline
-//                       position={4}
-//                       target={
-//                         <img
-//                           className={styles.arrow}
-//                           src="images/arrow_color.svg"
-//                         />
-//                       }
-//                     >
-//                       <Tween
-//                         from={{ zIndex: 3 }}
-//                         to={{ zIndex: 2 }}
-//                       />
-//                     </Timeline>
-//                     <Timeline
-//                       position={3}
-//                       target={
-//                         <div className={styles.arrowMask}></div>
-//                       }
-//                     >
-//                       <Tween from={{ left: 0 }} to={{ left: 50 }} />
-//                     </Timeline>
-//                     <img
-//                       className={styles.arrowGrey}
-//                       src="images/arrow.svg"
-//                     />
-//                   </div>
-//                 </div>
-//               </div>
-
-//               <div className={styles.heightSizer}>
-//                 <div className={styles.wasmerContainer}>
-//                   <Timeline
-//                     position={5}
-//                     target={<div className={styles.color} />}
-//                   >
-//                     <Tween
-//                       duration={0.01}
-//                       from={{ opacity: 0 }}
-//                       to={{ opacity: 1 }}
-//                     />
-//                   </Timeline>
-//                   <div className={styles.grey} />
-//                 </div>
-//               </div>
-
-//               <div className={styles.heightSizer}>
-//                 <div className={styles.plusContainer}>
-//                   <div className={styles.plusContainerInner}>
-//                     <Timeline
-//                       position={5}
-//                       target={
-//                         <img
-//                           className={styles.plus}
-//                           src="images/plus_color.svg"
-//                         />
-//                       }
-//                     >
-//                       <Tween
-//                         duration={0.01}
-//                         from={{ opacity: 0 }}
-//                         to={{ opacity: 1 }}
-//                       />
-//                     </Timeline>
-//                     <img
-//                       className={styles.plusGrey}
-//                       src="images/plus.svg"
-//                     />
-//                   </div>
-//                 </div>
-//               </div>
-//               <div className={styles.platforms}>
-//                 <div className={styles.rest}>
-//                   <Timeline
-//                     position={5}
-//                     target={
-//                       <div className={styles.transitionContainer}>
-//                         <LanguageComponent
-//                           large
-//                           icon={<IOS />}
-//                         />
-//                       </div>
-//                     }
-//                   >
-//                     <Tween
-//                       duration={0.01}
-//                       from={{ opacity: 0 }}
-//                       to={{ opacity: 1 }}
-//                     />
-//                   </Timeline>
-//                 </div>
-//                 <div className={styles.rest}>
-//                   <Timeline
-//                     position={5}
-//                     target={
-//                       <div className={styles.transitionContainer}>
-//                         <LanguageComponent
-//                           large
-//                           icon={<Android />}
-//                         />
-//                       </div>
-//                     }
-//                   >
-//                     <Tween
-//                       duration={0.01}
-//                       from={{ opacity: 0 }}
-//                       to={{ opacity: 1 }}
-//                     />
-//                   </Timeline>
-//                 </div>
-//                 <div className={styles.mainItem}>
-//                   <Timeline
-//                     position={5}
-//                     target={
-//                       <div className={`${styles.transitionContainer} ${styles.highlight}`}>
-//                         <LanguageComponent
-//                           large
-//                           highlighted
-//                           icon={<Windows />}
-//                         />
-//                       </div>
-//                     }
-//                   >
-//                     <Tween
-//                       duration={0.01}
-//                       from={{ opacity: 0 }}
-//                       to={{ opacity: 1 }}
-//                     />
-//                   </Timeline>
-//                   <div className={styles.transitionContainer}>
-//                     <LanguageComponent
-//                       large
-//                       icon={<Windows />}
-//                     />
-//                   </div>
-//                 </div>
-//                 <div className={styles.rest}>
-//                   <Timeline
-//                     position={5}
-//                     target={
-//                       <div className={styles.transitionContainer}>
-//                         <LanguageComponent
-//                           large
-//                           icon={<Linux />}
-//                         />
-//                       </div>
-//                     }
-//                   >
-//                     <Tween
-//                       duration={0.01}
-//                       from={{ opacity: 0 }}
-//                       to={{ opacity: 1 }}
-//                     />
-//                   </Timeline>
-//                 </div>
-//                 <div className={styles.empty} />
-//                 <div className={styles.rest}>
-//                   <Timeline
-//                     position={5}
-//                     target={
-//                       <div className={styles.transitionContainer}>
-//                         <LanguageComponent
-//                           large
-//                           icon={<MacOS />}
-//                         />
-//                       </div>
-//                     }
-//                   >
-//                     <Tween
-//                       duration={0.01}
-//                       from={{ opacity: 0 }}
-//                       to={{ opacity: 1 }}
-//                     />
-//                   </Timeline>
-//                 </div>
-//               </div>
-//             </div>
-//           }
-//         >
-//           <Tween delay={-3} to={{ right: 0 }} />
-//         </Timeline>
-//       </div>
-//       <div className={styles.headlineContainer}>
-//         <h2
-//           className={`${styles.headline} text-left px-8 md:px-0 sm:text-center my-24`}
-//         >
-//           <Timeline
-//             position={2}
-//             target={
-//               <span className={styles.blockOnDesktop}>
-//                 Use the tools you know and the languages you love.{' '}
-//               </span>
-//             }
-//           >
-//             <Tween
-//               duration={0.01}
-//               from={{ color: '#4946DD' }}
-//               to={{ color: '#BDB7C7' }}
-//             />
-//           </Timeline>
-//           <Timeline
-//             position={2}
-//             target={
-//               <span>Compile everything to WebAssembly. </span>
-//             }
-//           >
-//             <Tween duration={0.01} to={{ color: '#4946DD' }} />
-//             <Tween
-//               delay={3}
-//               duration={0.01}
-//               to={{ color: '#BDB7C7' }}
-//             />
-//           </Timeline>
-//           <Timeline
-//             position={5}
-//             target={
-//               <span>
-//                 Run it on any
-//                 <br className={styles.breakOnDesktop} />
-//                 OS or embed it into other languages.
-//               </span>
-//             }
-//           >
-//             <Tween duration={0.01} to={{ color: '#4946DD' }} />
-//           </Timeline>
-//         </h2>
-//       </div>
-//     </Timeline>
-//   </div>
-// )}
-// </Scene>
