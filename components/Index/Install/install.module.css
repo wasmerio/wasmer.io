@@ -6,12 +6,6 @@
   @apply overflow-hidden;
 }
 
-.install {
-  
-  /* width: 40%; */
-  /* width: 32%; */
-}
-
 .terminal {
   @apply relative p-4 pb-12 overflow-hidden bg-primary shadow-lightpurple rounded mt-12 -mx-4;
   height: var(--terminal-height);
@@ -23,22 +17,14 @@
 
 .embedText {
   @apply mt-16 mb-10;
-  /* width: 30%; */
-  /* flex: 0 0 auto; */
 }
 
 .gridLogos {
   @apply relative p-4 -mx-8;
-  
-  /* width: 50%; */
 }
 
 .grid {
   @apply left-0;
-}
-
-.gridContainer {
-
 }
 
 @media (min-width: 650px) {
@@ -55,8 +41,6 @@
     --grid-height: calc(var(--terminal-height) + var(--embed-padding) + var(--section-top-padding));
     top: calc(var(--grid-height) * -1);
     height: calc(100% + var(--grid-height));
-    /* left: -8px; */
-    /* transform:translate(-8px,-8px); */
     z-index: -1;
   }
 
@@ -102,21 +86,10 @@
   }
 }
 
-
-
 @media (min-width: 1152px) {
-  .root {
-    /* --terminal-width: 530px; */
-  }
 
   .embedText {
     width: 40%;
-  }
-}
-
-@media (max-width: 1023px) {
-  .terminal {
-    pointer-events: none;
   }
 }
 
@@ -130,5 +103,11 @@
 
   .gridLogos {
     left: 8px; /* Align grid with max content-width */
+  }
+}
+
+@media (max-width: 1023px) {
+  .terminal {
+    pointer-events: none;
   }
 }
