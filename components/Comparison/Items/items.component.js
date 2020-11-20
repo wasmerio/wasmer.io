@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './items.module.css';
 import Link from 'next/link';
-import { LanguageComponent } from '../../Languages/Language.component';
+import { LanguageComponent } from '../../Languages/language.component';
 
 export const ItemsComponent = ({ repository, competitorName, reversed }) => {
   const wasmer = repository[0];

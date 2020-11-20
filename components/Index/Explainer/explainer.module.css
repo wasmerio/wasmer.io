@@ -1,3 +1,26 @@
+.animationHelper {
+  @apply absolute right-0;
+  width: 100px;
+  height: 1000px;
+  top: calc(90vh - 107px + 99px)
+}
+
+.animationHelper div {
+  @apply absolute;
+  right: 0;
+  height: 1px;
+  width: 100%;
+  background: red;
+  z-index: 100;
+}
+
+.animationHelper div:before {
+  content: attr(data-step);
+  color: red;
+  font-size: 12px;
+  @apply absolute left-0 top-0;
+}
+
 /* Container */
 /* --------- */
 
@@ -9,40 +32,52 @@
   background: repeat left top var(--dots-on-light);
   background-size: var(--spacing) var(--spacing);
   height: var(--explainer-grid-height);
-  @apply items-baseline flex overflow-visible;
+  width: fit-content;
+  transition: transform .2s ease-out;
+  @apply items-baseline flex overflow-visible pr-24;
 }
 
 .explainer {
-  margin-left: calc(var(--spacing) * 1.5 - var(--dot-size));
+  margin-left: calc(var(--spacing) - var(--dot-size) + 1rem);
   @apply relative flex items-center justify-start;
 }
-
-/* TODO Vittorio: Remove this fix as soon as possible, probably some calculation is off */
-/*@media (max-width: 1090px) {*/
-/*  .explainer {*/
-/*    margin-top: 40px !important;*/
-/*  }*/
-/*}*/
 
 /* Languages and Platforms Grid */
 /* ---------------------------- */
 
-.languages,
-.platforms {
+.itemsGrid {
   --col: calc(var(--spacing) * 2 + var(--dot-size));
   grid-template-columns: var(--col);
   gap: 24px; /* exactly the space between 2 dots */
   @apply grid;
 }
 
-.languages > div,
-.platforms > div {
+.itemsGrid > div {
   @apply relative;
+  transition: opacity 0.4s ease;
 }
 
 /* Empty Elements below 1200px */
-.languages .empty {
+.itemsGrid .empty {
   @apply hidden;
+}
+
+/* Main Element */
+
+.itemsGrid div.main {
+  @apply z-10;
+  transition: background-color 0.2s ease;
+  transition-property: background-color, box-shadow;
+}
+
+.itemsGrid div.main svg {
+  transition: fill 0.2s ease;
+  transition-property: fill, opacity;
+}
+
+/* Hide additional elements when not in focus */
+.itemsGrid.hideAdditional > div:not(.main) {
+  opacity: 0;
 }
 
 /* Hide some elements on tablet and below */
@@ -76,9 +111,7 @@
 
 .arrowFill {
   @apply absolute left-0 top-0 h-full w-full bg-secondary;
-  left: 50%;
 }
-
 
 /* WebAssembly & Wasmer */
 /* -------------------- */
@@ -114,25 +147,23 @@
 
 .headlineContainer {
   height: var(--explainer-textcontainer-height);
-  @apply flex justify-center items-center;
 }
 
 .headline {
   @apply text-grey-30;
-}
-
-/* Other Stuff */
-/* ----------- */
-
-.breakOnDesktop {
-  display: none;
-}
-.blockOnDesktop {
-  display: inline;
+  max-width: 700px;
 }
 
 .highlightedText {
   color: #4946DD;
+}
+
+.hideSecondaryItems > div:not(.main) {
+  opacity: 0;
+}
+
+.transitionContainer {
+  transition: all 0.15s ease-out;
 }
 
 @media (min-width: 650px) {
@@ -140,50 +171,42 @@
   .explainerContainer {
     background: repeat center top var(--dots-on-light);
     background-size: var(--spacing) var(--spacing);
+    @apply w-full p-0;
   }
   .headlineContainer {
     @apply flex justify-center items-center;
   }
 
-  .blockOnDesktop {
-    display: block;
+  .headline {
+    max-width: 700px;
   }
 
-  .breakOnDesktop {
-    display: block;
-  }
   .explainer {
+    width: fit-content;
     @apply mx-auto;
   }
 }
 
 @media (min-width: 720px) {
-  .languages,
-  .platforms {
+  .itemsGrid {
     grid-template-columns: var(--col) var(--col);
   }
 
-  .platforms {
+  .itemsGrid.platforms {
     grid-template-columns: var(--col) var(--col);
   }
 }
 
 /* Hide all elements except the main one when there's not enough space */
 @media (max-width: 719px) {
-  .languages > div:not(.main),
-  .platforms > div:not(.main) {
+  .itemsGrid > div:not(.main) {
     display: none;
   }
 }
 
 @media (min-width: 1024px) {
-  .languages,
-  .platforms {
+  .itemsGrid {
     --col: calc(var(--spacing) * 3 + var(--dot-size));
-  }
-
-  .hideOnTablet {
-    @apply block;
   }
 
   .arrowContainer {
@@ -203,23 +226,31 @@
     @apply mx-0;
   }
 
-  .platforms {
+  .itemsGrid.languages {
     margin-right: var(--spacing);
+  }
+
+  .headline {
+    @apply max-w-4xl;
   }
 }
 
 @media (min-width: 1200px) {
-  .languages {
+  .itemsGrid.languages {
     grid-template-columns: var(--col) var(--col) var(--col);
   }
 
-  .languages .empty {
+  .itemsGrid .empty {
+    @apply block;
+  }
+
+  .hideOnTablet {
     @apply block;
   }
 }
 
-/* @media (max-height: 782px) {
-  .languages > div.restVisibleOnTablet {
-    @apply hidden;
+@media (min-width: 1800px) {
+  .headline {
+    @apply max-w-5xl;
   }
-} */
+}

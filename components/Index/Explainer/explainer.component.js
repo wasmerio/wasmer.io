@@ -6,17 +6,11 @@ import WA from '../../../public/images/wasm-grey.svg';
 import Wasmer from '../../../public/images/wasmer.svg';
 import Plus from '../../../public/images/plus.svg';
 
-import C from '../../../public/images/languages/c.svg';
 import CPP from '../../../public/images/languages/cpp.svg';
 import CSharp from '../../../public/images/languages/c-sharp.svg';
-import Elixir from '../../../public/images/languages/elixir.svg';
 import Go from '../../../public/images/languages/go.svg';
-import Java from '../../../public/images/languages/java.svg';
-import JavaScript from '../../../public/images/languages/javascript.svg';
 import PHP from '../../../public/images/languages/php.svg';
-import Postgres from '../../../public/images/languages/postgress.svg';
 import Python from '../../../public/images/languages/python.svg';
-import R from '../../../public/images/languages/r.svg';
 import Ruby from '../../../public/images/languages/ruby.svg';
 import Rust from '../../../public/images/languages/rust.svg';
 
@@ -41,7 +35,7 @@ export class ExplainerComponent extends Component {
       /**
        * Displays if the animation is scrolling vertically `true`.
        */
-      animateVertically: false,
+      animateHorizontal: false,
       /**
        * We need a left margin because the dot pattern is left orientated,
        * if the screen is mobile. The top pattern is centered all the time
@@ -49,6 +43,9 @@ export class ExplainerComponent extends Component {
       marginLeft: 0,
 
       screenSmallerThanAnimation: false,
+
+      languages: [],
+      platforms: [],
     };
     this.scene = React.createRef();
   }
@@ -102,20 +99,25 @@ export class ExplainerComponent extends Component {
    * Calculates the state for vertical scrolling of the animation.
    * (It scrolls vertically on mobile and small screens.)
    */
-  calcAnimateVertically() {
+  calcAnimateHorizontal() {
     const { width } = this.getWindowDimensions();
-    let animateVertically = false,
+    let animateHorizontal = false,
       screenSmallerThanAnimation = false;
-    if (width < 750) {
-      animateVertically = true;
-    }
-    if (width < 1068) {
+    if (width < this.getAnimationWidth()) {
+      animateHorizontal = true;
       screenSmallerThanAnimation = true;
     }
+
+    let animationHorizontalScroll = (1 - width / this.getAnimationWidth()) * 100;
     this.setState({
       screenSmallerThanAnimation,
-      animateVertically: animateVertically,
+      animateHorizontal,
+      animationHorizontalScroll
     });
+  }
+
+  getAnimationWidth() {
+    return 580;
   }
 
   /**
@@ -142,7 +144,7 @@ export class ExplainerComponent extends Component {
     if(marginTopAmount < dotPatternSize * 2) {
       marginTopAmount += dotPatternSize * 2 + 4;
     }
-    const marginTop = width > 1068 ? marginTopAmount : 0;
+    const marginTop = !this.state.screenSmallerThanAnimation ? marginTopAmount : 0;
     this.setState({ marginTop });
   }
 
@@ -166,13 +168,13 @@ export class ExplainerComponent extends Component {
     // get the offset
     const offset = Math.round((positionedDots - animationGridHeight) / 2) - 2;
     const paddingTop =
-      width < 1068 ? dotOffset + offset * dotPatternSize + 16 : 0;
+      this.state.screenSmallerThanAnimation ? dotOffset + offset * dotPatternSize + 16 : 0;
     this.setState({ paddingTop });
   }
 
   getAnimationGridHeight() {
     const { width } = this.getWindowDimensions();
-    if(width < 650) return 3;
+    if(width < 720) return 3;
     return width > 1090 ? 12 : 16;
   }
 
@@ -217,8 +219,20 @@ export class ExplainerComponent extends Component {
     this.setFixedVariables();
     this.calcMarginTop();
     this.calcContainerWidth();
-    this.calcAnimateVertically();
+    this.calcAnimateHorizontal();
     this.calcPaddingTop();
+
+    const languages = this.getLanguages();
+    const platforms = this.getPlatforms();
+    this.setState({languages, platforms});
+    window.addEventListener(
+        'resize',
+        () => {
+          document.getElementById('explainer').style.marginTop = 0;
+        },
+        { passive: true },
+    );
+
     if (!this.isTouchDevice()) {
       window.addEventListener(
         'resize',
@@ -226,126 +240,95 @@ export class ExplainerComponent extends Component {
           this.setFixedVariables();
           this.calcMarginTop();
           this.calcContainerWidth();
-          this.calcAnimateVertically();
+          this.calcAnimateHorizontal();
           this.calcPaddingTop();
+          document.getElementById('explainer').style.marginTop = 0;
         },
         { passive: true },
       );
     }
   }
 
+  shuffle(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
   render() {
-    const { containerWidth, animateVertically } = this.state;
+    const { containerWidth, animateHorizontal, animationHorizontalScroll } = this.state;
 
-    const languages = [
-      {
-        icon: ''
-      },
-      {
-        icon: <PHP />
-      },
-      {
-        icon: <CSharp />,
-        hideOnTablet: true
-      },
-      {
-        icon: <CPP />
-      },
-      {
-        icon: <Python />
-      },
-      {
-        icon: <Rust />,
-        main: true
-      },
-      {
-        icon: <Ruby />
-      },
-      {
-        icon: <Go />
-      },
-    ]
-
-    const platforms = [
-      {
-        icon: <IOS />
-      },
-      {
-        icon: <Android />
-      },
-      {
-        icon: <Windows />,
-        main: true
-      },
-      {
-        icon: <Linux />
-      },
-      {
-        icon: ''
-      },
-      {
-        icon: <MacOS />
-      },
-    ]
+    let {languages, platforms} = this.state;
 
     // apply extra styles, based on
-    let explainerStyle = {
-      marginTop: this.state.marginTop,
-      // width: `${containerWidth}px`,
-    };
-    if (!animateVertically) {
-      explainerStyle['left'] = 0;
-    } else {
-      delete explainerStyle['left'];
-    }
-
-    if (this.state.screenSmallerThanAnimation) {
-      explainerStyle['paddingTop'] = this.state.paddingTop + 10;
-      // explainerStyle['marginLeft'] = this.state.marginLeft;
-    }
+    let explainerStyle = this.getExplainerStyle(animateHorizontal);
 
     return (
-          <div>
+          <div className="overflow-hidden">
+            {/* REMOVE Helper */}
+            {/*<div className={styles.animationHelper}>*/}
+            {/*  <div data-step="100" style={{top: 100}}></div>*/}
+            {/*  <div data-step="200" style={{top: 200}}></div>*/}
+            {/*  <div data-step="300" style={{top: 300}}></div>*/}
+            {/*  <div data-step="400" style={{top: 400}}></div>*/}
+            {/*  <div data-step="500" style={{top: 500}}></div>*/}
+            {/*  <div data-step="600" style={{top: 600}}></div>*/}
+            {/*  <div data-step="700" style={{top: 700}}></div>*/}
+            {/*  <div data-step="800" style={{top: 800}}></div>*/}
+            {/*  <div data-step="900" style={{top: 900}}></div>*/}
+            {/*</div>*/}
             <Controller>
               <Scene
-                  triggerHook="onLeave"
                   duration={1000}
                   pin
                   triggerElement="#explainer"
+                  triggerHook="onLeave"
                   indicators={true}
               >
                 {(progress) => (
                     <div id="explainer" className={styles.hero} style={{marginTop: '0 !important'}}>
-                      <Timeline totalProgress={progress} paused>
-                        <div className={styles.explainerContainer}>
+                      <Timeline totalProgress={progress}>
+                        <div className={styles.explainerContainer} style={{ 'transform': this.state.animateHorizontal && progress > 0.65 ? `translate3D(-${animationHorizontalScroll}%, 0, 0)` : '' }}>
+                          {/* REMOVE Progress Indicator */}
+                          <div className="fixed top-0 right-0 mt-4 mr-4">{progress}</div>
                           <div
                               className={styles.explainer}
                               style={explainerStyle}
                           >
                             {/* Languages */}
-                            <div className={styles.languages}>
+                            <Tween duration={100} />
+                            <div
+                              className={`
+                                ${styles.itemsGrid}
+                                ${styles.languages}
+                                ${progress > 0.3 ? styles.hideAdditional : ''}
+                              `}
+                            >
                               {languages.map((item, key) => {
-                                if (item.icon === "" || (!item.main && progress>0.5)) {
+                                if (item.icon === "") {
                                   return (
-                                      <div key={key} className={styles.empty} />
+                                    <div key={key} className={styles.empty} />
                                   )
                                 }
 
                                 return (
-                                    <div
-                                        key={key}
-                                        className={`
+                                  <div
+                                    key={key}
+                                    className={`
                                       ${styles.transitionContainer}
                                       ${item.hideOnTablet ? styles.hideOnTablet : ''}
                                       ${item.main ? styles.main : ''}
                                     `}
-                                    >
-                                      <LanguageComponent
-                                          large
-                                          icon={item.icon}
-                                          highlighted={item.main && progress > 0 && progress < 0.5}
-                                      />
-                                    </div>
+                                  >
+                                    <LanguageComponent
+                                      large
+                                      icon={item.icon}
+                                      highlighted={item.main && progress > 0 && progress < 0.5}
+                                      className={item.main ? styles.main : ''}
+                                    />
+                                  </div>
                                 )
                               })}
                             </div>
@@ -353,84 +336,86 @@ export class ExplainerComponent extends Component {
                             {/* Arrow 1 */}
                             <div className={styles.arrowContainer}>
                               <div className={styles.arrowMask}>
-                                <Tween duration={200} from={{ left: '-100%' }} to={{ left: '0' }}>
-                                  <div className={`${ progress < 0.5 ? styles.arrowFill : 'hidden'}`} />
+                                <Tween duration={300} from={{ 'transform': 'translate3D(-100%, 0, 0)' }} to={{ 'transform': 'translate3D(0, 0, 0)' }}>
+                                  <div className={`${ progress < 0.5 ? styles.arrowFill : 'opacity-0'}`} />
                                 </Tween>
                               </div>
                             </div>
 
                             {/* WA */}
-                            <div className={`${styles.iconContainer} ${ progress > 0.5 && progress < 1 ? styles.highlighted : ''}`}>
+                            <Tween duration={100} />
+                            <div className={`${styles.iconContainer} ${ progress > 0.3 && progress < 0.8 ? styles.highlighted : ''}`}>
                               <WA />
                             </div>
 
                             {/* Arrow 2 */}
                             <div className={styles.arrowContainer}>
                               <div className={styles.arrowMask}>
-                                <Tween duration={200} from={{ left: '-100%' }} to={{ left: '0' }}>
-                                  <div className={`${ progress < 1 ? styles.arrowFill : 'hidden'}`} />
+                                <Tween duration={300} from={{ left: '-100%' }} to={{ left: '0' }}>
+                                  <div className={`${ progress < 0.8 ? styles.arrowFill : 'opacity-0'}`} />
                                 </Tween>
                               </div>
                             </div>
 
                             {/* Wasmer & Plus */}
+                            <Tween duration={200} />
                             <div className="flex items-center">
-                              <div className={`${styles.iconContainer} ${styles.wasmerIcon} ${progress >= 1 ? styles.highlighted : ''}`}>
+                              <div className={`${styles.iconContainer} ${styles.wasmerIcon} ${progress >= 0.8 ? styles.highlighted : ''}`}>
                                 <Wasmer />
                               </div>
-                              <div className={`${styles.iconContainer} ${styles.plus} ${progress >= 1 ? styles.highlighted : ''}`}>
+                              <div className={`${styles.iconContainer} ${styles.plus} ${progress >= 0.8 ? styles.highlighted : ''}`}>
                                 <Plus />
                               </div>
                             </div>
 
                             {/* Platforms */}
-                            <div className={styles.platforms}>
+                            <div
+                              className={`
+                                ${styles.itemsGrid}
+                                ${styles.platforms}
+                                ${progress < 0.8 ? styles.hideAdditional : ''}
+                              `}
+                            >
                               {platforms.map((item, key) => {
-                                if (item.icon === "" || (!item.main && progress<=0.5)) {
+                                if (item.icon === "") {
                                   return (
                                       <div key={key} className={styles.empty} />
                                   )
                                 }
 
                                 return (
-                                    <div
-                                        key={key}
-                                        className={`
-                                  ${styles.transitionContainer}
-                                  ${item.main ? styles.main : ''}
-                                `}
-                                    >
-                                      <LanguageComponent
-                                          large
-                                          icon={item.icon}
-                                          highlighted={item.main && progress >= 1}
-                                      />
-                                    </div>
+                                  <div
+                                    key={key}
+                                    className={`
+                                      ${styles.transitionContainer}
+                                      ${item.main ? styles.main : ''}
+                                    `}
+                                  >
+                                    <LanguageComponent
+                                        large
+                                        icon={item.icon}
+                                        highlighted={item.main && progress >= 0.8}
+                                        className={item.main ? styles.main : ''}
+                                    />
+                                  </div>
                                 )
                               })}
                             </div>
                           </div>
                         </div>
-                        <div className={styles.headlineContainer}>
+                        <div className={`container ${styles.headlineContainer}`}>
                           <h2
-                              className={`${styles.headline} text-left px-8 md:px-0 sm:text-center my-24`}
+                            className={`${styles.headline} text-left md:text-center my-24`}
                           >
-
-
-                          <span className={`${styles.blockOnDesktop} ${progress < 0.5 ? styles.highlightedText : ''}`}>
-                            Use the tools you know and the languages you love.{' '}
-                          </span>
-
-
-                          <span className={`${(progress > 0.5 && progress < 1) ? styles.highlightedText : ''}`}>
-                            Compile everything to WebAssembly. {' '}
-                          </span>
-
-                          <span className={`${(progress >= 1) ? styles.highlightedText : ''}`}>
-                            Run it on any
-                            <br className={styles.breakOnDesktop} />
-                            OS or embed it into other languages.
-                          </span>
+                            <span className={progress < 0.3 ? styles.highlightedText : ''}>
+                              Use the tools you know and the languages you love.{' '}
+                            </span>
+                            <span className={(progress > 0.3 && progress < 0.8) ? styles.highlightedText : ''}>
+                              Compile everything to WebAssembly. {' '}
+                            </span>
+                            <span className={(progress >= 0.8) ? styles.highlightedText : ''}>
+                              Run it on any OS or embed it into other languages.
+                            </span>
                           </h2>
                         </div>
                       </Timeline>
@@ -441,470 +426,98 @@ export class ExplainerComponent extends Component {
           </div>
     );
   }
+
+  getExplainerStyle(animateHorizontal) {
+    let explainerStyle = {
+      marginTop: this.state.marginTop,
+      // width: `${containerWidth}px`,
+    };
+    if (!animateHorizontal) {
+      explainerStyle['left'] = 0;
+    } else {
+      delete explainerStyle['left'];
+    }
+
+    if (this.state.screenSmallerThanAnimation) {
+      explainerStyle['paddingTop'] = this.state.paddingTop + 10;
+      // explainerStyle['marginLeft'] = this.state.marginLeft;
+    }
+    return explainerStyle;
+  }
+
+  getLanguages() {
+    var languages = [
+      {
+        icon: <PHP/>
+      },
+      {
+        icon: <CSharp/>
+      },
+      {
+        icon: <CPP/>
+      },
+      {
+        icon: <Python/>
+      },
+      {
+        icon: <Rust/>,
+      },
+      {
+        icon: <Ruby/>
+      },
+      {
+        icon: <Go/>
+      },
+    ];
+
+    languages = this.shuffle(languages).map(function (language, key) {
+      if (key === 1) {
+        language['hideOnTablet'] = true
+      }
+      if (key === 4) {
+        language['main'] = true;
+      }
+      return language;
+    });
+
+    languages.unshift(
+        {
+          icon: ''
+        })
+    return languages;
+  }
+
+  getPlatforms() {
+    var platforms = [
+      {
+        icon: <IOS/>
+      },
+      {
+        icon: <Android/>
+      },
+      {
+        icon: <Windows/>
+      },
+      {
+        icon: <Linux/>
+      },
+      {
+        icon: <MacOS/>
+      },
+    ];
+
+
+    platforms = this.shuffle(platforms).map(function (language, key) {
+      if (key === 2) {
+        language['main'] = true;
+      }
+      return language;
+    });
+
+    platforms.splice(4, 0,
+        {
+          icon: ''
+        });
+    return platforms;
+  }
 }
-
-
-// {(progress) => (
-//   <div id="explainer" className={styles.hero}>
-//     <Timeline totalProgress={progress} paused>
-//       <div className={styles.explainerContainer}>
-//         <Timeline
-//           position={0}
-//           target={
-//             <div
-//               className={styles.explainer}
-//               style={explainerStyle}
-//             >
-//               <div className={styles.languages}>
-//                 <div className={styles.empty} />
-//                 <div className={styles.restVisibleOnDesktop}>
-//                   <Timeline
-//                     position={1}
-//                     target={
-//                       <div className={styles.transitionContainer}>
-//                         <LanguageComponent
-//                           large
-//                           icon={<PHP />}
-//                         />
-//                       </div>
-//                     }
-//                   >
-//                     <Tween
-//                       duration={0.01}
-//                       from={{ opacity: 1 }}
-//                       to={{ opacity: 0 }}
-//                     />
-//                   </Timeline>
-//                 </div>
-//                 <div className={styles.rest}>
-//                   <Timeline
-//                     position={1}
-//                     target={
-//                       <div className={styles.transitionContainer}>
-//                         <LanguageComponent
-//                           large
-//                           icon={<CSharp />}
-//                         />
-//                       </div>
-//                     }
-//                   >
-//                     <Tween
-//                       duration={0.01}
-//                       from={{ opacity: 1 }}
-//                       to={{ opacity: 0 }}
-//                     />
-//                   </Timeline>
-//                 </div>
-//                 <div className={styles.rest}>
-//                   <Timeline
-//                     position={1}
-//                     duration={0.01}
-//                     target={
-//                       <div className={styles.transitionContainer}>
-//                         <LanguageComponent
-//                           large
-//                           icon={<CPP />}
-//                         />
-//                       </div>
-//                     }
-//                   >
-//                     <Tween
-//                       from={{ opacity: 1 }}
-//                       to={{ opacity: 0 }}
-//                     />
-//                   </Timeline>
-//                 </div>
-//                 <div className={styles.rest}>
-//                   <Timeline
-//                     position={1}
-//                     target={
-//                       <div className={styles.transitionContainer}>
-//                         <LanguageComponent
-//                           large
-//                           icon={<Python />}
-//                         />
-//                       </div>
-//                     }
-//                   >
-//                     <Tween
-//                       duration={0.01}
-//                       from={{ opacity: 1 }}
-//                       to={{ opacity: 0 }}
-//                     />
-//                   </Timeline>
-//                 </div>
-//                 <div className="relative">
-//                   <LanguageComponent
-//                     large
-//                     icon={<Rust />}
-//                   />
-//                   <Timeline
-//                     position={2}
-//                     target={
-//                       <div className={`${styles.highlight}`}>
-//                         <LanguageComponent
-//                           large
-//                           highlighted
-//                           icon={<Rust />}
-//                         />
-//                       </div>
-//                     }
-//                   >
-//                     <Tween
-//                       duration={0.01}
-//                       from={{ opacity: 1 }}
-//                       to={{ opacity: 0 }}
-//                     />
-//                   </Timeline>
-//                 </div>
-//                 <div className={styles.rest}>
-//                   <Timeline
-//                     position={1}
-//                     target={
-//                       <div className={styles.transitionContainer}>
-//                         <LanguageComponent
-//                           large
-//                           icon={<Ruby />}
-//                         />
-//                       </div>
-//                     }
-//                   >
-//                     <Tween
-//                       duration={0.01}
-//                       from={{ opacity: 1 }}
-//                       to={{ opacity: 0 }}
-//                     />
-//                   </Timeline>
-//                 </div>
-//                 <div className={styles.rest}>
-//                   <Timeline
-//                     position={1}
-//                     target={
-//                       <div className={styles.transitionContainer}>
-//                         <LanguageComponent
-//                           large
-//                           icon={<Go />}
-//                         />
-//                       </div>
-//                     }
-//                   >
-//                     <Tween
-//                       duration={0.01}
-//                       from={{ opacity: 1 }}
-//                       to={{ opacity: 0 }}
-//                     />
-//                   </Timeline>
-//                 </div>
-//                 <div className={styles.restVisibleOnTablet}>
-//                   <Timeline
-//                     position={1}
-//                     target={
-//                       <div className={styles.transitionContainer}>
-//                         <LanguageComponent
-//                           large
-//                           icon={<PHP />}
-//                         />
-//                       </div>
-//                     }
-//                   >
-//                     <Tween
-//                       duration={0.01}
-//                       from={{ opacity: 1 }}
-//                       to={{ opacity: 0 }}
-//                     />
-//                   </Timeline>
-//                 </div>
-//                 <div className={styles.empty} />
-//               </div>
-//               <div className={styles.heightSizer}>
-//                 <div className={styles.arrowContainer}>
-//                   <div className={styles.arrowContainerInner}>
-//                     <Timeline
-//                       position={0}
-//                       target={
-//                         <div className={styles.arrowMask}></div>
-//                       }
-//                     >
-//                       <Tween from={{ left: 0 }} to={{ left: 50 }} />
-//                     </Timeline>
-//                     <Timeline
-//                       position={1}
-//                       target={
-//                         <img
-//                           className={styles.arrow}
-//                           src="images/arrow_color.svg"
-//                         />
-//                       }
-//                     >
-//                       <Tween
-//                         from={{ zIndex: 3 }}
-//                         to={{ zIndex: 2 }}
-//                       />
-//                     </Timeline>
-//                     <img
-//                       className={styles.arrowGrey}
-//                       src="images/arrow.svg"
-//                     />
-//                   </div>
-//                 </div>
-//               </div>
-//               <div className={styles.waContainer}>
-//                 <div className={styles.waContainerInner}>
-//                   <Timeline
-//                     position={2}
-//                     target={
-//                       <div className={styles.color}>
-//                         <WA />
-//                       </div>
-//                     }
-//                   >
-//                     <Tween
-//                       duration={0.01}
-//                       toggleClass='highlighted'
-//                     />
-//                   </Timeline>
-//                   <Timeline
-//                     position={4}
-//                     target={<div className={styles.grey} />}
-//                   >
-//                     <Tween
-//                       from={{ zIndex: 3 }}
-//                       to={{ zIndex: 5 }}
-//                     />
-//                   </Timeline>
-//                 </div>
-//               </div>
-//               <div className={styles.heightSizer}>
-//                 <div className={styles.arrowContainer}>
-//                   <div className={styles.arrowContainerInner}>
-//                     <Timeline
-//                       position={4}
-//                       target={
-//                         <img
-//                           className={styles.arrow}
-//                           src="images/arrow_color.svg"
-//                         />
-//                       }
-//                     >
-//                       <Tween
-//                         from={{ zIndex: 3 }}
-//                         to={{ zIndex: 2 }}
-//                       />
-//                     </Timeline>
-//                     <Timeline
-//                       position={3}
-//                       target={
-//                         <div className={styles.arrowMask}></div>
-//                       }
-//                     >
-//                       <Tween from={{ left: 0 }} to={{ left: 50 }} />
-//                     </Timeline>
-//                     <img
-//                       className={styles.arrowGrey}
-//                       src="images/arrow.svg"
-//                     />
-//                   </div>
-//                 </div>
-//               </div>
-
-//               <div className={styles.heightSizer}>
-//                 <div className={styles.wasmerContainer}>
-//                   <Timeline
-//                     position={5}
-//                     target={<div className={styles.color} />}
-//                   >
-//                     <Tween
-//                       duration={0.01}
-//                       from={{ opacity: 0 }}
-//                       to={{ opacity: 1 }}
-//                     />
-//                   </Timeline>
-//                   <div className={styles.grey} />
-//                 </div>
-//               </div>
-
-//               <div className={styles.heightSizer}>
-//                 <div className={styles.plusContainer}>
-//                   <div className={styles.plusContainerInner}>
-//                     <Timeline
-//                       position={5}
-//                       target={
-//                         <img
-//                           className={styles.plus}
-//                           src="images/plus_color.svg"
-//                         />
-//                       }
-//                     >
-//                       <Tween
-//                         duration={0.01}
-//                         from={{ opacity: 0 }}
-//                         to={{ opacity: 1 }}
-//                       />
-//                     </Timeline>
-//                     <img
-//                       className={styles.plusGrey}
-//                       src="images/plus.svg"
-//                     />
-//                   </div>
-//                 </div>
-//               </div>
-//               <div className={styles.platforms}>
-//                 <div className={styles.rest}>
-//                   <Timeline
-//                     position={5}
-//                     target={
-//                       <div className={styles.transitionContainer}>
-//                         <LanguageComponent
-//                           large
-//                           icon={<IOS />}
-//                         />
-//                       </div>
-//                     }
-//                   >
-//                     <Tween
-//                       duration={0.01}
-//                       from={{ opacity: 0 }}
-//                       to={{ opacity: 1 }}
-//                     />
-//                   </Timeline>
-//                 </div>
-//                 <div className={styles.rest}>
-//                   <Timeline
-//                     position={5}
-//                     target={
-//                       <div className={styles.transitionContainer}>
-//                         <LanguageComponent
-//                           large
-//                           icon={<Android />}
-//                         />
-//                       </div>
-//                     }
-//                   >
-//                     <Tween
-//                       duration={0.01}
-//                       from={{ opacity: 0 }}
-//                       to={{ opacity: 1 }}
-//                     />
-//                   </Timeline>
-//                 </div>
-//                 <div className={styles.mainItem}>
-//                   <Timeline
-//                     position={5}
-//                     target={
-//                       <div className={`${styles.transitionContainer} ${styles.highlight}`}>
-//                         <LanguageComponent
-//                           large
-//                           highlighted
-//                           icon={<Windows />}
-//                         />
-//                       </div>
-//                     }
-//                   >
-//                     <Tween
-//                       duration={0.01}
-//                       from={{ opacity: 0 }}
-//                       to={{ opacity: 1 }}
-//                     />
-//                   </Timeline>
-//                   <div className={styles.transitionContainer}>
-//                     <LanguageComponent
-//                       large
-//                       icon={<Windows />}
-//                     />
-//                   </div>
-//                 </div>
-//                 <div className={styles.rest}>
-//                   <Timeline
-//                     position={5}
-//                     target={
-//                       <div className={styles.transitionContainer}>
-//                         <LanguageComponent
-//                           large
-//                           icon={<Linux />}
-//                         />
-//                       </div>
-//                     }
-//                   >
-//                     <Tween
-//                       duration={0.01}
-//                       from={{ opacity: 0 }}
-//                       to={{ opacity: 1 }}
-//                     />
-//                   </Timeline>
-//                 </div>
-//                 <div className={styles.empty} />
-//                 <div className={styles.rest}>
-//                   <Timeline
-//                     position={5}
-//                     target={
-//                       <div className={styles.transitionContainer}>
-//                         <LanguageComponent
-//                           large
-//                           icon={<MacOS />}
-//                         />
-//                       </div>
-//                     }
-//                   >
-//                     <Tween
-//                       duration={0.01}
-//                       from={{ opacity: 0 }}
-//                       to={{ opacity: 1 }}
-//                     />
-//                   </Timeline>
-//                 </div>
-//               </div>
-//             </div>
-//           }
-//         >
-//           <Tween delay={-3} to={{ right: 0 }} />
-//         </Timeline>
-//       </div>
-//       <div className={styles.headlineContainer}>
-//         <h2
-//           className={`${styles.headline} text-left px-8 md:px-0 sm:text-center my-24`}
-//         >
-//           <Timeline
-//             position={2}
-//             target={
-//               <span className={styles.blockOnDesktop}>
-//                 Use the tools you know and the languages you love.{' '}
-//               </span>
-//             }
-//           >
-//             <Tween
-//               duration={0.01}
-//               from={{ color: '#4946DD' }}
-//               to={{ color: '#BDB7C7' }}
-//             />
-//           </Timeline>
-//           <Timeline
-//             position={2}
-//             target={
-//               <span>Compile everything to WebAssembly. </span>
-//             }
-//           >
-//             <Tween duration={0.01} to={{ color: '#4946DD' }} />
-//             <Tween
-//               delay={3}
-//               duration={0.01}
-//               to={{ color: '#BDB7C7' }}
-//             />
-//           </Timeline>
-//           <Timeline
-//             position={5}
-//             target={
-//               <span>
-//                 Run it on any
-//                 <br className={styles.breakOnDesktop} />
-//                 OS or embed it into other languages.
-//               </span>
-//             }
-//           >
-//             <Tween duration={0.01} to={{ color: '#4946DD' }} />
-//           </Timeline>
-//         </h2>
-//       </div>
-//     </Timeline>
-//   </div>
-// )}
-// </Scene>

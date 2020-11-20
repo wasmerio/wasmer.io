@@ -3,6 +3,7 @@ import { SnippetComponent } from '../..';
 import links from '../../Languages/languages-hero.constants';
 import { HeaderComponent } from './components';
 import styles from './hero.module.css';
+import {ColorDots} from "../../ColorDots/color-dots.component";
 
 export const HeroComponent = () => {
   return (
@@ -27,7 +28,7 @@ export const HeroComponent = () => {
                     key={`${url}-${name}`}
                     className="flex-auto self-center mx-1"
                   >
-                    <a href={url} className={`${styles.item}`}>
+                    <a href={url} target="_blank" className={`${styles.item}`}>
                       <img className={styles.icon} src={icon.image} />
                       <img
                         className={styles.iconAlternative}
