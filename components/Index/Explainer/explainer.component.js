@@ -488,7 +488,7 @@ export class ExplainerComponent extends Component {
     }
 
     if (this.state.screenSmallerThanAnimation) {
-      explainerStyle['paddingTop'] = this.state.paddingTop + 10;
+      explainerStyle['paddingTop'] = this.state.paddingTop + 2;
       // explainerStyle['marginLeft'] = this.state.marginLeft;
     }
     return explainerStyle;
