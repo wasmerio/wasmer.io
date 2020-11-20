@@ -306,7 +306,7 @@ export class ExplainerComponent extends Component {
 
     return (
           <div>
-            {/* Helper */}
+            {/* REMOVE Helper */}
             <div className={styles.animationHelper}>
               <div data-step="100" style={{top: 100}}></div>
               <div data-step="200" style={{top: 200}}></div>
@@ -330,36 +330,44 @@ export class ExplainerComponent extends Component {
                     <div id="explainer" className={styles.hero} style={{marginTop: '0 !important'}}>
                       <Timeline totalProgress={progress}>
                         <div className={styles.explainerContainer}>
+                          {/* REMOVE Progress Indicator */}
                           <div className="fixed top-0 right-0 mt-4 mr-4">{progress}</div>
                           <div
                               className={styles.explainer}
                               style={explainerStyle}
                           >
                             {/* Languages */}
-                            <Tween duration={200} />
-                            <div className={styles.languages}>
+                            <Tween duration={100} />
+                            <div
+                              className={`
+                                ${styles.itemsGrid}
+                                ${styles.languages}
+                                ${progress > 0.3 ? styles.hideAdditional : ''}
+                              `}
+                            >
                               {languages.map((item, key) => {
-                                if (item.icon === "" || (!item.main && progress>0.5)) {
+                                if (item.icon === "") {
                                   return (
-                                      <div key={key} className={styles.empty} />
+                                    <div key={key} className={styles.empty} />
                                   )
                                 }
 
                                 return (
-                                    <div
-                                        key={key}
-                                        className={`
+                                  <div
+                                    key={key}
+                                    className={`
                                       ${styles.transitionContainer}
                                       ${item.hideOnTablet ? styles.hideOnTablet : ''}
                                       ${item.main ? styles.main : ''}
                                     `}
-                                    >
-                                      <LanguageComponent
-                                          large
-                                          icon={item.icon}
-                                          highlighted={item.main && progress > 0.2 && progress < 0.5}
-                                      />
-                                    </div>
+                                  >
+                                    <LanguageComponent
+                                      large
+                                      icon={item.icon}
+                                      highlighted={item.main && progress > 0 && progress < 0.5}
+                                      className={item.main ? styles.main : ''}
+                                    />
+                                  </div>
                                 )
                               })}
                             </div>
@@ -367,23 +375,23 @@ export class ExplainerComponent extends Component {
                             {/* Arrow 1 */}
                             <div className={styles.arrowContainer}>
                               <div className={styles.arrowMask}>
-                                <Tween duration={200} from={{ 'transform': 'translate3D(-100%, 0, 0)' }} to={{ 'transform': 'translate3D(0, 0, 0)' }}>
-                                  <div className={`${ progress < 1 ? styles.arrowFill : 'hidden'}`} />
+                                <Tween duration={300} from={{ 'transform': 'translate3D(-100%, 0, 0)' }} to={{ 'transform': 'translate3D(0, 0, 0)' }}>
+                                  <div className={`${ progress < 0.5 ? styles.arrowFill : 'hidden'}`} />
                                 </Tween>
                               </div>
                             </div>
 
                             {/* WA */}
-                            <Tween duration={200} />
-                            <div className={`${styles.iconContainer} ${ progress > 0.5 && progress < 1 ? styles.highlighted : ''}`}>
+                            <Tween duration={100} />
+                            <div className={`${styles.iconContainer} ${ progress > 0.3 && progress < 0.8 ? styles.highlighted : ''}`}>
                               <WA />
                             </div>
 
                             {/* Arrow 2 */}
                             <div className={styles.arrowContainer}>
                               <div className={styles.arrowMask}>
-                                <Tween duration={200} from={{ left: '-100%' }} to={{ left: '0' }}>
-                                  <div className={`${ progress < 1 ? styles.arrowFill : 'hidden'}`} />
+                                <Tween duration={300} from={{ left: '-100%' }} to={{ left: '0' }}>
+                                  <div className={`${ progress < 0.8 ? styles.arrowFill : 'hidden'}`} />
                                 </Tween>
                               </div>
                             </div>
@@ -391,37 +399,44 @@ export class ExplainerComponent extends Component {
                             {/* Wasmer & Plus */}
                             <Tween duration={200} />
                             <div className="flex items-center">
-                              <div className={`${styles.iconContainer} ${styles.wasmerIcon} ${progress >= 1 ? styles.highlighted : ''}`}>
+                              <div className={`${styles.iconContainer} ${styles.wasmerIcon} ${progress >= 0.8 ? styles.highlighted : ''}`}>
                                 <Wasmer />
                               </div>
-                              <div className={`${styles.iconContainer} ${styles.plus} ${progress >= 1 ? styles.highlighted : ''}`}>
+                              <div className={`${styles.iconContainer} ${styles.plus} ${progress >= 0.8 ? styles.highlighted : ''}`}>
                                 <Plus />
                               </div>
                             </div>
 
                             {/* Platforms */}
-                            <div className={styles.platforms}>
+                            <div
+                              className={`
+                                ${styles.itemsGrid}
+                                ${styles.platforms}
+                                ${progress < 0.8 ? styles.hideAdditional : ''}
+                              `}
+                            >
                               {platforms.map((item, key) => {
-                                if (item.icon === "" || (!item.main && progress<=0.5)) {
+                                if (item.icon === "") {
                                   return (
                                       <div key={key} className={styles.empty} />
                                   )
                                 }
 
                                 return (
-                                    <div
-                                        key={key}
-                                        className={`
-                                  ${styles.transitionContainer}
-                                  ${item.main ? styles.main : ''}
-                                `}
-                                    >
-                                      <LanguageComponent
-                                          large
-                                          icon={item.icon}
-                                          highlighted={item.main && progress >= 1}
-                                      />
-                                    </div>
+                                  <div
+                                    key={key}
+                                    className={`
+                                      ${styles.transitionContainer}
+                                      ${item.main ? styles.main : ''}
+                                    `}
+                                  >
+                                    <LanguageComponent
+                                        large
+                                        icon={item.icon}
+                                        highlighted={item.main && progress >= 0.8}
+                                        className={item.main ? styles.main : ''}
+                                    />
+                                  </div>
                                 )
                               })}
                             </div>
@@ -431,16 +446,16 @@ export class ExplainerComponent extends Component {
                           <h2
                             className={`${styles.headline} text-left px-8 md:px-0 sm:text-center my-24`}
                           >
-                            <span className={`${styles.blockOnDesktop} ${progress < 0.5 ? styles.highlightedText : ''}`}>
+                            <span className={`${styles.blockOnDesktop} ${progress < 0.3 ? styles.highlightedText : ''}`}>
                               Use the tools you know and the languages you love.{' '}
                             </span>
 
 
-                            <span className={`${(progress > 0.5 && progress < 1) ? styles.highlightedText : ''}`}>
+                            <span className={`${(progress > 0.3 && progress < 0.8) ? styles.highlightedText : ''}`}>
                               Compile everything to WebAssembly. {' '}
                             </span>
 
-                            <span className={`${(progress >= 1) ? styles.highlightedText : ''}`}>
+                            <span className={`${(progress >= 0.8) ? styles.highlightedText : ''}`}>
                               Run it on any
                               <br className={styles.breakOnDesktop} />
                               OS or embed it into other languages.

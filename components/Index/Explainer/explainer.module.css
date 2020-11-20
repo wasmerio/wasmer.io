@@ -50,22 +50,38 @@
 /* Languages and Platforms Grid */
 /* ---------------------------- */
 
-.languages,
-.platforms {
+.itemsGrid {
   --col: calc(var(--spacing) * 2 + var(--dot-size));
   grid-template-columns: var(--col);
   gap: 24px; /* exactly the space between 2 dots */
   @apply grid;
 }
 
-.languages > div,
-.platforms > div {
+.itemsGrid > div {
   @apply relative;
+  transition: opacity 0.2s ease;
 }
 
 /* Empty Elements below 1200px */
-.languages .empty {
+.itemsGrid .empty {
   @apply hidden;
+}
+
+/* Main Element */
+
+.itemsGrid div.main {
+  transition: background-color 0.2s ease;
+  transition-property: background-color, box-shadow;
+}
+
+.itemsGrid div.main svg {
+  transition: fill 0.2s ease;
+  transition-property: fill, opacity;
+}
+
+/* Hide additional elements when not in focus */
+.itemsGrid.hideAdditional > div:not(.main) {
+  opacity: 0;
 }
 
 /* Hide some elements on tablet and below */
@@ -180,27 +196,24 @@
 }
 
 @media (min-width: 720px) {
-  .languages,
-  .platforms {
+  .itemsGrid {
     grid-template-columns: var(--col) var(--col);
   }
 
-  .platforms {
+  .itemsGrid.platforms {
     grid-template-columns: var(--col) var(--col);
   }
 }
 
 /* Hide all elements except the main one when there's not enough space */
 @media (max-width: 719px) {
-  .languages > div:not(.main),
-  .platforms > div:not(.main) {
+  .itemsGrid > div:not(.main) {
     display: none;
   }
 }
 
 @media (min-width: 1024px) {
-  .languages,
-  .platforms {
+  .itemsGrid {
     --col: calc(var(--spacing) * 3 + var(--dot-size));
   }
 
@@ -225,17 +238,17 @@
     @apply mx-0;
   }
 
-  .platforms {
+  .itemsGrid.platforms {
     margin-right: var(--spacing);
   }
 }
 
 @media (min-width: 1200px) {
-  .languages {
+  .itemsGrid.languages {
     grid-template-columns: var(--col) var(--col) var(--col);
   }
 
-  .languages .empty {
+  .itemsGrid .empty {
     @apply block;
   }
 }
