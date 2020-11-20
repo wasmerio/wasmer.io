@@ -254,7 +254,9 @@
   .hideOnTablet {
     @apply block;
   }
+}
 
+@media (min-width: 1800px) {
   .headline {
     @apply max-w-5xl;
   }
