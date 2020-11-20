@@ -1,3 +1,26 @@
+.animationHelper {
+  @apply absolute right-0;
+  width: 100px;
+  height: 1000px;
+  top: calc(90vh - 107px + 99px)
+}
+
+.animationHelper div {
+  @apply absolute;
+  right: 0;
+  height: 1px;
+  width: 100%;
+  background: red;
+  z-index: 100;
+}
+
+.animationHelper div:before {
+  content: attr(data-step);
+  color: red;
+  font-size: 12px;
+  @apply absolute left-0 top-0;
+}
+
 /* Container */
 /* --------- */
 
@@ -76,7 +99,6 @@
 
 .arrowFill {
   @apply absolute left-0 top-0 h-full w-full bg-secondary;
-  left: 50%;
 }
 
 
