@@ -2,26 +2,27 @@
 /* --------- */
 
 .hero {
-  @apply h-screen flex flex-col justify-start;
+  @apply h-screen flex flex-col justify-start mt-0;
 }
 
 .explainerContainer {
-  background: repeat center top var(--dots-on-light);
+  background: repeat left top var(--dots-on-light);
   background-size: var(--spacing) var(--spacing);
   height: var(--explainer-grid-height);
-  @apply items-baseline flex overflow-hidden;
+  @apply items-baseline flex overflow-visible;
 }
 
 .explainer {
-  @apply relative flex items-center justify-start mx-auto;
+  margin-left: calc(var(--spacing) * 1.5 - var(--dot-size));
+  @apply relative flex items-center justify-start;
 }
 
 /* TODO Vittorio: Remove this fix as soon as possible, probably some calculation is off */
-@media (max-width: 1090px) {
-  .explainer {
-    margin-top: 40px !important;
-  }
-}
+/*@media (max-width: 1090px) {*/
+/*  .explainer {*/
+/*    margin-top: 40px !important;*/
+/*  }*/
+/*}*/
 
 /* Languages and Platforms Grid */
 /* ---------------------------- */
@@ -104,7 +105,7 @@
 .iconContainer.wasmerIcon {
   @apply z-10;
   /* Move items closer together on tablet */
-  margin-left: calc(var(--spacing) * -0.5);  
+  margin-left: calc(var(--spacing) * -0.5);
   margin-right: calc(var(--spacing) * -0.5);
 }
 
@@ -130,7 +131,16 @@
   display: inline;
 }
 
+.highlightedText {
+  color: #4946DD;
+}
+
 @media (min-width: 650px) {
+
+  .explainerContainer {
+    background: repeat center top var(--dots-on-light);
+    background-size: var(--spacing) var(--spacing);
+  }
   .headlineContainer {
     @apply flex justify-center items-center;
   }
@@ -138,9 +148,12 @@
   .blockOnDesktop {
     display: block;
   }
-  
+
   .breakOnDesktop {
     display: block;
+  }
+  .explainer {
+    @apply mx-auto;
   }
 }
 
@@ -149,7 +162,7 @@
   .platforms {
     grid-template-columns: var(--col) var(--col);
   }
-  
+
   .platforms {
     grid-template-columns: var(--col) var(--col);
   }

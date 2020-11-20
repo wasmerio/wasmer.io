@@ -50,6 +50,7 @@ export class ExplainerComponent extends Component {
 
       screenSmallerThanAnimation: false,
     };
+    this.scene = React.createRef();
   }
 
   /**
@@ -108,10 +109,9 @@ export class ExplainerComponent extends Component {
     if (width < 750) {
       animateVertically = true;
     }
-    // if (width < 1068) {
-    //   screenSmallerThanAnimation = true;
-    // }
-
+    if (width < 1068) {
+      screenSmallerThanAnimation = true;
+    }
     this.setState({
       screenSmallerThanAnimation,
       animateVertically: animateVertically,
@@ -138,7 +138,11 @@ export class ExplainerComponent extends Component {
     const animationGridHeight = this.getAnimationGridHeight();
     // get the offset
     const offset = Math.round((positionedDots - animationGridHeight) / 2) - 1;
-    const marginTop = width > 1068 ? dotOffset + offset * dotPatternSize : 0;
+    let marginTopAmount = dotOffset + offset * dotPatternSize;
+    if(marginTopAmount < dotPatternSize * 2) {
+      marginTopAmount += dotPatternSize * 2 + 4;
+    }
+    const marginTop = width > 1068 ? marginTopAmount : 0;
     this.setState({ marginTop });
   }
 
@@ -149,7 +153,7 @@ export class ExplainerComponent extends Component {
    */
   calcPaddingTop() {
     const { height, width } = this.getWindowDimensions();
-    const playgroundSize = height * 0.66; // 0.66 because of the 66vh of the pattern
+    const playgroundSize = height / 2; // 0.66 because of the 66vh of the pattern
     const dotPatternSize = this.getDotPatternSize();
     // the first dot is with an offset of 1/2 pattern size,
     // minus 4 px because of the dot itself and the border
@@ -158,16 +162,18 @@ export class ExplainerComponent extends Component {
     const positionedDots =
       (playgroundSize - (playgroundSize % dotPatternSize)) / dotPatternSize;
     // how much grid is needed for the animation?
-    const animationGridHeight = this.getAn;
+    const animationGridHeight = this.getAnimationGridHeight();
     // get the offset
-    const offset = Math.round((positionedDots - animationGridHeight) / 2) - 1;
+    const offset = Math.round((positionedDots - animationGridHeight) / 2) - 2;
     const paddingTop =
       width < 1068 ? dotOffset + offset * dotPatternSize + 16 : 0;
+    console.log(positionedDots, animationGridHeight);
     this.setState({ paddingTop });
   }
 
   getAnimationGridHeight() {
     const { width } = this.getWindowDimensions();
+    if(width < 650) return 3;
     return width > 1090 ? 12 : 16;
   }
 
@@ -213,7 +219,6 @@ export class ExplainerComponent extends Component {
     this.calcMarginTop();
     this.calcContainerWidth();
     this.calcAnimateVertically();
-    this.calcMarginLeft();
     this.calcPaddingTop();
     if (!this.isTouchDevice()) {
       window.addEventListener(
@@ -223,7 +228,6 @@ export class ExplainerComponent extends Component {
           this.calcMarginTop();
           this.calcContainerWidth();
           this.calcAnimateVertically();
-          this.calcMarginLeft();
           this.calcPaddingTop();
         },
         { passive: true },
@@ -285,6 +289,7 @@ export class ExplainerComponent extends Component {
       },
     ]
 
+    // apply extra styles, based on
     let explainerStyle = {
       marginTop: this.state.marginTop,
       // width: `${containerWidth}px`,
@@ -297,7 +302,7 @@ export class ExplainerComponent extends Component {
 
     if (this.state.screenSmallerThanAnimation) {
       explainerStyle['paddingTop'] = this.state.paddingTop + 10;
-      explainerStyle['marginLeft'] = this.state.marginLeft;
+      // explainerStyle['marginLeft'] = this.state.marginLeft;
     }
 
     return (
@@ -311,147 +316,126 @@ export class ExplainerComponent extends Component {
                   indicators={true}
               >
                 {(progress) => (
-                    <div id="explainer" className={styles.hero}>
+                    <div id="explainer" className={styles.hero} style={{marginTop: '0 !important'}}>
                       <Timeline totalProgress={progress} paused>
                         <div className={styles.explainerContainer}>
-                          <div
-                              className={styles.explainer}
-                              style={explainerStyle}
-                          >
-                            {/* Languages */} {/* TODO: Toggle 1 global class for all languages */}
-                            <div className={styles.languages}>
-                              {languages.map((item, key) => {
-                                if (item.icon === "") {
-                                  return (
-                                      <div key={key} className={styles.empty} />
-                                  )
-                                }
+                          <Tween to={{right: 0}}>
+                            <div
+                                className={styles.explainer}
+                                style={explainerStyle}
+                            >
+                              {/* Languages */} {/* TODO: Toggle 1 global class for all languages */}
+                              <div className={styles.languages}>
+                                {languages.map((item, key) => {
+                                  if (item.icon === "") {
+                                    return (
+                                        <div key={key} className={styles.empty} />
+                                    )
+                                  }
 
-                                return (
-                                    <div
-                                      key={key}
-                                      className={`
+                                  return (
+                                      <div
+                                          key={key}
+                                          className={`
                                         ${styles.transitionContainer}
                                         ${item.hideOnTablet ? styles.hideOnTablet : ''}
                                         ${item.main ? styles.main : ''}
                                       `}
-                                    >
-                                      <LanguageComponent
-                                          large
-                                          icon={item.icon}
-                                          highlighted={item.main && progress > 0 && progress < 0.5}
-                                          // TODO: Toggle .highlighted class for Rust Icon when highlighed
-                                      />
-                                    </div>
-                                )
-                              })}
-                            </div>
-
-                            {/* Arrow 1 */} {/* TODO: Move left from -100% to 0 */}
-                            <div className={styles.arrowContainer}>
-                              <div className={styles.arrowMask}>
-                                <Tween duration={200} from={{ left: '-100%' }} to={{ left: '0' }}>
-                                  <div className={`${ progress < 0.5 ? styles.arrowFill : 'hidden'}`} />
-                                </Tween>
-                              </div>
-                            </div>
-
-                            {/* WA */} {/* TODO: Toggle .highlighted class */}
-                            <div className={`${styles.iconContainer} ${ progress > 0.5 && progress < 1 ? styles.highlighted : ''}`}>
-                              <WA />
-                            </div>
-
-                            {/* Arrow 2 */} {/* TODO: Move left from -100% to 0, reuse markup */}
-                            <div className={styles.arrowContainer}>
-                              <div className={styles.arrowMask}>
-                                <Tween duration={200} from={{ left: '-100%' }} to={{ left: '0' }}>
-                                  <div className={`${ progress < 1 ? styles.arrowFill : 'hidden'}`} />
-                                </Tween>
-                              </div>
-                            </div>
-
-                            {/* Wasmer & Plus */} {/* TODO: Toggle .highlighted class */}
-                            <div className="flex items-center">
-                              <div className={`${styles.iconContainer} ${styles.wasmerIcon} ${progress >= 1 ? styles.highlighted : ''}`}>
-                                <Wasmer />
-                              </div>
-                              <div className={`${styles.iconContainer} ${styles.plus} ${progress >= 1 ? styles.highlighted : ''}`}>
-                                <Plus />
-                              </div>
-                            </div>
-
-                            {/* Platforms */} {/* TODO: Toggle 1 global class for all languages */}
-                            <div className={styles.platforms}>
-                              {platforms.map((item, key) => {
-                                if (item.icon === "") {
-                                  return (
-                                      <div key={key} className={styles.empty} />
+                                      >
+                                        <LanguageComponent
+                                            large
+                                            icon={item.icon}
+                                            highlighted={item.main && progress > 0 && progress < 0.5}
+                                            // TODO: Toggle .highlighted class for Rust Icon when highlighed
+                                        />
+                                      </div>
                                   )
-                                }
+                                })}
+                              </div>
 
-                                return (
-                                    <div
-                                        key={key}
-                                        className={`
+                              {/* Arrow 1 */} {/* TODO: Move left from -100% to 0 */}
+                              <div className={styles.arrowContainer}>
+                                <div className={styles.arrowMask}>
+                                  <Tween duration={200} from={{ left: '-100%' }} to={{ left: '0' }}>
+                                    <div className={`${ progress < 0.5 ? styles.arrowFill : 'hidden'}`} />
+                                  </Tween>
+                                </div>
+                              </div>
+
+                              {/* WA */} {/* TODO: Toggle .highlighted class */}
+                              <div className={`${styles.iconContainer} ${ progress > 0.5 && progress < 1 ? styles.highlighted : ''}`}>
+                                <WA />
+                              </div>
+
+                              {/* Arrow 2 */} {/* TODO: Move left from -100% to 0, reuse markup */}
+                              <div className={styles.arrowContainer}>
+                                <div className={styles.arrowMask}>
+                                  <Tween duration={200} from={{ left: '-100%' }} to={{ left: '0' }}>
+                                    <div className={`${ progress < 1 ? styles.arrowFill : 'hidden'}`} />
+                                  </Tween>
+                                </div>
+                              </div>
+
+                              {/* Wasmer & Plus */} {/* TODO: Toggle .highlighted class */}
+                              <div className="flex items-center">
+                                <div className={`${styles.iconContainer} ${styles.wasmerIcon} ${progress >= 1 ? styles.highlighted : ''}`}>
+                                  <Wasmer />
+                                </div>
+                                <div className={`${styles.iconContainer} ${styles.plus} ${progress >= 1 ? styles.highlighted : ''}`}>
+                                  <Plus />
+                                </div>
+                              </div>
+
+                              {/* Platforms */} {/* TODO: Toggle 1 global class for all languages */}
+                              <div className={styles.platforms}>
+                                {platforms.map((item, key) => {
+                                  if (item.icon === "") {
+                                    return (
+                                        <div key={key} className={styles.empty} />
+                                    )
+                                  }
+
+                                  return (
+                                      <div
+                                          key={key}
+                                          className={`
                                     ${styles.transitionContainer}
                                     ${item.main ? styles.main : ''}
                                   `}
-                                    >
-                                      <LanguageComponent
-                                          large
-                                          icon={item.icon}
-                                          highlighted={item.main && progress >= 1}
-                                          // TODO: Toggle .highlighted class for Windows Icon when highlighed
-                                      />
-                                    </div>
-                                )
-                              })}
+                                      >
+                                        <LanguageComponent
+                                            large
+                                            icon={item.icon}
+                                            highlighted={item.main && progress >= 1}
+                                            // TODO: Toggle .highlighted class for Windows Icon when highlighed
+                                        />
+                                      </div>
+                                  )
+                                })}
+                              </div>
                             </div>
-                          </div>
+                          </Tween>
                         </div>
                         <div className={styles.headlineContainer}>
                           <h2
                               className={`${styles.headline} text-left px-8 md:px-0 sm:text-center my-24`}
                           >
-                            <Timeline
-                                position={2}
-                                target={
-                                  <span className={styles.blockOnDesktop}>
+
+
+                          <span className={`${styles.blockOnDesktop} ${progress < 0.5 ? styles.highlightedText : ''}`}>
                             Use the tools you know and the languages you love.{' '}
                           </span>
-                                }
-                            >
-                              <Tween
-                                  duration={0.01}
-                                  from={{ color: '#4946DD' }}
-                                  to={{ color: '#BDB7C7' }}
-                              />
-                            </Timeline>
-                            <Timeline
-                                position={2}
-                                target={
-                                  <span>Compile everything to WebAssembly. </span>
-                                }
-                            >
-                              <Tween duration={0.01} to={{ color: '#4946DD' }} />
-                              <Tween
-                                  delay={3}
-                                  duration={0.01}
-                                  to={{ color: '#BDB7C7' }}
-                              />
-                            </Timeline>
-                            <Timeline
-                                position={5}
-                                target={
-                                  <span>
+
+
+                          <span className={`${(progress > 0.5 && progress < 1) ? styles.highlightedText : ''}`}>
+                            Compile everything to WebAssembly. {' '}
+                          </span>
+
+                          <span className={`${(progress >= 1) ? styles.highlightedText : ''}`}>
                             Run it on any
                             <br className={styles.breakOnDesktop} />
                             OS or embed it into other languages.
                           </span>
-                                }
-                            >
-                              <Tween duration={0.01} to={{ color: '#4946DD' }} />
-                            </Timeline>
                           </h2>
                         </div>
                       </Timeline>
