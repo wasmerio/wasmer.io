@@ -32,7 +32,8 @@
   background: repeat left top var(--dots-on-light);
   background-size: var(--spacing) var(--spacing);
   height: var(--explainer-grid-height);
-  @apply items-baseline flex overflow-visible;
+  width: fit-content;
+  @apply items-baseline flex overflow-visible pr-24;
 }
 
 .explainer {
@@ -157,8 +158,12 @@
   color: #4946DD;
 }
 
-.hideSecondaryItems {
+.hideSecondaryItems > div:not(.main) {
+  opacity: 0;
+}
 
+.transitionContainer {
+  transition: all 0.15s ease-out;
 }
 
 @media (min-width: 650px) {

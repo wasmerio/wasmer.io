@@ -305,7 +305,7 @@ export class ExplainerComponent extends Component {
     }
 
     return (
-          <div>
+          <div className="overflow-hidden">
             {/* Helper */}
             <div className={styles.animationHelper}>
               <div data-step="100" style={{top: 100}}></div>
@@ -329,7 +329,7 @@ export class ExplainerComponent extends Component {
                 {(progress) => (
                     <div id="explainer" className={styles.hero} style={{marginTop: '0 !important'}}>
                       <Timeline totalProgress={progress}>
-                        <div className={styles.explainerContainer}>
+                        <div className={styles.explainerContainer} style={{ 'transform': progress > 0.98 ? 'translate3D(-40%, 0, 0)' : '', transition: 'transform .2s ease-in-out' }}>
                           <div className="fixed top-0 right-0 mt-4 mr-4">{progress}</div>
                           <div
                               className={styles.explainer}
@@ -337,9 +337,9 @@ export class ExplainerComponent extends Component {
                           >
                             {/* Languages */}
                             <Tween duration={200} />
-                            <div className={styles.languages}>
+                            <div className={`${styles.languages} ${(progress>=0.45) ? styles.hideSecondaryItems : ''}`}>
                               {languages.map((item, key) => {
-                                if (item.icon === "" || (!item.main && progress>0.5)) {
+                                if (item.icon === "" ) {
                                   return (
                                       <div key={key} className={styles.empty} />
                                   )
@@ -368,7 +368,7 @@ export class ExplainerComponent extends Component {
                             <div className={styles.arrowContainer}>
                               <div className={styles.arrowMask}>
                                 <Tween duration={200} from={{ 'transform': 'translate3D(-100%, 0, 0)' }} to={{ 'transform': 'translate3D(0, 0, 0)' }}>
-                                  <div className={`${ progress < 1 ? styles.arrowFill : 'hidden'}`} />
+                                  <div className={`${ progress < 0.5 && progress > 0.1 ? styles.arrowFill : 'opacity-0'}`} />
                                 </Tween>
                               </div>
                             </div>
