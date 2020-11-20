@@ -32,7 +32,9 @@
   background: repeat left top var(--dots-on-light);
   background-size: var(--spacing) var(--spacing);
   height: var(--explainer-grid-height);
-  @apply items-baseline flex overflow-visible;
+  width: fit-content;
+  transition: transform .2s ease-out;
+  @apply items-baseline flex overflow-visible pr-24;
 }
 
 .explainer {
@@ -173,11 +175,20 @@
   color: #4946DD;
 }
 
+.hideSecondaryItems > div:not(.main) {
+  opacity: 0;
+}
+
+.transitionContainer {
+  transition: all 0.15s ease-out;
+}
+
 @media (min-width: 650px) {
 
   .explainerContainer {
     background: repeat center top var(--dots-on-light);
     background-size: var(--spacing) var(--spacing);
+    @apply w-full p-0;
   }
   .headlineContainer {
     @apply flex justify-center items-center;
@@ -191,6 +202,7 @@
     display: block;
   }
   .explainer {
+    width: fit-content;
     @apply mx-auto;
   }
 }

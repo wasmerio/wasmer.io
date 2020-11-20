@@ -305,7 +305,7 @@ export class ExplainerComponent extends Component {
     }
 
     return (
-          <div>
+          <div className="overflow-hidden">
             {/* REMOVE Helper */}
             <div className={styles.animationHelper}>
               <div data-step="100" style={{top: 100}}></div>
@@ -329,7 +329,7 @@ export class ExplainerComponent extends Component {
                 {(progress) => (
                     <div id="explainer" className={styles.hero} style={{marginTop: '0 !important'}}>
                       <Timeline totalProgress={progress}>
-                        <div className={styles.explainerContainer}>
+                        <div className={styles.explainerContainer} style={{ 'transform': this.state.animateVertically && progress > 0.98 ? 'translate3D(-40%, 0, 0)' : '' }}>
                           {/* REMOVE Progress Indicator */}
                           <div className="fixed top-0 right-0 mt-4 mr-4">{progress}</div>
                           <div
@@ -376,7 +376,7 @@ export class ExplainerComponent extends Component {
                             <div className={styles.arrowContainer}>
                               <div className={styles.arrowMask}>
                                 <Tween duration={300} from={{ 'transform': 'translate3D(-100%, 0, 0)' }} to={{ 'transform': 'translate3D(0, 0, 0)' }}>
-                                  <div className={`${ progress < 0.5 ? styles.arrowFill : 'hidden'}`} />
+                                  <div className={`${ progress < 0.5 ? styles.arrowFill : 'opacity-0'}`} />
                                 </Tween>
                               </div>
                             </div>
@@ -391,7 +391,7 @@ export class ExplainerComponent extends Component {
                             <div className={styles.arrowContainer}>
                               <div className={styles.arrowMask}>
                                 <Tween duration={300} from={{ left: '-100%' }} to={{ left: '0' }}>
-                                  <div className={`${ progress < 0.8 ? styles.arrowFill : 'hidden'}`} />
+                                  <div className={`${ progress < 0.8 ? styles.arrowFill : 'opacity-0'}`} />
                                 </Tween>
                               </div>
                             </div>
