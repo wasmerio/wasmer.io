@@ -167,7 +167,6 @@ export class ExplainerComponent extends Component {
     const offset = Math.round((positionedDots - animationGridHeight) / 2) - 2;
     const paddingTop =
       width < 1068 ? dotOffset + offset * dotPatternSize + 16 : 0;
-    console.log(positionedDots, animationGridHeight);
     this.setState({ paddingTop });
   }
 
@@ -327,7 +326,7 @@ export class ExplainerComponent extends Component {
                               {/* Languages */} {/* TODO: Toggle 1 global class for all languages */}
                               <div className={styles.languages}>
                                 {languages.map((item, key) => {
-                                  if (item.icon === "") {
+                                  if (item.icon === "" || (!item.main && progress>0.5)) {
                                     return (
                                         <div key={key} className={styles.empty} />
                                     )
@@ -346,14 +345,13 @@ export class ExplainerComponent extends Component {
                                             large
                                             icon={item.icon}
                                             highlighted={item.main && progress > 0 && progress < 0.5}
-                                            // TODO: Toggle .highlighted class for Rust Icon when highlighed
                                         />
                                       </div>
                                   )
                                 })}
                               </div>
 
-                              {/* Arrow 1 */} {/* TODO: Move left from -100% to 0 */}
+                              {/* Arrow 1 */}
                               <div className={styles.arrowContainer}>
                                 <div className={styles.arrowMask}>
                                   <Tween duration={200} from={{ left: '-100%' }} to={{ left: '0' }}>
@@ -362,12 +360,12 @@ export class ExplainerComponent extends Component {
                                 </div>
                               </div>
 
-                              {/* WA */} {/* TODO: Toggle .highlighted class */}
+                              {/* WA */}
                               <div className={`${styles.iconContainer} ${ progress > 0.5 && progress < 1 ? styles.highlighted : ''}`}>
                                 <WA />
                               </div>
 
-                              {/* Arrow 2 */} {/* TODO: Move left from -100% to 0, reuse markup */}
+                              {/* Arrow 2 */}
                               <div className={styles.arrowContainer}>
                                 <div className={styles.arrowMask}>
                                   <Tween duration={200} from={{ left: '-100%' }} to={{ left: '0' }}>
@@ -376,7 +374,7 @@ export class ExplainerComponent extends Component {
                                 </div>
                               </div>
 
-                              {/* Wasmer & Plus */} {/* TODO: Toggle .highlighted class */}
+                              {/* Wasmer & Plus */}
                               <div className="flex items-center">
                                 <div className={`${styles.iconContainer} ${styles.wasmerIcon} ${progress >= 1 ? styles.highlighted : ''}`}>
                                   <Wasmer />
@@ -386,10 +384,10 @@ export class ExplainerComponent extends Component {
                                 </div>
                               </div>
 
-                              {/* Platforms */} {/* TODO: Toggle 1 global class for all languages */}
+                              {/* Platforms */}
                               <div className={styles.platforms}>
                                 {platforms.map((item, key) => {
-                                  if (item.icon === "") {
+                                  if (item.icon === "" || (!item.main && progress<=0.5)) {
                                     return (
                                         <div key={key} className={styles.empty} />
                                     )
@@ -407,7 +405,6 @@ export class ExplainerComponent extends Component {
                                             large
                                             icon={item.icon}
                                             highlighted={item.main && progress >= 1}
-                                            // TODO: Toggle .highlighted class for Windows Icon when highlighed
                                         />
                                       </div>
                                   )
