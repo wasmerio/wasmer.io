@@ -34,7 +34,7 @@
   height: var(--explainer-grid-height);
   width: fit-content;
   transition: transform .2s ease-out;
-  @apply items-baseline flex overflow-visible pr-24;
+  @apply items-baseline flex overflow-hidden relative pr-24;
 }
 
 .explainer {
