@@ -13,6 +13,32 @@ export const CardComponent = ({
   lightgrey,
   target,
 }) => {
+  if (!link) {
+    return (
+      <div
+        className={`
+          bg-secondary rounded shadow-lightpurple text-white flex flex-col justify-end relative font-bold text-left
+          ${styles.root}
+          ${!link ? styles.nonInteractive : ''}
+          ${secondary ? styles.secondary : ''}
+          ${lightgrey ? styles.lightgrey : ''}
+          ${horizontal ? styles.horizontal : ''}
+          ${small ? styles.small : ''}
+          ${className}
+        `}
+      >
+        <img className={`${styles.icon}`} src={icon} role="presentation" />
+        <div className={styles.content}>
+          {small ? (
+            <h3 className="font-bold">{text}</h3>
+          ) : (
+            <h2 className="font-bold">{text}</h2>
+          )}
+        </div>
+      </div>
+    )
+  }
+
   return (
     <a
       href={link}
