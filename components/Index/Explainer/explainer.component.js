@@ -35,7 +35,7 @@ export class ExplainerComponent extends Component {
       /**
        * Displays if the animation is scrolling vertically `true`.
        */
-      animateVertically: false,
+      animateHorizontal: false,
       /**
        * We need a left margin because the dot pattern is left orientated,
        * if the screen is mobile. The top pattern is centered all the time
@@ -99,19 +99,19 @@ export class ExplainerComponent extends Component {
    * Calculates the state for vertical scrolling of the animation.
    * (It scrolls vertically on mobile and small screens.)
    */
-  calcAnimateVertically() {
+  calcAnimateHorizontal() {
     const { width } = this.getWindowDimensions();
-    let animateVertically = false,
+    let animateHorizontal = false,
       screenSmallerThanAnimation = false;
     if (width < this.getAnimationWidth()) {
-      animateVertically = true;
+      animateHorizontal = true;
       screenSmallerThanAnimation = true;
     }
 
     let animationHorizontalScroll = (1 - width / this.getAnimationWidth()) * 100;
     this.setState({
       screenSmallerThanAnimation,
-      animateVertically,
+      animateHorizontal,
       animationHorizontalScroll
     });
   }
@@ -174,7 +174,7 @@ export class ExplainerComponent extends Component {
 
   getAnimationGridHeight() {
     const { width } = this.getWindowDimensions();
-    if(width < 650) return 3;
+    if(width < 720) return 3;
     return width > 1090 ? 12 : 16;
   }
 
@@ -219,7 +219,7 @@ export class ExplainerComponent extends Component {
     this.setFixedVariables();
     this.calcMarginTop();
     this.calcContainerWidth();
-    this.calcAnimateVertically();
+    this.calcAnimateHorizontal();
     this.calcPaddingTop();
 
     const languages = this.getLanguages();
@@ -240,7 +240,7 @@ export class ExplainerComponent extends Component {
           this.setFixedVariables();
           this.calcMarginTop();
           this.calcContainerWidth();
-          this.calcAnimateVertically();
+          this.calcAnimateHorizontal();
           this.calcPaddingTop();
           document.getElementById('explainer').style.marginTop = 0;
         },
@@ -258,12 +258,12 @@ export class ExplainerComponent extends Component {
   }
 
   render() {
-    const { containerWidth, animateVertically, animationHorizontalScroll } = this.state;
+    const { containerWidth, animateHorizontal, animationHorizontalScroll } = this.state;
 
     let {languages, platforms} = this.state;
 
     // apply extra styles, based on
-    let explainerStyle = this.getExplainerStyle(animateVertically);
+    let explainerStyle = this.getExplainerStyle(animateHorizontal);
 
     return (
           <div className="overflow-hidden">
@@ -290,7 +290,7 @@ export class ExplainerComponent extends Component {
                 {(progress) => (
                     <div id="explainer" className={styles.hero} style={{marginTop: '0 !important'}}>
                       <Timeline totalProgress={progress}>
-                        <div className={styles.explainerContainer} style={{ 'transform': this.state.animateVertically && progress > 0.65 ? `translate3D(-${animationHorizontalScroll}%, 0, 0)` : '' }}>
+                        <div className={styles.explainerContainer} style={{ 'transform': this.state.animateHorizontal && progress > 0.65 ? `translate3D(-${animationHorizontalScroll}%, 0, 0)` : '' }}>
                           {/* REMOVE Progress Indicator */}
                           <div className="fixed top-0 right-0 mt-4 mr-4">{progress}</div>
                           <div
@@ -427,12 +427,12 @@ export class ExplainerComponent extends Component {
     );
   }
 
-  getExplainerStyle(animateVertically) {
+  getExplainerStyle(animateHorizontal) {
     let explainerStyle = {
       marginTop: this.state.marginTop,
       // width: `${containerWidth}px`,
     };
-    if (!animateVertically) {
+    if (!animateHorizontal) {
       explainerStyle['left'] = 0;
     } else {
       delete explainerStyle['left'];

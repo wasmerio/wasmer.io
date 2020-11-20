@@ -241,9 +241,6 @@
   .headline {
     @apply max-w-4xl;
   }
-}
-
-@media (min-width: 1200px) {
   .itemsGrid .empty {
     @apply block;
   }
@@ -251,4 +248,7 @@
   .hideOnTablet {
     @apply block;
   }
+}
+
+@media (min-width: 1200px) {
 }
