@@ -119,7 +119,6 @@
   @apply absolute left-0 top-0 h-full w-full bg-secondary;
 }
 
-
 /* WebAssembly & Wasmer */
 /* -------------------- */
 
@@ -154,21 +153,11 @@
 
 .headlineContainer {
   height: var(--explainer-textcontainer-height);
-  @apply flex justify-center items-center;
 }
 
 .headline {
   @apply text-grey-30;
-}
-
-/* Other Stuff */
-/* ----------- */
-
-.breakOnDesktop {
-  display: none;
-}
-.blockOnDesktop {
-  display: inline;
+  max-width: 700px;
 }
 
 .highlightedText {
@@ -194,13 +183,10 @@
     @apply flex justify-center items-center;
   }
 
-  .blockOnDesktop {
-    display: block;
+  .headline {
+    max-width: 700px;
   }
 
-  .breakOnDesktop {
-    display: block;
-  }
   .explainer {
     width: fit-content;
     @apply mx-auto;
@@ -229,10 +215,6 @@
     --col: calc(var(--spacing) * 3 + var(--dot-size));
   }
 
-  .hideOnTablet {
-    @apply block;
-  }
-
   .arrowContainer {
     @apply w-dot-4;
   }
@@ -253,20 +235,18 @@
   .itemsGrid.platforms {
     margin-right: var(--spacing);
   }
+
+  .headline {
+    @apply max-w-4xl;
+  }
 }
 
 @media (min-width: 1200px) {
-  .itemsGrid.languages {
-    grid-template-columns: var(--col) var(--col) var(--col);
-  }
-
   .itemsGrid .empty {
     @apply block;
   }
-}
-
-/* @media (max-height: 782px) {
-  .languages > div.restVisibleOnTablet {
-    @apply hidden;
+  
+  .hideOnTablet {
+    @apply block;
   }
-} */
+}

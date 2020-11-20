@@ -384,23 +384,18 @@ export class ExplainerComponent extends Component {
                             </div>
                           </div>
                         </div>
-                        <div className={styles.headlineContainer}>
+                        <div className={`container ${styles.headlineContainer}`}>
                           <h2
-                            className={`${styles.headline} text-left px-8 md:px-0 sm:text-center my-24`}
+                            className={`${styles.headline} text-left md:text-center my-24`}
                           >
-                            <span className={`${styles.blockOnDesktop} ${progress < 0.3 ? styles.highlightedText : ''}`}>
+                            <span className={progress < 0.3 ? styles.highlightedText : ''}>
                               Use the tools you know and the languages you love.{' '}
                             </span>
-
-
-                            <span className={`${(progress > 0.3 && progress < 0.8) ? styles.highlightedText : ''}`}>
+                            <span className={(progress > 0.3 && progress < 0.8) ? styles.highlightedText : ''}>
                               Compile everything to WebAssembly. {' '}
                             </span>
-
-                            <span className={`${(progress >= 0.8) ? styles.highlightedText : ''}`}>
-                              Run it on any
-                              <br className={styles.breakOnDesktop} />
-                              OS or embed it into other languages.
+                            <span className={(progress >= 0.8) ? styles.highlightedText : ''}>
+                              Run it on any OS or embed it into other languages.
                             </span>
                           </h2>
                         </div>
