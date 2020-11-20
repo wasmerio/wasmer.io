@@ -43,7 +43,7 @@ export const GridComponent = ({
           className={`${styles.gridContainer} ${gridContainerClasses} -mx-8 md:mx-0`}
         >
           <div className={`dot-background dot-grid ${styles.grid}`}>
-            <ColorDots variant={reversed ? 'right' : ''} />
+            <ColorDots variant={reversed ? (plain ? 'right-m12' : 'right') : (plain ? 'm12' : '')} />
           </div>
           {children}
           <div>
