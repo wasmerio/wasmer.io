@@ -139,7 +139,7 @@ export class ExplainerComponent extends Component {
     // how much grid is needed for the animation?
     const animationGridHeight = this.getAnimationGridHeight();
     // get the offset
-    const offset = Math.round((positionedDots - animationGridHeight) / 2) - 1;
+    const offset = Math.round((positionedDots - animationGridHeight) / 2);
     let marginTopAmount = dotOffset + offset * dotPatternSize;
     if(marginTopAmount < dotPatternSize * 2) {
       marginTopAmount += dotPatternSize * 2 + 4;
@@ -175,7 +175,7 @@ export class ExplainerComponent extends Component {
   getAnimationGridHeight() {
     const { width } = this.getWindowDimensions();
     if(width < 720) return 3;
-    return width > 1090 ? 12 : 16;
+    return width > 1090 ? 12 : 9;
   }
 
   /**
