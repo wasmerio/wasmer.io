@@ -1,5 +1,5 @@
 .root {
-  --terminal-height: 448px;
+  --terminal-height: 350px;
   --terminal-width: 530px;
   --section-top-padding: calc(var(--spacing) * 3);
   --embed-padding: calc(var(--spacing) * 3);
@@ -9,10 +9,6 @@
 .terminal {
   @apply relative p-4 pb-12 overflow-hidden bg-primary shadow-lightpurple rounded mt-12 -mx-4;
   height: var(--terminal-height);
-}
-
-.embedContainer {
-  @apply pt-12;
 }
 
 .embedText {
@@ -29,7 +25,7 @@
 
 @media (min-width: 650px) {
   .embedContainer {
-    @apply flex;
+    @apply flex pt-12;
     padding-top: var(--embed-padding);
   }
 
@@ -56,6 +52,10 @@
 }
 
 @media (min-width: 850px) {
+  .root {
+    --terminal-height: 448px;
+  }
+
   .embedText {
     @apply mx-12;
   }
