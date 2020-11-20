@@ -103,16 +103,21 @@ export class ExplainerComponent extends Component {
     const { width } = this.getWindowDimensions();
     let animateVertically = false,
       screenSmallerThanAnimation = false;
-    if (width < 750) {
+    if (width < this.getAnimationWidth()) {
       animateVertically = true;
-    }
-    if (width < 1068) {
       screenSmallerThanAnimation = true;
     }
+
+    let animationHorizontalScroll = (1 - width / this.getAnimationWidth()) * 100;
     this.setState({
       screenSmallerThanAnimation,
-      animateVertically: animateVertically,
+      animateVertically,
+      animationHorizontalScroll
     });
+  }
+
+  getAnimationWidth() {
+    return 580;
   }
 
   /**
@@ -139,7 +144,7 @@ export class ExplainerComponent extends Component {
     if(marginTopAmount < dotPatternSize * 2) {
       marginTopAmount += dotPatternSize * 2 + 4;
     }
-    const marginTop = width > 1068 ? marginTopAmount : 0;
+    const marginTop = !this.state.screenSmallerThanAnimation ? marginTopAmount : 0;
     this.setState({ marginTop });
   }
 
@@ -163,7 +168,7 @@ export class ExplainerComponent extends Component {
     // get the offset
     const offset = Math.round((positionedDots - animationGridHeight) / 2) - 2;
     const paddingTop =
-      width < 1068 ? dotOffset + offset * dotPatternSize + 16 : 0;
+      this.state.screenSmallerThanAnimation ? dotOffset + offset * dotPatternSize + 16 : 0;
     this.setState({ paddingTop });
   }
 
@@ -253,7 +258,7 @@ export class ExplainerComponent extends Component {
   }
 
   render() {
-    const { containerWidth, animateVertically } = this.state;
+    const { containerWidth, animateVertically, animationHorizontalScroll } = this.state;
 
     let {languages, platforms} = this.state;
 
@@ -285,7 +290,7 @@ export class ExplainerComponent extends Component {
                 {(progress) => (
                     <div id="explainer" className={styles.hero} style={{marginTop: '0 !important'}}>
                       <Timeline totalProgress={progress}>
-                        <div className={styles.explainerContainer} style={{ 'transform': this.state.animateVertically && progress > 0.65 ? 'translate3D(-40%, 0, 0)' : '' }}>
+                        <div className={styles.explainerContainer} style={{ 'transform': this.state.animateVertically && progress > 0.65 ? `translate3D(-${animationHorizontalScroll}%, 0, 0)` : '' }}>
                           {/* REMOVE Progress Indicator */}
                           <div className="fixed top-0 right-0 mt-4 mr-4">{progress}</div>
                           <div

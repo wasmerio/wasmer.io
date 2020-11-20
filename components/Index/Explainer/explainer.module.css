@@ -233,8 +233,9 @@
     @apply mx-0;
   }
 
-  .itemsGrid.platforms {
+  .itemsGrid.languages {
     margin-right: var(--spacing);
+    grid-template-columns: var(--col) var(--col) var(--col);
   }
 
   .headline {
