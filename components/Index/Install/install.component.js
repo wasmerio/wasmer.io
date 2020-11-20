@@ -38,7 +38,7 @@ export class InstallComponent extends Component {
                 Install Wasmer by copy-pasting a single command. It’s that easy.
               </p>
               <div className="-mx-2">
-                <SnippetComponent />
+                <SnippetComponent fadeOut />
               </div>
               <p className="text-xs mt-6">
                 <span className="opacity-50">
