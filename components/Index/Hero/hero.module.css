@@ -14,7 +14,7 @@
   padding: 0 1.5rem;
   height: 33vh;
   min-height: 250px;
-  @apply flex flex-col justify-end pb-dot-3;
+  @apply flex flex-col justify-end pb-dot-3 relative overflow-hidden;
 }
 
 .container {
