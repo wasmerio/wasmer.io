@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import handleViewport from 'react-in-viewport';
+import { ColorDots } from '../../ColorDots/color-dots.component';
+import { isMobile } from "../../../utils";
 import { LanguageComponent } from '../../Languages/language.component';
 import { AsciinemaComponent, SnippetComponent } from './../../../components/';
 import languages from './../../Languages/languages.constants';
@@ -12,13 +14,25 @@ const Asciinema = handleViewport(AsciinemaComponent);
 export class InstallComponent extends Component {
   state = {
     play: false,
+    fontSettings: {
+      fontFamily: 'Zeitung Mono Pro',
+      fontSize: 17
+    }
   };
 
+  componentDidMount() {
+    if (isMobile()) {
+      this.setState({ fontSettings: {} });
+    }
+  }
+
   render() {
-    const { play } = this.state;
+    const { play, fontSettings } = this.state;
     return (
       <div className="my-page md:pb-32 relative">
-        <div className={styles.grid} />
+        <div className={styles.grid}>
+          <ColorDots items={75} distance={[1, 50]} />
+        </div>
         <div className="container flex flex-col lg:flex-row items-center">
           <div className={`md:text-center lg:text-left ${styles.install}`}>
             <h2 className="font-bold mb-4 xl:mb-6">Try it now!</h2>
@@ -48,7 +62,7 @@ export class InstallComponent extends Component {
                 theme: {
                   foreground: '#ffffff',
                   background: '#231044',
-                  black: 'fdf6e3',
+                  black: '#fdf6e3',
                   color0: '#231044',
                   color1: '#ff005b',
                   green: '#02C39A',
@@ -57,8 +71,7 @@ export class InstallComponent extends Component {
                 cols: 43,
                 rows: 16,
                 lineHeight: 1.1,
-                fontFamily: 'Zeitung Mono Pro',
-                fontSize: 17,
+                ...fontSettings
               }}
               cast={scenario}
               play={this.state.play}
