@@ -14,7 +14,7 @@ export class GithubCounterComponent extends Component {
   getCounter = async () => {
     if (!process.env.GITHUB_API_ACTIVE) return 6524;
     const resource = await fetch(
-      'https://api.github.com/repos/wasmerio/wasmer',
+        'https://api.github.com/repos/wasmerio/wasmer',
     );
     const data = await resource.json();
     return data.stargazers_count;
@@ -22,7 +22,6 @@ export class GithubCounterComponent extends Component {
 
   componentDidMount() {
     this.getCounter().then((counter) => {
-      counter = counter.toLocaleString();
       this.setState({ counter });
 
       if (this.state.animate) {
@@ -55,20 +54,20 @@ export class GithubCounterComponent extends Component {
 
     if (this.state.animate) {
       return (
-        <span className={styles.root}>
-          {counter.slice(0, -1)}
-          <span
-            className={`${styles.animation} ${update ? styles.update : ''}`}
-          >
+          <span className={styles.root}>
+          {counter.toLocaleString().slice(0, -1)}
+            <span
+                className={`${styles.animation} ${update ? styles.update : ''}`}
+            >
             <span className={styles.animationContainer}>
-              <span>{(counter - 1).slice(-1)}</span>
-              <span>{counter.slice(-1)}</span>
+              <span>{(counter - 1).toLocaleString().slice(-1)}</span>
+              <span>{counter.toLocaleString().slice(-1)}</span>
             </span>
           </span>
         </span>
       );
     }
 
-    return <span className={styles.root}>{counter}</span>;
+    return <span className={styles.root}>{counter.toLocaleString()}</span>;
   }
 }
