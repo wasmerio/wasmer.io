@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import handleViewport from 'react-in-viewport';
+import { ColorDots } from '../../ColorDots/color-dots.component';
 import { AsciinemaComponent, SnippetComponent } from './../../../components/';
 import languages from './../../Languages/languages.constants';
 import { StepperComponent } from './components/Stepper/stepper.component';
@@ -17,7 +18,9 @@ export class InstallComponent extends Component {
     const { play } = this.state;
     return (
       <div className="my-page md:pb-32 relative">
-        <div className={styles.grid} />
+        <div className={styles.grid}>
+          <ColorDots items={75} distance={[1, 50]} />
+        </div>
         <div className="container flex flex-col lg:flex-row items-center">
           <div className={`md:text-center lg:text-left ${styles.install}`}>
             <h2 className="font-bold mb-4 xl:mb-6">Try it now!</h2>
@@ -83,6 +86,7 @@ export class InstallComponent extends Component {
                     className={styles.gridBox}
                     href={url}
                     target="_blank"
+                    rel="noreferrer noopener"
                     title={`Wasmer ${name} WebAssembly library`}
                   >
                     <span className="leading-none pb-1">{name}</span>

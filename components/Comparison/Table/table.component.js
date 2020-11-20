@@ -40,8 +40,8 @@ export const TableComponent = ({
           <div className="label text-grey-60">
             <span>{competitorName}</span>
           </div>
-          {competitorItems.map((item) => (
-            <div className="flex mb-dot-1">
+          {competitorItems.map((item, index) => (
+            <div className="flex mb-dot-1" key={index}>
               <div
                 className={`grid-box extended items-end bg-lightgrey text-grey-60 relative h-dot-2 lg:h-dot-3 w-dot-4 lg:w-dot-5 ${
                   !item ? styles.empty : ''

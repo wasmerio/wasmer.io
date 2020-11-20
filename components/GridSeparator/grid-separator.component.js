@@ -1,5 +1,10 @@
 import React from 'react';
+import { ColorDots } from '../ColorDots/color-dots.component';
 
 export const GridSeparatorComponent = () => {
-  return <div className="dot-background h-20" />;
+  return (
+    <div className="dot-background relative h-20">
+      <ColorDots items={150} />
+    </div>
+  );
 };
