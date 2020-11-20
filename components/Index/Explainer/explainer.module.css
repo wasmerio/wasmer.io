@@ -135,6 +135,10 @@
   color: #4946DD;
 }
 
+.hideSecondaryItems {
+
+}
+
 @media (min-width: 650px) {
 
   .explainerContainer {

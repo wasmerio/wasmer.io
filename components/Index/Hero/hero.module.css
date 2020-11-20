@@ -12,7 +12,7 @@
   background-size: 28px 28px;
   /* padding: 0 46px; */
   padding: 0 1.5rem;
-  height: 23vh;
+  height: 33vh;
   @apply flex flex-col justify-end;
 }
 
@@ -53,6 +53,11 @@
   }
   .languagesContainer {
     height: 25px; /* hardcoded to keep shell command aligned on grid */
+  }
+
+
+  .grid {
+    height: 23vh;
   }
 }
 

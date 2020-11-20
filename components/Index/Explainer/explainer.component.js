@@ -384,9 +384,9 @@ export class ExplainerComponent extends Component {
                             </div>
 
                             {/* Platforms */}
-                            <div className={styles.platforms}>
+                            <div className={`${styles.platforms} ${(progress<=0.8) ? styles.hideSecondaryItems : ''}`}>
                               {platforms.map((item, key) => {
-                                if (item.icon === "" || (!item.main && progress<=0.5)) {
+                                if (item.icon === "") {
                                   return (
                                       <div key={key} className={styles.empty} />
                                   )
