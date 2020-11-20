@@ -38,16 +38,9 @@
 }
 
 .explainer {
-  margin-left: calc(var(--spacing) * 1.5 - var(--dot-size));
+  margin-left: calc(var(--spacing) - var(--dot-size) + 1rem);
   @apply relative flex items-center justify-start;
 }
-
-/* TODO Vittorio: Remove this fix as soon as possible, probably some calculation is off */
-/*@media (max-width: 1090px) {*/
-/*  .explainer {*/
-/*    margin-top: 40px !important;*/
-/*  }*/
-/*}*/
 
 /* Languages and Platforms Grid */
 /* ---------------------------- */
@@ -254,7 +247,9 @@
   .hideOnTablet {
     @apply block;
   }
+}
 
+@media (min-width: 1800px) {
   .headline {
     @apply max-w-5xl;
   }

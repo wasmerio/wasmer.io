@@ -21,7 +21,7 @@ const testimonials = [
     link:
       'https://www.wired.com/story/programming-tool-makes-easier-apps-work-anywhere/',
     image: 'infoworld.svg',
-    textSize: 'xl',
+    textSize: 'lg',
   },
 ];
 
