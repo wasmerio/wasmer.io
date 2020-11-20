@@ -43,6 +43,9 @@ export class ExplainerComponent extends Component {
       marginLeft: 0,
 
       screenSmallerThanAnimation: false,
+
+      languages: [],
+      platforms: [],
     };
     this.scene = React.createRef();
   }
@@ -213,6 +216,18 @@ export class ExplainerComponent extends Component {
     this.calcContainerWidth();
     this.calcAnimateVertically();
     this.calcPaddingTop();
+
+    const languages = this.getLanguages();
+    const platforms = this.getPlatforms();
+    this.setState({languages, platforms});
+    window.addEventListener(
+        'resize',
+        () => {
+          document.getElementById('explainer').style.marginTop = 0;
+        },
+        { passive: true },
+    );
+
     if (!this.isTouchDevice()) {
       window.addEventListener(
         'resize',
@@ -240,8 +255,7 @@ export class ExplainerComponent extends Component {
   render() {
     const { containerWidth, animateVertically } = this.state;
 
-    var languages = this.getLanguages();
-    var platforms = this.getPlatforms();
+    let {languages, platforms} = this.state;
 
     // apply extra styles, based on
     let explainerStyle = this.getExplainerStyle(animateVertically);
@@ -249,17 +263,17 @@ export class ExplainerComponent extends Component {
     return (
           <div className="overflow-hidden">
             {/* REMOVE Helper */}
-            <div className={styles.animationHelper}>
-              <div data-step="100" style={{top: 100}}></div>
-              <div data-step="200" style={{top: 200}}></div>
-              <div data-step="300" style={{top: 300}}></div>
-              <div data-step="400" style={{top: 400}}></div>
-              <div data-step="500" style={{top: 500}}></div>
-              <div data-step="600" style={{top: 600}}></div>
-              <div data-step="700" style={{top: 700}}></div>
-              <div data-step="800" style={{top: 800}}></div>
-              <div data-step="900" style={{top: 900}}></div>
-            </div>
+            {/*<div className={styles.animationHelper}>*/}
+            {/*  <div data-step="100" style={{top: 100}}></div>*/}
+            {/*  <div data-step="200" style={{top: 200}}></div>*/}
+            {/*  <div data-step="300" style={{top: 300}}></div>*/}
+            {/*  <div data-step="400" style={{top: 400}}></div>*/}
+            {/*  <div data-step="500" style={{top: 500}}></div>*/}
+            {/*  <div data-step="600" style={{top: 600}}></div>*/}
+            {/*  <div data-step="700" style={{top: 700}}></div>*/}
+            {/*  <div data-step="800" style={{top: 800}}></div>*/}
+            {/*  <div data-step="900" style={{top: 900}}></div>*/}
+            {/*</div>*/}
             <Controller>
               <Scene
                   duration={1000}
