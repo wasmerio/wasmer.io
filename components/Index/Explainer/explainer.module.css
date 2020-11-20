@@ -235,12 +235,18 @@
 
   .itemsGrid.languages {
     margin-right: var(--spacing);
-    grid-template-columns: var(--col) var(--col) var(--col);
   }
 
   .headline {
     @apply max-w-4xl;
   }
+}
+
+@media (min-width: 1200px) {
+  .itemsGrid.languages {
+    grid-template-columns: var(--col) var(--col) var(--col);
+  }
+
   .itemsGrid .empty {
     @apply block;
   }
@@ -248,7 +254,4 @@
   .hideOnTablet {
     @apply block;
   }
-}
-
-@media (min-width: 1200px) {
 }
