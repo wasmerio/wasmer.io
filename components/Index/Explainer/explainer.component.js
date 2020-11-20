@@ -222,6 +222,7 @@ export class ExplainerComponent extends Component {
           this.calcContainerWidth();
           this.calcAnimateVertically();
           this.calcPaddingTop();
+          document.getElementById('explainer').style.marginTop = 0;
         },
         { passive: true },
       );
