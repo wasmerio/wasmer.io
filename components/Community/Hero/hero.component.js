@@ -12,7 +12,7 @@ export const HeroComponent = () => {
         </div>
         <div className={`${styles.gridContainer} -mx-8 md:-mx-16 lg:mx-0`}>
           <div className={`dot-background dot-grid ${styles.grid}`}>
-            <ColorDots variant="center" />
+            <ColorDots variant="center-left" />
           </div>
           <HowToStartComponent />
         </div>

@@ -4,7 +4,7 @@ import { getScreenType } from '../../utils';
 /**
  * @param items {number}
  * @param distance {number[]} Distance on the grid, default values are for grid 25x25 dots
- * @param variant {boolean} If true, set dots to the center and move by calculated offset
+ * @param variant {boolean|string} If true, set dots to the center and move by calculated offset
  * @returns {*}
  * @constructor
  */
@@ -142,11 +142,18 @@ export const ColorDots = ({
               }px) calc(0.25rem + ${last.top}px)`;
       }
 
-      if (variant === 'center') {
-        if (['xs'].indexOf(screen) !== -1) {
+      if (['center-left'].indexOf(variant) !== -1) {
+        if (['xs', 'sm'].indexOf(screen) !== -1) {
           position = `calc(12px + ${last.left}px) ${last.top}px`;
         }
+        if (['md'].indexOf(screen) !== -1) {
+          position = `calc(50% ${index % 2 ? '+' : '-'} ${last.left}px) ${
+            last.top
+          }px`;
+        }
+      }
 
+      if (variant === 'center') {
         if (['md'].indexOf(screen) !== -1) {
           position = `calc(50% ${index % 2 ? '+' : '-'} ${last.left}px) ${
             last.top
@@ -155,9 +162,31 @@ export const ColorDots = ({
       }
 
       if (variant === 'right') {
-        position = position = `calc(100% ${index % 2 ? '+' : '-'} ${
-          last.left
-        }px) ${last.top}px`;
+        if (['xs', 'sm'].indexOf(screen) !== -1) {
+          position = `calc(${last.left}px) ${last.top}px`;
+        }
+        if (['xs', 'sm'].indexOf(screen) === -1) {
+          position = `calc(100% ${index % 2 ? '+' : '-'} ${
+            last.left
+          }px) ${last.top}px`;
+        }
+      }
+
+      if (variant === 'right-m12') {
+        if (['xs', 'sm'].indexOf(screen) !== -1) {
+          position = `calc(12px + ${last.left}px) ${last.top}px`;
+        }
+        if (['xs', 'sm'].indexOf(screen) === -1) {
+          position = `calc(100% ${index % 2 ? '+' : '-'} ${
+            last.left
+          }px) ${last.top}px`;
+        }
+      }
+
+      if (variant === 'm12') {
+        if (['xs', 'sm'].indexOf(screen) !== -1) {
+          position = `calc(12px + ${last.left}px) ${last.top}px`;
+        }
       }
 
       return `url(/images/dots/${last.color}.svg) no-repeat ${position} / ${gridSize}px ${gridSize}px`;
