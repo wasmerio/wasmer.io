@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import handleViewport from 'react-in-viewport';
+import { isMobile } from "../../../utils";
 import { AsciinemaComponent, SnippetComponent } from './../../../components/';
 import languages from './../../Languages/languages.constants';
 import { StepperComponent } from './components/Stepper/stepper.component';
@@ -11,10 +12,20 @@ const Asciinema = handleViewport(AsciinemaComponent);
 export class InstallComponent extends Component {
   state = {
     play: false,
+    fontSettings: {
+      fontFamily: 'Zeitung Mono Pro',
+      fontSize: 17
+    }
   };
 
+  componentDidMount() {
+    if (isMobile()) {
+      this.setState({ fontSettings: {} });
+    }
+  }
+
   render() {
-    const { play } = this.state;
+    const { play, fontSettings } = this.state;
     return (
       <div className="my-page md:pb-32 relative">
         <div className={styles.grid} />
@@ -47,7 +58,7 @@ export class InstallComponent extends Component {
                 theme: {
                   foreground: '#ffffff',
                   background: '#231044',
-                  black: 'fdf6e3',
+                  black: '#fdf6e3',
                   color0: '#231044',
                   color1: '#ff005b',
                   green: '#02C39A',
@@ -56,8 +67,7 @@ export class InstallComponent extends Component {
                 cols: 43,
                 rows: 16,
                 lineHeight: 1.1,
-                fontFamily: 'Zeitung Mono Pro',
-                fontSize: 17,
+                ...fontSettings
               }}
               cast={scenario}
               play={this.state.play}
