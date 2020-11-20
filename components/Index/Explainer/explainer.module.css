@@ -33,6 +33,7 @@
   background-size: var(--spacing) var(--spacing);
   height: var(--explainer-grid-height);
   width: fit-content;
+  transition: transform .2s ease-out;
   @apply items-baseline flex overflow-visible pr-24;
 }
 
@@ -171,6 +172,7 @@
   .explainerContainer {
     background: repeat center top var(--dots-on-light);
     background-size: var(--spacing) var(--spacing);
+    @apply w-full p-0;
   }
   .headlineContainer {
     @apply flex justify-center items-center;
@@ -184,6 +186,7 @@
     display: block;
   }
   .explainer {
+    width: fit-content;
     @apply mx-auto;
   }
 }

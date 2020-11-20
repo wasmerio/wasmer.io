@@ -13,7 +13,7 @@
   /* padding: 0 46px; */
   padding: 0 1.5rem;
   height: 33vh;
-  @apply flex flex-col justify-end;
+  @apply flex flex-col justify-end pb-dot-3;
 }
 
 .container {
