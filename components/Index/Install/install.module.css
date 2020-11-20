@@ -42,24 +42,36 @@
 }
 
 .gridBoxContainer {
-  @apply mt-dot-1 ml-dot-1 h-dot-4 bg-white;
-  outline: 4px solid rgba(35, 16, 68, 0.13);
+  @apply mt-dot-1 ml-dot-1 h-dot-3;
+  /* outline: 4px solid rgba(35, 16, 68, 0.13); */
 }
 
 .gridBox {
-  @apply w-dot-4 h-full -m-1 p-1 box-content text-small text-primary text-right font-bold inline-block relative flex justify-end items-end;
-  border-radius: 1px;
+  @apply w-dot-3 h-full bg-lightgrey rounded -m-2 p-2 box-content flex relative;
+  /* border-radius: 1px; */
   -webkit-transition: all ease-in-out 200ms;
   transition: all ease-in-out 200ms;
 }
+
+/* .gridBox div {
+  transition: fill 0.2s ease-in-out;
+} */
+
+/* .gridBoxInner {
+  @apply 
+} */
 
 .gridBox:hover {
   @apply shadow-lightpurple bg-secondary rounded text-white -m-2 p-2;
 }
 
-.gridBox span {
+/* .gridBox:hover div { TODO: Tidy up
+  --fill: #fff;
+} */
+
+/* .gridBox span {
   @apply mr-2 mb-1;
-}
+} */
 
 @media (min-width: 1800px) {
   .gridBox {

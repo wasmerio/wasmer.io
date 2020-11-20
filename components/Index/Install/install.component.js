@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import handleViewport from 'react-in-viewport';
 import { ColorDots } from '../../ColorDots/color-dots.component';
+import { isMobile } from "../../../utils";
+import { LanguageComponent } from '../../Languages/language.component';
 import { AsciinemaComponent, SnippetComponent } from './../../../components/';
 import languages from './../../Languages/languages.constants';
 import { StepperComponent } from './components/Stepper/stepper.component';
@@ -12,10 +14,20 @@ const Asciinema = handleViewport(AsciinemaComponent);
 export class InstallComponent extends Component {
   state = {
     play: false,
+    fontSettings: {
+      fontFamily: 'Zeitung Mono Pro',
+      fontSize: 17
+    }
   };
 
+  componentDidMount() {
+    if (isMobile()) {
+      this.setState({ fontSettings: {} });
+    }
+  }
+
   render() {
-    const { play } = this.state;
+    const { play, fontSettings } = this.state;
     return (
       <div className="my-page md:pb-32 relative">
         <div className={styles.grid}>
@@ -50,7 +62,7 @@ export class InstallComponent extends Component {
                 theme: {
                   foreground: '#ffffff',
                   background: '#231044',
-                  black: 'fdf6e3',
+                  black: '#fdf6e3',
                   color0: '#231044',
                   color1: '#ff005b',
                   green: '#02C39A',
@@ -59,8 +71,7 @@ export class InstallComponent extends Component {
                 cols: 43,
                 rows: 16,
                 lineHeight: 1.1,
-                fontFamily: 'Zeitung Mono Pro',
-                fontSize: 17,
+                ...fontSettings
               }}
               cast={scenario}
               play={this.state.play}
@@ -79,18 +90,15 @@ export class InstallComponent extends Component {
               WebAssembly everywhere.
             </p>
             <div className={styles.embedLanguages}>
-              {languages.map(({ name, url }, index) => (
+              {languages.map(({ name, icon, url }, index) => (
                 <div className={styles.gridBoxContainer} key={index}>
-                  <a
+                  <LanguageComponent
                     key={name}
-                    className={styles.gridBox}
-                    href={url}
-                    target="_blank"
-                    rel="noreferrer noopener"
+                    highlighted
+                    icon={icon}
+                    link={url}
                     title={`Wasmer ${name} WebAssembly library`}
-                  >
-                    <span className="leading-none pb-1">{name}</span>
-                  </a>
+                  />
                 </div>
               ))}
             </div>
