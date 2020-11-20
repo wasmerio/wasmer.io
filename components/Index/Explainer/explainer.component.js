@@ -271,7 +271,7 @@ export class ExplainerComponent extends Component {
                 {(progress) => (
                     <div id="explainer" className={styles.hero} style={{marginTop: '0 !important'}}>
                       <Timeline totalProgress={progress}>
-                        <div className={styles.explainerContainer} style={{ 'transform': this.state.animateVertically && progress > 0.98 ? 'translate3D(-40%, 0, 0)' : '' }}>
+                        <div className={styles.explainerContainer} style={{ 'transform': this.state.animateVertically && progress > 0.65 ? 'translate3D(-40%, 0, 0)' : '' }}>
                           {/* REMOVE Progress Indicator */}
                           <div className="fixed top-0 right-0 mt-4 mr-4">{progress}</div>
                           <div
