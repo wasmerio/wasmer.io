@@ -300,7 +300,7 @@ export class ExplainerComponent extends Component {
                   >
                     <div className={styles.explainer} style={explainerStyle}>
                       {/* Languages */}
-                      <Tween duration={100} />
+                      <Tween duration={100}>
                       <div
                         className={`
                                 ${styles.itemsGrid}
@@ -338,6 +338,7 @@ export class ExplainerComponent extends Component {
                           );
                         })}
                       </div>
+                      </Tween>
 
                       {/* Arrow 1 */}
                       <div className={styles.arrowContainer}>
@@ -357,7 +358,7 @@ export class ExplainerComponent extends Component {
                       </div>
 
                       {/* WA */}
-                      <Tween duration={100} />
+                      <Tween duration={100} >
                       <div
                         className={`${styles.iconContainer} ${
                           progress > 0.3 && progress < 0.8
@@ -367,6 +368,7 @@ export class ExplainerComponent extends Component {
                       >
                         <WA />
                       </div>
+                      </Tween>
 
                       {/* Arrow 2 */}
                       <div className={styles.arrowContainer}>
@@ -386,23 +388,24 @@ export class ExplainerComponent extends Component {
                       </div>
 
                       {/* Wasmer & Plus */}
-                      <Tween duration={200} />
-                      <div className="flex items-center">
-                        <div
-                          className={`${styles.iconContainer} ${
-                            styles.wasmerIcon
-                          } ${progress >= 0.8 ? styles.highlighted : ''}`}
-                        >
-                          <Wasmer />
+                      <Tween duration={200} >
+                        <div className="flex items-center">
+                          <div
+                            className={`${styles.iconContainer} ${
+                              styles.wasmerIcon
+                            } ${progress >= 0.8 ? styles.highlighted : ''}`}
+                          >
+                            <Wasmer />
+                          </div>
+                          <div
+                            className={`${styles.iconContainer} ${styles.plus} ${
+                              progress >= 0.8 ? styles.highlighted : ''
+                            }`}
+                          >
+                            <Plus />
+                          </div>
                         </div>
-                        <div
-                          className={`${styles.iconContainer} ${styles.plus} ${
-                            progress >= 0.8 ? styles.highlighted : ''
-                          }`}
-                        >
-                          <Plus />
-                        </div>
-                      </div>
+                      </Tween>
 
                       {/* Platforms */}
                       <div
