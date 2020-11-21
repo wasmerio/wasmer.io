@@ -14,12 +14,12 @@
   padding: 0 1.5rem;
   height: 33vh;
   min-height: 250px;
-  @apply flex flex-col justify-end pb-dot-3;
+  @apply flex flex-col justify-end;
 }
 
 .container {
   max-width: 618px;
-  @apply mx-auto flex flex-col items-center w-full;
+  @apply mx-auto flex flex-col items-center w-full mb-dot-3 pb-dot-size;
 }
 
 .item {
