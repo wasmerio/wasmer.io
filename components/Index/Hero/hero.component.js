@@ -8,7 +8,7 @@ import { ColorDots } from '../../ColorDots/color-dots.component';
 export const HeroComponent = () => {
   return (
     <div className={styles.hero}>
-      <div></div>
+      <div/>
       <div className="container">
         <HeaderComponent />
       </div>

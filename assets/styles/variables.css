@@ -64,9 +64,15 @@
   --explainer-grid-height: 50vh;
   --explainer-textcontainer-height: 50vh;
 
+  /*--100vh: 100vh;*/
+
   /* Page spacing */
   --page-spacing:       4.5rem;
   --page-spacing-half:  2.5rem;
+
+
+  --hero-max-height: 900px;
+  --hero-min-height: 670px;
 }
 
 /* @media (min-width: 438px) {
@@ -102,7 +108,7 @@
     --card-icon-size: 96px;
     --card-icon-spacing-small: 1.5rem;
     --card-icon-size-small: 48px;
-    
+
     /* Page spacing */
     --page-spacing:       6rem;
     --page-spacing-half:  3.5rem;

@@ -84,6 +84,7 @@ export class ExplainerComponent extends Component {
 
   setFixedVariables() {
     const { gridHeight, textcontainerHeight } = this.getAnimationHeights();
+    const { height } = this.getWindowDimensions();
 
     document.documentElement.style.setProperty(
       '--explainer-grid-height',
@@ -92,6 +93,10 @@ export class ExplainerComponent extends Component {
     document.documentElement.style.setProperty(
       '--explainer-textcontainer-height',
       `${textcontainerHeight}px`,
+    );
+    document.documentElement.style.setProperty(
+        '--100vh',
+        `${height}px`,
     );
   }
 

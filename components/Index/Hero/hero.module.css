@@ -1,7 +1,7 @@
 .hero {
-  height: calc(100vh - 107px);
-  min-height: 670px;
-  max-height: 900px;
+  height: calc(var(--100vh) - 107px);
+  min-height: var(--hero-min-height);
+  max-height: var(--hero-max-height);
   @apply justify-between items-center flex flex-col overflow-hidden text-center;
 }
 
@@ -13,6 +13,7 @@
   /* padding: 0 46px; */
   padding: 0 1.5rem;
   height: 33vh;
+  max-height: calc(var(--hero-max-height) * 0.33);
   min-height: 250px;
   @apply flex flex-col justify-end;
 }
@@ -51,13 +52,11 @@
   .grid {
     background: repeat center bottom var(--dots-on-light);
     background-size: var(--spacing) var(--spacing);
+    max-height: calc(var(--hero-max-height) * 0.23);
+    height: 23vh;
   }
   .languagesContainer {
     height: 25px; /* hardcoded to keep shell command aligned on grid */
-  }
-
-  .grid {
-    height: 23vh;
   }
 }
 
