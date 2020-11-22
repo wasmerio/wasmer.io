@@ -447,7 +447,7 @@ export class ExplainerComponent extends Component {
                   </div>
                   <div className={`container ${styles.headlineContainer}`}>
                     <h2
-                      className={`${styles.headline} text-left md:text-center my-24`}
+                      className={`${styles.headline} text-left md:text-center my-8 md:my-16 lg:my-24`}
                     >
                       <span
                         className={progress < 0.3 ? styles.highlightedText : ''}

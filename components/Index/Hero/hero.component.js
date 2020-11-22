@@ -16,13 +16,13 @@ export const HeroComponent = () => {
         <div className={styles.container}>
           <SnippetComponent variant="dark" />
           <div
-            className={`bg-white relative text-opacity-50 text-xs text-primary md:px-3 mt-4 ${styles.languagesContainer}`}
+            className={`bg-white relative text-opacity-50 text-xs text-primary px-2 md:px-3 mt-4 ${styles.languagesContainer}`}
           >
-            <div className="flex flex-col md:flex-row">
-              <div className="mr-2 font-medium self-center flex-auto">
+            <div className="flex flex-col items-start md:flex-row">
+              <div className="mr-2 font-medium md:self-center text-left md:text-center flex-auto">
                 or just embed it into your existing application:
               </div>
-              <div className="flex-auto flex justify-around mt-2 md:mt-0 md:justify-center mx-10 md:mx-0">
+              <div className={`${styles.languagesIcons} flex-auto flex justify-around mt-2 md:mt-0 md:justify-center md:mx-0`}>
                 {links.map(({ name, url, icon }) => (
                   <div
                     key={`${url}-${name}`}

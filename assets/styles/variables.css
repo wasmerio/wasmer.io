@@ -92,6 +92,12 @@
   }
 } */
 
+@media (min-height: 700px) {
+  :root {
+    --hero-min-height: 670px;
+  }
+}
+
 /* Medium (md) */
 @media (min-width: 650px) {
   :root {

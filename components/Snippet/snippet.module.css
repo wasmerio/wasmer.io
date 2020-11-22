@@ -6,7 +6,7 @@
 }
 
 .snippet {
-  @apply h-10 box-content cursor-pointer overflow-scroll rounded flex items-center justify-center;
+  @apply h-10 box-content cursor-pointer overflow-scroll rounded flex items-center justify-center w-dot-10;
   transition: box-shadow var(--transition-easing),
     border-radius var(--transition-easing);
   /* box-shadow: 0 0 0 0 #231044; */
@@ -121,7 +121,43 @@
 /* Responsiveness */
 /* -------------- */
 
-@media (min-width: 460px) {
+@media (min-width: 340px) {
+  .snippet {
+    @apply w-dot-11;
+  }
+}
+
+@media (min-width: 360px) {
+  .snippet {
+    @apply w-dot-12;
+  }
+}
+
+@media (min-width: 390px) {
+  .snippet {
+    @apply w-dot-13;
+  }
+}
+
+@media (min-width: 420px) {
+  .snippet {
+    @apply w-dot-14;
+  }
+}
+
+@media (min-width: 450px) {
+  .snippet {
+    @apply w-dot-15;
+  }
+}
+
+@media (min-width: 480px) {
+  .snippet {
+    @apply w-dot-16;
+  }
+}
+
+@media (min-width: 480px) {
   .container {
     overflow: visible; /* Avoid empty scrollbars on WIN */
   }

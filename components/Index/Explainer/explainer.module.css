@@ -29,7 +29,7 @@
 }
 
 .explainerContainer {
-  background: repeat left top var(--dots-on-light);
+  background: repeat 12px top var(--dots-on-light);
   background-size: var(--spacing) var(--spacing);
   height: var(--explainer-grid-height);
   width: fit-content;
@@ -38,7 +38,7 @@
 }
 
 .explainer {
-  margin-left: calc(var(--spacing) - var(--dot-size) + 1rem);
+  margin-left: calc(var(--spacing) - var(--dot-size) + 1rem + 12px);
   @apply relative flex items-center justify-start;
 }
 
@@ -146,6 +146,7 @@
 /* ---- */
 
 .headlineContainer {
+  @apply flex justify-center items-center;
   height: var(--explainer-textcontainer-height);
 }
 
@@ -171,9 +172,6 @@
     background: repeat center top var(--dots-on-light);
     background-size: var(--spacing) var(--spacing);
     @apply w-full p-0;
-  }
-  .headlineContainer {
-    @apply flex justify-center items-center;
   }
 
   .headline {
