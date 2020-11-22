@@ -1,5 +1,5 @@
 .root {
-  --terminal-height: 350px;
+  --terminal-height: 364px;
   --terminal-width: 530px;
   --section-top-padding: calc(var(--spacing) * 3);
   --embed-padding: calc(var(--spacing) * 3);
