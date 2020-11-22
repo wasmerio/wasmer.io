@@ -15,7 +15,7 @@
   height: 33vh;
   max-height: calc(var(--hero-max-height) * 0.33);
   min-height: 250px;
-  @apply flex flex-col justify-end;
+  @apply flex flex-col justify-end relative overflow-hidden;
 }
 
 .container {

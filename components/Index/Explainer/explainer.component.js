@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Timeline, Tween } from 'react-gsap';
 import { Controller, Scene } from 'react-scrollmagic';
+import { ColorDots } from "../../ColorDots/color-dots.component";
 import styles from './explainer.module.css';
 import WA from '../../../public/images/wasm-grey.svg';
 import Wasmer from '../../../public/images/wasmer.svg';
@@ -267,11 +268,8 @@ export class ExplainerComponent extends Component {
   }
 
   render() {
-    const {
-      containerWidth,
-      animateHorizontal,
-      animationHorizontalScroll,
-    } = this.state;
+    const { containerWidth, animateHorizontal, animationHorizontalScroll } = this.state;
+    const colorDots = <ColorDots items={50} variant="center" />;
 
     let { languages, platforms } = this.state;
 
