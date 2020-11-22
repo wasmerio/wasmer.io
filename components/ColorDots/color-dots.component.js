@@ -191,11 +191,21 @@ export const ColorDots = ({
 
       if (variant === 'm24') {
         if (['xs', 'sm'].indexOf(screen) !== -1) {
-          position = `calc(16px + ${last.left}px) calc(16px + ${last.top}px)`;
+          position = `calc(16px + ${last.left}px) calc(-2px + ${last.top}px)`;
         }
         if (['xs', 'sm'].indexOf(screen) === -1) {
           position = `calc(50% + 4px ${index % 2 ? '+' : '-'} ${last.left}px)
          calc(-2px + ${last.top}px)`;
+        }
+      }
+
+      if (variant === 'explainer') {
+        if (['xs', 'sm'].indexOf(screen) !== -1) {
+          position = `calc(12px + ${last.left}px) calc(0px + ${last.top}px)`;
+        }
+        if (['xs', 'sm'].indexOf(screen) === -1) {
+          position = `calc(50% + 0px ${index % 2 ? '+' : '-'} ${last.left}px)
+         calc(0px + ${last.top}px)`;
         }
       }
 

@@ -269,7 +269,7 @@ export class ExplainerComponent extends Component {
 
   render() {
     const { containerWidth, animateHorizontal, animationHorizontalScroll } = this.state;
-    const colorDots = <ColorDots items={50} variant="center" />;
+    const colorDots = <ColorDots items={50} variant="explainer" />;
 
     let { languages, platforms } = this.state;
 
@@ -301,6 +301,7 @@ export class ExplainerComponent extends Component {
                           : '',
                     }}
                   >
+                    {colorDots}
                     <div className={styles.explainer} style={explainerStyle}>
                       {/* Languages */}
                       <Tween duration={100}>
