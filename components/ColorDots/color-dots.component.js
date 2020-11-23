@@ -209,6 +209,16 @@ export const ColorDots = ({
         }
       }
 
+      if (variant === 'about') {
+        if (['xs', 'sm', 'md'].indexOf(screen) !== -1) {
+          position = `calc(50% + ${last.left}px) ${last.top}px`;
+        }
+        if (['xs', 'sm', 'md'].indexOf(screen) === -1) {
+          position = `calc(100% + 0px ${index % 2 ? '+' : '-'} ${last.left}px)
+         ${last.top}px`;
+        }
+      }
+
       return `url(/images/dots/${last.color}.svg) no-repeat ${position} / ${gridSize}px ${gridSize}px`;
     });
   };
