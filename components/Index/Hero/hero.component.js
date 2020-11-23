@@ -13,7 +13,7 @@ export const HeroComponent = () => {
         <HeaderComponent />
       </div>
       <div className={styles.grid}>
-        <ColorDots items={75} variant="m24" />
+        <ColorDots items={90} variant="m24" />
         <div className={styles.container}>
           <SnippetComponent variant="dark" />
           <div
