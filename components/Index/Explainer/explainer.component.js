@@ -269,7 +269,7 @@ export class ExplainerComponent extends Component {
 
   render() {
     const { containerWidth, animateHorizontal, animationHorizontalScroll } = this.state;
-    const colorDots = <ColorDots items={50} variant="explainer" />;
+    const colorDots = <ColorDots items={125} variant="explainer" />;
 
     let { languages, platforms } = this.state;
 

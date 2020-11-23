@@ -9,8 +9,8 @@ import { getScreenType } from '../../utils';
  * @constructor
  */
 export const ColorDots = ({
-  items = 25,
-  distance = [1, 25],
+  items = 90,
+  distance = [1, 75],
   variant = false,
 }) => {
   /**

@@ -9,7 +9,7 @@ export const FooterComponent = () => {
     <footer
       className={`dot-background on-dark text-white bg-primary relative font-semibold ${styles.footer}`}
     >
-      <ColorDots variant="footer" />
+      <ColorDots items={125} variant="footer" />
       <div className="container flex flex-col-reverse items-end md:flex-row justify-between pb-3">
         <div
           className={`bg-primary py-10 lg:py-7 -mr-8 md:mr-0 md:-ml-8 lg:ml-0 px-10 lg:px-8 md:mb-6 lg:mb-10 z-10 ${styles.company}`}
