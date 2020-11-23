@@ -16,7 +16,7 @@
 }
 
 .gridLogos {
-  @apply relative p-4 -mx-8;
+  @apply relative p-4 -mx-5;
 }
 
 .grid {
@@ -34,6 +34,7 @@
   }
 
   .grid {
+    @apply left-0;
     --grid-height: calc(
       var(--terminal-height) + var(--embed-padding) + var(--section-top-padding)
     );
