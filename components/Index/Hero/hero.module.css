@@ -10,12 +10,16 @@
   width: 100%;
   background: repeat 12px bottom var(--dots-on-light);
   background-size: 28px 28px;
-  /* padding: 0 46px; */
   padding: 0 1.5rem;
-  height: 33vh;
-  max-height: calc(var(--hero-max-height) * 0.33);
-  min-height: 250px;
+  height: calc(var(--spacing) * 9);
+  min-height: calc(var(--spacing) * 9);
   @apply flex flex-col justify-end relative overflow-hidden;
+}
+
+@media (min-height: 760px) {
+  .grid {
+    height: calc(var(--spacing) * 10);
+  }
 }
 
 .container {
