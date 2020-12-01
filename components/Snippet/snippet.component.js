@@ -25,13 +25,14 @@ export class SnippetComponent extends Component {
 
   render() {
     const { copied } = this.state;
-    const { variant } = this.props;
+    const { variant, fadeOut } = this.props;
 
     return (
       <div
         className={classnames({
           [styles.container]: true,
           [styles.dark]: variant && variant === 'dark',
+          [styles.fadeOut]: fadeOut,
         })}
       >
         <div

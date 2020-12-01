@@ -6,7 +6,7 @@
 }
 
 .snippet {
-  @apply h-10 box-content cursor-pointer overflow-scroll rounded flex items-center justify-center;
+  @apply h-10 box-content cursor-pointer overflow-scroll rounded flex items-center justify-center w-dot-10;
   transition: box-shadow var(--transition-easing),
     border-radius var(--transition-easing);
   /* box-shadow: 0 0 0 0 #231044; */
@@ -92,6 +92,7 @@
 .container:after {
   content: '';
   position: absolute;
+  z-index: 3;
   top: 0.25rem;
   bottom: 0.25rem;
   pointer-events: none;
@@ -99,13 +100,13 @@
 
 .container:before {
   background: linear-gradient(to left, #f0eef200 0%, #f0eef2 90%);
-  left: -0.5rem;
+  left: 0rem;
   width: 1rem;
 }
 
 .container:after {
   background: linear-gradient(to right, #f0eef200 0%, #f0eef2 90%);
-  right: -0.5rem;
+  right: 0rem;
   width: 2.5rem;
 }
 
@@ -120,13 +121,49 @@
 /* Responsiveness */
 /* -------------- */
 
-@media (min-width: 460px) {
+@media (min-width: 340px) {
+  .snippet {
+    @apply w-dot-11;
+  }
+}
+
+@media (min-width: 360px) {
+  .snippet {
+    @apply w-dot-12;
+  }
+}
+
+@media (min-width: 390px) {
+  .snippet {
+    @apply w-dot-13;
+  }
+}
+
+@media (min-width: 420px) {
+  .snippet {
+    @apply w-dot-14;
+  }
+}
+
+@media (min-width: 450px) {
+  .snippet {
+    @apply w-dot-15;
+  }
+}
+
+@media (min-width: 480px) {
+  .snippet {
+    @apply w-dot-16;
+  }
+}
+
+@media (min-width: 480px) {
   .container {
     overflow: visible; /* Avoid empty scrollbars on WIN */
   }
 
-  .container:before,
-  .container:after {
+  .container:not(.fadeOut):before,
+  .container:not(.fadeOut):after {
     @apply hidden; /* Only show scroll shadows when snippet gets cut off */
   }
 }

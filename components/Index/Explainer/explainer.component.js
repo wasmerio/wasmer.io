@@ -1,8 +1,27 @@
 import React, { Component } from 'react';
 import { Timeline, Tween } from 'react-gsap';
 import { Controller, Scene } from 'react-scrollmagic';
+import { ColorDots } from "../../ColorDots/color-dots.component";
 import styles from './explainer.module.css';
-import Wa from '../../../public/images/wa.svg';
+import WA from '../../../public/images/wasm-grey.svg';
+import Wasmer from '../../../public/images/wasmer.svg';
+import Plus from '../../../public/images/plus.svg';
+
+import CPP from '../../../public/images/languages/cpp.svg';
+import CSharp from '../../../public/images/languages/c-sharp.svg';
+import Go from '../../../public/images/languages/go.svg';
+import PHP from '../../../public/images/languages/php.svg';
+import Python from '../../../public/images/languages/python.svg';
+import Ruby from '../../../public/images/languages/ruby.svg';
+import Rust from '../../../public/images/languages/rust.svg';
+
+import IOS from '../../../public/images/platforms/ios.svg';
+import Android from '../../../public/images/platforms/android.svg';
+import Windows from '../../../public/images/platforms/windows.svg';
+import Linux from '../../../public/images/platforms/linux.svg';
+import MacOS from '../../../public/images/platforms/macos.svg';
+
+import { LanguageComponent } from '../../Languages/language.component';
 
 export class ExplainerComponent extends Component {
   constructor(props) {
@@ -17,7 +36,7 @@ export class ExplainerComponent extends Component {
       /**
        * Displays if the animation is scrolling vertically `true`.
        */
-      animateVertically: false,
+      animateHorizontal: false,
       /**
        * We need a left margin because the dot pattern is left orientated,
        * if the screen is mobile. The top pattern is centered all the time
@@ -25,7 +44,11 @@ export class ExplainerComponent extends Component {
       marginLeft: 0,
 
       screenSmallerThanAnimation: false,
+
+      languages: [],
+      platforms: [],
     };
+    this.scene = React.createRef();
   }
 
   /**
@@ -62,6 +85,7 @@ export class ExplainerComponent extends Component {
 
   setFixedVariables() {
     const { gridHeight, textcontainerHeight } = this.getAnimationHeights();
+    const { height } = this.getWindowDimensions();
 
     document.documentElement.style.setProperty(
       '--explainer-grid-height',
@@ -71,27 +95,36 @@ export class ExplainerComponent extends Component {
       '--explainer-textcontainer-height',
       `${textcontainerHeight}px`,
     );
+    document.documentElement.style.setProperty(
+        '--100vh',
+        `${height}px`,
+    );
   }
 
   /**
    * Calculates the state for vertical scrolling of the animation.
    * (It scrolls vertically on mobile and small screens.)
    */
-  calcAnimateVertically() {
+  calcAnimateHorizontal() {
     const { width } = this.getWindowDimensions();
-    let animateVertically = false,
+    let animateHorizontal = false,
       screenSmallerThanAnimation = false;
-    if (width < 750) {
-      animateVertically = true;
-    }
-    if (width < 1068) {
+    if (width < this.getAnimationWidth()) {
+      animateHorizontal = true;
       screenSmallerThanAnimation = true;
     }
 
+    let animationHorizontalScroll =
+      (1 - width / this.getAnimationWidth()) * 100;
     this.setState({
       screenSmallerThanAnimation,
-      animateVertically: animateVertically,
+      animateHorizontal,
+      animationHorizontalScroll,
     });
+  }
+
+  getAnimationWidth() {
+    return 580;
   }
 
   /**
@@ -113,8 +146,14 @@ export class ExplainerComponent extends Component {
     // how much grid is needed for the animation?
     const animationGridHeight = this.getAnimationGridHeight();
     // get the offset
-    const offset = Math.round((positionedDots - animationGridHeight) / 2) - 1;
-    const marginTop = width > 1068 ? dotOffset + offset * dotPatternSize : 0;
+    const offset = Math.round((positionedDots - animationGridHeight) / 2);
+    let marginTopAmount = dotOffset + offset * dotPatternSize;
+    if (marginTopAmount < dotPatternSize * 2) {
+      marginTopAmount += dotPatternSize * 2 + 4;
+    }
+    const marginTop = !this.state.screenSmallerThanAnimation
+      ? marginTopAmount
+      : 0;
     this.setState({ marginTop });
   }
 
@@ -125,7 +164,7 @@ export class ExplainerComponent extends Component {
    */
   calcPaddingTop() {
     const { height, width } = this.getWindowDimensions();
-    const playgroundSize = height * 0.66; // 0.66 because of the 66vh of the pattern
+    const playgroundSize = height / 2; // 0.66 because of the 66vh of the pattern
     const dotPatternSize = this.getDotPatternSize();
     // the first dot is with an offset of 1/2 pattern size,
     // minus 4 px because of the dot itself and the border
@@ -134,17 +173,19 @@ export class ExplainerComponent extends Component {
     const positionedDots =
       (playgroundSize - (playgroundSize % dotPatternSize)) / dotPatternSize;
     // how much grid is needed for the animation?
-    const animationGridHeight = this.getAn;
+    const animationGridHeight = this.getAnimationGridHeight();
     // get the offset
-    const offset = Math.round((positionedDots - animationGridHeight) / 2) - 1;
-    const paddingTop =
-      width < 1068 ? dotOffset + offset * dotPatternSize + 16 : 0;
+    const offset = Math.round((positionedDots - animationGridHeight) / 2) - 2;
+    const paddingTop = this.state.screenSmallerThanAnimation
+      ? dotOffset + offset * dotPatternSize + 16
+      : 0;
     this.setState({ paddingTop });
   }
 
   getAnimationGridHeight() {
     const { width } = this.getWindowDimensions();
-    return width > 1090 ? 12 : 16;
+    if (width < 720) return 3;
+    return width > 1090 ? 12 : 9;
   }
 
   /**
@@ -188,9 +229,20 @@ export class ExplainerComponent extends Component {
     this.setFixedVariables();
     this.calcMarginTop();
     this.calcContainerWidth();
-    this.calcAnimateVertically();
-    this.calcMarginLeft();
+    this.calcAnimateHorizontal();
     this.calcPaddingTop();
+
+    const languages = this.getLanguages();
+    const platforms = this.getPlatforms();
+    this.setState({ languages, platforms });
+    window.addEventListener(
+      'resize',
+      () => {
+        document.getElementById('explainer').style.marginTop = 0;
+      },
+      { passive: true },
+    );
+
     if (!this.isTouchDevice()) {
       window.addEventListener(
         'resize',
@@ -198,456 +250,225 @@ export class ExplainerComponent extends Component {
           this.setFixedVariables();
           this.calcMarginTop();
           this.calcContainerWidth();
-          this.calcAnimateVertically();
-          this.calcMarginLeft();
+          this.calcAnimateHorizontal();
           this.calcPaddingTop();
+          document.getElementById('explainer').style.marginTop = 0;
         },
         { passive: true },
       );
     }
   }
 
-  render() {
-    const { containerWidth, animateVertically } = this.state;
-    let explainerStyle = {
-      marginTop: this.state.marginTop,
-      width: `${containerWidth}px`,
-    };
-    if (!animateVertically) {
-      explainerStyle['left'] = 0;
-    } else {
-      delete explainerStyle['left'];
+  shuffle(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
     }
+    return a;
+  }
 
-    if (this.state.screenSmallerThanAnimation) {
-      explainerStyle['paddingTop'] = this.state.paddingTop + 10;
-      explainerStyle['marginLeft'] = this.state.marginLeft;
-    }
+  render() {
+    const { containerWidth, animateHorizontal, animationHorizontalScroll } = this.state;
+    const colorDots = <ColorDots items={125} variant="explainer" />;
+
+    let { languages, platforms } = this.state;
+
+    // apply extra styles, based on
+    let explainerStyle = this.getExplainerStyle(animateHorizontal);
+
     return (
-      <div>
+      <div className="overflow-hidden">
         <Controller>
           <Scene
-            triggerHook="onLeave"
-            duration={1400}
+            duration={1000}
             pin
             triggerElement="#explainer"
+            triggerHook="onLeave"
           >
             {(progress) => (
-              <div id="explainer" className={styles.hero}>
-                <Timeline totalProgress={progress} paused>
-                  <div className={styles.explainerContainer}>
-                    <Timeline
-                      position={0}
-                      target={
-                        <div
-                          className={styles.explainer}
-                          style={explainerStyle}
-                        >
-                          <div className={styles.languages}>
-                            <div className={styles.empty} />
-                            <div className={styles.restVisibleOnDesktop}>
-                              <Timeline
-                                position={1}
-                                target={
-                                  <div className={styles.white}>
-                                    <span>PHP</span>
-                                  </div>
-                                }
-                              >
-                                <Tween
-                                  duration={0.01}
-                                  from={{ opacity: 1 }}
-                                  to={{ opacity: 0 }}
-                                />
-                              </Timeline>
-                            </div>
-                            <div className={styles.rest}>
-                              <Timeline
-                                position={1}
-                                target={
-                                  <div className={styles.white}>
-                                    <span>C#</span>
-                                  </div>
-                                }
-                              >
-                                <Tween
-                                  duration={0.01}
-                                  from={{ opacity: 1 }}
-                                  to={{ opacity: 0 }}
-                                />
-                              </Timeline>
-                            </div>
-                            <div className={styles.rest}>
-                              <Timeline
-                                position={1}
-                                duration={0.01}
-                                target={
-                                  <div className={styles.white}>
-                                    <span>C++</span>
-                                  </div>
-                                }
-                              >
-                                <Tween
-                                  from={{ opacity: 1 }}
-                                  to={{ opacity: 0 }}
-                                />
-                              </Timeline>
-                            </div>
-                            <div className={styles.rest}>
-                              <Timeline
-                                position={1}
-                                target={
-                                  <div className={styles.white}>
-                                    <span>Python</span>
-                                  </div>
-                                }
-                              >
-                                <Tween
-                                  duration={0.01}
-                                  from={{ opacity: 1 }}
-                                  to={{ opacity: 0 }}
-                                />
-                              </Timeline>
-                            </div>
-                            <div>
-                              <div className={styles.white}>
-                                <span>Rust</span>
-                              </div>
-                              <Timeline
-                                position={2}
-                                target={
-                                  <>
-                                    <div className={styles.highlight}>
-                                      <span>Rust</span>
-                                    </div>
-                                  </>
-                                }
-                              >
-                                <Tween
-                                  duration={0.01}
-                                  from={{ opacity: 1 }}
-                                  to={{ opacity: 0 }}
-                                />
-                              </Timeline>
-                            </div>
-                            <div className={styles.rest}>
-                              <Timeline
-                                position={1}
-                                target={
-                                  <div className={styles.white}>
-                                    <span>Ruby</span>
-                                  </div>
-                                }
-                              >
-                                <Tween
-                                  duration={0.01}
-                                  from={{ opacity: 1 }}
-                                  to={{ opacity: 0 }}
-                                />
-                              </Timeline>
-                            </div>
-                            <div className={styles.rest}>
-                              <Timeline
-                                position={1}
-                                target={
-                                  <div className={styles.white}>
-                                    <span>GO</span>
-                                  </div>
-                                }
-                              >
-                                <Tween
-                                  duration={0.01}
-                                  from={{ opacity: 1 }}
-                                  to={{ opacity: 0 }}
-                                />
-                              </Timeline>
-                            </div>
-                            <div className={styles.restVisibleOnTablet}>
-                              <Timeline
-                                position={1}
-                                target={
-                                  <div className={styles.white}>
-                                    <span>PHP</span>
-                                  </div>
-                                }
-                              >
-                                <Tween
-                                  duration={0.01}
-                                  from={{ opacity: 1 }}
-                                  to={{ opacity: 0 }}
-                                />
-                              </Timeline>
-                            </div>
-                            <div className={styles.empty} />
-                          </div>
-                          <div className={styles.heightSizer}>
-                            <div className={styles.arrowContainer}>
-                              <div className={styles.arrowContainerInner}>
-                                <Timeline
-                                  position={0}
-                                  target={
-                                    <div className={styles.arrowMask}></div>
-                                  }
-                                >
-                                  <Tween from={{ left: 0 }} to={{ left: 50 }} />
-                                </Timeline>
-                                <Timeline
-                                  position={1}
-                                  target={
-                                    <img
-                                      className={styles.arrow}
-                                      src="images/arrow_color.svg"
-                                    />
-                                  }
-                                >
-                                  <Tween
-                                    from={{ zIndex: 3 }}
-                                    to={{ zIndex: 2 }}
-                                  />
-                                </Timeline>
-                                <img
-                                  className={styles.arrowGrey}
-                                  src="images/arrow.svg"
-                                />
-                              </div>
-                            </div>
-                          </div>
-                          <div className={styles.waContainer}>
-                            <div className={styles.waContainerInner}>
-                              <Timeline
-                                position={2}
-                                target={
-                                  <div className={styles.color}>
-                                    <Wa />
-                                  </div>
-                                }
-                              >
-                                <Tween
-                                  duration={0.01}
-                                  from={{ opacity: 0 }}
-                                  to={{ opacity: 1 }}
-                                />
-                              </Timeline>
-                              <Timeline
-                                position={4}
-                                target={<div className={styles.grey} />}
-                              >
-                                <Tween
-                                  from={{ zIndex: 3 }}
-                                  to={{ zIndex: 5 }}
-                                />
-                              </Timeline>
-                            </div>
-                          </div>
-                          <div className={styles.heightSizer}>
-                            <div className={styles.arrowContainer}>
-                              <div className={styles.arrowContainerInner}>
-                                <Timeline
-                                  position={4}
-                                  target={
-                                    <img
-                                      className={styles.arrow}
-                                      src="images/arrow_color.svg"
-                                    />
-                                  }
-                                >
-                                  <Tween
-                                    from={{ zIndex: 3 }}
-                                    to={{ zIndex: 2 }}
-                                  />
-                                </Timeline>
-                                <Timeline
-                                  position={3}
-                                  target={
-                                    <div className={styles.arrowMask}></div>
-                                  }
-                                >
-                                  <Tween from={{ left: 0 }} to={{ left: 50 }} />
-                                </Timeline>
-                                <img
-                                  className={styles.arrowGrey}
-                                  src="images/arrow.svg"
-                                />
-                              </div>
-                            </div>
-                          </div>
+              <div
+                id="explainer"
+                className={styles.hero}
+                style={{ marginTop: '0 !important' }}
+              >
+                <Timeline totalProgress={progress}>
+                  <div
+                    className={styles.explainerContainer}
+                    style={{
+                      transform:
+                        this.state.animateHorizontal && progress > 0.65
+                          ? `translate3D(-${animationHorizontalScroll}%, 0, 0)`
+                          : '',
+                    }}
+                  >
+                    {colorDots}
+                    <div className={styles.explainer} style={explainerStyle}>
+                      {/* Languages */}
+                      <Tween duration={100}>
+                      <div
+                        className={`
+                                ${styles.itemsGrid}
+                                ${styles.languages}
+                                ${progress > 0.3 ? styles.hideAdditional : ''}
+                              `}
+                      >
+                        {languages.map((item, key) => {
+                          if (item.icon === '') {
+                            return <div key={key} className={styles.empty} />;
+                          }
 
-                          <div className={styles.heightSizer}>
-                            <div className={styles.wasmerContainer}>
-                              <Timeline
-                                position={5}
-                                target={<div className={styles.color} />}
-                              >
-                                <Tween
-                                  duration={0.01}
-                                  from={{ opacity: 0 }}
-                                  to={{ opacity: 1 }}
-                                />
-                              </Timeline>
-                              <div className={styles.grey} />
+                          return (
+                            <div
+                              key={key}
+                              className={`
+                                      ${styles.transitionContainer}
+                                      ${
+                                        item.hideOnTablet
+                                          ? styles.hideOnTablet
+                                          : ''
+                                      }
+                                      ${item.main ? styles.main : ''}
+                                    `}
+                            >
+                              <LanguageComponent
+                                large
+                                icon={item.icon}
+                                highlighted={
+                                  item.main && progress > 0 && progress < 0.5
+                                }
+                                className={item.main ? styles.main : ''}
+                              />
                             </div>
-                          </div>
+                          );
+                        })}
+                      </div>
+                      </Tween>
 
-                          <div className={styles.heightSizer}>
-                            <div className={styles.plusContainer}>
-                              <div className={styles.plusContainerInner}>
-                                <Timeline
-                                  position={5}
-                                  target={
-                                    <img
-                                      className={styles.plus}
-                                      src="images/plus_color.svg"
-                                    />
-                                  }
-                                >
-                                  <Tween
-                                    duration={0.01}
-                                    from={{ opacity: 0 }}
-                                    to={{ opacity: 1 }}
-                                  />
-                                </Timeline>
-                                <img
-                                  className={styles.plusGrey}
-                                  src="images/plus.svg"
-                                />
-                              </div>
-                            </div>
+                      {/* Arrow 1 */}
+                      <div className={styles.arrowContainer}>
+                        <div className={styles.arrowMask}>
+                          <Tween
+                            duration={300}
+                            from={{ transform: 'translate3D(-100%, 0, 0)' }}
+                            to={{ transform: 'translate3D(0, 0, 0)' }}
+                          >
+                            <div
+                              className={`${
+                                progress < 0.5 ? styles.arrowFill : 'opacity-0'
+                              }`}
+                            />
+                          </Tween>
+                        </div>
+                      </div>
+
+                      {/* WA */}
+                      <Tween duration={100} >
+                      <div
+                        className={`${styles.iconContainer} ${
+                          progress > 0.3 && progress < 0.8
+                            ? styles.highlighted
+                            : ''
+                        }`}
+                      >
+                        <WA />
+                      </div>
+                      </Tween>
+
+                      {/* Arrow 2 */}
+                      <div className={styles.arrowContainer}>
+                        <div className={styles.arrowMask}>
+                          <Tween
+                            duration={300}
+                            from={{ left: '-100%' }}
+                            to={{ left: '0' }}
+                          >
+                            <div
+                              className={`${
+                                progress < 0.8 ? styles.arrowFill : 'opacity-0'
+                              }`}
+                            />
+                          </Tween>
+                        </div>
+                      </div>
+
+                      {/* Wasmer & Plus */}
+                      <Tween duration={200} >
+                        <div className="flex items-center">
+                          <div
+                            className={`${styles.iconContainer} ${
+                              styles.wasmerIcon
+                            } ${progress >= 0.8 ? styles.highlighted : ''}`}
+                          >
+                            <Wasmer />
                           </div>
-                          <div className={styles.platforms}>
-                            <div className={styles.rest}>
-                              <Timeline
-                                position={5}
-                                target={
-                                  <div className={styles.white}>
-                                    <span>Linux</span>
-                                  </div>
-                                }
-                              >
-                                <Tween
-                                  duration={0.01}
-                                  from={{ opacity: 0 }}
-                                  to={{ opacity: 1 }}
-                                />
-                              </Timeline>
-                            </div>
-                            <div className={styles.rest}>
-                              <Timeline
-                                position={5}
-                                target={
-                                  <div className={styles.white}>
-                                    <span>Android</span>
-                                  </div>
-                                }
-                              >
-                                <Tween
-                                  duration={0.01}
-                                  from={{ opacity: 0 }}
-                                  to={{ opacity: 1 }}
-                                />
-                              </Timeline>
-                            </div>
-                            <div className={styles.mainItem}>
-                              <Timeline
-                                position={5}
-                                target={
-                                  <div className={styles.highlight}>
-                                    <span>Windows</span>
-                                  </div>
-                                }
-                              >
-                                <Tween
-                                  duration={0.01}
-                                  from={{ opacity: 0 }}
-                                  to={{ opacity: 1 }}
-                                />
-                              </Timeline>
-                              <div className={styles.white}>
-                                <span>Windows</span>
-                              </div>
-                            </div>
-                            <div className={styles.rest}>
-                              <Timeline
-                                position={5}
-                                target={
-                                  <div className={styles.white}>
-                                    <span>Mac</span>
-                                  </div>
-                                }
-                              >
-                                <Tween
-                                  duration={0.01}
-                                  from={{ opacity: 0 }}
-                                  to={{ opacity: 1 }}
-                                />
-                              </Timeline>
-                            </div>
-                            <div className={styles.empty} />
-                            <div className={styles.rest}>
-                              <Timeline
-                                position={5}
-                                target={
-                                  <div className={styles.white}>
-                                    <span>iOS</span>
-                                  </div>
-                                }
-                              >
-                                <Tween
-                                  duration={0.01}
-                                  from={{ opacity: 0 }}
-                                  to={{ opacity: 1 }}
-                                />
-                              </Timeline>
-                            </div>
+                          <div
+                            className={`${styles.iconContainer} ${styles.plus} ${
+                              progress >= 0.8 ? styles.highlighted : ''
+                            }`}
+                          >
+                            <Plus />
                           </div>
                         </div>
-                      }
-                    >
-                      <Tween delay={-3} to={{ right: 0 }} />
-                    </Timeline>
+                      </Tween>
+
+                      {/* Platforms */}
+                      <div
+                        className={`
+                                ${styles.itemsGrid}
+                                ${styles.platforms}
+                                ${progress < 0.8 ? styles.hideAdditional : ''}
+                              `}
+                      >
+                        {platforms.map((item, key) => {
+                          if (item.icon === '') {
+                            return <div key={key} className={styles.empty} />;
+                          }
+
+                          return (
+                            <div
+                              key={key}
+                              className={`
+                                      ${styles.transitionContainer}
+                                      ${item.main ? styles.main : ''}
+                                    `}
+                            >
+                              <LanguageComponent
+                                large
+                                icon={item.icon}
+                                highlighted={item.main && progress >= 0.8}
+                                className={item.main ? styles.main : ''}
+                              />
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
                   </div>
-                  <div className={styles.headlineContainer}>
+                  <div className={`container ${styles.headlineContainer}`}>
                     <h2
-                      className={`${styles.headline} text-left px-8 md:px-0 sm:text-center my-24`}
+                      className={`${styles.headline} text-left md:text-center my-8 md:my-16 lg:my-24`}
                     >
-                      <Timeline
-                        position={2}
-                        target={
-                          <span className={styles.blockOnDesktop}>
-                            Use the tools you know and the languages you love.{' '}
-                          </span>
+                      <span
+                        className={progress < 0.3 ? styles.highlightedText : ''}
+                      >
+                        Use the tools you know and the languages you love.{' '}
+                      </span>
+                      <span
+                        className={
+                          progress > 0.3 && progress < 0.8
+                            ? styles.highlightedText
+                            : ''
                         }
                       >
-                        <Tween
-                          duration={0.01}
-                          from={{ color: '#4946DD' }}
-                          to={{ color: '#BDB7C7' }}
-                        />
-                      </Timeline>
-                      <Timeline
-                        position={2}
-                        target={
-                          <span>Compile everything to WebAssembly. </span>
+                        Compile everything to WebAssembly.{' '}
+                      </span>
+                      <span
+                        className={
+                          progress >= 0.8 ? styles.highlightedText : ''
                         }
                       >
-                        <Tween duration={0.01} to={{ color: '#4946DD' }} />
-                        <Tween
-                          delay={3}
-                          duration={0.01}
-                          to={{ color: '#BDB7C7' }}
-                        />
-                      </Timeline>
-                      <Timeline
-                        position={5}
-                        target={
-                          <span>
-                            Run it on any
-                            <br className={styles.breakOnDesktop} />
-                            OS or embed it into other languages.
-                          </span>
-                        }
-                      >
-                        <Tween duration={0.01} to={{ color: '#4946DD' }} />
-                      </Timeline>
+                        Run it on any OS or embed it into other languages.
+                      </span>
                     </h2>
                   </div>
                 </Timeline>
@@ -657,5 +478,96 @@ export class ExplainerComponent extends Component {
         </Controller>
       </div>
     );
+  }
+
+  getExplainerStyle(animateHorizontal) {
+    let explainerStyle = {
+      marginTop: this.state.marginTop,
+      // width: `${containerWidth}px`,
+    };
+    if (!animateHorizontal) {
+      explainerStyle['left'] = 0;
+    } else {
+      delete explainerStyle['left'];
+    }
+
+    if (this.state.screenSmallerThanAnimation) {
+      explainerStyle['paddingTop'] = this.state.paddingTop + 2;
+      // explainerStyle['marginLeft'] = this.state.marginLeft;
+    }
+    return explainerStyle;
+  }
+
+  getLanguages() {
+    var languages = [
+      {
+        icon: <PHP />,
+      },
+      {
+        icon: <CSharp />,
+      },
+      {
+        icon: <CPP />,
+      },
+      {
+        icon: <Python />,
+      },
+      {
+        icon: <Rust />,
+      },
+      {
+        icon: <Ruby />,
+      },
+      {
+        icon: <Go />,
+      },
+    ];
+
+    languages = this.shuffle(languages).map(function (language, key) {
+      if (key === 1) {
+        language['hideOnTablet'] = true;
+      }
+      if (key === 4) {
+        language['main'] = true;
+      }
+      return language;
+    });
+
+    languages.unshift({
+      icon: '',
+    });
+    return languages;
+  }
+
+  getPlatforms() {
+    var platforms = [
+      {
+        icon: <IOS />,
+      },
+      {
+        icon: <Android />,
+      },
+      {
+        icon: <Windows />,
+      },
+      {
+        icon: <Linux />,
+      },
+      {
+        icon: <MacOS />,
+      },
+    ];
+
+    platforms = this.shuffle(platforms).map(function (language, key) {
+      if (key === 2) {
+        language['main'] = true;
+      }
+      return language;
+    });
+
+    platforms.splice(4, 0, {
+      icon: '',
+    });
+    return platforms;
   }
 }

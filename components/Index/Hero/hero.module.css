@@ -1,22 +1,30 @@
 .hero {
-  height: calc(100vh - 107px);
+  height: calc(var(--100vh) - 107px);
+  min-height: var(--hero-min-height);
+  max-height: var(--hero-max-height);
   @apply justify-between items-center flex flex-col overflow-hidden text-center;
 }
 
 .grid {
   display: block;
   width: 100%;
-  background: repeat center bottom var(--dots-on-light);
+  background: repeat 12px bottom var(--dots-on-light);
   background-size: 28px 28px;
-  /* padding: 0 46px; */
   padding: 0 1.5rem;
-  height: 23vh;
-  @apply flex flex-col justify-end;
+  height: calc(var(--spacing) * 9);
+  min-height: calc(var(--spacing) * 9);
+  @apply flex flex-col justify-end relative overflow-hidden;
+}
+
+@media (min-height: 760px) {
+  .grid {
+    height: calc(var(--spacing) * 10);
+  }
 }
 
 .container {
   max-width: 618px;
-  @apply mx-auto flex flex-col items-center w-full;
+  @apply mx-auto flex flex-col items-start w-full mb-dot-3 pb-dot-size;
 }
 
 .item {
@@ -44,7 +52,21 @@
   height: 53px; /* hardcoded to keep shell command aligned on grid */
 }
 
+.languagesIcons > div:first-child {
+  @apply ml-0;
+}
+
 @media (min-width: 650px) {
+  .container {
+    @apply items-center;
+  }
+
+  .grid {
+    background: repeat center bottom var(--dots-on-light);
+    background-size: var(--spacing) var(--spacing);
+    max-height: calc(var(--hero-max-height) * 0.23);
+    height: 23vh;
+  }
   .languagesContainer {
     height: 25px; /* hardcoded to keep shell command aligned on grid */
   }

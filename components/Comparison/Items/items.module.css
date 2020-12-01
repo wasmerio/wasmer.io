@@ -6,23 +6,6 @@
   margin-bottom: calc(var(--spacing) * 0 - var(--dot-size));
 }
 
-.link {
-  /* Same as card hover behaviour */
-  transition: 0.2s cubic-bezier(0.25, 0, 0, 1);
-  transition-property: transform, background-color, box-shadow;
-}
-
-.link:hover {
-  box-shadow: 0px 5px 20px rgba(35, 16, 68, 0.25); /* TODO: Move to variables */
-  transform: translate3D(0, -2px, 0);
-}
-
-.link:active {
-  transform: translate3D(0, 2px, 0);
-  background-color: #5653df;
-  box-shadow: 0px 1.5px 9px rgba(35, 16, 68, 0.15); /* TODO: Move to variables */
-}
-
 @media (min-width: 650px) {
   .root.reversed {
     @apply ml-0;

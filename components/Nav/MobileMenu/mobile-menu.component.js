@@ -6,7 +6,7 @@ import styles from './mobile-menu.module.css';
 export const MobileMenu = ({ links, toggleMenu }) => {
   return (
     <div
-      className="z-40 fixed inset-0 block w-screen h-screen bg-none"
+      className={`fixed inset-0 block w-screen h-screen bg-none ${styles.root}`}
       onClick={toggleMenu}
     >
       <div className={styles.mobileMenu}>

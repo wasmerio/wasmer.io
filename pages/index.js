@@ -43,6 +43,8 @@ export default function IndexPage() {
           secondary
           linkText="Contact Sales"
           href="mailto:sales@wasmer.io"
+          target="_blank"
+          rel="noopener noreferrer"
         />
       </ContactComponent>
       <TrustedByComponent />

@@ -2,12 +2,15 @@ import React from 'react';
 import styles from './intro.module.css';
 import Heart from '../../../public/images/heart.svg';
 import HeartLarge from '../../../public/images/heart-large.svg';
+import { ColorDots } from '../../ColorDots/color-dots.component';
 
 export const IntroComponent = () => {
   return (
     <div className="container lg:grid lg:grid-cols-2 lg:gap-8">
       <div className="relative -mx-8 lg:mx-0 lg:mr-10 xl:mr-16">
-        <div className={`dot-background ${styles.grid}`} />
+        <div className={`dot-background ${styles.grid}`}>
+          <ColorDots items={75} distance={[1, 50]} variant="about" />
+        </div>
         <div className="pt-4 px-4 relative flex justify-center lg:justify-end">
           <div className="mt-dot-1 md:mt-dot-3 lg:mt-dot-4 xl:mt-dot-5 mb-dot-2 md:mb-dot-4 lg:mr-dot-2 xl:mr-dot-3 flex">
             <Heart className="lg:hidden overflow-visible" />

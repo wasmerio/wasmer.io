@@ -36,7 +36,7 @@ export const CardComponent = ({
           )}
         </div>
       </div>
-    )
+    );
   }
 
   return (

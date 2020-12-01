@@ -1,173 +1,115 @@
-.container {
+.root {
+  --terminal-height: 364px;
+  --terminal-width: 530px;
+  --section-top-padding: calc(var(--spacing) * 3);
+  --embed-padding: calc(var(--spacing) * 3);
+  @apply overflow-hidden;
+}
+
+.terminal {
+  @apply relative p-4 pb-12 overflow-hidden bg-primary shadow-lightpurple rounded mt-12 -mx-4;
+  height: var(--terminal-height);
+}
+
+.embedText {
+  @apply mt-16 mb-10;
+}
+
+.gridLogos {
+  @apply relative p-4 -mx-5;
 }
 
 .grid {
-  background: repeat left top var(--dots-on-light);
-  background-size: var(--spacing) var(--spacing);
-  z-index: -1;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-
-  left: 50%;
-
-  margin-top: 8px;
-
-  @apply absolute top-0 bottom-0 right-0;
+  @apply left-0;
 }
 
-.install {
-  @apply w-1/2 inline-block pr-16 align-top;
+@media (min-width: 650px) {
+  .embedContainer {
+    @apply flex pt-12;
+    padding-top: var(--embed-padding);
+  }
+
+  .embedText {
+    @apply mx-8 mb-0;
+  }
+
+  .grid {
+    @apply left-0;
+    --grid-height: calc(
+      var(--terminal-height) + var(--embed-padding) + var(--section-top-padding)
+    );
+    top: calc(var(--grid-height) * -1);
+    height: calc(100% + var(--grid-height));
+    z-index: -1;
+  }
+
+  .gridLogos {
+    @apply mx-0;
+    flex: 0 0 auto;
+    width: 50%;
+  }
+
+  .terminal {
+    @apply mx-0 mt-32;
+  }
 }
 
-.installVideo {
-  height: 432px;
-  @apply box-border p-4 pb-12 bg-primary shadow-lightpurple inline-block overflow-hidden align-top w-1/2 rounded relative -mx-4;
+@media (min-width: 850px) {
+  .root {
+    --terminal-height: 448px;
+  }
+
+  .embedText {
+    @apply mx-12;
+  }
 }
 
-.embed {
-  margin-top: 124px;
-  display: flex;
-  flex-flow: row;
-}
-/* .embed h3 {
-    @apply box-border mt-12 inline-block align-top w-1/2 pr-16
-} */
+@media (min-width: 1024px) {
+  .root {
+    padding-top: var(--section-top-padding);
+  }
 
-.embedLanguages {
-  display: flex;
-  padding-top: 28px;
-  @apply w-1/2 flex-wrap box-border pl-4 pt-8 -mt-dot-size;
-}
+  .install {
+    @apply pr-20 box-content;
+    width: calc(100% - var(--terminal-width) - 5rem);
+  }
 
-.gridBoxContainer {
-  @apply mt-dot-1 ml-dot-1 h-dot-4 bg-white;
-  outline: 4px solid rgba(35, 16, 68, 0.13);
-}
+  .terminal {
+    @apply mt-0;
+    width: var(--terminal-width);
+    flex: 0 0 auto;
+  }
 
-.gridBox {
-  @apply w-dot-4 h-full -m-1 p-1 box-content text-small text-primary text-right font-bold inline-block relative flex justify-end items-end;
-  border-radius: 1px;
-  -webkit-transition: all ease-in-out 200ms;
-  transition: all ease-in-out 200ms;
+  .embedText {
+    @apply ml-0 mr-16;
+  }
+
+  .gridLogos {
+    width: var(--terminal-width);
+  }
 }
 
-.gridBox:hover {
-  @apply shadow-lightpurple bg-secondary rounded text-white -m-2 p-2;
-}
-
-.gridBox span {
-  @apply mr-2 mb-1;
+@media (min-width: 1152px) {
+  .embedText {
+    width: 40%;
+  }
 }
 
 @media (min-width: 1800px) {
-  .gridBox {
-    font-size: 17px;
+  .root {
+    --terminal-width: 640px;
   }
-}
-
-@media (max-width: 1023px) {
   .install {
-    width: auto;
-    padding-right: 0;
-  }
-  .installVideo {
-    width: calc(100%);
+    flex: 0 0 auto;
   }
 
-  .grid {
-    top: 264px;
-    margin-top: 31px;
+  .gridLogos {
+    left: 8px; /* Align grid with max content-width */
   }
 }
 
 @media (max-width: 1023px) {
-  .installVideo {
+  .terminal {
     pointer-events: none;
-  }
-}
-
-/* Small devices (landscape phones, less than 650px) */
-@media (max-width: 650px) {
-  .grid {
-    margin-top: 340px;
-  }
-  .install {
-    margin: 0 auto 40px 0;
-    @apply w-full block text-center pr-0;
-  }
-  .install h3 {
-    width: 56%;
-    margin: 0 auto 42px auto;
-  }
-  .embed h3 {
-    margin-bottom: 50px;
-  }
-  .embedLanguages {
-    margin-left: 30px;
-    width: 100%;
-    @apply pt-3;
-  }
-
-  .install h3 br {
-    display: none;
-  }
-
-  .installVideo {
-    width: calc(100% + 2rem);
-  }
-
-  .grid {
-    display: none;
-  }
-  .embedLanguages {
-    background-image: var(--dots-on-light);
-    background-size: var(--spacing) var(--spacing);
-    padding-top: calc(
-      var(--spacing) + var(--spacing) / 2 + var(--dot-size) / 2
-    );
-    @apply pb-dot-5 bg-left-top w-screen -ml-8 pl-4;
-  }
-
-  .gridBoxContainer {
-    @apply h-dot-3;
-  }
-
-  .gridBox {
-    @apply w-dot-3;
-  }
-
-  .gridBox span {
-    position: absolute;
-    bottom: 2px;
-    right: 4px;
-    font-size: 15px;
-  }
-}
-
-/* Extra small devices (portrait phones, less than 576px) */
-@media (max-width: 576px) {
-  .grid {
-    display: none;
-  }
-  .embedLanguages {
-    background-image: var(--dots-on-light);
-    background-size: var(--spacing) var(--spacing);
-    @apply pb-dot-1 bg-left-top w-screen -ml-8 pl-4 pt-4;
-  }
-  .install {
-    text-align: left;
-    width: 100%;
-  }
-  .install h3 {
-    width: 100%;
-  }
-  .embed {
-    display: initial;
-  }
-  .embed h3 {
-    width: 100%;
-    margin-bottom: 50px;
   }
 }

@@ -17,7 +17,7 @@ export class GithubCounterComponent extends Component {
   getCounter = async () => {
     if (!process.env.GITHUB_API_ACTIVE) return DEFAULT_NUM_STARS;
     const resource = await fetch(
-      'https://api.github.com/repos/wasmerio/wasmer',
+        'https://api.github.com/repos/wasmerio/wasmer',
     );
     const data = await resource.json();
     return data.stargazers_count;
@@ -57,11 +57,11 @@ export class GithubCounterComponent extends Component {
 
     if (this.state.animate) {
       return (
-        <span className={styles.root}>
+          <span className={styles.root}>
           {counter.toLocaleString().slice(0, -1)}
-          <span
-            className={`${styles.animation} ${update ? styles.update : ''}`}
-          >
+            <span
+                className={`${styles.animation} ${update ? styles.update : ''}`}
+            >
             <span className={styles.animationContainer}>
               <span>{(counter - 1).toLocaleString().slice(-1)}</span>
               <span>{counter.toLocaleString().slice(-1)}</span>

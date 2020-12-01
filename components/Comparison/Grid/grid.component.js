@@ -1,4 +1,5 @@
 import React from 'react';
+import { ColorDots } from '../../ColorDots/color-dots.component';
 import styles from './grid.module.css';
 
 export const GridComponent = ({
@@ -41,7 +42,13 @@ export const GridComponent = ({
         <div
           className={`${styles.gridContainer} ${gridContainerClasses} -mx-8 md:mx-0`}
         >
-          <div className={`dot-background dot-grid ${styles.grid}`}></div>
+          <div className={`dot-background dot-grid ${styles.grid}`}>
+            <ColorDots
+              variant={
+                reversed ? (plain ? 'right-m12' : 'right') : plain ? 'm12' : ''
+              }
+            />
+          </div>
           {children}
           <div>
             {gridLabel && (

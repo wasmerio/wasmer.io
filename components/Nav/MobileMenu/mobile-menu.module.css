@@ -1,3 +1,7 @@
+.root {
+  z-index: 2147483009;
+}
+
 .mobileMenu {
   width: 240px;
   z-index: 50;
