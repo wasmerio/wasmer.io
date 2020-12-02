@@ -61,8 +61,8 @@ export default function WasmerWasmtimePage() {
         />
       </GridComponent>
       <QuoteComponent
-        text="I gotta say, I really like this very much"
-        author="Solomon Hykes, former CTO of Docker"
+        text="Wasmer is really flexible and easy to integrate, with incredible documentation"
+        author="Quentin Adam, Clever Cloud CEO"
       />
       <GridComponent
         title="Lightweight headless mode"
