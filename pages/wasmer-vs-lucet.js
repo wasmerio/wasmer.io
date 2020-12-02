@@ -48,8 +48,8 @@ export default function WasmerLucetPage() {
         />
       </GridComponent>
       <QuoteComponent
-        text="I gotta say, I really like this very much"
-        author="Solomon Hykes, former CTO of Docker"
+        text="Wasmer is really flexible and easy to integrate, with incredible documentation"
+        author="Quentin Adam, Clever Cloud CEO"
       />
 
       <GridComponent
@@ -73,8 +73,8 @@ export default function WasmerLucetPage() {
       >
         <TableComponent
           variant="secondary"
-          items={['X68', 'x86_64', 'ARM', 'ARM64']}
-          competitorItems={['X68', '', '', '']}
+          items={['x86_64', 'ARM64', 'Apple M1', 'x86', 'ARM']}
+          competitorItems={['x86_64', '', '', '', '']}
           competitorName={competitorName}
         />
       </GridComponent>
