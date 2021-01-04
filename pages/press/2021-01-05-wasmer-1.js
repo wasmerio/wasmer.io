@@ -24,7 +24,7 @@ export default function AboutPage() {
             <PressComponent title="Wasmer Announces the Release of Wasmer 1.0, its Industry-leading Open Source WebAssembly Runtime">
                 <p>SAN FRANCISCO – January 5th, 2020 – Wasmer Inc., a leader in next-generation application development and deployment infrastructure for WebAssembly (Wasm), announces the general availability of Wasmer 1.0, its open-source Wasm runtime.</p>
 
-                <figure><blockquote>We believe that WebAssembly is a crucial component for the future of software execution and containerization for both client and server-side applications).</blockquote>
+                <figure><blockquote>We believe that WebAssembly is a crucial component for the future of software execution and containerization for both client and server-side applications.</blockquote>
                     <figcaption>– Syrus Akbary <cite>Founder & CEO, Wasmer Inc.</cite></figcaption>
                 </figure>
 
@@ -36,14 +36,14 @@ export default function AboutPage() {
                     <li>Up to a 9x improvement in compilation times</li>
                     <li>Pluggable infrastructure to support multiple compiler configurations</li>
                     <li>Native object engine to precompile shared object files</li>
-                    <li>Headless Wasmer deployments to support Edge and IoT use cases</li>
+                    <li>Headless Wasmer deployments to support Edge and IoT use-cases</li>
                     <li>Cross-compilation for targeting multiple deployment architectures</li>
                     <li>Improved API user experience and support for the standard Wasm-C-API</li>
                     <li>New and improved error handling and reporting infrastructure.</li>
                 </ul>
 
-                <figure><blockquote>We choose Wasmer because it was really easy to integrate, hack, adapt to our usages and needs, as a technology and as a project, with great documentation and team.</blockquote>
-                    <figcaption>– Quentin Adam <cite>CEO, CleverCloud,</cite></figcaption>
+                <figure><blockquote>We choose Wasmer because it was really easy to integrate, hack, adapt to our usages and needs, both as a technology and as a project, with great documentation and team.</blockquote>
+                    <figcaption>– Quentin Adam <cite>CEO, CleverCloud</cite></figcaption>
                 </figure>
 
                 <p>
@@ -51,7 +51,7 @@ export default function AboutPage() {
                 </p>
 
                 <h2>About Wasmer</h2>
-                <p>Headquartered in San Francisco, CA, Wasmer Inc. is the company behind the popular open-source WebAssembly runtime Wasmer. In addition to the Wasmer runtime, the company has made significant investments in WAPM, a WebAssembly package manager, and many other open-source projects in the WebAssembly ecosystem.</p>
+                <p>Headquartered in San Francisco, CA, Wasmer Inc. is the company behind the popular open-source WebAssembly runtime Wasmer. In addition to the Wasmer runtime, the company has made significant investments in <a href="https://wapm.io" target="_blank">WAPM</a>, a WebAssembly package manager, and many other open-source projects in the WebAssembly ecosystem.</p>
 
                 <p>Our mission is to make software universally available. We are committed to the open-source community and strive to contribute to developers and companies worldwide to help make Wasmer and WebAssembly a universal standard.</p>
             </PressComponent>
