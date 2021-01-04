@@ -15,7 +15,7 @@ export const MobileMenu = ({ links, toggleMenu }) => {
           className="absolute top-0 right-0 z-50 p-8"
           aria-label="Mobile menu opener"
         >
-          <img src="images/close_menu.svg" />
+          <img src="/images/close_menu.svg" />
         </button>
         <div className="h-full flex flex-col justify-between">
           <ul>

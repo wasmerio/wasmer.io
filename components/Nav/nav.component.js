@@ -41,7 +41,7 @@ export class NavComponent extends Component {
               onClick={this.toggleMenu}
               aria-label="Close mobile menu"
             >
-              <img src="images/mobile_menu.svg" width="26px" height="25px" />
+              <img src="/images/mobile_menu.svg" width="26px" height="25px" />
             </button>
             {menuOpened ? (
               <MobileMenu toggleMenu={() => this.toggleMenu()} links={links} />

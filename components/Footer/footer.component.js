@@ -14,7 +14,7 @@ export const FooterComponent = () => {
         <div
           className={`bg-primary py-10 lg:py-7 -mr-8 md:mr-0 md:-ml-8 lg:ml-0 px-10 lg:px-8 md:mb-6 lg:mb-10 z-10 ${styles.company}`}
         >
-          <img src="images/logo-white.svg" className={styles.logo} />
+          <img src="/images/logo-white.svg" className={styles.logo} />
           <p className="pt-3 text-small font-semibold">
             Making software universally accessible
           </p>
