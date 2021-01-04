@@ -67,7 +67,7 @@ export default function AboutPage() {
                     isButton
                     secondary
                     linkText="Go to Github"
-                    href="https://github.com/wasmerio"
+                    href="https://github.com/wasmerio/wasmer"
                     target="_blank"
                 />
                 <LinkComponent

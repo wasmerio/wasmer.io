@@ -6,7 +6,7 @@ export const LogoLink = () => {
     <li className="flex-shrink-0">
       <Link href="/">
         <a className="no-underline">
-          <img src="images/logo.svg" width="147px" height="43px" />
+          <img src="/images/logo.svg" width="147px" height="43px" />
         </a>
       </Link>
     </li>
