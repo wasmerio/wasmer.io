@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styles from './github-counter.module.css';
 
 // The default number of stars to show
-const DEFAULT_NUM_STARS = 7100;
+const DEFAULT_NUM_STARS = 7650;
 
 export class GithubCounterComponent extends Component {
   constructor(props) {
