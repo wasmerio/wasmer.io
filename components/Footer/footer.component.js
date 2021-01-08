@@ -5,6 +5,8 @@ import links from './footer.constants';
 import styles from './footer.module.css';
 
 export const FooterComponent = () => {
+
+    const year = new Date().getFullYear()
   return (
     <footer
       className={`dot-background on-dark text-white bg-primary relative font-semibold ${styles.footer}`}
@@ -56,7 +58,7 @@ export const FooterComponent = () => {
             </li>
           </ul>
           <div className={`${styles.copyright} hidden md:block mt-14`}>
-            © 2019 Wasmer, Inc.
+            © {year} Wasmer, Inc.
           </div>
         </div>
       </div>
