@@ -72,8 +72,8 @@ export default function WasmerWasmtimePage() {
         <BarsVerticalComponent
           unit="mb"
           flatten
-          value={1}
-          competitorValue={11}
+          value={0.8}
+          competitorValue={13.8}
           competitorName={competitorName}
         />
       </GridComponent>
