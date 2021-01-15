@@ -206,3 +206,9 @@ p {
     height: 100%;
   }
 }
+
+@media(max-width: 767px) {
+  .carousel .slider .slide img {
+    width: 65%;
+  }
+}
