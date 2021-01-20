@@ -34,7 +34,7 @@ export class InstallComponent extends Component {
           <div className="lg:flex justify-between items-center">
             <div className={`md:text-center lg:text-left ${styles.install}`}>
               <h2 className="font-bold mb-4">Try it now!</h2>
-              <p className="mb-8 lg:mb-10 xl:mb-12">
+              <p className="mb-8 lg:mb-10 xl:mb-12 text">
                 Install Wasmer by copy-pasting a single command. It’s that easy.
               </p>
               <div className="-mx-2">
@@ -79,7 +79,7 @@ export class InstallComponent extends Component {
             </div>
           </div>
           <div className={styles.embedContainer}>
-            <p className={styles.embedText}>
+            <p className={`${styles.embedText} text`}>
               ...or embed Wasmer into the language of your choice and run
               WebAssembly everywhere.
             </p>

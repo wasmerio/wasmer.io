@@ -10,7 +10,7 @@ export const ContributeComponent = () => {
       plain
       text={
         <>
-          <p className="mb-3">
+          <p className="mb-3 text">
             Wasmer is 100% open source, and appreciates contributions to code
             and documentation.
           </p>

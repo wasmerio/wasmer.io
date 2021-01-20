@@ -11,7 +11,7 @@ export const HeaderComponent = () => {
       <h1 className="font-bold">
         <GithubCounterComponent animate /> Github stars and counting.
       </h1>
-      <p className="mt-4 lg:mt-6 xl:mt-8 mb-8 lg:mb-10 xl:mb14">
+      <p className="mt-4 lg:mt-6 xl:mt-8 mb-8 lg:mb-10 xl:mb14 text">
         Join the Wasmer community and be part of the next generation of
         software.
       </p>

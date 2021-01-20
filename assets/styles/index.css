@@ -113,7 +113,7 @@ h3 {
   @apply text-lg font-medium;
 }
 
-p {
+p.text {
   line-height: 1.35;
   @apply text-base;
 }
