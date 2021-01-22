@@ -8,8 +8,6 @@ author: Ivan Enderlin
 #   url: '/public/images/blog/wasmer-python-embedding-1.0/cover.jpg'
 ---
 
-### Wasmer Python embedding 1.0
-
 After the release of Wasmer 1.0, we are thrilled to announce the
 immediate availability of [the Wasmer Python embedding 1.0
 version](https://github.com/wasmerio/wasmer-python).
