@@ -33,7 +33,7 @@
   background-size: var(--spacing) var(--spacing);
   height: var(--explainer-grid-height);
   width: fit-content;
-  transition: transform .2s ease-out;
+  transition: transform 0.2s ease-out;
   @apply items-baseline flex  relative pr-24;
 }
 

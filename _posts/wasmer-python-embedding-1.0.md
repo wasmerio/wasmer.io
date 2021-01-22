@@ -1,11 +1,11 @@
 ---
 title: 'Wasmer Python embedding 1.0'
 excerpt: 'After the release of Wasmer 1.0, we are thrilled to announce the immediate availability of the Wasmer Python embedding 1.0 version...'
-coverImage: '/public/images/blog/wasmer-python-embedding-1.0/cover.jpg'
+# coverImage: '/public/images/blog/wasmer-python-embedding-1.0/cover.jpg'
 date: '2021-01-21T15:35:07.322Z'
 author: Ivan Enderlin
-ogImage:
-  url: '/public/images/blog/wasmer-python-embedding-1.0/cover.jpg'
+# ogImage:
+#   url: '/public/images/blog/wasmer-python-embedding-1.0/cover.jpg'
 ---
 
 ### Wasmer Python embedding 1.0
@@ -22,15 +22,15 @@ to introduce the 1.0 version with a stable API, lightning
 performances, cross-compilation, three compilers, two engines, and
 many more advanced features. Let’s dig in!
 
-*   **Light by default**
-*   **Pick your best compiler on the fly**
-*   **Improved and simplified API**
-*   **Faster memory operations**
-*   **Cross-compilation**
-*   **WASI**
-*   **Ready to use on major platforms and architectures**
-*   **Documentation and examples**
-*   **Discovering compilers capabilities with a benchmark**
+* [Light by default](#light-by-default)
+* [Pick your best compiler on the fly](#pick-your-best-compiler-on-the-fly)
+* [Improved and simplified API](#improved-and-simplified-api)
+* [Faster memory operations](#faster-memory-operations)
+* [Cross-compilation](#cross-compilation)
+* [WASI](#wasi)
+* [Ready to use on major platforms and architectures](#ready-to-use-on-major-platforms-and-architectures)
+* [Documentation and examples](#documentation-and-examples)
+* [Discovering compiler capabilities with a benchmark](#discovering-compiler-capabilities-with-a-benchmark)
 
 ### Light by default
 
@@ -456,7 +456,7 @@ documented to explain every detail to the user.
 **We believe this kind of documentation and examples will help users
 to get onboard and be familiar with WebAssembly more quickly.**
 
-### Discovering compilers capabilities with a benchmark
+### Discovering compiler capabilities with a benchmark
 
 Designing benchmarks is hard, so we designed a benchmark that only
 shows why we provide multiple compilers and engines. The benchmark

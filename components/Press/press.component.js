@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 export const PressComponent = ({ title, children }) => {
   return (
     <>
@@ -14,4 +13,4 @@ export const PressComponent = ({ title, children }) => {
       </div>
     </>
   );
-}
+};
