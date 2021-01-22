@@ -619,7 +619,7 @@ The packages are available on pypi:
 * [`wasmer-compiler-singlepass`](https://pypi.org/project/wasmer-compiler-singlepass/).
 
 Wheels for `aarch64` aren’t published on pypi (because it doesn’t
-fulfill [the `manylinux201` policy regarding binary wheels, see the
+fulfill [the `manylinux2010` policy regarding binary wheels, see the
 PEP
 571](https://www.python.org/dev/peps/pep-0571/#the-manylinux2010-policy)). They
 are freely downloadable from [the Github
