@@ -14,7 +14,7 @@ export const HeroPost = function ({
   return (
     <section>
       <div className="mb-8 md:mb-16">
-        {coverImage && (
+        {/* {coverImage && (
           <CoverImage
             title={title}
             src={coverImage}
@@ -22,7 +22,7 @@ export const HeroPost = function ({
             height={620}
             width={1240}
           />
-        )}
+        )} */}
       </div>
       <div className="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 mb-20 md:mb-28">
         <div>

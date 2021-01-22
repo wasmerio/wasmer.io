@@ -15,7 +15,7 @@ export const PostPreview = function ({
   return (
     <div>
       <div className="mb-5">
-        {coverImage && (
+        {/* {coverImage && (
           <CoverImage
             slug={slug}
             title={title}
@@ -23,7 +23,7 @@ export const PostPreview = function ({
             height={278}
             width={556}
           />
-        )}
+        )} */}
       </div>
       <h3 className="text-xl mb-3 leading-snug">
         <Link as={`/posts/${slug}`} href="/posts/[slug]">
