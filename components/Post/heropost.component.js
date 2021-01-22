@@ -1,5 +1,5 @@
 import { DateFormatter } from '../Date';
-import { CoverImage } from './coverimage.component';
+// import { CoverImage } from './coverimage.component';
 import Link from 'next/link';
 import { AvatarWithNameComponent } from './avatar.component';
 
