@@ -8,7 +8,7 @@ export const PostComponent = ({ title, children, author, date }) => {
     <>
       <div className="container">
         <div className="flex items-center justify-center">
-          <article className={`${styles.root} mt-8`}>
+          <article className={`${styles.root} mt-8 mb-24`}>
             <h1 className={`${styles.title} mb-4`}>{title}</h1>
             <div className="flex items-center">
               <img

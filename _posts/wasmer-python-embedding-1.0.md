@@ -628,4 +628,4 @@ are freely downloadable from [the Github
 release](https://www.python.org/dev/peps/pep-0571/#the-manylinux2010-policy).
 
 [Join a community of more than 1000 Python and WebAssembly passionate
-persons](https://github.com/wasmerio/wasmer-python)!
+developers](https://github.com/wasmerio/wasmer-python)!
