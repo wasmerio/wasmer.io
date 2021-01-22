@@ -11,6 +11,7 @@ export const CoverImage = function ({ title, src, slug, height, width }) {
         'hover:shadow-md transition-shadow duration-200': slug,
       })}
       layout="responsive"
+      unoptimized={true}
       width={width}
       height={height}
     />
