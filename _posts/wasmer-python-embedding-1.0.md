@@ -623,7 +623,7 @@ fulfill [the `manylinux2010` policy regarding binary wheels, see the
 PEP
 571](https://www.python.org/dev/peps/pep-0571/#the-manylinux2010-policy)). They
 are freely downloadable from [the Github
-release](https://www.python.org/dev/peps/pep-0571/#the-manylinux2010-policy).
+release](https://github.com/wasmerio/wasmer-python/releases/tag/1.0.0).
 
 [Join a community of more than 1000 Python and WebAssembly passionate
 developers](https://github.com/wasmerio/wasmer-python)!
