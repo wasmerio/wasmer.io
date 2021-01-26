@@ -4,11 +4,11 @@ const links = [
     label: 'Docs',
     external: true,
   },
-  {
-    href: 'https://wapm.io/',
-    label: 'WAPM',
-    external: true,
-  },
+  // {
+  //   href: 'https://wapm.io/',
+  //   label: 'WAPM',
+  //   external: true,
+  // },
   {
     href: '/community',
     label: 'Community',
@@ -16,6 +16,11 @@ const links = [
   {
     href: 'https://medium.com/wasmer',
     label: 'Blog',
+    external: true,
+  },
+  {
+    href: 'https://www.workatastartup.com/companies/12675',
+    label: 'Jobs',
     external: true,
   },
   {
