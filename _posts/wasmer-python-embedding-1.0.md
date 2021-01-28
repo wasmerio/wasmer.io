@@ -2,7 +2,7 @@
 title: 'Wasmer Python embedding 1.0'
 excerpt: 'Announcing the immediate availability of the Wasmer Python embedding 1.0 version!'
 # coverImage: '/public/images/blog/wasmer-python-embedding-1.0/cover.jpg'
-date: '2021-01-21T15:35:07.322Z'
+date: '2021-01-28T15:35:07.322Z'
 author: Ivan Enderlin
 # ogImage:
 #   url: '/public/images/blog/wasmer-python-embedding-1.0/cover.jpg'
