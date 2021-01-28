@@ -1,79 +1,61 @@
-
 /* Variables */
 
 :root {
-  /* Element sizes */
-  --page-max-width: 1152px;
-  --nav-height: 83px;
-  --hero-height: calc(60vh - var(--nav-height));
-
-  /* The height of the headline element */
-  /* --spacer-item: 186px; */
-  /* The height of the container of the headline */
-  /* --spacer-basement: var(--explainer-textcontainer-height); */
-
-  /* the final height of one spacer unit */
-  /* --spacer-height: calc((var(--spacer-basement) - var(--spacer-item))); */
-
-  /* Text sizes – Small (sm) */
-  --h1-size:        33px;
-  --h2-size:        26px;
-  --h3-size:        19px;
-  --text-size:      16px;
-  --smalltext-size: 14px;
-  --tinytext-size:  13px;
-  --boxtext-size:   var(--smalltext-size);
-
-  /* Misc */
-  --base-size:       16px;
-
-  --shadow-darkpurple: 0px 3px 14px rgba(35, 16, 68, 0.2);
-  --shadow-lightpurple: 0px 3px 14px rgba(73, 70, 221, 0.3);
-  --border-radius: 4px;
-
-  /* Dot Grid 24px spacing */
-  --dots-on-light: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyOCAyOCIgZmlsbD0iI0UyRTBFNyI+PGNpcmNsZSBjeD0iMTQiIGN5PSIxNCIgcj0iMiIvPjwvc3ZnPg==);
-  --dots-on-dark: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyOCAyOCIgZmlsbD0iIzQwMkY1QyI+PGNpcmNsZSBjeD0iMTQiIGN5PSIxNCIgcj0iMiIvPjwvc3ZnPg==);
-
-  /* Empty box for comparison */
-  --box-empty-bg: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHN0eWxlPSJvcGFjaXR5OiAwLjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIzMTA0NCIgc3Ryb2tlLXdpZHRoPSIyLjUiIHN0cm9rZS1saW5lY2FwPSJzcXVhcmUiIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KCTxwYXRoIGQ9Ik0yLDJsMTIsMTIiLz4KCTxwYXRoIGQ9Ik0xNCwyTDIsMTQiLz4KPC9zdmc+);
-
-  /* Cards */
-  /* ----- */
-
-  --card-icon-spacing: 1.5rem;
-  --card-icon-size: 72px;
-
-  --card-icon-spacing-small: 1rem;
-  --card-icon-size-small: 44px;
-
-  --subtract-icon: calc(100% - var(--card-icon-size) - var(--card-icon-spacing));
-  --subtract-icon-small: calc(100% - var(--card-icon-size-small) - var(--card-icon-spacing-small));
-
-  /* Grid spacing */
-
-  --spacing: 28px;
-  --dot-size: 4px;
-
-  --size-1: calc(var(--spacing) * 1 + var(--dot-size));
-  --size-2: calc(var(--spacing) * 2 + var(--dot-size));
-  --size-3: calc(var(--spacing) * 3 + var(--dot-size));
-  --size-4: calc(var(--spacing) * 4 + var(--dot-size));
-
-  /* Explainer animation variables */
-  --explainer-grid-height: 50vh;
-  --explainer-textcontainer-height: 50vh;
-
-  /*--100vh: 100vh;*/
-
-  /* Page spacing */
-  --page-spacing:       4.5rem;
-  --page-spacing-half:  2.5rem;
-
-
-  --hero-max-height: 900px;
-  --hero-min-height: 470px;
+    /* Element sizes */
+    --page-max-width: 1152px;
+    --nav-height: 83px;
+    --hero-height: calc(60vh - var(--nav-height));
+    /* The height of the headline element */
+    /* --spacer-item: 186px; */
+    /* The height of the container of the headline */
+    /* --spacer-basement: var(--explainer-textcontainer-height); */
+    /* the final height of one spacer unit */
+    /* --spacer-height: calc((var(--spacer-basement) - var(--spacer-item))); */
+    /* Text sizes – Small (sm) */
+    --h1-size: 33px;
+    --h2-size: 26px;
+    --h3-size: 19px;
+    --text-size: 16px;
+    --blogtext-size: 16px;
+    --smalltext-size: 14px;
+    --tinytext-size: 13px;
+    --boxtext-size: var(--smalltext-size);
+    /* Misc */
+    --base-size: 16px;
+    --shadow-darkpurple: 0px 3px 14px rgba(35, 16, 68, 0.2);
+    --shadow-lightpurple: 0px 3px 14px rgba(73, 70, 221, 0.3);
+    --border-radius: 4px;
+    /* Dot Grid 24px spacing */
+    --dots-on-light: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyOCAyOCIgZmlsbD0iI0UyRTBFNyI+PGNpcmNsZSBjeD0iMTQiIGN5PSIxNCIgcj0iMiIvPjwvc3ZnPg==);
+    --dots-on-dark: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyOCAyOCIgZmlsbD0iIzQwMkY1QyI+PGNpcmNsZSBjeD0iMTQiIGN5PSIxNCIgcj0iMiIvPjwvc3ZnPg==);
+    /* Empty box for comparison */
+    --box-empty-bg: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHN0eWxlPSJvcGFjaXR5OiAwLjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIzMTA0NCIgc3Ryb2tlLXdpZHRoPSIyLjUiIHN0cm9rZS1saW5lY2FwPSJzcXVhcmUiIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KCTxwYXRoIGQ9Ik0yLDJsMTIsMTIiLz4KCTxwYXRoIGQ9Ik0xNCwyTDIsMTQiLz4KPC9zdmc+);
+    /* Cards */
+    /* ----- */
+    --card-icon-spacing: 1.5rem;
+    --card-icon-size: 72px;
+    --card-icon-spacing-small: 1rem;
+    --card-icon-size-small: 44px;
+    --subtract-icon: calc(100% - var(--card-icon-size) - var(--card-icon-spacing));
+    --subtract-icon-small: calc(100% - var(--card-icon-size-small) - var(--card-icon-spacing-small));
+    /* Grid spacing */
+    --spacing: 28px;
+    --dot-size: 4px;
+    --size-1: calc(var(--spacing) * 1 + var(--dot-size));
+    --size-2: calc(var(--spacing) * 2 + var(--dot-size));
+    --size-3: calc(var(--spacing) * 3 + var(--dot-size));
+    --size-4: calc(var(--spacing) * 4 + var(--dot-size));
+    /* Explainer animation variables */
+    --explainer-grid-height: 50vh;
+    --explainer-textcontainer-height: 50vh;
+    /*--100vh: 100vh;*/
+    /* Page spacing */
+    --page-spacing: 4.5rem;
+    --page-spacing-half: 2.5rem;
+    --hero-max-height: 900px;
+    --hero-min-height: 470px;
 }
+
 
 /* @media (min-width: 438px) {
   :root {
@@ -93,83 +75,87 @@
 } */
 
 @media (min-height: 700px) {
-  :root {
-    --hero-min-height: 670px;
-  }
+     :root {
+        --hero-min-height: 670px;
+    }
 }
+
 
 /* Medium (md) */
+
 @media (min-width: 650px) {
-  :root {
-    --h1-size:        38px;
-    --h2-size:        29px;
-    --h3-size:        22px;
-    --text-size:      18px;
-    --smalltext-size: 15px;
-    --tinytext-size:  13px;
-
-    --explainer-grid-height: 66vh;
-    --explainer-textcontainer-height: 34vh;
-
-    --card-icon-size: 96px;
-    --card-icon-spacing-small: 1.5rem;
-    --card-icon-size-small: 48px;
-
-    /* Page spacing */
-    --page-spacing:       6rem;
-    --page-spacing-half:  3.5rem;
-
-    --hero-min-height: 670px;
-  }
+     :root {
+        --h1-size: 38px;
+        --h2-size: 29px;
+        --h3-size: 22px;
+        --text-size: 18px;
+        /* --blogtext-size: 15px; */
+        --smalltext-size: 15px;
+        --tinytext-size: 13px;
+        --explainer-grid-height: 66vh;
+        --explainer-textcontainer-height: 34vh;
+        --card-icon-size: 96px;
+        --card-icon-spacing-small: 1.5rem;
+        --card-icon-size-small: 48px;
+        /* Page spacing */
+        --page-spacing: 6rem;
+        --page-spacing-half: 3.5rem;
+        --hero-min-height: 670px;
+    }
 }
+
 
 /* Large (lg) */
+
 @media (min-width: 1024px) {
-  :root {
-    --nav-height: 127px;
-
-    --h1-size:        44px;
-    --h2-size:        35px;
-    --h3-size:        26px;
-    --text-size:      21px;
-    --smalltext-size: 17px;
-    --tinytext-size:  14px;
-
-    --card-icon-spacing-small: 1.5rem;
-    --card-icon-size-small: 56px;
-
-    /* Page spacing */
-    --page-spacing:       7.5rem;
-    --page-spacing-half:  4rem;
-  }
+     :root {
+        --nav-height: 127px;
+        --h1-size: 44px;
+        --h2-size: 35px;
+        --h3-size: 26px;
+        --text-size: 21px;
+        --blogtext-size: 18px;
+        --smalltext-size: 17px;
+        --tinytext-size: 14px;
+        --card-icon-spacing-small: 1.5rem;
+        --card-icon-size-small: 56px;
+        /* Page spacing */
+        --page-spacing: 7.5rem;
+        --page-spacing-half: 4rem;
+    }
 }
+
 
 /* Extra large (xl) */
+
 @media (min-width: 1800px) {
-  :root {
-    --page-max-width: 1350px;
-    --nav-height: 147px;
-
-    --h1-size:        55px;
-    --h2-size:        43px;
-    --h3-size:        32px;
-    --text-size:      26px;
-    --smalltext-size: 21px;
-    --boxtext-size:   17px;
-    --tinytext-size:  16px;
-
-    --card-icon-size: 132px;
-    --card-icon-spacing-small: 1.5rem;
-    --card-icon-size-small: 64px;
-
-    /* Page spacing */
-    --page-spacing:       10rem;
-    --page-spacing-half:  6rem;
-  }
+     :root {
+        --page-max-width: 1350px;
+        --nav-height: 147px;
+        --h1-size: 55px;
+        --h2-size: 43px;
+        --h3-size: 32px;
+        --text-size: 26px;
+        --blogtext-size: 20px;
+        --smalltext-size: 21px;
+        --boxtext-size: 17px;
+        --tinytext-size: 16px;
+        --card-icon-size: 132px;
+        --card-icon-spacing-small: 1.5rem;
+        --card-icon-size-small: 64px;
+        /* Page spacing */
+        --page-spacing: 10rem;
+        --page-spacing-half: 6rem;
+    }
 }
 
+
 /* Set this variables to define to which height the basement should be fixed */
+
+
 /* Normally the basement is relative to viewport, but we have to define a limit */
+
+
 /* @media (max-height: 700px) {
   :root {
     --spacer-basement: 240px;

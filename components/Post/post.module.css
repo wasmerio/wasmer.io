@@ -1,0 +1,149 @@
+.title {
+  margin-left: auto;
+  margin-right: auto;
+  /* max-width: var(--page-max-width); */
+  font-weight: 600;
+}
+
+.author {
+  font-size: var(--tinytext-size);
+}
+.date {
+  font-size: var(--tinytext-size);
+  opacity: 0.5;
+}
+
+.root {
+  @apply overflow-hidden;
+  max-width: 65ch;
+}
+.root :global(.prose) {
+  font-size: var(--blogtext-size);
+  color: #231044;
+}
+
+.root p {
+  line-height: 1.5;
+}
+
+.root a[href^='#'] {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.root :global(.prose pre) {
+  background-color: #231044;
+  font-size: 0.9rem;
+}
+
+.root :global .hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #231044;
+  color: #f0eef2;
+}
+
+.root :global .hljs-keyword,
+.root :global .hljs-literal,
+.root :global .hljs-symbol,
+.root :global .hljs-name {
+  color: #4ab3ff;
+}
+
+.root :global .hljs-link {
+  color: #4ab3ff;
+  text-decoration: underline;
+}
+
+.root :global .hljs-built_in,
+.root :global .hljs-type {
+  color: #02c39a;
+}
+
+.root :global .hljs-number,
+.root :global .hljs-class {
+  color: #b8d7a3;
+}
+
+.root :global .hljs-string,
+.root :global .hljs-meta-string {
+  color: #f5bb00;
+}
+
+.root :global .hljs-regexp,
+.root :global .hljs-template-tag {
+  color: #ef476f;
+}
+
+.root :global .hljs-subst,
+.root :global .hljs-function,
+.root :global .hljs-title,
+.root :global .hljs-params,
+.root :global .hljs-formula {
+  color: #dcdcdc;
+}
+
+.root :global .hljs-comment,
+.root :global .hljs-quote {
+  color: #fdf6e3;
+  opacity: 0.5;
+}
+
+.root :global .hljs-doctag {
+  color: #608b4e;
+}
+
+.root :global .hljs-meta,
+.root :global .hljs-meta-keyword,
+.root :global .hljs-tag {
+  color: #9b9b9b;
+}
+
+.root :global .hljs-variable,
+.root :global .hljs-template-variable {
+  color: #bd63c5;
+}
+
+.root :global .hljs-attr,
+.root :global .hljs-attribute,
+.root :global .hljs-builtin-name {
+  color: #9cdcfe;
+}
+
+.root :global .hljs-section {
+  color: gold;
+}
+
+.root :global .hljs-emphasis {
+  font-style: bold;
+}
+
+.root :global .hljs-strong {
+  font-weight: bold;
+}
+
+/*.hljs-code {
+    font-family:'Monospace';
+  }*/
+
+.root :global .hljs-bullet,
+.root :global .hljs-selector-tag,
+.root :global .hljs-selector-id,
+.root :global .hljs-selector-class,
+.root :global .hljs-selector-attr,
+.root :global .hljs-selector-pseudo {
+  color: #d7ba7d;
+}
+
+.root :global .hljs-addition {
+  background-color: #144212;
+  display: inline-block;
+  width: 100%;
+}
+
+.root :global .hljs-deletion {
+  background-color: #600;
+  display: inline-block;
+  width: 100%;
+}

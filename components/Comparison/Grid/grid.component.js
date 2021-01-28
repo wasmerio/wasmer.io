@@ -36,7 +36,7 @@ export const GridComponent = ({
         {!fullWidth && (
           <div className={styles.text}>
             <h2 className="font-bold">{title}</h2>
-            <p className="mt-4">{text}</p>
+            <p className="mt-4 text">{text}</p>
           </div>
         )}
         <div

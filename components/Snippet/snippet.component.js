@@ -3,8 +3,8 @@ import classnames from 'classnames';
 import copy from 'copy-to-clipboard';
 import styles from './snippet.module.css';
 
-const INSTALL_COMMAND_LINUX = "curl https://get.wasmer.io -sSfL | sh";
-const INSTALL_COMMAND_WINDOWS = "iwr https://win.wasmer.io -useb | iex";
+const INSTALL_COMMAND_LINUX = 'curl https://get.wasmer.io -sSfL | sh';
+const INSTALL_COMMAND_WINDOWS = 'iwr https://win.wasmer.io -useb | iex';
 
 export class SnippetComponent extends Component {
   state = {
@@ -13,7 +13,11 @@ export class SnippetComponent extends Component {
   };
 
   componentDidMount() {
-    let platform = process.browser && window && window.navigator && window.navigator.platform;
+    let platform =
+      process.browser &&
+      window &&
+      window.navigator &&
+      window.navigator.platform;
     const windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'];
     if (windowsPlatforms.indexOf(platform) !== -1) {
       this.setState({ installCommand: INSTALL_COMMAND_WINDOWS });

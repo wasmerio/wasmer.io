@@ -22,12 +22,12 @@ export const IntroComponent = () => {
         <h1 className="text-secondary font-bold mb-4 md:md-6 lg:mb-10 xl:14">
           Making software universally available.
         </h1>
-        <p>
+        <p className="text">
           Wasmer was founded to solve problems we faced ourselves every day.
           Now, we strive to contribute to developers and companies around the
           world reaching their full potential and we do it with a smile.
         </p>
-        <p className="mt-6">
+        <p className="text mt-6">
           Our team is distributed but connected by a culture of diligence,
           amplified by passion rather than pressure. We don’t blame, we stay
           kind and value each other in good and in not so good times.

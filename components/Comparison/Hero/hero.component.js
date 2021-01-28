@@ -16,7 +16,7 @@ export const HeroComponent = ({ firstLine, secondLine, subline }) => {
           {secondLine}
         </strong>
       </h1>
-      <p className="md:max-w-md max-w-lg xl:max-w-2xl md:mx-auto opacity-50 mt-4 lg:mt-6 xl:mt-12">
+      <p className="md:max-w-md max-w-lg xl:max-w-2xl md:mx-auto opacity-50 mt-4 lg:mt-6 xl:mt-12 text">
         {subline}
       </p>
     </div>

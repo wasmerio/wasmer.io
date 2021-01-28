@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Timeline, Tween } from 'react-gsap';
 import { Controller, Scene } from 'react-scrollmagic';
-import { ColorDots } from "../../ColorDots/color-dots.component";
+import { ColorDots } from '../../ColorDots/color-dots.component';
 import styles from './explainer.module.css';
 import WA from '../../../public/images/wasm-grey.svg';
 import Wasmer from '../../../public/images/wasmer.svg';
@@ -95,10 +95,7 @@ export class ExplainerComponent extends Component {
       '--explainer-textcontainer-height',
       `${textcontainerHeight}px`,
     );
-    document.documentElement.style.setProperty(
-        '--100vh',
-        `${height}px`,
-    );
+    document.documentElement.style.setProperty('--100vh', `${height}px`);
   }
 
   /**
@@ -268,7 +265,11 @@ export class ExplainerComponent extends Component {
   }
 
   render() {
-    const { containerWidth, animateHorizontal, animationHorizontalScroll } = this.state;
+    const {
+      containerWidth,
+      animateHorizontal,
+      animationHorizontalScroll,
+    } = this.state;
     const colorDots = <ColorDots items={125} variant="explainer" />;
 
     let { languages, platforms } = this.state;
@@ -305,22 +306,22 @@ export class ExplainerComponent extends Component {
                     <div className={styles.explainer} style={explainerStyle}>
                       {/* Languages */}
                       <Tween duration={100}>
-                      <div
-                        className={`
+                        <div
+                          className={`
                                 ${styles.itemsGrid}
                                 ${styles.languages}
                                 ${progress > 0.3 ? styles.hideAdditional : ''}
                               `}
-                      >
-                        {languages.map((item, key) => {
-                          if (item.icon === '') {
-                            return <div key={key} className={styles.empty} />;
-                          }
+                        >
+                          {languages.map((item, key) => {
+                            if (item.icon === '') {
+                              return <div key={key} className={styles.empty} />;
+                            }
 
-                          return (
-                            <div
-                              key={key}
-                              className={`
+                            return (
+                              <div
+                                key={key}
+                                className={`
                                       ${styles.transitionContainer}
                                       ${
                                         item.hideOnTablet
@@ -329,19 +330,19 @@ export class ExplainerComponent extends Component {
                                       }
                                       ${item.main ? styles.main : ''}
                                     `}
-                            >
-                              <LanguageComponent
-                                large
-                                icon={item.icon}
-                                highlighted={
-                                  item.main && progress > 0 && progress < 0.5
-                                }
-                                className={item.main ? styles.main : ''}
-                              />
-                            </div>
-                          );
-                        })}
-                      </div>
+                              >
+                                <LanguageComponent
+                                  large
+                                  icon={item.icon}
+                                  highlighted={
+                                    item.main && progress > 0 && progress < 0.5
+                                  }
+                                  className={item.main ? styles.main : ''}
+                                />
+                              </div>
+                            );
+                          })}
+                        </div>
                       </Tween>
 
                       {/* Arrow 1 */}
@@ -362,16 +363,16 @@ export class ExplainerComponent extends Component {
                       </div>
 
                       {/* WA */}
-                      <Tween duration={100} >
-                      <div
-                        className={`${styles.iconContainer} ${
-                          progress > 0.3 && progress < 0.8
-                            ? styles.highlighted
-                            : ''
-                        }`}
-                      >
-                        <WA />
-                      </div>
+                      <Tween duration={100}>
+                        <div
+                          className={`${styles.iconContainer} ${
+                            progress > 0.3 && progress < 0.8
+                              ? styles.highlighted
+                              : ''
+                          }`}
+                        >
+                          <WA />
+                        </div>
                       </Tween>
 
                       {/* Arrow 2 */}
@@ -392,7 +393,7 @@ export class ExplainerComponent extends Component {
                       </div>
 
                       {/* Wasmer & Plus */}
-                      <Tween duration={200} >
+                      <Tween duration={200}>
                         <div className="flex items-center">
                           <div
                             className={`${styles.iconContainer} ${
@@ -402,9 +403,9 @@ export class ExplainerComponent extends Component {
                             <Wasmer />
                           </div>
                           <div
-                            className={`${styles.iconContainer} ${styles.plus} ${
-                              progress >= 0.8 ? styles.highlighted : ''
-                            }`}
+                            className={`${styles.iconContainer} ${
+                              styles.plus
+                            } ${progress >= 0.8 ? styles.highlighted : ''}`}
                           >
                             <Plus />
                           </div>

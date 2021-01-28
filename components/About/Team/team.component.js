@@ -16,7 +16,7 @@ export const TeamComponent = () => {
             <AvatarComponent image={image} name={name} />
             <div className="px-4">
               <h3 className="font-bold text-secondary mt-8 mb-3">{name}</h3>
-              <p>{description}</p>
+              <p className="text">{description}</p>
               {links && <LinksComponent links={links} />}
             </div>
           </div>

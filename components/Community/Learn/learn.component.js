@@ -14,8 +14,8 @@ export const LearnComponent = () => {
       rootClasses="pt-page-1/2 md:pt-0"
       text={
         <>
-          <p className="mb-3">Developing WebAssembly apps is complex.</p>
-          <p className="mb-6 min-w-1/2">
+          <p className="mb-3 text">Developing WebAssembly apps is complex.</p>
+          <p className="mb-6 min-w-1/2 text">
             Check out our easy-to-follow tutorials and get up to speed on
             WebAssembly, Wasmer and the future of universal runtimes.
           </p>
