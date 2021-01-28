@@ -1,6 +1,6 @@
 ---
 title: 'Wasmer Python embedding 1.0'
-excerpt: 'After the release of Wasmer 1.0, we are thrilled to announce the immediate availability of the Wasmer Python embedding 1.0 version...'
+excerpt: 'Announcing the immediate availability of the Wasmer Python embedding 1.0 version!'
 # coverImage: '/public/images/blog/wasmer-python-embedding-1.0/cover.jpg'
 date: '2021-01-21T15:35:07.322Z'
 author: Ivan Enderlin
@@ -157,24 +157,14 @@ now. To do that, we have fetch the size of the:
 * `wasmer` wheel alone (with headless engines),
 * `wasmer` + `wasmer-compiler-singlepass` wheels,
 * `wasmer` + `wasmer-compiler-cranelift` wheels,
-* `wasmer` + `wasmer-compiler-llvm` wheels,
-* [`wasmtime`](https://github.com/bytecodealliance/wasmtime-py) wheel,
-  to see how we compare with versus another runtime.
-
-Why `wasmtime` specifically? Because it is written by the authors of
-[Cranelift](https://github.com/bytecodealliance/wasmtime/tree/main/cranelift),
-which is a project we also use to write our
-`wasmer-compiler-cranelift` compiler. And because other competitors
-like [WAVM](https://github.com/WAVM/WAVM) or
-[Lucet](https://github.com/bytecodealliance/lucet) do not have Python
-embeddings.
+* `wasmer` + `wasmer-compiler-llvm` wheels.
 
 We have computed those sizes for 3 platforms (macOS, Linux, and
 Windows) and 2 architectures (`amd64` and `aarch64`). (On Linux
 `aarch64`, the `wasmer-compiler-singlepass` wheel is missing because
-it does not support (yet) `aarch64`. The `wasmtime` wheel is also
-absent. On Windows `amd64`, the `wasmer-compiler-llvm` wheel is
-missing due to a temporary issue, it should be fixed quickly.)
+it does not support (yet) `aarch64`. On Windows `amd64`, the
+`wasmer-compiler-llvm` wheel is missing due to a temporary issue, it
+should be fixed quickly.)
 
 The results are presented in the following graph:
 
@@ -188,14 +178,7 @@ The results are presented in the following graph:
 On average, the `wasmer` wheel has a size of 1.4Mb; the `wasmer` +
 `wasmer-compiler-singlepass` wheels have a size of 2Mb; the
 `wasmer` + `wasmer-compiler-cranelift` wheels have a size of 2.8Mb;
-the `wasmer` + `wasmer-compiler-llvm` wheels have a size of 13Mb; the
-`wasmtime` wheel has a size of 4Mb.
-
-`wasmtime` provides _larger_ wheels than `wasmer` as a standalone
-package, or combined with any compilers, except the LLVM one.
-
-`wasmer` as a standalone package is on average 2.9 times smaller than
-`wasmtime`.
+the `wasmer` + `wasmer-compiler-llvm` wheels have a size of 13Mb.
 
 ### Improved and simplified API
 
@@ -474,64 +457,50 @@ and 4Gb of memory; the host has an Intel Xeon CPU (3.10Ghz). It’s not
 really important for what we are going to illustrate.
 
 So first, let’s compile the 2.4Mb `qjs.wasm` WebAssembly module with
-our Singlepass, Cranelift and LLVM compilers. And let’s invite
-`wasmtime` in the party, because the more the merrier. Times are given
-in microseconds (μs).
+our Singlepass, Cranelift and LLVM compilers. Times are given in
+microseconds (μs).
 
 <figure>
   <a href="/images/blog/wasmer-python-embedding-1.0/graph-compilation.png" target="_blank" title="Open the image at full size">
     <img src="/images/blog/wasmer-python-embedding-1.0/graph-compilation.png" />
   </a>
   <figcaption>Create a <code>Module</code> with the JIT engine + the
-  Cranelift, LLVM and Singlepass compilers, and with
-  <code>wasmtime</code> (in μs).</figcaption>
+  Cranelift, LLVM and Singlepass compilers (in μs).</figcaption>
 </figure>
 
 The results are the following. `wasmer` with the Singlepass compiler
 is the fastest to compile `qjs.wasm` in 102ms. `wasmer` with the
-Cranelift compiler is the second in 295ms. Then, `wasmtime` in 1510ms
-(1.5sec), and finally `wasmer` with the LLVM compiler in 5252ms
-(5sec).
+Cranelift compiler is the second in 295ms. Finally `wasmer` with the
+LLVM compiler in 5252ms (5sec).
 
 We can’t conclude anything based on that, except that if a compiler
 takes time, it’s likely because it optimises the generated code
 heavily, which could mean that the execution time will be improved.
-
-It’s interesting to notice that `wasmer-compiler-cranelift` and
-`wasmtime` both use Cranelift as the compiler backend, but the
-compilation time varies a lot: `wasmer` is 5 times faster in this
-case.
 
 Because it’s expensive to compile a module into executable code, we
 want to cache it. And compilation should ideally be always done
 once. So let’s measure how long it takes to get a `Module` from a
 pre-compiled WebAssembly module. We want to see if there is a
 difference between a module that has been compiled with the
-Singlepass, Cranelift or LLVM compiler, and `wasmtime` too. We are
-going to use a headless engine here, so the `wasmer` package alone
-with no compiler.
+Singlepass, Cranelift or LLVM compiler. We are going to use a headless
+engine here, so the `wasmer` package alone with no compiler.
 
 <figure>
   <a href="/images/blog/wasmer-python-embedding-1.0/graph-headless.png" target="_blank" title="Open the image at full size">
     <img src="/images/blog/wasmer-python-embedding-1.0/graph-headless.png" />
   </a>
   <figcaption>Create a <code>Module</code> with the JIT headless
-  engine (module is pre-compiled), and with <code>wasmtime</code> (in
-  μs).</figcaption>
+  engine (module is pre-compiled) (in μs).</figcaption>
 </figure>
 
 The results are the following. `wasmer` with the LLVM compiler is the
 fastest to rebuild a `Module` from a pre-compiled module in 9.8ms,
 following by  — head-to-head — `wasmer` with the Cranelift and the
-Singlepass compilers in 11.5ms. Finally, `wasmtime` rebuilds a
-`Module` from a pre-compiled module in 17.4ms.
+Singlepass compilers in 11.5ms.
 
 That result is interesting. LLVM is the slower compiler to compile a
 WebAssembly module, but once compiled it’s faster to load the module!
 That’s a good news.
-
-`wasmer` in on average 1.6 times faster than `wasmtime` to rebuild a
-`Module` from a pre-compiled module; 1.8 times in the case of LLVM.
 
 Take a breath. Up to now, we have successfully compiled `qjs.wasm` to
 executable code. So let’s use it! As we said, we are going to execute
@@ -544,33 +513,30 @@ test. Let’s see how they perform.
   </a>
   <figcaption>Executing <code>console.log("hello")</code> with
   <code>qjs.wasm</code>, compiled with the Cranelift, LLVM and
-  Singlepass compilers and with <code>wasmtime</code> (in
-  μs).</figcaption>
+  Singlepass compilers (in μs).</figcaption>
 </figure>
 
-First, both `wasmer` and `wasmtime` were successfully able to print
-`hello` on the standard output. This string was printed by JavaScript,
-through WebAssembly, inside Python. How fun is that :-)?
+First, `wasmer` is successfully able to print `hello` on the standard
+output. This string was printed by JavaScript, through WebAssembly,
+inside Python. How fun is that :-)?
 
 Second, we see interesting results. `wasmer` with the LLVM compiler is
 by far the faster to execute `qjs.wasm`. It was compile-time well
 spent! It prints `hello` in JavaScript in 0.219ms. `wasmer` with the
-Cranelift compiler prints `hello` in 0.485ms, which is a little bit
-slower than what `wasmtime` offers in this case. Finally, `wasmer`
-with the Singlepass compiler prints `hello` in 0.560ms. It’s very
-likely that a more computation intensive test would uncover the
-difference between Cranelift and Singlepass deeper.
-
-`wasmer` with LLVM is 1.8 times faster than `wasmtime` in this case.
+Cranelift compiler prints `hello` in 0.485ms. Finally, `wasmer` with
+the Singlepass compiler prints `hello` in 0.560ms. It’s very likely
+that a more computation intensive test would uncover the difference
+between Cranelift and Singlepass deeper.
 
 This benchmark confirms what we said earlier:
 
 * The Singlepass compiler provides a fast compilation but a slower
-  execution,
+  execution, which can be perfect for small/simple WebAssembly
+  modules,
 * The Cranelift compiler provides a good balance between compilation
   and execution time,
 * The LLVM compiler provides a slow but optimised compilation, and a
-  very fast execution.
+  very fast execution, which is perfect for complex WebAssembly modules.
 
 The fact that `wasmer` comes with headless engines (with no compiler)
 is helpful, as rebuilding a `Module` from a pre-compiled module is
