@@ -49,7 +49,7 @@ export default function WasmerWasmtimePage() {
         hero
         noTopMargin
         title="Stunning speed"
-        text="Wasmer is designed from the ground up to match the speed of native executables. Experience startup performance unlike any other."
+        text="Wasmer is designed from the ground up to match the speed of native executables thanks to our LLVM integration. Experience startup performance unlike any other."
       >
         <BarsHorizontalComponent
           hero
