@@ -20,6 +20,13 @@ provide a stable and complete API, better performance,
 cross-compilation, two compilers, two engines, and many more advanced
 features!
 
+* [Improved and simplified API](#improved-and-simplified-api)
+* [Compilers and Engines](#compilers-and-engines)
+* [Cross-compilation](#cross-compilation)
+* [WASI](#wasi)
+* [Ready to use on major platforms and
+  architectures](#ready-to-use-on-major-platforms-and-architectures)
+
 ## Improved and simplified API
 
 We have entirely rewritten the project with a new, improved API. All
