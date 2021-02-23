@@ -365,7 +365,7 @@ wasi_version = wasi.get_version(module, strict=True)
 #
 # In this case, we specify the program name: `wasi_test_program`. We
 # also specify the program is invoked with the `--test` argument, in
-# addition to two environment variable: `COLOR` and
+# addition to two environment variables: `COLOR` and
 # `APP_SHOULD_LOG`. Finally, we map the `the_host_current_dir` to the
 # current directory. There it is:
 wasi_env =
