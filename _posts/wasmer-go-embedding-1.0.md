@@ -8,17 +8,17 @@ author: Ivan Enderlin
 We are delighted to announce the availability of the [Wasmer Go
 embedding 1.0 version](https://github.com/wasmerio/wasmer-go).
 
-A little more than 1.5 years, we first release `wasmer-go`, the Wasmer
-embedding for Go. The reception by the community was beyond our
-expectations. Back then, it was [the fastest WebAssembly runtime for
-Go](https://medium.com/wasmer/announcing-the-fastest-webassembly-runtime-for-go-wasmer-19832d77c050).
-A community of more than 1'300 people gives us the energy to push this
-project further. We have seen users from various domains that weren't
-anticipated. After hundreds of thousands of installations, it's our
-great pleasure to introduce the 1.0 version, fully rewritten to
-provide a stable and complete API, better performance,
-cross-compilation, two compilers, two engines, and many more advanced
-features!
+About 1.5 years ago we first release `wasmer-go`, the Wasmer embedding
+for Go. The reception by the community was beyond our expectations,
+the repercussion of launching [the fastest WebAssembly runtime for
+Go](https://medium.com/wasmer/announcing-the-fastest-webassembly-runtime-for-go-wasmer-19832d77c050)
+was a great way to start! A community of more than 1'300 people gives
+us the energy to push this project further. We have seen users from
+various domains that weren't anticipated. After hundreds of thousands
+of installations, it's our great pleasure to introduce the 1.0
+version, fully rewritten to provide a stable and complete API, better
+performance, cross-compilation, two compilers, two engines, and many
+more advanced features!
 
 * [Improved and simplified API](#improved-and-simplified-api)
 * [Compilers and Engines](#compilers-and-engines)
@@ -124,8 +124,9 @@ A couple of interesting things can be seen here:
 4. Host functions can return any error _à la_ Go,
 
 5. The `ImportObject` API allows to register a collection of
-   “externals”: `Function`, `Memory` etc., i.e. types that implement
-   the `IntoExtern` interface, to a given namespace (here `math`),
+   “externals”: `Function`, `Memory` etc., i.e. any type that
+   implements the `IntoExtern` interface, to a given namespace (here
+   `math`),
    
 6. The `Exports` API allows to read any kinds of externals, including
    multiple memories.
@@ -172,8 +173,8 @@ a more unified API.
 
 We are talking about the host function implementation. To create a
 proper host function, we use the `NewFunction` function. It is also
-possible to create a new host function with
-`NewFunctionWithEnvironment` which expects of a function with the
+possible to create a new host function with an attached environment
+with `NewFunctionWithEnvironment` which expects a function of the
 following form:
 
 ```go
@@ -218,7 +219,7 @@ needed.
 
 The `Exports` API provides the following methods: `GetFunction`,
 `GetMemory`, `GetGlobal` and `GetMemory`, to get an external by its
-name (or simply `Get`).
+name (or simply `Get` to get a generic `Extern`).
 
 `GetFunction` returns an exported function with a native Go API,
 i.e. a function that can be invoked as `addOne(42)`. It's actually an
@@ -255,7 +256,7 @@ the compilation _and_ the execution of the WebAssembly modules. This
 design provides a unique flexibility which allows Wasmer to be used in
 various contexts.
 
-### Cranelift has a new companion: Singlepass!
+### Cranelift has new companions: Singlepass and LLVM!
 
 The Wasmer runtime provides 3 compilers to compile the WebAssembly
 modules into executable codes:
@@ -270,14 +271,21 @@ modules into executable codes:
 
 Previously, `wasmer-go` was providing only one compiler:
 Cranelift. However, a non-negligible population of our users run small
-WebAssemby modules. In that specific case, execution times is not an
-issue since it's always be quick, however we must improve the
+WebAssemby modules. In that specific case, execution time is not an
+issue since it will always be quick, however we must improve the
 compilation time. And that's why we are happy to announce that
 `wasmer-go` now embeds the Singlepass compiler too by default!
 
+Double announce: When execution performance really matters for you,
+you can now use the LLVM compiler too! Even if the default
+`libwasmer`s embedded inside `wasmer-go` do not provide a support for
+LLVM _yet_ (we are working on it), the entire API already support
+it. It is really easy to use your own custom `libwasmer` and build
+against it (see below about the `custom_wasmer_runtime` tag).
+
 Cranelift will continue to be the default compiler. To change that
 behaviour, one needs to create a new configuration for the engine and
-use `Config.UseSinglepassCompiler`:
+use `Config.UseSinglepassCompiler` or `Config.UseLLVMCompiler`:
 
 ```go
 // Configure the engine to use the Singlepass compiler.
@@ -294,8 +302,8 @@ instance, _ := wasmer.NewInstance(module, wasmer.NewImportObject())
 
 It's that simple!
 
-We are working on providing the LLVM compiler. It's more challenging
-but it's very likely to come soon.
+Note: The new `IsCompilerAvailable` function might be your best friend to
+test whether a compiler is available.
 
 ### JIT and Native engines
 
@@ -310,7 +318,7 @@ the WebAssembly modules. In a nutshell:
   
 * The Object File engine, which isn't relevant in the context of Go,
   we skip it ([learn
-  more](https://github.com/wasmerio/wasmer/tree/d1bd9eac00a3e1d445499e47d8cb3a632985e0c6/lib/engine-object-file).
+  more](https://github.com/wasmerio/wasmer/tree/d1bd9eac00a3e1d445499e47d8cb3a632985e0c6/lib/engine-object-file)).
   
 Previously, `wasmer-go` was providing only the JIT engine. Now, it's
 our pleasure to announce that the Native engine is now part of the
@@ -375,8 +383,7 @@ WebAssembly module, and save it:
 
 ```go
 // Compile for a specific target.
-config := wasmer.NewConfig()
-config.UseTarget(target)
+config := wasmer.NewConfig().UseTarget(target)
 
 // Create the engine with a specific configuration.
 engine := wasmer.NewEngineWithConfig(config)
@@ -407,8 +414,6 @@ of WASI a WebAssembly module is using or whether it's not using WASI
 at all:
 
 ```go
-engine := wasmer.NewEngine()
-store := wasmer.NewStore()
 module, _ := wasmer.NewModule(store, wasmBytes)
 
 fmt.Println(GetWasiVersion(module))
@@ -464,7 +469,7 @@ start()
 ```
 
 Did you notice that `stdout` is expected to be captured, as defined
-by `CaptureStdout`? Well, here it is:
+by `CaptureStdout` above? Well, here is its content:
 
 ```go
 stdout := string(wasiEnv.ReadStdout())
@@ -510,20 +515,6 @@ $ 
 $ # Run the tests to check everything is correct.
 $ go test -tags custom_wasmer_runtime
 ```
-
-## What people says about the 1.0? [or] Benchmarks?
-
-(not sure about this section)
-
-We would like to thank the numerous users that have provided feedbacks
-along the way and during the rewrite. It's been precious!
-
-According to [Connor Hicks](https://twitter.com/cohix), the main
-developer of [Suborbital](https://suborbital.dev/), the migration from
-`wasmer-go` 0.3 to 1.0 led to a speed up between 4-10x.
-
-We should re-run the benchmarks from the 0.3 to compare the perf' with
-the 1.0 maybe?
 
 ## Conclusion
 
