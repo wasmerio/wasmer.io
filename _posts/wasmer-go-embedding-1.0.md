@@ -1,24 +1,25 @@
 ---
-title: 'Wasmer Go embedding 1.0 liftoff'
+title: 'Wasmer Go embedding 1.0 lift-off'
 excerpt: 'Announcing the immediate availability of the Wasmer Go embedding 1.0 version!'
 date: '2021-02-22T15:35:07.322Z'
 author: Ivan Enderlin
 ---
 
-We are delighted to announce the availability of the [Wasmer Go
-embedding 1.0 version](https://github.com/wasmerio/wasmer-go).
+We are delighted to announce the release of [Wasmer Go embedding 1.0
+version](https://github.com/wasmerio/wasmer-go).
 
-About 1.5 years ago we first release `wasmer-go`, the Wasmer embedding
-for Go. The reception by the community was beyond our expectations,
-the repercussion of launching [the fastest WebAssembly runtime for
+About 1.5 years ago we first released `wasmer-go`, the Wasmer
+embedding for Go. The reception by the community was beyond our
+expectations, the response to our launch of [the fastest WebAssembly
+runtime for
 Go](https://medium.com/wasmer/announcing-the-fastest-webassembly-runtime-for-go-wasmer-19832d77c050)
-was a great way to start! A community of more than 1'300 people gives
-us the energy to push this project further. We have seen users from
-various domains that weren't anticipated. After hundreds of thousands
-of installations, it's our great pleasure to introduce the 1.0
-version, fully rewritten to provide a stable and complete API, better
-performance, cross-compilation, two compilers, two engines, and many
-more advanced features!
+was a great way to start! A community of more than 1,300 people gives
+us the energy to push this project further. We have seen many users
+from various domains that weren't anticipated. After hundreds of
+thousands of installations, it's our great pleasure to introduce the
+1.0 version, fully rewritten to provide a stable and complete API,
+better performance, cross-compilation, two compilers, two engines, and
+many more advanced features!
 
 * [Improved and simplified API](#improved-and-simplified-api)
 * [Compilers and Engines](#compilers-and-engines)
@@ -32,25 +33,25 @@ more advanced features!
 We have entirely rewritten the project with a new, improved API. All
 the WebAssembly externals are now supported, which includes
 `Function`, `Global`, `Memory`, and `Table`. All of them can be used
-as imports or as exports. Well, this is now straighforward.
+as imports or as exports. Well, now that's straightforward.
 
 The `ImportObject` API is now unified and simplified (previously, we
-had 2 distincts API for historical reasons).
+had 2 distinct API for historical reasons).
 
 An example is worth a thousand words. Let's consider the following
-example that already illustrates many improvements:
+example to illustrate many of the improvements:
 
 ```go
 import "github.com/wasmerio/wasmer-go/wasmer"
 
-// Create an engine. It's responsible to drive the compilation and the
+// Create an engine. It's responsible for driving the compilation and the
 // execution of a WebAssembly module.
 engine := wasmer.NewEngine()
 
 // Create a store, that holds the engine.
 store := wasmer.NewStore(engine)
 
-// Create a new module from the text representation of a WebAssembly
+// Create a new module from some WebAssembly in its text representation
 // (for the sake of simplicity of the example).
 module, _ := wasmer.NewModule(
 	store,
@@ -112,11 +113,11 @@ assert(result, int32(42))
 
 A couple of interesting things can be seen here:
 
-1. There is an `Engine` API; more about this in the next section,
+1. There is an `Engine` API — more about this in the next section,
 
 2. Host functions are fully implemented in Go; `cgo` is no longer
    necessary when declaring host functions. Moreover, host functions
-   no longer receive the famous `context` argument; more on that in a
+   no longer receive the famous `context` argument — more on that in a
    second,
 
 3. Host functions can return multiple-values,
@@ -128,10 +129,10 @@ A couple of interesting things can be seen here:
    implements the `IntoExtern` interface, to a given namespace (here
    `math`),
    
-6. The `Exports` API allows to read any kinds of externals, including
+6. The `Exports` API allows to read any kinds of exports, including
    multiple memories.
 
-The entire API is more Go idiomatic, and very much simpler to use from
+The entire API is more idiomatic, and very much simpler to use from
 our perspective.
 
 ### A word about host functions
@@ -148,16 +149,16 @@ func sum(context unsafe.Pointer, x int32, y int32) int32 {
 }
 ```
 
-Now, a host function no longer needs `cgo`. That's a big
-user-experience improvement! A host function can be any Go functions
-or Go lambda functions.
+Now, host functions no longer need `cgo`. That's a big user-experience
+improvement! A host function can be any Go function or Go lambda
+function.
 
-Also, a host function can now return an error, which was impossible
+Also, host functions can now return errors, which was impossible
 before. It will automatically translate to a WebAssembly trap (with
 the new `Trap` API).
 
-Finally, a host function receive a slice of values and returns another
-slices of values, i.e. it supports multi-values!
+Finally, host functions receive and return slices of values, i.e. it
+supports multi-values!
 
 ```go
 func sum(args []wasmer.Value) ([]wasmer.Value, error) {
@@ -168,10 +169,10 @@ func sum(args []wasmer.Value) ([]wasmer.Value, error) {
 }
 ```
 
-Note that a host function manipulates values of kind `Value` to allow
-a more unified API.
+Note that host functions manipulate values of type `Value` to allow a
+more unified API.
 
-We are talking about the host function implementation. To create a
+Continuing on the subject of implementing host functions, to create a
 proper host function, we use the `NewFunction` function. It is also
 possible to create a new host function with an attached environment
 with `NewFunctionWithEnvironment` which expects a function of the
@@ -218,8 +219,8 @@ needed.
 ### A word about exported functions
 
 The `Exports` API provides the following methods: `GetFunction`,
-`GetMemory`, `GetGlobal` and `GetMemory`, to get an external by its
-name (or simply `Get` to get a generic `Extern`).
+`GetMemory`, `GetGlobal` and `GetMemory`, to get an export by its
+name.
 
 `GetFunction` returns an exported function with a native Go API,
 i.e. a function that can be invoked as `addOne(42)`. It's actually an
@@ -245,15 +246,15 @@ addOneNative := addOne.Native()
 result, _ := addOneNative(41)
 ```
 
-This example illustrates that even if the new API is more Go
-idiomatic, it's not at the price of losing information or features.
+This example illustrates that even if the new API is more idiomatic,
+it's not without being less expressive or losing features.
 
 ## Compilers and Engines
 
-Let's talk a moment about compilers and engines. Compilers aim at
-compiling the WebAssembly modules into executable codes. Engines drive
-the compilation _and_ the execution of the WebAssembly modules. This
-design provides a unique flexibility which allows Wasmer to be used in
+Let's talk for a moment about compilers and engines. Compilers aim at
+compiling WebAssembly modules into executable code. Engines drive the
+compilation _and_ the execution of the WebAssembly modules. This
+design provides unique flexibility which allows Wasmer to be used in
 various contexts.
 
 ### Cranelift has new companions: Singlepass and LLVM!
@@ -276,12 +277,13 @@ issue since it will always be quick, however we must improve the
 compilation time. And that's why we are happy to announce that
 `wasmer-go` now embeds the Singlepass compiler too by default!
 
-Double announce: When execution performance really matters for you,
+Double announcement: When execution performance really matters to you,
 you can now use the LLVM compiler too! Even if the default
-`libwasmer`s embedded inside `wasmer-go` do not provide a support for
-LLVM _yet_ (we are working on it), the entire API already support
-it. It is really easy to use your own custom `libwasmer` and build
-against it (see below about the `custom_wasmer_runtime` tag).
+`libwasmer`s embedded inside `wasmer-go` does not provide a support
+for LLVM _yet_ (we are working on it), the entire API already supports
+it. It is really easy to use your own custom `libwasmer` that includes
+LLVM and build against it (see below about the `custom_wasmer_runtime`
+tag).
 
 Cranelift will continue to be the default compiler. To change that
 behaviour, one needs to create a new configuration for the engine and
@@ -308,27 +310,24 @@ test whether a compiler is available.
 ### JIT and Native engines
 
 The Wasmer runtime also provides 3 engines to compile _and_ to execute
-the WebAssembly modules. In a nutshell:
+WebAssembly modules. Let's only keep 2 engines in this article. In a
+nutshell:
 
 * The JIT engine stores the executable code in memory,
 
 * The Native engine stores the executable code in a native shared
   library object (`.so`, `.dylib`, or `.dll` files depending on the
   Operating System it runs),
-  
-* The Object File engine, which isn't relevant in the context of Go,
-  we skip it ([learn
-  more](https://github.com/wasmerio/wasmer/tree/d1bd9eac00a3e1d445499e47d8cb3a632985e0c6/lib/engine-object-file)).
-  
-Previously, `wasmer-go` was providing only the JIT engine. Now, it's
-our pleasure to announce that the Native engine is now part of the
+
+Previously, `wasmer-go` only provided the JIT engine. Now, it's our
+pleasure to announce that the Native engine is now also part of the
 family!
 
 Note: The Native engine doesn't work with the Singlepass compiler yet.
 
-The difference is how the executable code is stored, especially when
-serializing and deserializing a compiled WebAssembly module; let's
-see:
+The difference between the engines is in how the executable code is
+stored, especially when serializing and deserializing a compiled
+WebAssembly module; let's see:
 
 ```go
 // Configure the engine to use the Cranelift compiler with the Native
@@ -354,14 +353,15 @@ instance, _ := wasmer.NewInstance(module, wasmer.NewImportObject())
 ```
 
 Deserializing a compiled WebAssembly module with the Native engine is
-generally faster as it requires less operations.
+generally faster as it requires fewer operations.
 
 ## Cross-compilation
 
-The engines and the compilers have a new very interesting feature:
-They can cross-compile. It means that from a machine A with a certain
+The engines and the compilers have a new, very interesting feature:
+They can cross-compile. This means that from machine A with a certain
 CPU, it is possible to compile for another machine B with a different
-CPU. Introducing the `Target`, `Triple` and `CpuFeatures` API.
+CPU. To do this we are introducing the `Target`, `Triple` and
+`CpuFeatures` API.
 
 Let's say we are on a `aarch64-unknown-linux-gnu` machine, and we want
 to compile for an `x86_64-apple-darwin` machine:
@@ -393,7 +393,7 @@ store := wasmer.NewStore(engine)
 module, _ := wasmer.NewModule(store, wasmBytes)
 
 // Serialize the compiled module.
-ioutil.Writefile("my_wsam_module.wjit", module.Serialize(), 0644)
+ioutil.Writefile("my_wasm_module.wjit", module.Serialize(), 0644)
 ```
 
 The serialized compiled module can be then deserialized on the
@@ -406,8 +406,8 @@ variety of machines!
 
 The `wasmer-go` package now features
 [WASI](https://github.com/WebAssembly/wasi) (The WebAssembly System
-Interface), with all the snapshot previews; understand, all the
-versions.
+Interface) support with all the snapshot previews (that is, all the
+versions).
 
 First, the `GetWasiVersion` function can be used to know which version
 of WASI a WebAssembly module is using or whether it's not using WASI
@@ -419,20 +419,20 @@ module, _ := wasmer.NewModule(store, wasmBytes)
 fmt.Println(GetWasiVersion(module))
 ```
 
-Second, to setup WASI, it's required to start by creating a
-`WasiEnvironment` with the help of the `NewWasiStateBuilder` API. The
-generated `WasiEnvironment` object is then used to generate an
-`ImportObject`. This later contains all the imports that “bridge” the
-WebAssembly module to the host to make WASI a reality. Of course, it's
-possible to use this `ImportObject` to import your own host functions,
-memories etc., just like with any `ImportObject`. `WasiEnvironment` is
-also responsible to read the `stdout` and `stderr` streams if they are
-captured.
+Second, to setup WASI, we start by creating a `WasiEnvironment` with
+the help of the `NewWasiStateBuilder` API. We then use the generated
+`WasiEnvironment` object to generate an `ImportObject`. This contains
+all the imports that “bridge” the WebAssembly module to the host to
+make WASI a reality. Of course, it's possible to use this
+`ImportObject` to import your own host functions, memories etc., just
+like with any other `ImportObject`. `WasiEnvironment` is also
+responsible for redirecting the `stdout` and `stderr` streams if they
+are captured.
 
-Let's see with an example. We want to execute [this Rust
+Let's see this with an example. We want to execute [this Rust
 program](https://github.com/wasmerio/wasmer-go/blob/794da4bc5618f7e5f8e6f046d765033372763824/wasmer/testdata/wasi.rs),
 that prints its arguments, its environment variables, and that lists
-the content of its current working directory.
+the contents of its current working directory.
 
 ```go
 engine := wasmer.NewEngine()
@@ -451,7 +451,7 @@ wasiEnv, _ := wasmer.NewWasiStateBuilder("wasi-test-program").
 	CaptureStdout()
 	Finalize()
 
-// Get the import object!
+// Get the import object (WASI version is auto-detected)!
 importObject, _ := wasiEnv.GenerateImportObject(store, module)
 
 // Finally, let's instantiate the module.
@@ -502,10 +502,10 @@ aims at being run anywhere.
 * Linux on `arm64`,
 * Darwin on `amd64`.
 
-More is coming very soon, like Windows, Linux with `musl` etc.
+More is coming very soon, like Windows, Linux with `musl`, and more!
 
-If you want a specific Wasmer built, we got you covered with the
-`custom_wasmer_runtime` build tag.
+If you want to use a custom configuration of Wasmer, we've got you
+covered with the `custom_wasmer_runtime` build tag.
 
 ```shell
 $ # Configure cgo.
@@ -519,16 +519,16 @@ $ go test -tags custom_wasmer_runtime
 ## Conclusion
 
 The 1.0 version is more than performance improvements: it provides a
-stable and powerful API that fulfill more people needs. We believe
-that the new design, the 2 compilers, the 2 engines, is a great
-improvement and provide more flexibility.
+stable and powerful API that fulfills more people's needs. We believe
+that the new API design, the 2 compilers, and the 2 engines are great
+improvements that provide more power and flexibility than ever before.
 
-With the help of the new cross-compilation API, we believe that it's
-easier than ever to execute WebAssembly anywhere.
+And with the help of the new cross-compilation API, we believe that
+it's now easier than ever to execute WebAssembly anywhere.
 
 Documentation and examples have been meticulously written to help
-users new to WebAssembly, or to help advanced users. We believe it
-will facilitate the usage of WebAssembly in the Go ecosystem.
+users new to WebAssembly, as well as advanced users. We believe it
+will facilitate further usage of WebAssembly in the Go ecosystem.
 
 [Join a community of more than 1300 Go and WebAssembly passionate
 developers!](https://github.com/wasmerio/wasmer-go).
