@@ -1,7 +1,7 @@
 ---
 title: 'Wasmer Go embedding 1.0 lift-off'
 excerpt: 'Announcing the immediate availability of the Wasmer Go embedding 1.0 version!'
-date: '2021-02-22T15:35:07.322Z'
+date: '2021-02-26T10:17:42.123Z'
 author: Ivan Enderlin
 ---
 
