@@ -19,7 +19,7 @@ export const LearnComponent = () => {
             Check out our easy-to-follow tutorials and get up to speed on
             WebAssembly, Wasmer and the future of universal runtimes.
           </p>
-          <LinkComponent secondary linkText="See all Tutorials" href="/" />
+          <LinkComponent secondary linkText="See all Tutorials" href="https://docs.wasmer.io/integrations/examples" />
         </>
       }
     >
