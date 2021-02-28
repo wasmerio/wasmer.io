@@ -27,13 +27,13 @@ export const ContributeComponent = () => {
           <LinkComponent
             isButton
             linkText="Submit a PR"
-            href="/"
+            href="https://github.com/wasmerio/wasmer/pulls"
             className={styles.button}
           />
           <LinkComponent
             isButton
             linkText="Report an Issue"
-            href="/"
+            href="https://github.com/wasmerio/wasmer/issues"
             className={styles.button}
           />
         </div>
@@ -42,14 +42,14 @@ export const ContributeComponent = () => {
             isButton
             secondary
             linkText="Improve the Docs"
-            href="/"
+            href="https://github.com/wasmerio/docs.wasmer.io"
             className={styles.button}
           />
           <LinkComponent
             isButton
             secondary
             linkText="Write a Tutorial"
-            href="/"
+            href="https://github.com/wasmerio/docs.wasmer.io/tree/master/integrations/examples"
             className={styles.button}
           />
         </div>
@@ -58,7 +58,7 @@ export const ContributeComponent = () => {
             isButton
             grey
             linkText="Join our Team"
-            href="/"
+            href="https://www.workatastartup.com/companies/12675"
             className={styles.button}
           />
         </div>
