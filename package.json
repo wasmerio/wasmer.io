@@ -18,7 +18,7 @@
     "eslint-plugin-prettier": "^3.1.4",
     "fontfaceobserver-es": "^3.3.3",
     "gray-matter": "^4.0.2",
-    "gsap": "^3.5.1",
+    "gsap": "^3.6.0",
     "intersection-observer": "^0.11.0",
     "next": "latest",
     "next-react-svg": "^1.1.2",
