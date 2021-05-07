@@ -33,9 +33,8 @@ export const LinkComponent = ({
     );
   }
   return (
-    <Link href="/">
+    <Link href={href}>
       <a
-        href={href}
         target={target}
         rel={rel}
         className={`
