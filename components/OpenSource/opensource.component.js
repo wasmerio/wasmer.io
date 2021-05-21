@@ -145,7 +145,7 @@ export const OpenSourceComponent = () => {
                 
                     <br className="hidden md:inline" />
                 
-                <p className="md:mx-auto opacity-50 mt-4 lg:mt-6 xl:mt-12 text">Wasmer accepts sponsorships through Open Collective. Use the following link to determine what sponsorship tier works best for you.</p><a className="text-secondary font-bold" href="https://opencollective.com/wasmerio">https://opencollective.com/was10merio</a>
+                <p className="md:mx-auto opacity-50 mt-4 lg:mt-6 xl:mt-12 text">Wasmer accepts sponsorships through Open Collective. Use the following link to determine what sponsorship tier works best for you.</p><a className="text-secondary font-bold" href="https://opencollective.com/wasmerio">https://opencollective.com/wasmerio</a>
                 
                     <br className="hidden md:inline" />
                 
