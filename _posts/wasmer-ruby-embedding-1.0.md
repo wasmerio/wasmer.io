@@ -8,23 +8,31 @@ author: Ivan Enderlin
 We are thrilled to announce the release of [Wasmer Ruby embedding
 1.0](https://github.com/wasmerio/wasmer-ruby).
 
-About 2 years ago, we have released `wasmer-ruby`, the Wasmer
-embedding for Ruby. Just like its companions —be
+About two years ago, we released `wasmer-ruby`, the Wasmer embedding
+for Ruby. It allows Ruby developers to embed and natively reference
+WebAssembly functions from their Ruby applications. Since its
+inception, the embedding has gained hundreds if not thousands of users
+and followers on Github and other forums.
+
+Like its companions embeddings
 [`wasmer-python`](/posts/wasmer-python-embedding-1.0) or
-[`wasmer-go`](/posts/wasmer-go-embedding-1.0) for example— that have
-reached the 1.0 version, it was time for `wasmer-ruby` to also reach
-its 1.0 version! The projects have matured contributions after
-contributions, issues after issues, and it was natural, and expected!,
-for users to ask for more parity regarding other embeddings'
-state. That's where we have started to rewrite `wasmer-ruby` entirely
-from scratch to provide you the best WebAssembly experience in Ruby
-that exists in the wild.
+[`wasmer-go`](/posts/wasmer-go-embedding-1.0), a critical mass of
+users, their use cases, and feedbacks have enabled us to deliver a 1.0
+version of the product.
 
-## Improved and complete API
+Numerous Github issues, feature requests, and contributions made it
+clear that the Ruby community demands and deserves a Ruby embedding at
+parity with our other projects. Support from the community enabled us
+to rethink and rewrite the embedding from scratch. The rewritten
+embedding is compatible with existing developer workflows and delivers
+the best WebAssembly experience available in the market.
 
-Our regular users are used to this API as we try to keep it the same,
-in addition to be as much idiomatic as possible, between language
-embeddings.
+## Improved API
+
+The new Ruby embedding improves the API and maintains idiomatic
+semantics with the previous versions and other Wasmer
+embeddings. Below is a block of code that outlines how to use the
+embedding.
 
 ```ruby
 require "wasmer"
@@ -61,37 +69,38 @@ instance = Wasmer::Instance.new module_, nil
 assert { instance.exports.add_one.(1) == 2 }
 ```
 
-A couple of things here must be noticed:
+A few things to note:
 
-* There is now a `Store` type. It holds an engine which holds a
-  compiler. It's not yet possible to choose the engine and the
-  compiler, as we are still trying to figure out what is the best API
-  to provide to the users. So just like before, the default engine is
-  JIT and the default compiler is Cranelift. But they are updated, and
-  they are faster. More on that later.
-* There is a `wat2wasm` (and `wasm2wat`) function, which is handy!
-* The `instance.exports` getter returns an object of type
-  `Exports`. This is our standard API to retrieve exported
-  “externals”, namely `Function`, `Global`, `Memory`, and `Table`. So…
-  yes, `wasmer-ruby` 1.0 provides an API for `Global` and `Table` in
-  addition to `Function` and `Memory`.
+* We have introduced a `Store` type. It holds an engine and a
+  compiler. Similar to the previous version, the default engine is
+  JIT, and the default compiler is Cranelift. However, we introduced
+  significant performance improvements in the current release… more on
+  that later. In future releases, developers will be able to change
+  the default engine and compiler.
+* There is a `wat2wasm` (and `wasm2wat`) function, which are handy!
+* The `instance.exports` getter returns an object of type `Exports`:
+  our standard API to retrieve exported “externals”, namely
+  `Function`, `Global`, `Memory`, and `Table`. So yes, `wasmer-ruby`
+  1.0 provides an API for `Global` and `Table` in addition to
+  `Function` and `Memory`.
 
-### Compiling to executable code only once
+### Compiling Once
 
 The compilation of the WebAssembly bytes to executable code happens
-when calling `Module.new`. To save further compilations, it is
-possible to serialize the module with `Module.serialize`, and
-deserialize it with `Module.deserialize`. That's new: in the previous
-versions, it wasn't possible to serialize a module.
+when calling `Module.new`. However, the previous version of the Ruby
+embedding did not allow developers to serialize a module. The new
+version eliminates complications. It's now possible to serialize the
+module with `Module.serialize`, and deserialize it with
+`Module.deserialize`.
 
 ### Symbol, Proc or Lambda as WebAssembly functions
 
-A host function is a function that is going to be imported and used by
-the WebAssembly module. With this new release of `wasmer-ruby`, it is
-possible to use `Symbol`s, `Proc`s or lambdas as host functions.
+Host functions are expressed outside of WebAssembly but passed to a
+module as imports.  The new `wasmer-ruby` release enables the use of
+`Symbol`s, `Proc`s or `Lambda`s as host functions.
 
-Let's see an example, that also illustrates the new `ImportObject`
-API, that is used to define the imports of an instance:
+Let's see an example that also illustrates the new `ImportObject` API
+used to define the imports of an instance:
 
 ```ruby
 # Let's define our WebAssembly module.
@@ -150,11 +159,10 @@ instance = Wasmer::Instance.new module_, import_object
 assert { instance.exports.add_one.(41) == 42 }
 ```
 
-It is mandatory to specify the function type because we cannot infer
-the type of the function at runtime. Thus it's up to the user to be
-sure the types match.
-
-Let's see how we could define `sum_host_function` with `Proc`:
+Specifying the function type is mandatory because we cannot infer the
+type of the function at runtime. Thus, it's up to the user to ensure
+that the types match. Let's see how we could define
+`sum_host_function` with `Proc`:
 
 ```ruby
 sum_host_function = Wasmer::Function.new(
@@ -407,6 +415,21 @@ P. Clark](https://github.com/danielpclark/), the author of `rutie`, is
 repository](https://github.com/danielpclark/rutie/issues/145), which
 is exciting!
 
+## Our Commitment to Open Source and the Ruby Community
+
+As WebAssembly continues to grow and thrive, we plan to double down on
+our commitment to the Ruby community and our mission to make
+WebAssembly universally available. We plan to implement a more open
+and transparent development process for future release of
+`wasmer-ruby` on Github with milestones. The are now multiple ways the
+community can actively help with our mission:
+
+1. Keep downloading and using `wasmer-ruby`,
+2. Provide as much feedback as possible to help make future release
+   better or contribute directly with pull requests,
+3. Become a sponsor and help fund development by donating to [our Open
+   Collective page](https://opencollective.com/wasmerio).
+
 ## Conclusion
 
 The 1.0 version is more than performance improvements: it provides a
@@ -420,3 +443,16 @@ will facilitate further usage of WebAssembly in the Ruby ecosystem.
 
 [Join a community of Ruby and WebAssembly passionate
 developers!](https://github.com/wasmerio/wasmer-ruby)
+
+## About Wasmer
+
+Headquartered in San Francisco, CA, Wasmer Inc. is behind the popular
+open-source WebAssembly runtime Wasmer. In addition to the Wasmer
+runtime, the company has made significant investments in
+[WAPM](https://wapm.io/), the WebAssembly Package Manager, and many
+other open-source projects in the WebAssembly ecosystem.
+
+**Our mission is to make software universally available**. We are
+committed to the open-source community and strive to contribute to
+developers and companies worldwide to help make Wasmer and WebAssembly
+a universal standard.
