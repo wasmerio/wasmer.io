@@ -81,6 +81,7 @@ export async function getStaticProps({ params }) {
     'content',
     'ogImage',
     'coverImage',
+    'published',
   ]);
   const author = getMemberByName(post.author);
   const content = await markdownToHtml(post.content || '');
@@ -97,7 +98,7 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const posts = getAllPosts(['slug']);
+  const posts = getAllPosts(['slug', 'published']);
 
   return {
     paths: posts.map((post) => {

@@ -36,7 +36,8 @@ export async function getStaticProps() {
     'author',
     'coverImage',
     'excerpt',
-  ]);
+    'published',
+  ]).filter(post => post.published !== false);
 
   return {
     props: {
