@@ -24,6 +24,13 @@ export default function Index({ allPosts }) {
         )}
         {morePosts.length > 0 && <MoreStories posts={morePosts} />}
       </div>
+      <div className="container">
+        <h3>Old Blog</h3>
+        <p>You can also find more posts in previous blog:&nbsp;
+        <b><a href="https://medium.com/wasmer">Wasmer Old Medium Blog</a></b>
+        </p>
+        <br />
+      </div>
     </>
   );
 }
