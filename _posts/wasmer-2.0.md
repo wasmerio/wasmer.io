@@ -44,7 +44,7 @@ We will talk about this further in future blog posts.
 
 It wouldn't be a new release without shiny performance improvements. The only thing we like as much as security is performance!
 
-If you decided to switch to Wamser 2.0 from Wasmer 1.0, you would notice the difference.
+If you decided to switch to Wasmer 2.0 from Wasmer 1.0, you would notice the difference.
 
 - LLVM runtime speed is around ~50% faster when operating with floats (thanks to optimal management of *NaNs*)
 - Function calls are now much, much quicker, avoiding kernel interaction when possible (thanks to `sigsetjmp` and `siglongjmp`)
