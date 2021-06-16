@@ -3,7 +3,7 @@ title: 'Wasmer 2.0, Its a big deal!'
 excerpt: 'Announcing the general availability of the Wasmer 2.0'
 date: '2021-06-02T15:35:07.322Z'
 author: Syrus Akbary
-published: false
+published: true
 ---
 
 It's been almost 6-months since we released Wasmer 1.0, and the community support and reception were incredible. Since then, we've been hard at work on the next version of Wasmer.
