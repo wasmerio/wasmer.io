@@ -10,7 +10,7 @@ It's been almost 6-months since we released Wasmer 1.0, and the community suppor
 
 **Today, we're pleased to announce the general availability of Wasmer 2.0!**
 
-Can't want to try it? *Go ahead!*
+Can't wait to try it? *Go ahead!*
 
 ```bash
 curl https://get.wasmer.io -sSfL | sh
