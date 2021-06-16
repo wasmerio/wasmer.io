@@ -33,7 +33,7 @@ Our goals for Wasmer 2.0 are to provide the community with immediate value and s
 
 ### SIMD
 
-SIMD stands for simple instruction, multiple data. In short, SIMD enables one instruction to operate on numerous pieces of data at the same time. The introduction of SIMD into Wasmer 2.0 empowers the community with higher performance data-level parallelism for many different use cases. Users creating machine-learning, video (transcoding, encoding, decoding...etc.), image processing, 3D physics, or graphics applications should see a significant boost in performance. Perhaps an underappreciated benefit of SIMD is its potential for reducing the energy signature of your applications.
+SIMD stands for single instruction, multiple data. In short, SIMD enables one instruction to operate on numerous pieces of data at the same time. The introduction of SIMD into Wasmer 2.0 empowers the community with higher performance data-level parallelism for many different use cases. Users creating machine-learning, video (transcoding, encoding, decoding...etc.), image processing, 3D physics, or graphics applications should see a significant boost in performance. Perhaps an underappreciated benefit of SIMD is its potential for reducing the energy signature of your applications.
 
 ### Reference Types
 
