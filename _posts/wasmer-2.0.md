@@ -18,6 +18,9 @@ curl https://get.wasmer.io -sSfL | sh
 
 Or visit our repo: [github.com/wasmerio/wasmer](https://github.com/wasmerio/wasmer)
 
+![/images/blog/wasmer-2.0/wasmer-20.jpg](/images/blog/wasmer-2.0/wasmer-20.jpg)
+
+
 ### 2.0... A tail of Edge Cases, Engineers, and Semantic Versioning.
 
 Wasmer 2.0 is packed full of new features that add stability, security, and performance improvements. **All public APIs remain the same**, with a few exceptions on internal APIs that will not affect 99% of current users. However, passionate discussions within the engineering team about semantic versioning pushed us towards 2.0.
