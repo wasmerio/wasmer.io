@@ -1,5 +1,5 @@
 ---
-title: 'Wasmer 2.0, Its a big deal!'
+title: 'Wasmer 2.0, It's a big deal!'
 excerpt: 'Announcing the general availability of the Wasmer 2.0'
 date: '2021-06-02T15:35:07.322Z'
 author: Syrus Akbary
