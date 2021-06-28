@@ -14,7 +14,7 @@ Fluence Labs is the company behind Fluence, an open protocol, and platform for d
 
 ## How Fluence Works
 
-Fluence offers developers extremely flexible and broad methods for composing software. Customers can compose and recompose, use and reuse running software without compromising security. Backend services hosted on the platform become building blocks for higher-level services that deliver new customer experiences without redeploying anything. The system supports a small set of security primitives that correspond to π-Calculus operations, delivering on the promise of sandboxing and security without strict boundaries.
+Fluence Labs has developed a peer-to-peer application platform that offers highly flexible and broad methods for building applications. Developers can compose and recompose workflows, APIs, and services without compromising security or relying on a centralized intermediary. Backend services hosted on the platform become building blocks for higher-level services that deliver new customer experiences without redeploying anything. Developers use a radically simple method for creating applications that share users, data and are rewarded based on application and service utilization. The system supports a small set of security primitives that correspond to π-Calculus operations, delivering on the promise of sandboxing and security without strict boundaries.
 
 At its core, the platform comprises a set of software components known as Aquamarine. **Aqua** is a composition language and interpreter that allows developers to compose their applications as a workflow. Leveraging the principles of π-Calculus, the system expresses, coordinates, and executes programs concurrently on a single-use logical network with **Marine,** a WebAssembly runtime based on **Wasmer.**
 
@@ -35,7 +35,7 @@ Given the complexity that Fluence needed to abstract, the Fluence team placed a 
 
 ## Why Wasmer
 
-Fluence carefully considered Wasmtime and Wasmer as options for a server-side WebAssembly runtime. At the time of their evaluation, the Fluence team gave high marks to Wasmtime for supporting a broader set of WebAssembly features. However, Wasmer's support for language integrations and LLVM closely aligned with their need to expand and normalize coverage for APIs across many languages. In addition to Wasmer's technical alignment with Fluence's vision, the company also cited superior community support and team responsiveness as deciding factors.
+Fluence carefully considered different runtimes as options for running server-side WebAssembly. Ultimately, Wasmer was selected as the company's default WebAssembly Runtime. Its support for language integrations and LLVM, closely aligned with Fluence's need to expand and normalize APIs across many languages. In addition to Wasmer's technical alignment with Fluence's vision, the company also cited superior community support and team responsiveness as deciding factors.
 
 "The most important advantage of using Wasmer is support and the Wasmer team. The level of support Wasmer provides would be difficult with other runtimes and wouldn't result in the same type of value that Wasmer can provide the community." **-** **Mike Voronov, R&D Engineer at Fluence Labs.**
 
