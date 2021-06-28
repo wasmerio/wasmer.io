@@ -10,7 +10,7 @@ published: false
 
 Fluence Labs is the company behind Fluence, an open protocol, and platform for decentralized applications. Fluence aims to democratize peer-to-peer computation and APIs, enabling a decentralized network that provides secure access to public and private data sources. The grand vision for Fluence is to be the default protocol for machine-to-machine communication and integration.
 
-*"We want Fluence to be the default language that robots speak. When two robots meet each other, they should speak the Fluence Protocol."* **-** **Dmitry Kurinskiy, CTO and co-founder at Fluence Labs.**
+_"We want Fluence to be the default language that robots speak. When two robots meet each other, they should speak the Fluence Protocol."_ **-** **Dmitry Kurinskiy, CTO and co-founder at Fluence Labs.**
 
 ## How Fluence Works
 
