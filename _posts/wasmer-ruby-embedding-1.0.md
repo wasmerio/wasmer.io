@@ -1,7 +1,7 @@
 ---
 title: 'Wasmer Ruby embedding 1.0 take-off'
 excerpt: 'Announcing the Wasmer Ruby embedding 1.0 availability!'
-date: '2021-05-20T10:17:42.123Z'
+date: '2021-07-01T10:11:07.123Z'
 author: Ivan Enderlin
 ---
 
@@ -193,7 +193,7 @@ in WebAssembly code will be accessible and mutable from both host and
 WebAssembly.
 
 To make the life on the host side easier, we provide what we call
-“views”. For example, the `UInt32View` is a view over the memory data
+“views”. For example, the `Uint32View` is a view over the memory data
 where elements are of kind `uint32`. We provide the following views:
 `Uint32View`, `Int32View`, `Uint32View`, `Int32View`, `Uint32View`,
 and `Int32View`. All these views include [the `Enumerable`
@@ -340,10 +340,14 @@ on the standard output.
 
 ## Faster
 
-`wasmer-ruby` 1.0 is built on the shoulders of Wasmer 1.0, which
-provides faster compilation-time and faster execution-times! You will
-easily see an improvement up to 3x faster for the compilation-time, and
-probably 2x faster for the execution-time.
+`wasmer-ruby` 1.0 is built on the shoulders of [Wasmer
+2.0](./wasmer-2.0), which provides faster compilation-time, faster
+execution-times, and crazy hot startup performance! Prior to this new
+version, the Ruby embedding was relying on Wasmer 0.x. The Wasmer 1.0
+version has bumped performances greatly, but the 2.0 version is
+improving the performance even further! You will easily see an
+improvement up to 3.5x faster for the compilation-time, and probably
+4x faster for the execution-time.
 
 ## Better and richer documentation
 
