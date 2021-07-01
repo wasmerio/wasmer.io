@@ -9,3 +9,5 @@ export * from './Nav/nav.component';
 export * from './Packages/packages.component';
 export * from './Snippet/snippet.component';
 export * from './TrustedBy/trusted-by.component';
+export * from './OpenSource/opensource.component';
+export * from './Card/card.component'

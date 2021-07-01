@@ -1,0 +1,40 @@
+ table.opentable tr td {
+  font-size: x-large;
+  border-color: #ccc;
+  border-width: 1px;
+  padding: 10px;
+}
+
+.opentablehead th{
+  font-size: x-large;
+  border-color: #ccc;
+  border-width: 1px;
+  padding: 10px;
+}
+
+.openlist{
+    font-size: var(--text-size);
+    list-style-type: square;
+    margin: 25px 0;
+    line-height: 35px;
+    padding-left: 25px;
+}
+.openstrong {
+  font-weight: 900;
+}
+.openanchor {
+  font-size: x-large;
+}
+
+.grid {
+    @apply bg-top select-none w-screen h-full absolute top-0;
+    right: 50%;
+    transform: translate(50%, 0);
+  }
+  
+  @media (min-width: 1024px) {
+    .grid {
+      @apply bg-right-top right-0;
+      transform: none;
+    }
+  }

@@ -14,9 +14,8 @@ const links = [
     label: 'Community',
   },
   {
-    href: 'https://medium.com/wasmer',
+    href: '/posts',
     label: 'Blog',
-    external: true,
   },
   {
     href: 'https://www.workatastartup.com/companies/12675',
