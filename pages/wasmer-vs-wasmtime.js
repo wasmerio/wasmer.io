@@ -122,8 +122,7 @@ export default function WasmerWasmtimePage() {
         <LinkComponent
           isButton
           linkText="Go to Blog"
-          href="https://medium.com/wasmer"
-          target="_blank"
+          href="/posts"
         />
       </ContactComponent>
       <TrustedByComponent />
