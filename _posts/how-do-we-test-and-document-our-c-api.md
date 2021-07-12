@@ -43,9 +43,11 @@ fn my_test() {
 
 To run that test, one simply runs `cargo test --lib`.
 
-If you have ever written tests in C, you know the struggle. `CMake`,
-`Makefile`, you name it. What if we could write Rust code to test our
-C API? Something like:
+If you have ever written tests in C you know the struggle. Either with `CMake`,
+or `Makefile`, you name it.
+
+But what if we could write Rust code to test our C API?
+Something like:
 
 ```rust
 #[test]
