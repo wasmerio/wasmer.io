@@ -6,7 +6,7 @@ author: Ivan Enderlin
 published: true
 ---
 
-[The Wasmer runtime](https://github.com/wasmerio/wasmer) comes in
+Wasmer [server-side WebAssembly runtime](https://github.com/wasmerio/wasmer) comes in
 multiple flavors. Written in Rust, it is embedded in different
 languages, such as C, Python, Go, Ruby, PHP, Java, and many more
 ([discover all the
