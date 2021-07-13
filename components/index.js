@@ -11,4 +11,6 @@ export * from './Snippet/snippet.component';
 export * from './TrustedBy/trusted-by.component';
 export * from './OpenSource/opensource.component';
 export * from './Card/card.component'
-export * from './CaseStudy/casestudy.component'
+export * from './CaseStudy/fluence.component'
+export * from './CaseStudy/confio.component'
+export * from './CaseStudy/hotg.component'
