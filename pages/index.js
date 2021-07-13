@@ -35,8 +35,7 @@ export default function IndexPage() {
         <LinkComponent
           isButton
           linkText="Go to Blog"
-          href="https://medium.com/wasmer"
-          target="_blank"
+          href="/posts"
         />
         <LinkComponent
           isButton
