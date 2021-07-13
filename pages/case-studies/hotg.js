@@ -2,21 +2,21 @@ import React from 'react';
 import Head from 'next/head';
 import {
     TrustedByComponent,
-    ConfioComponent,
-} from '../components';
+    HotgComponent,
+} from '../../components';
 import {
     HeroComponent,
     GridComponent
-} from '../components/Comparison'
+} from '../../components/Comparison'
 
-export default function Confio() {
+export default function Hotg() {
     return (
             <>
             <Head>
                 <title>Wasmer Open Source Program</title>
                 <meta name="title" content="Wasmer Open Source Program" key="title" />
             </Head>            
-            <ConfioComponent></ConfioComponent>
+            <HotgComponent></HotgComponent>
             <TrustedByComponent/>
             </>
   );

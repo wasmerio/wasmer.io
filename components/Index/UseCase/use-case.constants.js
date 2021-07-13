@@ -19,7 +19,7 @@ const cases = [
   },
   {
     text: 'Supercharge blockchain infrastructure',
-    link: '/fluence',
+    link: '/case-studies/fluence',
     icon:
       'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMzIgODgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSI2IiBzdHJva2UtbGluZWNhcD0ic3F1YXJlIj4KPHBhdGggZD0iTTExMSwyOUw5MCw1MEw4MCw0MCIvPgo8cGF0aCBkPSJNOTQsODRDNjQuMyw3MS4yLDYwLDQwLjcsNjAsMjlzMC0yNSwwLTI1aDY4YzAsMCwwLDEzLjMsMCwyNVMxMjMuNiw3MS4yLDk0LDg0eiIvPgo8L3N2Zz4=',
   },

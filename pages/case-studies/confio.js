@@ -2,21 +2,21 @@ import React from 'react';
 import Head from 'next/head';
 import {
     TrustedByComponent,
-    FluenceComponent,
-} from '../components';
+    ConfioComponent,
+} from '../../components';
 import {
     HeroComponent,
     GridComponent
-} from '../components/Comparison'
+} from '../../components/Comparison'
 
-export default function Fluence() {
+export default function Confio() {
     return (
             <>
             <Head>
                 <title>Wasmer Open Source Program</title>
                 <meta name="title" content="Wasmer Open Source Program" key="title" />
             </Head>            
-            <FluenceComponent></FluenceComponent>
+            <ConfioComponent></ConfioComponent>
             <TrustedByComponent/>
             </>
   );
