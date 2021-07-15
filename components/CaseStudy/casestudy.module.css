@@ -1,0 +1,75 @@
+.important{
+    font-weight: bold;
+    font-size: var(--smalltext-size);
+}
+
+.quote{
+   
+    background-color: #231044;
+    color: #fff;
+    font-style: italic;
+    font-size: var(--smalltext-size);
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+}
+.parent {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.caseStudyLeft {
+    grid-area: 1 / 1 / 2 / 4;
+    font-size: var(--smalltext-size);
+    padding: 10px;
+    margin: 10px;
+}
+
+.caseStudyRight {
+    grid-area: 1 / 4 / 2 / 6;
+    font-size: var(--smalltext-size);
+    background-color: #eeeeee;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.caseStudyBottom {
+    grid-area: 2 / 1 / 3 / 6;
+    font-size: var(--smalltext-size);
+    padding: 10px;
+    margin: 10px;
+}
+
+.openlist {
+    font-size: var(--tiny-text-size);
+    font-weight:bolder;
+    list-style-type: square;
+    margin: 25px 0;
+    line-height: 35px;
+    padding-left: 25px;
+}
+
+.openstrong {
+    font-weight: 900;
+}
+
+.openanchor {
+    font-size: x-large;
+}
+
+.grid {
+    @apply bg-top select-none w-screen h-full absolute top-0;
+    right: 50%;
+    transform: translate(50%, 0);
+}
+
+@media (min-width: 1024px) {
+    .grid {
+        @apply bg-right-top right-0;
+        transform: none;
+    }
+}

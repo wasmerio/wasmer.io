@@ -1,0 +1,72 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.item {
+  flex: 0 0 auto;
+  margin: 10px;
+}
+  .itemRight {
+    flex: 1 0 auto;
+    text-align: end;
+    align-self: center;
+    margin: 10px;
+  }
+
+  .challengeItem {
+    flex: 1 0 17%;
+    margin: 10px;
+    font-size: var(--smalltext-size);
+    background-color: #eeeeee;
+    border-radius: 10px;
+    padding: 15px;
+  }
+
+  .benefitItem {
+    flex: 1 0 17%;
+    margin: 10px;
+    font-size: var(--smalltext-size);
+    background-color: #231044;
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 15px;
+  }
+
+  .challengeItem h3{
+    margin: 20px 0px 20px 0px;
+    min-height: 50px;
+    font-weight: 900;
+    font-size: 22px;
+  }
+
+  .benefitItem h3{
+    margin: 20px 0px 20px 0px;
+    min-height: 50px;
+    font-weight: 900;
+    font-size: 22px;
+  }
+
+  .challengeItem p{
+    margin: 20px 0px 20px 0px;
+  }
+
+  .benefitItem p{
+    margin: 20px 0px 20px 0px;
+  }
+
+  .showcase {
+    font-size: var(--smalltext-size);
+    background-color: #eeeeee;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 5px;
+}
+
+.action {
+  background-color: #4946DD;
+  color: #ffffff;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px;
+}
