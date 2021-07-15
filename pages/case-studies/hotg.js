@@ -13,8 +13,8 @@ export default function Hotg() {
     return (
             <>
             <Head>
-                <title>Wasmer Open Source Program</title>
-                <meta name="title" content="Wasmer Open Source Program" key="title" />
+                <title>Wasmer HOTG.ai Case Study</title>
+                <meta name="title" content="Wasmer HOTG.ai Case Study" key="title" />
             </Head>            
             <HotgComponent></HotgComponent>
             <TrustedByComponent/>

@@ -13,8 +13,8 @@ export default function Confio() {
     return (
             <>
             <Head>
-                <title>Wasmer Open Source Program</title>
-                <meta name="title" content="Wasmer Open Source Program" key="title" />
+                <title>Wasmer Confio Case Study</title>
+                <meta name="title" content="Wasmer Confio Case Study" key="title" />
             </Head>            
             <ConfioComponent></ConfioComponent>
             <TrustedByComponent/>

@@ -13,8 +13,8 @@ export default function Fluence() {
     return (
             <>
             <Head>
-                <title>Wasmer Open Source Program</title>
-                <meta name="title" content="Wasmer Open Source Program" key="title" />
+                <title>Wasmer Fluence Labs Case Study</title>
+                <meta name="title" content="Wasmer Fluence Labs Case Study" key="title" />
             </Head>            
             <FluenceComponent></FluenceComponent>
             <TrustedByComponent/>

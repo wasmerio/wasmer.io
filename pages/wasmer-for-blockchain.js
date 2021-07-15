@@ -2,21 +2,21 @@ import React from 'react';
 import Head from 'next/head';
 import {
     TrustedByComponent,
-    FunctionsComponent,
+    BlockchainComponent,
 } from '../components';
 import {
     HeroComponent,
     GridComponent
 } from '../components/Comparison'
 
-export default function Functions() {
+export default function Blockchain() {
     return (
             <>
             <Head>
-                <title>Wasmer for FaaS</title>
-                <meta name="title" content="Wasmer for FaaS" key="title" />
+                <title>Wasmer for Blockchain</title>
+                <meta name="title" content="Wasmer for Blockchain" key="title" />
             </Head>            
-            <FunctionsComponent></FunctionsComponent>
+            <BlockchainComponent></BlockchainComponent>
             <TrustedByComponent/>
             </>
   );
