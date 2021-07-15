@@ -6,7 +6,7 @@ export const ConfioComponent = () => {
         <div className="container sm:text-left md:text-center mx-auto my-page">
             <div className={`text-left ${styles.parent}`}>
                 <div className={`text-left ${styles.caseStudyLeft}`}>
-                    <img alt="Confio" src="/images/case-studies/confio-logo.svg" width="147px" height="43px"></img><br></br>
+                    <a href="https://confio.tech/" target="_blank"><img alt="Confio" src="/images/case-studies/confio-logo.svg" width="147px" height="43px"></img></a><br></br>
                     <h3>Case Study</h3><br></br>
                     <p>
                         Confio is creating secure permissionless infrastructure and developer tools for decentralized blockchain applications. As a member of the Cosmos Network, an ecosystem dedicated to connected decentralized apps, Confio is a prominent contributor to several significant open-source projects. Contributions include:

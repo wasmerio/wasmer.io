@@ -6,7 +6,7 @@ export const FluenceComponent = () => {
         <div className="container sm:text-left md:text-center mx-auto my-page">
             <div className={`text-left ${styles.parent}`}>
                 <div className={`text-left ${styles.caseStudyLeft}`}>
-                    <img alt="Fluence Labs" src="/images/case-studies/fluence-labs-logo.svg" width="147px" height="43px"></img><br></br>
+                    <a href="https://fluence.network/" target="_blank"><img alt="Fluence Labs" src="/images/case-studies/fluence-labs-logo.svg" width="147px" height="43px"></img></a><br></br>
                     <h3>Case Study</h3><br></br>
                     <p>
                         Fluence Labs has developed a peer-to-peer application platform which allows the creation of applications free of proprietary cloud providers or centralized APIs. Developers can compose and recompose workflows, APIs, and services without compromising security and without relying on centralized intermediaries. Fluence is  democratizing peer-to-peer computation enabling a decentralized network that provides secure access to public and private data sources. The Fluence stack is 100% open source and is maintained and governed by a community of developers.
