@@ -1,5 +1,5 @@
 ---
-title: How do we Test and Document our C API?
+title: Novel way to Develop, Test and Document C libraries from Rust
 excerpt: 'Wasmer has designed a unique solution to test and document its own C API.'
 date: '2021-07-06T10:32:01.123Z'
 author: Ivan Enderlin
@@ -383,7 +383,7 @@ $ cargo doc --open
 
 Here is the result:
 
-![C code in Rust documentation](/images/blog/how-do-we-test-and-document-our-c-api/hello.png)
+![C code in Rust documentation](/images/blog/novel-way-to-develop--test-and-document-c-libraries-from-rust/hello.png)
 
 Fantastic! Our example in the Rust documentation is a C program, that
 is actually tested. We are sure the documentation provides correct
@@ -418,5 +418,5 @@ tests, powered by `inline-c`, in addition to more test suites. We had
 a lot of fun developing this, and we believe it's pretty useful. It
 allows to iterate very quickly over the implementation and the tests,
 while keeping the same tooling. It provides consistency and comfort,
-whcih is always welcomed when dealing with a C API, in addition to
+which is always welcomed when dealing with a C API, in addition to
 provide better examples and better documentation to the users.
