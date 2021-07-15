@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import styles from './usecase.module.css';
 
 export const AiComponent = () => {
@@ -14,7 +15,7 @@ export const AiComponent = () => {
                         <img alt="Confio" src="/images/case-studies/hotg-logo.png" width="200px"></img>
                     </div>
                     <div className={`${styles.itemRight}`}>
-                    <a className={`${styles.action}`} href="/case-studies/hotg" target="_blank">Read the Case Study</a>
+                    <Link href="/case-studies/hotg"><a className={`${styles.action}`}>Read the Case Study</a></Link>
                     </div>
                 </div>
 
