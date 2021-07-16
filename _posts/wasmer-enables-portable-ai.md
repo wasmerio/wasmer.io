@@ -3,7 +3,7 @@ title: 'Wasmer enables portable AI'
 excerpt: 'Wasmer enables portability for AI and Tiny ML applications.'
 date: '2021-07-15T00:00:00.000Z'
 author: Wiqar Chaudry
-published: false
+published: true
 ---
 
 
