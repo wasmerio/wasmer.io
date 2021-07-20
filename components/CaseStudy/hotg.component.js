@@ -6,7 +6,7 @@ export const HotgComponent = () => {
         <div className="container sm:text-left md:text-center mx-auto my-page">
             <div className={`text-left ${styles.parent}`}>
                 <div className={`text-left ${styles.caseStudyLeft}`}>
-                    <img alt="HOTG.ai" src="/images/case-studies/hotg-logo.png" width="147px" height="43px"></img><br></br>
+                    <a href="https://hotg.ai/" target="_blank"><img alt="HOTG.ai" src="/images/case-studies/hotg-logo.png" width="147px" height="43px"></img></a><br></br>
                     <h3>Case Study</h3><br></br>
                     <p>
                     An explosion of raw data from semi-connected, highly distributed IoT devices and microcontrollers require an entirely new machine learning (ML) approach. HOTG.ai brings machine-learning operations to the Edge with Tiny ML. It enables developers and data scientists to orchestrate ML applications across mesh networked edge devices, wrangle complex data, and train ML models on resource-constrained devices without compromising privacy. The company is on a mission to accelerate the future of hardware and Tiny ML through an open-source development model and community.

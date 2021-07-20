@@ -31,6 +31,16 @@ const team = [
     description:
       'Prolific WebAssembly contributor. Before working at Wasmer he created the first Linux Subsystem based on WebAssembly: Cervus.',
   },
+  {
+    name: 'Wiqar Chaudry',
+    description:
+      'Product Manager. Passionate about fixing human problems.',
+      image: 'wiqar.png',
+      links: [
+        { medium: 'twitter', handler: '@wiqarc' },
+        { medium: 'github', handler: 'wchaudry' },
+      ]
+  },
 ];
 
 export default team;
