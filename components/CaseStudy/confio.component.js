@@ -9,7 +9,7 @@ export const ConfioComponent = () => {
                     <a href="https://confio.tech/" target="_blank"><img alt="Confio" src="/images/case-studies/confio-logo.svg" width="147px" height="43px"></img></a><br></br>
                     <h3>Case Study</h3><br></br>
                     <p>
-                        Confio is creating secure permissionless infrastructure and developer tools for decentralized blockchain applications. As a member of the Cosmos Network, an ecosystem dedicated to connected decentralized apps, Confio is a prominent contributor to several significant open-source projects. Contributions include:
+                    <a className={`${styles.eLink}`} href="https://confio.tech/" target="_blank">Confio</a> is creating secure permissionless infrastructure and developer tools for decentralized blockchain applications. As a member of the Cosmos Network, an ecosystem dedicated to connected decentralized apps, Confio is a prominent contributor to several significant open-source projects. Contributions include:
                     </p><br></br>
                     <p><span className={`${styles.important}`}>Cosmwasm -</span> secure, interoperable, multi-chain smart contracts</p>
                     <p><span className={`${styles.important}`}>IBC -</span> a Cosmos inter-blockchain communications standard for fast and secure cross-chain digital asset exchanges</p>

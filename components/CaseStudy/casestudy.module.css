@@ -3,6 +3,12 @@
     font-size: var(--smalltext-size);
 }
 
+.eLink{
+    font-weight: bold;
+    font-size: var(--smalltext-size);
+    color: #4946DD;
+}
+
 .quote{
    
     background-color: #231044;
