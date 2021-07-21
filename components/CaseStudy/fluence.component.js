@@ -9,7 +9,7 @@ export const FluenceComponent = () => {
                     <a href="https://fluence.network/" target="_blank"><img alt="Fluence Labs" src="/images/case-studies/fluence-labs-logo.svg" width="147px" height="43px"></img></a><br></br>
                     <h3>Case Study</h3><br></br>
                     <p>
-                        Fluence Labs has developed a peer-to-peer application platform which allows the creation of applications free of proprietary cloud providers or centralized APIs. Developers can compose and recompose workflows, APIs, and services without compromising security and without relying on centralized intermediaries. Fluence is  democratizing peer-to-peer computation enabling a decentralized network that provides secure access to public and private data sources. The Fluence stack is 100% open source and is maintained and governed by a community of developers.
+                    <a className={`${styles.eLink}`} href="https://fluence.network/" target="_blank">Fluence Labs</a> has developed a peer-to-peer application platform which allows the creation of applications free of proprietary cloud providers or centralized APIs. Developers can compose and recompose workflows, APIs, and services without compromising security and without relying on centralized intermediaries. Fluence is  democratizing peer-to-peer computation enabling a decentralized network that provides secure access to public and private data sources. The Fluence stack is 100% open source and is maintained and governed by a community of developers.
                     </p><br></br>
 
                     <h3>How Fluence Works</h3><br></br>
