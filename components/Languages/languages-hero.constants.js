@@ -10,7 +10,7 @@ export default [
     },
   },
   {
-    url: 'https://github.com/wasmerio/wasmer-rust-example',
+    url: 'https://github.com/wasmerio/wasmer/blob/master/examples/README.md',
     name: 'Rust',
     icon: {
       image:
@@ -60,7 +60,7 @@ export default [
     },
   },
   {
-    url: 'https://github.com/wasmerio/wasmer-c-api',
+    url: 'https://github.com/wasmerio/wasmer/tree/master/lib/c-api',
     name: 'C',
     icon: {
       image:
