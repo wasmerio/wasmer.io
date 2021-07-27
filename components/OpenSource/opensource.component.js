@@ -10,7 +10,6 @@ export const OpenSourceComponent = () => {
                 <h2 className="text-secondary mt-3 block font-bold"><span>Run any code on any client <br className="hidden md:inline" /> with WebAssembly and Wasmer.</span></h2>
                 <p className="md:max-w-md max-w-lg xl:max-w-2xl md:mx-auto opacity-50 mt-4 lg:mt-6 xl:mt-12 text">Wasmer is an open-source runtime for executing WebAssembly on the Server.</p>
             </div>
-
             <div className={`container mx-auto text-left md:text-left flex flex-col justify-center py-12 lg:py-24 ${styles.root}`}>
                 <h2 className="font-bold">Program Objectives</h2>
                 <p className="md:mx-auto opacity-50 mt-4 lg:mt-6 xl:mt-12 text">Wasmer's goal is to create an open and transparent collaboration between our professional, dedicated staff members and our community. All proceeds will help fund the following:</p>
