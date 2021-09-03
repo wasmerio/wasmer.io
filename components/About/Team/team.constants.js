@@ -12,7 +12,7 @@ const team = [
   {
     name: 'Ivan Enderlin',
     description:
-      'CTO and co-founder. A versatile polyglot PhD Computer Scientist passionate about WebAssembly, with a strong open source background. Prior joining Wasmer he was working at Automattic and Mozilla.',
+      'Co-founder. A versatile polyglot PhD Computer Scientist passionate about WebAssembly, with a strong open source background. Prior joining Wasmer he was working at Automattic and Mozilla.',
     image: 'ivan.jpg',
     links: [
       { medium: 'twitter', handler: '@mnt_io' },
