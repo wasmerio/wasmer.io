@@ -13,7 +13,7 @@ const team = [
     name: 'Ivan Enderlin',
     description:
       'CTO and co-founder. A versatile polyglot PhD Computer Scientist passionate about WebAssembly, with a strong open source background. Prior joining Wasmer he was working at Automattic and Mozilla.',
-    image: 'ivan.png',
+    image: 'ivan.jpg',
     links: [
       { medium: 'twitter', handler: '@mnt_io' },
       { medium: 'github', handler: 'Hywan' },
@@ -27,6 +27,15 @@ const team = [
       links: [
         { medium: 'twitter', handler: '@wiqarc' },
         { medium: 'github', handler: 'wchaudry' },
+      ]
+  },
+  {
+    name: 'Sébastien Chevalier',
+    description:
+      'Software Engineer. Open source enthousiast and author of box86/box64, He likes to push ARM CPU to their limits.',
+      image: 'sebastien.jpg',
+      links: [
+        { medium: 'github', handler: 'ptitSeb' },
       ]
   },
 ];
