@@ -7,18 +7,19 @@ published: true
 ---
 
 Wasmer is a WebAssembly runtime. It is written in Rust. It has been
-embedded successfully in C, Go, Python, PHP, Ruby, Java and so on. The
-community is writing many embeddings, and we are thankful for that! We
-believe that our simple but powerful API, and our pluggeable design,
-makes it easy to embed Wasmer in many environments.
+embedded successfully in C, Go, Python, PHP, Ruby, Java and so on;
+there is a very long list now! The community is writing many
+embeddings, and we are thankful for that! We believe that our simple
+but powerful API, and our pluggeable design, makes it easy to embed
+Wasmer in many environments.
 
 At the end, whatever the language in which the _frontend API_ is
 written (Rust, C, Go, Python, PHP, Ruby, Java and so on), it is always
 the same Wasmer “core” that is used and that runs. We work hard to
 make this Wasmer “core” available on as many platforms and
 architectures as possible. It includes `x86_64`, `aarch64`, Linux,
-macOS, Windows, FreeBSD etc. In all those situations, Wasmer runs on a
-system.
+macOS, iOS, Windows, FreeBSD etc. In all those situations, Wasmer runs
+on a system.
 
 But today, we are announcing a new way to execute Wasmer. What if we
 want to run Wasmer, not in a system, but in a runtime like a
@@ -26,10 +27,11 @@ JavaScript environment? What would be required? Well, we would need to
 make Wasmer compilable to WebAssembly. And this WebAssembly module
 would need to import JavaScript API.
 
-And that, is `wasmer-host-js`. This Rust crate provides the same API
-than the `wasmer` Rust crate. With `wasmer-host-js`, there is no
-concept of engines, or compilers, because the WebAssembly modules are
-compiled and executed by a JavaScript engine.
+And that, **is the same `wasmer` Rust crate but with the `js` feature
+turned on**, that's it! It is the same API than with the `sys`
+feature, except that there is no concept of engines, or compilers,
+because the WebAssembly modules handled by Wasmer are compiled and
+executed by a JavaScript engine.
 
 The JavaScript engine can be a browser, Node.js or Deno, for the most
 popular use cases.
@@ -41,14 +43,16 @@ environment.
 
 # Let's play!
 
-We are going to write a Rust program `hello` that compiles and runs a
-WebAssembly program with Wasmer. This `hello` program will then be
-compiled to WebAssembly, and be run in a browser with JavaScript.
+We are going to write a Rust program named `runner` that compiles and
+runs a WebAssembly program with Wasmer. This `runner` program will
+then be compiled to WebAssembly, and be run in a browser with
+JavaScript.
 
 ```rust
 use js_sys::Uint8Array;
 use wasm_bindgen::prelude::*;
-use wasmer_js::{imports, Instance, Module, Store, Value};
+use wasmer::{Instance, Module, Store};
+use wasmer_wasi::{Pipe, WasiState};
 
 #[wasm_bindgen]
 extern "C" {
@@ -57,35 +61,60 @@ extern "C" {
 }
 
 #[wasm_bindgen]
-pub fn run(buffer: &Uint8Array) {
-    let module_wat = r#"
-    (module
-      (type $t0 (func (param i32) (result i32)))
-      (func $add_one (export "add_one") (type $t0) (param $p0 i32) (result i32)
-        local.get $p0
-        i32.const 1
-        i32.add))
-    "#;
-
+pub fn run(wasm_bytes: Uint8Array) {
+    // Create the store.
     let store = Store::default();
-    let module = Module::new(&store, &module_wat).unwrap();
-    let import_object = imports! {};
+
+    // Compile the WebAssembly module received as bytes.
+    let module = Module::new(&store, wasm_bytes.to_vec()).unwrap();
+
+    // Setup WASI.
+    let mut wasi_env = WasiState::new("hello")
+        .stdout(Box::new(Pipe::new()))
+        .finalize()
+        .unwrap();
+
+    // Get an import object that is pre-configured for WASI.
+    let import_object = wasi_env.import_object(&module).unwrap();
+
+    // Let's instantiate the Wasm module!
     let instance = Instance::new(&module, &import_object).unwrap();
 
-    let add_one = instance.exports.get_function("add_one").unwrap();
-    let result = add_one.call(&[Value::I32(41)]).unwrap();
-    assert_eq!(result[0], Value::I32(42));
-    log(&format!("result = `{}`", result[0].unwrap_i32()));
+    // Start the WASI module by calling its `_start` function (aka
+    // `main`).
+    let start = instance.exports.get_function("_start").unwrap();
+    start.call(&[]).unwrap();
+
+    // Fetch the content of the WASI stdout buffer.
+    let mut state = wasi_env.state();
+    let wasi_stdout = state.fs.stdout_mut().unwrap().as_mut().unwrap();
+
+    let mut stdout_content = String::new();
+    wasi_stdout.read_to_string(&mut stdout_content).unwrap();
+
+    log("== WASI stdout:");
+    log(&stdout_content);
+
+    // Yeah!
+    log("\n\n== Over.");
 }
 ```
 
-Let's run it with:
+Let's compile this Rust program to WebAssembly with:
 
 ```shell
 $ wasm-pack build --target web
 ```
 
-And then, let's write our `index.html`:
+Now, we are going to write an HTML file with some JavaScript to:
+
+1. Load this `runner` Rust program above as a WebAssembly module,
+
+2. Provide a file picker to the user to upload any WebAssembly + WASI
+   module,
+
+3. As soon as this WebAssembly module is uploaded, we pass it (as a
+   `Uint8Array`) to the `run` function of `runner`.
 
 ```html
 <html>
@@ -94,7 +123,7 @@ And then, let's write our `index.html`:
   </head>
   <body>
     <script type="module">
-      import init, { run } from './pkg/hello.js';
+      import init, { run } from './pkg/runner.js';
 
       async function test() {
           await init();
@@ -128,6 +157,18 @@ And then, let's write our `index.html`:
     <input id="wasm_picker" type="file" accept="application/wasm" />
   </body>
 </html>
+```
+
+OK! Now let's try with a real program. Let's avoid using Rust for a
+moment, just to get more fun. Let's use Zig for instance!
+
+```c
+const std = @import("std");
+
+pub fn main() !void {
+    const stdout = std.io.getStdOut().writer();
+    try stdout.print("Hello, {}!\n", .{"world"});
+}
 ```
 
 # Improving WebAssembly support inside the Web ecosystem
