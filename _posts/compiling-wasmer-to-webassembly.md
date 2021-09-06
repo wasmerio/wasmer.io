@@ -160,16 +160,39 @@ Now, we are going to write an HTML file with some JavaScript to:
 ```
 
 OK! Now let's try with a real program. Let's avoid using Rust for a
-moment, just to get more fun. Let's use Zig for instance!
+moment, just to get more fun. Let's use Go for instance! (We are using
+[TinyGo](https://tinygo.org/) as it produces WASI files agnostic of
+the host).
 
 ```c
-const std = @import("std");
+// `hello.go`
+package main
 
-pub fn main() !void {
-    const stdout = std.io.getStdOut().writer();
-    try stdout.print("Hello, {}!\n", .{"world"});
+import "fmt"
+
+func main() {
+	fmt.Println("Hello, World!")
 }
 ```
+
+And let's compile it to a WebAssembly + WASI module:
+
+```shell
+$ tinygo build -target wasi -o hello.wasm hello.go
+```
+
+At this step, we end up with a `hello.wasm` module. Let's use the file
+picker in our HTML page, and see what's happening in the Web Console!
+
+```
+== WASI stdout:
+Hello, World!
+
+
+== Over.
+```
+
+🎉
 
 # Improving WebAssembly support inside the Web ecosystem
 
