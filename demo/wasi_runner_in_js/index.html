@@ -1,0 +1,120 @@
+<html>
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <style>
+      body {
+          font-family: system-ui;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin: 1rem 0;
+      }
+
+      body > * {
+          max-width: 800px;
+          width: 80vw;
+      }
+
+      main {
+          display: inline grid;
+      }
+
+      #console {
+          width: 100%;
+          height: 20rem;
+      }
+
+      :not(h2) + label {
+          margin-top: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Running WASI WebAssembly modules with WebAssembly</h1>
+    </header>
+
+    <main>
+      <h2><label for="wasm_picker">1. Pick a WebAssembly module</label></h2>
+
+      <input id="wasm_picker" type="file" accept="application/wasm" />
+
+      <h2>2. Configure WASI environment <small>(optional)</small></h2>
+
+      <label for="wasm_wasi_name">Program name:</label>
+      <input id="wasm_wasi_name" type="text" placeholder="wasi-program-name" required />
+
+      <label for="wasm_wasi_environment_variables">Environment variables:</label>
+      <textarea id="wasm_wasi_environment_variables" placeholder="FOO=BAR
+BAZ=QUX"></textarea>
+
+      <label for="wasm_wasi_arguments">Arguments (<code>argc</code>):</label>
+
+      <h2><label for="submit">2. Run it!</h2>
+
+      <input id="submit" type="button" value="Run!" />
+
+      <h2><code>3. Console</code></h2>
+
+      <textarea id="console" placeholder="Console logs…" readonly></textarea>
+    </main>
+
+    <script type="module">
+      import init, { run } from './pkg/wasi_runner_in_js.js';
+
+      const konsole = document.getElementById('console');
+
+      async function main() {
+          await init();
+
+          document.getElementById('submit').addEventListener('click', run_wasm, false);
+          const original_window = window.console;
+          window.console.log = function(msg) {
+              konsole.innerHTML += msg;
+          };
+      }
+
+      async function run_wasm() {
+          const wasm_files = document.getElementById('wasm_picker').files;
+
+          if (wasm_files.length < 1) {
+              return;
+          }
+
+          const self = this;
+          const resetter = new function () {
+              const initial_value = self.value;
+
+              return () => {
+                  self.value = initial_value;
+                  self.disabled = false;
+              };
+          };
+
+          // Update the submit button's label.
+          self.value = 'Running…';
+          self.disabled = true;
+
+          // Reset the console.
+          konsole.innerHTML = '';
+
+          const resetter_timeout_id = setTimeout(resetter, 2000, false);
+
+          const wasm_file = wasm_files[0];
+          const reader = new FileReader();
+          reader.readAsArrayBuffer(wasm_file);
+          reader.onload = function (e) {
+              run(
+                  document.getElementById('wasm_wasi_name').value || 'wasi-program-name',
+                  new Uint8Array(e.target.result)
+              );
+
+              clearTimeout(resetter_timeout_id);
+              resetter();
+          };
+      }
+
+      main();
+    </script>
+  </body>
+</html>
