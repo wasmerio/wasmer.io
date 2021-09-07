@@ -9,9 +9,9 @@ published: true
 Wasmer is a WebAssembly runtime. It is written in Rust. It has been
 embedded successfully in C, Go, Python, PHP, Ruby, Java and so on;
 there is a very long list now! The community is writing many
-embeddings, and we are thankful for that! We believe that our simple
-but powerful API, and our pluggeable design, makes it easy to embed
-Wasmer in many environments.
+embeddings, and we are thankful for that! We believe that our powerful
+API, and our pluggeable design, makes it easy to embed Wasmer in many
+environments.
 
 At the end, whatever the language in which the _frontend API_ is
 written (Rust, C, Go, Python, PHP, Ruby, Java and so on), it is always
@@ -29,9 +29,11 @@ would need to import JavaScript API.
 
 And that, **is the same `wasmer` Rust crate but with the `js-default`
 feature turned on**, that's it! It is the same API than with the
-`sys-default` feature, except that there is no concept of engines, or
-compilers, because the WebAssembly modules handled by Wasmer are
-compiled and executed by a JavaScript engine.
+`sys-default` feature you already know and love. The main difference
+is that there is no concept of engines, or compilers, because the
+WebAssembly modules handled by Wasmer are compiled and executed by the
+host, i.e. the JavaScript engine that executes Wasmer. But there is
+big pros of using this approach, let's see them in details!
 
 The JavaScript engine can be a browser, Node.js or Deno, for the most
 popular use cases.
@@ -41,12 +43,16 @@ execute WebAssembly, then it is now possible to compile this entire
 program to WebAssembly, and to make it run in a JavaScript
 environment.
 
-# Let's play!
+# Let's run WASI in a Web browser? Yeah!
 
 We are going to write a Rust program named `runner` that compiles and
 runs a WebAssembly program with Wasmer. This `runner` program will
 then be compiled to WebAssembly, and be run in a browser with
-JavaScript.
+JavaScript. We are going to use
+[`wasm-bindgen`](https://github.com/rustwasm/wasm-bindgen) to generate
+the glue between Rust and JavaScript, and
+[`wasm-pack`](https://github.com/rustwasm/wasm-pack/) to package
+everything in one command line.
 
 ```rust
 use js_sys::Uint8Array;
@@ -99,6 +105,9 @@ pub fn run(wasm_bytes: Uint8Array) {
     log("\n\n== Over.");
 }
 ```
+
+It's the same code that you would have written in a regular Rust
+program! There is absolutely zero difference.
 
 Let's compile this Rust program to WebAssembly with:
 
