@@ -27,11 +27,11 @@ JavaScript environment? What would be required? Well, we would need to
 make Wasmer compilable to WebAssembly. And this WebAssembly module
 would need to import JavaScript API.
 
-And that, **is the same `wasmer` Rust crate but with the `js` feature
-turned on**, that's it! It is the same API than with the `sys`
-feature, except that there is no concept of engines, or compilers,
-because the WebAssembly modules handled by Wasmer are compiled and
-executed by a JavaScript engine.
+And that, **is the same `wasmer` Rust crate but with the `js-default`
+feature turned on**, that's it! It is the same API than with the
+`sys-default` feature, except that there is no concept of engines, or
+compilers, because the WebAssembly modules handled by Wasmer are
+compiled and executed by a JavaScript engine.
 
 The JavaScript engine can be a browser, Node.js or Deno, for the most
 popular use cases.
@@ -194,33 +194,121 @@ Hello, World!
 
 🎉
 
-# Improving WebAssembly support inside the Web ecosystem
+Do you realise what it means? Any browser with no WASI support can run
+a WebAssembly WASI module thanks to Wasmer.
 
-TO BE DEFINED
-DRAFT
 
-## WASI
+# Improving WebAssembly support inside the Web ecosystem, with WebAssembly
 
-DRAFT
+With this new ability for Wasmer to be compiled to WebAssembly and to
+use the API brought by the JavaScript host, it is possible to enhance
+and to improve the current WebAssembly support inside the entire Web
+ecosystem. We concede it's really meta: Improving WebAssembly with
+WebAssembly, but there is few tricks that make it possible. Let's go
+through the most important ones.
 
-We concede it's a little bit meta. So far, no browsers support
-WASI. But Wasmer has a solid WASI implementation. And since it can now
-compile to WebAssembly to run a JavaScript environment, then it makes
-WASI available in allo browsers. It is meta in the sense that it's a
-WebAssembly engine that runs WebAssembly to implement WASI.
+## In-Memory File System
 
-## Module introspection
+One of the most important piece to run WASI is to have a **file
+system** nearby. We have written a new Rust crate: `wasmer_vfs`, which
+stands for Virtual File System. It provides a set of traits that are
+necessary to use a file system. This Rust crate also provides 2 file
+system implementations:
 
-DRAFT
+* `host_fs` is an API that uses the current host file system if it
+  exists. It uses [the standard `std::fs` Rust
+  API](https://doc.rust-lang.org/std/fs/),
+  
+* `mem_fs` is an API that exposes a file system that lives entirely in
+  memory. We have written this file system from scratch.
+  
+Thus `wasmer_wasi` now has a “file system backing” which uses the
+traits from `wasmer_vfs`. It is even possible to mix multiple file
+systems in the same execution.
 
-Because Wasmer also supports `Module` introspection, then with
-`wasmer-host-js`, you can inspect any WebAssembly module in the
-browser.
+We would like to highlight `mem_fs` 💡. It allows to run a WebAssembly
+module even if the host has no file system, or if accessing the host
+file system would have too much impacts on the performance!
+
+When running WebAssembly on the cloud or on the edge, at some point
+comes the choice of whether you want to provide stateful or stateless
+environment for the application.
+
+* In a stateful context, the host has to guarantee strict sandboxing,
+  either by mounting and unmounting a specific file system point
+  before and after each execution of the application. It adds a
+  non-negligeable complexity, and it obviously impacts performances.
+
+* In a stateless context, the WebAssembly module might still need to
+  access some files (some assets, like images for example, or some
+  configuration files). In that case, the host needs to provide thoses
+  to the application, and there is no standard way to do that, except
+  by using a file system!
+
+In those scenarios, `mem_fs` can help quite a lot:
+
+1. It provides the sandboxing level that the host must guarantee,
+2. It's faster to setup and to destroy than a real hosted file system,
+3. It's fast to read and to write (we have meticulously written
+   algorithms so that readings, writings and renamings are all
+   optimised).
+   
+That's one use case where `mem_fs` shows itself to be pretty useful.
+
+## WASI, one implementation to rule them all
+
+As we said multiple times already, Wasmer with the `wasmer` and the
+`wasmer_wasi` Rust crates compiled to WebAssembly with their
+respective `js-default` feature flag, can now provide WASI support to
+any JavaScript host, including browsers.
+
+Wasmer already pushed the limit of WASI to the Web with [the
+JavaScript `@wasmer/wasi`
+package](https://www.npmjs.com/package/@wasmer/wasi). Our end goal is
+to be able to replace all the code in `@wasmer/wasi` except the public
+API and to run Wasmer behind the scene. That's a work we have already
+started. That way, we won't have two implementations to maintain but a
+single-one!
+
+On the `wasmer_wasi` Rust side, we have —since the beginning— a large
+test suite to test WASI, WAST, our implementation against the official
+specification test suite etc. The quality on that side is high, as for
+any libraries we write. With `wasmer_vfs`, we can run the same tests
+alternatively with `host_fs` and `mem_fs` to ensure our implementation
+acts the same whatever the file system is used. It also ensures that
+`mem_fs`, which is used in the context of a JavaScript host, will
+provide the same behavior as if the WebAssembly module was running in
+a Linux, or macOS, or iOS, or Windows and so on.
+
+## Module Introspection
+
+Another feature that the standard Web API is lacking to provide is
+WebAssembly Module Introspection. Hopefully, it's now possible with
+Wasmer! Indeed, the `Module` type provides the `imports` and `exports`
+methods. One can query a WebAssembly module directly through Wasmer
+compiled to WebAssembly!
 
 # Performance
 
-TO BE DEFINED
-DRAFT
+Let's see what is the overhead of using Wasmer as a WebAssembly in a
+JavaScript host. First, let's see the size of our “runner” WebAssembly
+module:
 
-* size of the resulting WebAssembly module (the smallest program that uses WebAssembly)
-* 
+* Without WASI support: about 200Kb uncompressed, and 55Kb compressed,
+* With WASI support: about 700Kb, and 150Kb compressed,
+
+Compression is performed with
+[Brotli](https://github.com/google/brotli).
+
+The runtime performance are similar to what the JavaScript host
+provide. If it's Mozilla Firefox, Google Chrome, Apple Safari,
+Node.js, or Deno, they all provide a WebAssembly runtime, which is
+used by Wasmer in this context.
+
+We reckon the overhead is quite small considering what it allows to
+accomplish.
+
+# Conclusion
+
+TO BE WRITTEN
+
