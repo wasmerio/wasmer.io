@@ -33,7 +33,7 @@ const team = [
   {
     name: 'Sébastien Chevalier',
     description:
-      'Software Engineer. Open source enthousiast and author of box86/box64, He likes to push ARM CPU to their limits.',
+      'Software Engineer. Open source enthusiast and author of box86/box64, He likes to push ARM CPU to their limits.',
       image: 'sebastien.jpg',
       links: [
         { medium: 'github', handler: 'ptitSeb' },
