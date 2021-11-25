@@ -12,7 +12,7 @@ export const TeamComponent = () => {
       </h2>
       <div className={styles.teamContainer}>
         {team.filter((member) => {
-          member.active !== false
+          return member.active !== false
         }).map(({ name, description, image, links }, index) => (
           <div key={index}>
             <AvatarComponent image={image} name={name} />
