@@ -8,7 +8,7 @@ published: false
 
 Trusted by thousands of developers worldwide, Wasmer is the first production-ready WebAssembly runtime for Python, Go, Ruby, Java, and more.
 
-With the latest 2.1 release, we completely overhauled and engineered Wasmer to deliver the **most ergonomic API experience** for running WebAssembly anywhere, including Web browsers, NodeJS and even [Deno](https://deno.land/).
+With the latest 2.1 release, we completely overhauled and engineered Wasmer to deliver the **most ergonomic API experience** for running WebAssembly anywhere, including web browsers, [Node.js](https://nodejs.dev/) and even [Deno](https://deno.land/).
 
 And we're just getting started!
 
@@ -64,7 +64,7 @@ fn add_one(num: i32) -> Result<i32> {
 
 This code will run your WebAssembly programs on the browser, using the native browser WebAssembly engine, but leverage the Wasmer-API.
 
-### Wasmer WASI for NodeJs
+### Wasmer WASI for Node.js
 
 The previous version of the `@wasmer/wasi` NPM package reimplemented WASI system calls in JS, leading to inconsistency issues with the Wasmer Rust implementation.
 
@@ -107,7 +107,7 @@ Deno is a modern Javascript and Typescript runtime based on V8.
 Since `wasmer` now targets any Javascript Environment, we created a Deno package to showcase Wasmer WASI implementation portability across multiple environments:
 
 ```ts
-import { init, WASI } from ' @v1.0.0-alpha4/wasi.ts';
+import { init, WASI } from 'https://deno.land/x/wasm/wasi.ts';
 
 // This is needed to load the WASI library first
 await init();
@@ -117,7 +117,7 @@ let wasi = new WASI({
   args: [],
 });
 
-const moduleBytes = fetch("https://deno.land/x/wasm@v1.0.0-alpha4/tests/demo.wasm");
+const moduleBytes = fetch("https://deno.land/x/wasm/tests/demo.wasm");
 const module = await WebAssembly.compileStreaming(moduleBytes);
 await wasi.instantiate(module, {});
 
