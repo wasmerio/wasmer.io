@@ -18,7 +18,7 @@ After a few months of work, we are super happy to announce the general availabil
 
 Wasmer 2.1 also kicks off the company's transition to a milestone-driven public roadmap and delivery process
 
-> [Click here](https://github.com/wasmerio/wasmer/milestones) for more information on current and future milestones.
+*[Click here](https://github.com/wasmerio/wasmer/milestones) for more information on current and future milestones.*
 
 Below is a summary of some new features and highlights.
 
@@ -37,7 +37,7 @@ wasmer = { version = "2.1.0", default-features=false, features=["js-default"]}
 
 ## Deterministic Builds
 
-Deterministic builds are a critical feature for many of our customers in the Web 3 space. Users can trust that `wasmer compile` generates identical reproducible artifacts for a given compiler/engine.
+Deterministic builds are a critical feature for many of our customers in the Web3 space. Users can trust that `wasmer compile` generates identical reproducible artifacts for a given compiler/engine.
 
 ## Faster Singlepass Compilation
 
@@ -45,7 +45,7 @@ Thanks to contributions by one of our sponsors, [NEAR Protocol](https://near.or
 
 ## Singlepass Windows Support
 
-The Wasmer Runtime and its Singlepass compiler are fast becoming secret weapons for blockchain companies and Web 3 infrastructure providers. Companies and sponsors using Wasmer and Singlepass as a part of their infrastructure include [Near Protocol](https://near.org/), [Confio](https://confio.gmbh/), [Spacemesh](https://spacemesh.io/), Dusk Network, ElrondNetwork, etc. With Wasmer 2.1, our customers and sponsors can seamlessly leverage Singlepass on any Windows infrastructure.
+The Wasmer Runtime and its Singlepass compiler are fast becoming secret weapons for blockchain companies and Web3 infrastructure providers. Companies and sponsors using Wasmer and Singlepass as a part of their infrastructure include [Near Protocol](https://near.org/), [Confio](https://confio.gmbh/), [Spacemesh](https://spacemesh.io/), Dusk Network, ElrondNetwork, etc. With Wasmer 2.1, our customers and sponsors can seamlessly leverage Singlepass on any Windows infrastructure.
 
 ## LLVM 13
 
