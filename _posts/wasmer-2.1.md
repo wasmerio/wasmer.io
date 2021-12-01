@@ -12,8 +12,7 @@ After a few months of work, we are super happy to announce the general availabil
 - Virtual Filesystem
 - Singlepass support in Windows
 - iOS Support
-- LLVM ARM64 support
-- LLVM 13
+- LLVM ARM64 support & LLVM 13
 - Faster Singlepass compilation
 - Reproducible and deterministic builds
 - New language integrations: Lisp and Crystal
