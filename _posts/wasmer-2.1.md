@@ -3,12 +3,13 @@ title: "Wasmer 2.1"
 excerpt: "Wasmer 2.1 supporting JS, Singlepass in Windows, iOS, LLVM 13, reproducible builds and many more features"
 date: "2021-11-30T00:00:00.000Z"
 author: Syrus Akbary
-published: false
+published: true
 ---
 
 After a few months of work, we are super happy to announce the general availability of Wasmer 2.1. Packed with amazing new features and bug fixes, including:
 
 - Wasmer JS
+- Virtual Filesystem
 - Singlepass support in Windows
 - iOS Support
 - LLVM ARM64 support
@@ -33,8 +34,14 @@ You can now run in the browser your Rust projects using Wasmer just by doing:
 [dependencies]
 wasmer = { version = "2.1.0", default-features=false, features=["js-default"]}
 ```
-
 **Stay tuned for a detailed blog post on how to use it!**
+
+## Virtual Filesystem
+
+In order to run Wasmer and WASI on Javascript environments where the access to the host filesystem is limited,
+we created a in-memory filesystem that allows running WASI literally anywhere.
+
+This approach is similar to the popular JS package [MemFS](https://www.npmjs.com/package/memfs), but [fully implemented in Rust](https://github.com/wasmerio/wasmer/tree/master/lib/vfs).
 
 ## Deterministic Builds
 
