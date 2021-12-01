@@ -27,7 +27,7 @@ Below is a summary of some new features and highlights.
 
 The new release of `wasmer-js` leverages the Wasmer WASI Rust implementation thanks to `wasm-bindgen`. As a result, we offer seamless cross-platform support for WebAssembly applications that leverage the exact WASI implementation in the browser or on the server, including platforms like Node.js or Deno using `js-default`.
 
-You can use it in your Rust codebase with:
+You can now run in the browser your Rust projects using Wasmer just by doing:
 
 ```toml
 [dependencies]
