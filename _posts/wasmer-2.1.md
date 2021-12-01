@@ -109,7 +109,7 @@ choco install wasmer
 
 ---
 
-The full release notes, including bug fixes, can be found at: [https://github.com/wasmerio/wasmer/releases/tag/v2.1.0](https://github.com/wasmerio/wasmer/releases/tag/v2.1.0)
+The full release notes, including bug fixes, can be found at: [https://github.com/wasmerio/wasmer/releases/tag/2.1.0](https://github.com/wasmerio/wasmer/releases/tag/2.1.0)
 
 If you're interested in becoming an Open Source Sponsor or for information on our sponsorship program, [click here](https://wasmer.io/wasmer-open-source-program).
 
