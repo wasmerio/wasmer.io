@@ -1,7 +1,7 @@
 ---
 title: "Wasmer 2.1"
 excerpt: "Wasmer 2.1 supporting JS, Singlepass in Windows, iOS, LLVM 13, reproducible builds and many more features"
-date: "2021-11-30T00:00:00.000Z"
+date: "2021-12-01T00:00:00.000Z"
 author: Syrus Akbary
 published: true
 ---
