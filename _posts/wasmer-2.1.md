@@ -10,8 +10,8 @@ After a few months of work, we are super happy to announce the general availabil
 
 - Wasmer JS
 - Virtual Filesystem
-- Singlepass support in Windows
 - iOS Support
+- Singlepass support in Windows
 - LLVM ARM64 support & LLVM 13
 - Faster Singlepass compilation
 - Reproducible and deterministic builds
@@ -42,17 +42,19 @@ we created a in-memory filesystem that allows running WASI literally anywhere.
 
 This approach is similar to the popular JS package [MemFS](https://www.npmjs.com/package/memfs), but [fully implemented in Rust](https://github.com/wasmerio/wasmer/tree/master/lib/vfs).
 
-## Deterministic Builds
+## iOS Support
 
-Deterministic builds are a critical feature for many of our customers in the Web3 space. Users can trust that `wasmer compile` generates identical reproducible artifacts for a given compiler/engine.
+Due to App Store JIT compiler restrictions, building WebAssembly components for iOS required pre-approval from Apple or users manually installed the modules on devices. With Wasmer 2.1, you can precompile a `.wasm` into a `.dylib` and then load it using the Dylib Engine at runtime. No App Store pre-approval is required. You can find a complete example here:
 
-## Faster Singlepass Compilation
-
-Thanks to contributions by one of our sponsors, [NEAR Protocol](https://near.org/), compilation time with Wasmer's Singlepass compiler is up to 10x faster when compiling tons of functions with a small body. Leveraging VecAsssmbler from Dynasm-rs, we eliminated the need to make a system call to add newly created functions into memory.
+[https://github.com/wasmerio/wasmer/tree/master/tests/integration/ios/DylibExample](https://github.com/wasmerio/wasmer/tree/master/tests/integration/ios/DylibExample)
 
 ## Singlepass Windows Support
 
 The Wasmer Runtime and its Singlepass compiler are fast becoming secret weapons for blockchain companies and Web3 infrastructure providers. Companies and sponsors using Wasmer and Singlepass as a part of their infrastructure include [Near Protocol](https://near.org/), [Confio](https://confio.gmbh/), [Spacemesh](https://spacemesh.io/), Dusk Network, ElrondNetwork, etc. With Wasmer 2.1, our customers and sponsors can seamlessly leverage Singlepass on any Windows infrastructure.
+
+## LLVM Aarch64 support
+
+Before Wasmer 2.1, the Dylib engine was the only option for LLVM. Additional support for more relocations in our Universal Engine makes it trivial to compile and run LLVM on Aarch64.
 
 ## LLVM 13
 
@@ -62,15 +64,13 @@ We have upgraded the LLVM version from 11 to 13. It has some notable improvement
 
 You can check the complete list of improvements for LLVM 13 and 12 here: [https://releases.llvm.org/13.0.0/docs/ReleaseNotes.html](https://releases.llvm.org/13.0.0/docs/ReleaseNotes.html) [https://releases.llvm.org/12.0.0/docs/ReleaseNotes.html](https://releases.llvm.org/12.0.0/docs/ReleaseNotes.html)
 
-## LLVM Aarch64 support
+## Faster Singlepass Compilation
 
-Before Wasmer 2.1, the Dylib engine was the only option for LLVM. Additional support for more relocations in our Universal Engine makes it trivial to compile and run LLVM on Aarch64.
+Thanks to contributions by one of our sponsors, [NEAR Protocol](https://near.org/), compilation time with Wasmer's Singlepass compiler is up to 10x faster when compiling tons of functions with a small body. Leveraging VecAsssmbler from Dynasm-rs, we eliminated the need to make a system call to add newly created functions into memory.
 
-## iOS Support
+## Deterministic Builds
 
-Due to App Store JIT compiler restrictions, building WebAssembly components for iOS required pre-approval from Apple or users manually installed the modules on devices. With Wasmer 2.1, you can precompile a `.wasm` into a `.dylib` and then load it using the Dylib Engine at runtime. No App Store pre-approval is required. You can find a complete example here:
-
-[https://github.com/wasmerio/wasmer/tree/master/tests/integration/ios/DylibExample](https://github.com/wasmerio/wasmer/tree/master/tests/integration/ios/DylibExample)
+Deterministic builds are a critical feature for many of our customers in the Web3 space. Users can trust that `wasmer compile` generates identical reproducible artifacts for a given compiler/engine.
 
 ## New language integrations!
 
