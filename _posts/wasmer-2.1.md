@@ -15,6 +15,7 @@ After a few months of work, we are super happy to announce the general availabil
 - LLVM 13
 - Faster Singlepass compilation
 - Reproducible and deterministic builds
+- New language integrations: Lisp and Crystal
 
 Wasmer 2.1 also kicks off the company's transition to a milestone-driven public roadmap and delivery process
 
@@ -64,6 +65,14 @@ Before Wasmer 2.1, the Dylib engine was the only option for LLVM. Additional sup
 Due to App Store JIT compiler restrictions, building WebAssembly components for iOS required pre-approval from Apple or users manually installed the modules on devices. With Wasmer 2.1, you can precompile a `.wasm` into a `.dylib` and then load it using the Dylib Engine at runtime. No App Store pre-approval is required. You can find a complete example here:
 
 [https://github.com/wasmerio/wasmer/tree/master/tests/integration/ios/DylibExample](https://github.com/wasmerio/wasmer/tree/master/tests/integration/ios/DylibExample)
+
+## New language integrations!
+
+We couldn't be happier about the new language integrations of Wasmer created by our awesome community.
+The integrations allow developers to WebAssembly in even more languages:
+
+* [Wasmer Lisp](https://github.com/helmutkian/cl-wasm-runtime): Were you interested in using WebAssembly from a functional language? This is for you!
+* [Wasmer Crystal](https://github.com/naqvis/wasmer-crystal): [Crystal](https://crystal-lang.org/) is a Ruby-like language with C-like performance
 
 # Install Wasmer now
 
