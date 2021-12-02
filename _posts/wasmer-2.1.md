@@ -113,4 +113,4 @@ The full release notes, including bug fixes, can be found at: [https://github.co
 
 If you're interested in becoming an Open Source Sponsor or for information on our sponsorship program, [click here](https://wasmer.io/wasmer-open-source-program).
 
-[HN Comments](https://news.ycombinator.com/item?id=)
+[HN Comments](https://news.ycombinator.com/item?id=29414196)
