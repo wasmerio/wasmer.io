@@ -141,7 +141,7 @@ Simply use `Module::imports` and `Module::exports` to check types for functions,
 
 To support file system operations for WebAssemby and WASI, we created `wasmer_vfs`, a virtual file system that works with `wasmer-wasi`. `wasmer_vfs` supports two file system implementations:
 
-- **`host_fs`,** an API that leverages [the standard std::fs Rust API](https://doc.rust-lang.org/std/fs/) to use the host file system if it exists.
+- **`host_fs`,** an API that leverages <a href="https://doc.rust-lang.org/std/fs/" target="_blank">the standard std::fs Rust API</a> to use the host file system if it exists.
 - **`mem_fs`,** a Wasmer API that implements an in-memory file system.
 
 Dual support for `host_fs` and `mem_fs` enables stateful and stateless WebAssembly deployments allowing developers to make tradeoffs that make sense for their applications. In completely stateless environments, `mem_fs` emulates a fully sandboxed file system for loading configurations or managing runtime state.
