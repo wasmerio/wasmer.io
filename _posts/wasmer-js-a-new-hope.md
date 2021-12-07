@@ -1,6 +1,6 @@
 ---
-title: 'Wasmer-JS: A New Beginning'
-excerpt: 'Wasmer-JS: A New Beginning'
+title: 'Wasmer-JS: A New Hope'
+excerpt: 'Wasmer-JS: A New Hope'
 date: '2021-12-07T00:00:00.000Z'
 author: Syrus Akbary
 published: true
@@ -8,7 +8,7 @@ published: true
 
 Trusted by thousands of developers worldwide, Wasmer is the first production-ready WebAssembly runtime for Python, Go, Ruby, Java, and more.
 
-With the latest 2.1 release, we completely overhauled and engineered Wasmer to deliver the **most ergonomic API experience** for running WebAssembly anywhere, including web browsers, [Node.js](https://nodejs.dev/) and even [Deno](https://deno.land/).
+With the latest 2.1 release, we completely overhauled and engineered Wasmer to deliver the **most ergonomic API experience** for running WebAssembly anywhere, including web browsers, [Node.js](https://www.npmjs.com/package/@wasmer/wasi) and even [Deno](https://deno.land/x/wasm).
 
 And we're just getting started!
 
@@ -154,6 +154,7 @@ Dual support for `host_fs` and `mem_fs` enables stateful and stateless WebAssemb
 
 `wasmer-wasi` now uses the same underlying Rust code to enable server-side and browser-based execution of WebAssembly applications. New [NPM](https://www.npmjs.com/package/@wasmer/wasi) and [Deno](https://deno.land/x/wasm) packages now include `wasmer_vfs` and are available for download.
 
-A special thanks and shout-out to our friends at [Tokera](https://tokera.com/); they are instrumental contributors to the ecosystem, and they're already leveraging our new capabilities in their open-source WebAssembly Shell:
+A special thanks and shout-out to our friends at <a href="https://tokera.com" target="_blank">Tokera</a>
+; they are instrumental contributors to the ecosystem, and they're already leveraging our new capabilities in their open-source WebAssembly Shell:
 
-[https://github.com/tokera-com/ate](https://github.com/tokera-com/ate)
+<a href="https://github.com/tokera-com/ate" target="_blank">https://github.com/tokera-com/ate</a>
