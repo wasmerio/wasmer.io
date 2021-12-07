@@ -1,9 +1,9 @@
 ---
 title: 'Wasmer-JS: A New Beginning'
 excerpt: 'Wasmer-JS: A New Beginning'
-date: '2021-11-28T00:00:00.000Z'
+date: '2021-12-07T00:00:00.000Z'
 author: Syrus Akbary
-published: false
+published: true
 ---
 
 Trusted by thousands of developers worldwide, Wasmer is the first production-ready WebAssembly runtime for Python, Go, Ruby, Java, and more.
@@ -96,9 +96,7 @@ console.log(`${stdout}(exit code: ${exitCode})`);
 
 Success! The implementation works, and it's useful for us; we thought it could be helpful for other developers and companies.
 
-You can install the new package using NPM and run it in the browser or Node.
-
-[@wasmer/wasi](https://www.npmjs.com/package/@wasmer/wasi)
+You can install [@wasmer/wasi](https://www.npmjs.com/package/@wasmer/wasi) using NPM and run it in the browser or Node. Check [Node usage examples in our repo](https://github.com/wasmerio/wasmer-js/tree/main/examples/node).
 
 ### Wasmer WASI for Deno
 
@@ -126,6 +124,8 @@ let stdout = wasi.getStdoutString();
  // This should print "hello world (exit code: 0)"
 console.log(`${stdout}(exit code: ${exitCode})`);
 ```
+
+Check [Deno usage examples in our repo](https://github.com/wasmerio/wasmer-js/tree/main/examples/deno).
 
 # How we did it
 
