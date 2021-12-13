@@ -49,10 +49,10 @@ const team = [
       ]
   },
   {
-    name: 'Tesi Lopez',
+    name: 'Teresa Lopez',
     description:
       'People and Ops. I love dancing',
-      image: 'unknown.png',
+      image: 'tesi.jpeg',
       links: [
       ]
   },
