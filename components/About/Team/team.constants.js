@@ -51,7 +51,7 @@ const team = [
   {
     name: 'Teresa Lopez',
     description:
-      'People and Ops. I love dancing',
+      'People and Ops. I love encouraging people, teams, and innovative projects to reach their full potential and shine.',
       image: 'tesi.jpeg',
       links: [
       ]
