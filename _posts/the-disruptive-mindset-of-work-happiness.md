@@ -1,6 +1,6 @@
 ---
 title: "The disruptive mindset of Work Happiness"
-excerpt: "This article tries to introduce how traditional HR roles are transforming into more people and teams-oriented positions [1] or complemented by functions that highlight wellness as a core need to facilitate company goals joyfully."
+excerpt: "This article tries to introduce how traditional HR roles are transforming into more people and teams-oriented positions or complemented by functions that highlight wellness as a core need to facilitate company goals joyfully."
 date: "2021-12-15T00:00:00.000Z"
 author: Teresa Lopez
 published: false
@@ -12,7 +12,7 @@ Since I've dedicated myself to Corporate Happiness, I usually get a lovely "flab
 
 ![/images/blog/team-building-outfinders.jpg](/images/blog/team-building-outfinders.jpg)
 
-### **This article tries to introduce how traditional HR roles are transforming into more people and teams-oriented positions [1] or complemented by functions that highlight wellness as a core need to facilitate company goals joyfully.**
+### **This article tries to introduce how traditional HR roles are transforming into more people and teams-oriented positions [[1]](#people) or complemented by functions that highlight wellness as a core need to facilitate company goals joyfully.**
 
 Successful companies of the future won't be able to attract, retain and promote talent by throwing money or infusing substantial monetary incentives for candidates and staff. Unless employees contribute, grow, develop, create and interact in a healthy, productive way, organizations are in danger of losing their central resource: talented people. Inquiring creative minds require a profound sense of happiness in their job, or they cannot settle and be satisfied with their work. I am talking about the many professionals who need more than economic survival to work. ***Expansion* is the wise natural impulse of human beings, although this potential can hide under thick layers of fears and conditioning.** In this case, expanding means exploring, growing along with others, and having fun along the way: to work joyfully.
 
@@ -34,4 +34,6 @@ Our resilience resides in believing in the capabilities of humankind to learn, t
 
 I will continue sharing my thoughts about implementing this *People* and *Happiness* view at Wasmer in the upcoming articles. This is the beginning of an exciting journal. I am looking forward to sharing more ideas and topics, stay tuned. ;)
 
-[1] People: refers to the people in an organization, the group of individuals, but it is also the name of the People Area, formerly known as the traditional Human Resources Dep in some companies, with a different perspective focused on individuals and teams as the essential value contributors of an organization. For more information, I recommend reading this article: [https://www.greenhouse.io/blog/hr-reinvented-the-new-people-teams](https://www.greenhouse.io/blog/hr-reinvented-the-new-people-teams)
+-----
+
+<div id="people">[1] People: refers to the people in an organization, the group of individuals, but it is also the name of the People Area, formerly known as the traditional Human Resources Dep in some companies, with a different perspective focused on individuals and teams as the essential value contributors of an organization. For more information, I recommend reading this article: [https://www.greenhouse.io/blog/hr-reinvented-the-new-people-teams](https://www.greenhouse.io/blog/hr-reinvented-the-new-people-teams)</div>
