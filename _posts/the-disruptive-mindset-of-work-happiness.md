@@ -3,7 +3,7 @@ title: "The disruptive mindset of Work Happiness"
 excerpt: "This article tries to introduce how traditional HR roles are transforming into more people and teams-oriented positions or complemented by functions that highlight wellness as a core need to facilitate company goals joyfully."
 date: "2021-12-15T00:00:00.000Z"
 author: Teresa Lopez
-published: false
+published: true
 ---
 
 Some jobs seem to pop up suddenly as society evolves, but they've silently taken shape and waited their turn. Social needs emerge, become visible, and reflect a change that – intentionally or subconsciously – requires new approaches and solutions, as is the case for my role.
