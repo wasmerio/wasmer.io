@@ -36,4 +36,6 @@ I will continue sharing my thoughts about implementing this *People* and *Hap
 
 -----
 
-<div id="people">[1] People: refers to the people in an organization, the group of individuals, but it is also the name of the People Area, formerly known as the traditional Human Resources Dep in some companies, with a different perspective focused on individuals and teams as the essential value contributors of an organization. For more information, I recommend reading this article: [https://www.greenhouse.io/blog/hr-reinvented-the-new-people-teams](https://www.greenhouse.io/blog/hr-reinvented-the-new-people-teams)</div>
+<div id="people">
+  [1] People: refers to the people in an organization, the group of individuals, but it is also the name of the People Area, formerly known as the traditional Human Resources Dep in some companies, with a different perspective focused on individuals and teams as the essential value contributors of an organization. For more information, I recommend reading this article: [greenhouse.io/blog/hr-reinvented-the-new-people-teams](https://www.greenhouse.io/blog/hr-reinvented-the-new-people-teams).
+</div>
