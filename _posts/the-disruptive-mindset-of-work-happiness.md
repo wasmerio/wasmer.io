@@ -10,6 +10,8 @@ Some jobs seem to pop up suddenly as society evolves, but they've silently taken
 
 Since I've dedicated myself to Corporate Happiness, I usually get a lovely "flabbergasted smiley expression" when I tell people what I do. **I work in a very revolutionary deep-tech startup, Wasmer, as an Operations and People Happiness Manager.**
 
+![/images/blog/team-building-outfinders.jpg](/images/blog/team-building-outfinders.jpg)
+
 ### **This article tries to introduce how traditional HR roles are transforming into more people and teams-oriented positions [1] or complemented by functions that highlight wellness as a core need to facilitate company goals joyfully.**
 
 Successful companies of the future won't be able to attract, retain and promote talent by throwing money or infusing substantial monetary incentives for candidates and staff. Unless employees contribute, grow, develop, create and interact in a healthy, productive way, organizations are in danger of losing their central resource: talented people. Inquiring creative minds require a profound sense of happiness in their job, or they cannot settle and be satisfied with their work. I am talking about the many professionals who need more than economic survival to work. ***Expansion* is the wise natural impulse of human beings, although this potential can hide under thick layers of fears and conditioning.** In this case, expanding means exploring, growing along with others, and having fun along the way: to work joyfully.
