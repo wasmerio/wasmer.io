@@ -2,7 +2,7 @@
 title: "Wasmer 2.2: Major Singlepass Improvements"
 excerpt: "Wasmer 2.2: Major Singlepass Improvements"
 date: "2022-02-28T00:00:00.000Z"
-author: Syrus Akbary
+author: Sébastien Chevalier
 published: true
 ---
 
