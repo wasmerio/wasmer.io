@@ -25,7 +25,7 @@ First, we'll create a baseline measurement on an x86_64 PC running Linux with th
 
 With a simple command: `./wasmer run coremark.wasm --disable-cache --singlepass` or `./wasmer run coremark.wasm --disable-cache --cranelift`, we execute the benchmark. Caching is disabled as it could interfere with the test and return an inaccurate measurement.
 
-|  | v0.17 | v1.02 | v2.2 |
+| compiler | v0.17 | v1.02 | v2.2 |
 | --- | --- | --- | --- |
 | Singlepass | 5150.720934 | 6458.199320 | 6485.429224 |
 | Cranelift | 7060.573177 | 7197.098826 | 13664.480261 |
@@ -33,11 +33,11 @@ With a simple command: `./wasmer run coremark.wasm --disable-cache --singlepass`
 
 The results are impressive. Singlepass performance between v0.17 and v2.0 has increased by ~25%, and Cranelift has nearly doubled its performance with an increase of ~90%.
 
-**Linux ARM64 Benchmarks
+### Linux ARM64 Benchmarks
 
 We executed the same test using a simple ODroid N2 SBC with the following Aarch64 results.
 
-|  | v0.17 | v1.02 | v2.2 |
+| compiler | v0.17 | v1.02 | v2.2 |
 | --- | --- | --- | --- |
 | Singlepass | 708.086147 | N/A | 2514.896935 |
 | CraneLift | N/A | 4609.121989 | 7225.574132 |
@@ -51,7 +51,7 @@ Let's be honest, M1 results are the real reason you're still reading!
 
 Without further ado...
 
-|  | v2.2 |
+| compiler | v2.2 |
 | --- | --- |
 | Singlepass | 11490.887496 |
 | Cranelift | 27183.440174 |
@@ -70,7 +70,7 @@ The `-i blah` is a trick to not actually run the TiDB interpreter (as you need t
 
 Here is the result of the benchmarks, the “real” part of time (the lower, the better), on wasmer v2.2 across a few different hardware:
 
-|  | linux x86_64 | linux Arm64 | macOS Arm64 |
+| compiler | linux x86_64 | linux Arm64 | macOS Arm64 |
 | --- | --- | --- | --- |
 | Singlepass | 0m3.844s | 0m7.361s | 0m1.333s |
 | Cranelift | 10m12.101s | 34m52.492s | 3m9.26s |
