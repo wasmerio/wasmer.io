@@ -19,7 +19,7 @@ There are many ways to measure "performance,"  like security, compilation speed,
 
 CoreMark compiles to a WebAssembly program and returns a single number representing a CoreMark score for generated code efficiency; the higher the number, the better. To help contextualize the results, we'll test Singlepass against the previous v0.17 release and the Cranelift compiler.
 
-### Linux x86_64** **Benchmarks
+### Linux x86_64 Benchmarks
 
 First, we'll create a baseline measurement on an x86_64 PC running Linux with three different versions of Wasmer (v0.17, v1.02, and v2.2) to see how singlepass and cranelift have evolved.
 
@@ -33,7 +33,7 @@ With a simple command: `./wasmer run coremark.wasm --disable-cache --singlepass`
 
 The results are impressive. Singlepass performance between v0.17 and v2.0 has increased by ~25%, and Cranelift has nearly doubled its performance with an increase of ~90%.
 
-**Linux ARM64** **Benchmarks**
+**Linux ARM64 Benchmarks
 
 We executed the same test using a simple ODroid N2 SBC with the following Aarch64 results.
 
@@ -45,7 +45,7 @@ We executed the same test using a simple ODroid N2 SBC with the following Aarch6
 
 The results are interesting and still impressive. Both Cranelift and Singlepass have gaps in Aarch64 compatibility with Wasmer v0.17 and v1.02, respectively. Compared to x86_64, Cranelift underperformed; however, it improved performance by **1.5x** compared to Wasmer v1.0. On the other hand, the big winner is Singlepass, with a performance improvement of **3.7x** compared to Wasmer v0.17.
 
-### macOS M1** **Benchmarks
+### macOS M1 Benchmarks
 
 Let's be honest, M1 results are the real reason you're still reading!
 
@@ -66,7 +66,7 @@ Let’s prove it with “TiDB in wasm”. The wasm file is a massive 70MB wasm t
 
 The `-i blah` is a trick to not actually run the TiDB interpreter (as you need to “ctrl-c” to exit it), so the time measured will only be the compilation time. You can download that file there: 
 
-[](https://registry-cdn.wapm.io/contents/lucklove/tidb/0.1.6/main.wasm)
+[main.wasm](https://registry-cdn.wapm.io/contents/lucklove/tidb/0.1.6/main.wasm)
 
 Here is the result of the benchmarks, the “real” part of time (the lower, the better), on wasmer v2.2 across a few different hardware:
 
