@@ -36,12 +36,44 @@ The results are impressive. Singlepass performance between v0.17 and v2.0 has in
 ### Linux ARM64 Benchmarks
 
 We executed the same test using a simple ODroid N2 SBC with the following Aarch64 results.
-
+<!-- 
 | compiler | v0.17 | v1.02 | v2.2 |
 | --- | --- | --- | --- |
 | Singlepass | 708.086147 | N/A | 2514.896935 |
 | CraneLift | N/A | 4609.121989 | 7225.574132 |
 | LLVM | N/A | N/A | 7992.215658 |
+ -->
+ 
+ <table>
+<thead>
+<tr>
+<th>compiler</th>
+<th>v0.17</th>
+<th>v1.02</th>
+<th>v2.2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Singlepass</td>
+<td>708.086147</td>
+<td>N/A</td>
+<td>2514.896935</td>
+</tr>
+<tr>
+<td>CraneLift</td>
+<td>N/A</td>
+<td>4609.121989</td>
+<td>7225.574132</td>
+</tr>
+<tr>
+<td>LLVM</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>7992.215658</td>
+</tr>
+</tbody>
+</table>
 
 The results are interesting and still impressive. Both Cranelift and Singlepass have gaps in Aarch64 compatibility with Wasmer v0.17 and v1.02, respectively. Compared to x86_64, Cranelift underperformed; however, it improved performance by **1.5x** compared to Wasmer v1.0. On the other hand, the big winner is Singlepass, with a performance improvement of **3.7x** compared to Wasmer v0.17.
 
@@ -51,10 +83,30 @@ Let's be honest, M1 results are the real reason you're still reading!
 
 Without further ado...
 
-| compiler | v2.2 |
+<!-- | compiler | v2.2 |
 | --- | --- |
 | Singlepass | 11490.887496 |
 | Cranelift | 27183.440174 |
+ -->
+ 
+ <table>
+<thead>
+<tr>
+<th>compiler</th>
+<th>v2.2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Singlepass</td>
+<td>11490.887496</td>
+</tr>
+<tr>
+<td>Cranelift</td>
+<td>27183.440174</td>
+</tr>
+</tbody>
+</table>
 
 We have to acknowledge that the M1 Chip is insanely powerful, and the numbers are just ridiculously better! We can only showcase Wasmer v2.2 results here, but a similar ratio between Singlepass vs Cranelift speed of execution can be see.
 
@@ -70,11 +122,44 @@ The `-i blah` is a trick to not actually run the TiDB interpreter (as you need t
 
 Here is the result of the benchmarks, the “real” part of time (the lower, the better), on wasmer v2.2 across a few different hardware:
 
-| compiler | linux x86_64 | linux Arm64 | macOS Arm64 |
+<!-- | compiler | linux x86_64 | linux Arm64 | macOS Arm64 |
 | --- | --- | --- | --- |
 | Singlepass | 0m3.844s | 0m7.361s | 0m1.333s |
 | Cranelift | 10m12.101s | 34m52.492s | 3m9.26s |
 | LLVM | stopped after 3h | stopped after 3 days | N/A |
+ -->
+
+<table>
+<thead>
+<tr>
+<th>compiler</th>
+<th>linux x86_64</th>
+<th>linux Arm64</th>
+<th>macOS Arm64</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Singlepass</td>
+<td>0m3.844s</td>
+<td>0m7.361s</td>
+<td>0m1.333s</td>
+</tr>
+<tr>
+<td>Cranelift</td>
+<td>10m12.101s</td>
+<td>34m52.492s</td>
+<td>3m9.26s</td>
+</tr>
+<tr>
+<td>LLVM</td>
+<td>stopped after 3h</td>
+<td>stopped after 3 days</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+
 
 So here, we have a massive difference in compile-time, with Singlepass being 140 to 160 times faster than Cranelift, and even more, compared to LLVM. Here, the simpler approach of Singlepass, which doesn’t try to optimize register allocation, pays off!
 
