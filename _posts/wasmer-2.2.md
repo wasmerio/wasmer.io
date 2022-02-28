@@ -6,7 +6,7 @@ author: Sébastien Chevalier
 published: true
 ---
 
-The upcoming Wasmer 2.2 release features significant advancements shaping up to impact our Web3 and blockchain community in a big way. Wasmer is reintroducing Aarch64 compatibility for our Singlepass compiler. With the newly overhauled Singlepass, Web3 and blockchain developers can efficiently run Wasmer Runtime with Singepass on Windows, Linux, and macOS. The new release also fully supports the much anticipated Apple M1 processor.
+The Wasmer 2.2 release features significant advancements shaping up to impact our Web3 and blockchain community in a big way. Wasmer is reintroducing Aarch64 compatibility for our Singlepass compiler. With the newly overhauled Singlepass, Web3 and blockchain developers can efficiently run Wasmer Runtime with Singepass on Windows, Linux, and macOS. The new release also fully supports the much anticipated Apple M1 processor.
 
 > **Special thanks to our sponsors:** Interchain Foundation, Confio GmbH, Near, Terra, Spacemesh, and Hot-G.
 > 
