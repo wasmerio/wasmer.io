@@ -23,13 +23,54 @@ CoreMark compiles to a WebAssembly program and returns a single number represent
 
 First, we'll create a baseline measurement on an x86_64 PC running Linux with three different versions of Wasmer (v0.17, v1.02, and v2.2) to see how singlepass and cranelift have evolved.
 
-With a simple command: `./wasmer run coremark.wasm --disable-cache --singlepass` or `./wasmer run coremark.wasm --disable-cache --cranelift`, we execute the benchmark. Caching is disabled as it could interfere with the test and return an inaccurate measurement.
+With a simple command:
 
-| compiler | v0.17 | v1.02 | v2.2 |
+```
+./wasmer run coremark.wasm --disable-cache --singlepass
+```
+
+(we can use `--cranelift` or `--llvm` to change the compiler)
+
+Caching is disabled as it could interfere with the test and return an inaccurate measurement.
+
+<!-- | compiler | v0.17 | v1.02 | v2.2 |
 | --- | --- | --- | --- |
 | Singlepass | 5150.720934 | 6458.199320 | 6485.429224 |
 | Cranelift | 7060.573177 | 7197.098826 | 13664.480261 |
 | LLVM | 14409.921842 | 15471.242202 | 16751.259550 |
+ -->
+
+<table>
+<thead>
+<tr>
+<th>compiler</th>
+<th>v0.17</th>
+<th>v1.02</th>
+<th>v2.2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Singlepass</td>
+<td>5150.720934</td>
+<td>6458.199320</td>
+<td>6485.429224</td>
+</tr>
+<tr>
+<td>Cranelift</td>
+<td>7060.573177</td>
+<td>7197.098826</td>
+<td>13664.480261</td>
+</tr>
+<tr>
+<td>LLVM</td>
+<td>14409.921842</td>
+<td>15471.242202</td>
+<td>16751.259550</td>
+</tr>
+</tbody>
+</table>
+
 
 The results are impressive. Singlepass performance between v0.17 and v2.0 has increased by ~25%, and Cranelift has nearly doubled its performance with an increase of ~90%.
 
@@ -114,7 +155,11 @@ We have to acknowledge that the M1 Chip is insanely powerful, and the numbers ar
 
 Singlepass compiled programs might lag on execution performance compared to the other compilers, but it outperforms LLVM and Cranelift with linear compilation speed. LLVM and Cranelift perform many optimizations to get the most performance out of a WebAssembly program. As a result, they are subject to extraneous compilation times of JIT bombs. With singlepass, there are no surprises, your system won't suddenly explode if the file gets too complex.
 
-Let’s prove it with “TiDB in wasm”. The wasm file is a massive 70MB wasm that contains a full SQL Engine. To benchmark this, we’ll use this command line (on Linux / macOS) `time ./wasmer run main.wasm --singlepass --disable-cache -i blah`
+Let’s prove it with “TiDB in wasm”. The wasm file is a massive 70MB wasm that contains a full SQL Engine. To benchmark this, we’ll use this command line (on Linux / macOS)
+
+```
+time ./wasmer run main.wasm --singlepass --disable-cache -i blah
+```
 
 The `-i blah` is a trick to not actually run the TiDB interpreter (as you need to “ctrl-c” to exit it), so the time measured will only be the compilation time. You can download that file there: 
 
