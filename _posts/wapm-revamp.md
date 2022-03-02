@@ -8,10 +8,8 @@ published: false
 
 We are very excited to announce that the next-generation experience for [WAPM](https://wapm.io/), Wasmer's WebAssembly package manager is live. Over the past 12-months beginning with the Wasmer 1.0 release, followed by the 2.0 and 2.1 releases, downloads for the Wasmer runtime increased exponentially. Community support for WebAssembly and the Wasmer Runtime has never been higher. Apps, libraries, and smart contracts leverage Wasmer to run in production environments at scale. It was time to upgrade WAPM and create a home suitable for production-ready WebAssembly.
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ghnw-lOYWrs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/ghnw-lOYWrs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="margin-bottom: 30px;"></iframe>
 
-<!-- ![WAPM homepage](/images/blog/wapm-revamp/intro.png)
- -->
 
 # What's New In WAPM
 
