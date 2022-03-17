@@ -59,7 +59,7 @@ Although all these events still do not portray Wasmer in the best light, I hope 
 
 Our vision for the future of WebAssembly and Edge Computing remains intact, and whether driven by an alliance of today or a foundation of the future we are very excited about what's coming next.
 
-Technology is just a means to an end, product is always the ultimate value add. And with that vision, we plan to empower developers and enterprises in the future of computing, whether centralized (Cloud Computing), mixed (Edge Computing) or completely decentralized (Web3).
+Technology is just a means to an end, product is always the ultimate value add. And with that vision, we plan to empower developers and enterprises in the future of computing, whether centralized (Cloud Computing), mixed (Edge Computing) or completely decentralized (Web3) their computing is.
 
 We want to hear from you about your projects and ideas for enabling truly universal computing, running safely and quickly on any platform.
 
