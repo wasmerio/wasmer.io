@@ -24,7 +24,7 @@ A fact that is sometimes overlooked about Wasm is that it is as much, if not mor
 
 WebAssembly's beauty is that it has consensus buy-in from all the major browser vendors. In the often rocky history of software and its vendors, Wasm’s broad acceptance is a monumental and inspiring success. The Bytecode Alliance walks in some of those footsteps.
 
-So of course we applied to join. But we were unofficially rejected on November 12th 2019 (the date is key if you wish to trace future events) by written communication from one of the Byte Alliance's co-chairs to one of Wasmer's investors. And it is this singular event that begins to explain the scattered and incomplete clues of Wasmer’s foray into inappropriate trademarking.
+So of course we applied to join. But we were unofficially rejected on November 12th 2019 (the date is key if you wish to trace future events) by written communication from one of the Bytecode Alliance's co-chairs to one of Wasmer's investors. And it is this singular event that begins to explain the scattered and incomplete clues of Wasmer’s foray into inappropriate trademarking.
 
 As is dictated by our commitment to open source and the precedent of social alignment set by WebAssembly, here is not the place to air our feelings about that rejection. Suffice to say that if Wasmer cannot be part of The Bytecode Alliance it is a significant reflection on one of, or both, of these organizations. Individual opinions have been publicly shared elsewhere. If you would like more details about our side of events, then we would be more than happy to discuss them privately.
 
