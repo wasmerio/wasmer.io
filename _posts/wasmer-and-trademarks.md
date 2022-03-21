@@ -1,7 +1,7 @@
 ---
 title: "Wasmer and Trademarks"
 excerpt: "Wasmer and Trademarks"
-date: "2022-03-16T00:00:00.000Z"
+date: "2022-03-21T00:00:00.000Z"
 author: Syrus Akbary
 published: false
 ---
