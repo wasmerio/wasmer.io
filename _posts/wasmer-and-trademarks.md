@@ -47,9 +47,9 @@ A few months later, on July 13th, 2020 I received this message on Twitter from a
 As soon as I received that message I contacted the lawyers and realized that:
 
 1. The trademark process had progressed despite not signing the agreement with them.
-2. The United States Patent and Trademark Office (USPTO) was requesting more information to pursue the WebAssembly trademark.
+2. The United States Patent and Trademark Office (USPTO) refused the initial application requesting more information to pursue the WebAssembly trademark.
 
-All this fortunately meant that we were still on the period where we could decide if we wanted to further pursue the trademarks or formally abandon them.
+All this meant that we were still on the period where we could decide if we wanted to further pursue the trademarks or formally abandon them.
 
 If we had had bad intentions at that moment we could have still pursued the trademark at that time. Instead, we left the process to expire, leading to this [official response](https://uspto.report/TM/88703780/NOA20200914205937/) from USPTO in September of the same year: [https://uspto.report/TM/88703780](https://uspto.report/TM/88703780) “Status: Abandoned because the applicant failed to respond”.
 
