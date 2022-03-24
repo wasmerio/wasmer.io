@@ -4,11 +4,11 @@ const links = [
     label: 'Docs',
     external: true,
   },
-  // {
-  //   href: 'https://wapm.io/',
-  //   label: 'WAPM',
-  //   external: true,
-  // },
+  {
+    href: 'https://wapm.io/',
+    label: 'WAPM',
+    external: true,
+  },
   {
     href: '/community',
     label: 'Community',
