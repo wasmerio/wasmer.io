@@ -23,6 +23,12 @@ const links = [
     external: true,
   },
   {
+    href: '/values-and-culture',
+    label: 'Values and Culture',
+    external: false,
+    hideOnMain: true,
+  },
+  {
     href: '/about',
     label: 'About',
     external: false,
