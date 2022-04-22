@@ -23,6 +23,8 @@ Here's the demo!
   <source src="/images/blog/wapm-playground.mov" type="video/quicktime">
 </video>
 
+> You can also play with the demo online in [wapm.io/python/python](https://wapm.io/python/python)
+
 ## How to create a playgrounds
 
 To make the code snippets interactive in your `.md` files, you need to add `YAML` annotations to the file as described below and an extra tag in the code snippet.
@@ -43,7 +45,8 @@ Once that's added, you will need to add the `playground` tag next to the languag
 
 For example, the README.md for Python can look like the following:
 
-```markdown
+<pre>
+<code class="hljs language-markdown">
 ---
 playground:
   python:
@@ -52,11 +55,12 @@ playground:
 
 Here's the Playground:
 
-\`\`\`python playground
+```python playground
 name = input("What's your name? ")
 print(f"Hello, {name}!")
-\`\`\`
 ```
+</code>
+</pre>
 
 The above code snippet produces the Markdown file, and it renders in [WAPM.io](http://wapm.io/)
  like this:
