@@ -25,7 +25,7 @@ Here's the demo!
 
 ## How to create a playgrounds
 
-To make the code snippets interactive in your `[.md](http://README.md)` files, you need to add `YAML` annotations to the file as described below and an extra tag in the code snippet.
+To make the code snippets interactive in your `.md` files, you need to add `YAML` annotations to the file as described below and an extra tag in the code snippet.
 
 First, you will need to include the `playground` annotation next to your language of choice. The annotation defines the string to `run` code, and it's saved in the `$CODE` environment variable.
 
@@ -41,7 +41,7 @@ The `run` field defines how the code inside the editor will be "run" in the shel
 
 Once that's added, you will need to add the `playground` tag next to the language for the code section: Instead of using ````python` we will use ````python playground` 
 
-For example, the [README.md](http://readme.md/) for Python can look like the following:
+For example, the README.md for Python can look like the following:
 
 ```markdown
 ---
