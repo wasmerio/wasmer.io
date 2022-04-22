@@ -1,7 +1,7 @@
 ---
 title: "Introducing Markdown Playgrounds - Powered by WebAssembly"
 excerpt: "Introducing Markdown Playgrounds - Powered by WebAssembly"
-date: "2022-04-21T00:00:00.000Z"
+date: "2022-04-22T12:00:00.000Z"
 author: Syrus Akbary
 published: false
 ---
@@ -46,8 +46,7 @@ Once that's added, you will need to add the `playground` tag next to the languag
 For example, the README.md for Python can look like the following:
 
 <pre>
-<code class="hljs language-markdown">
----
+<code class="hljs language-markdown">---
 playground:
   python:
     run: echo $CODE > example.py ; python -i example.py
@@ -58,8 +57,7 @@ Here's the Playground:
 ```python playground
 name = input("What's your name? ")
 print(f"Hello, {name}!")
-```
-</code>
+```</code>
 </pre>
 
 The above code snippet produces the Markdown file, and it renders in [WAPM.io](http://wapm.io/)
