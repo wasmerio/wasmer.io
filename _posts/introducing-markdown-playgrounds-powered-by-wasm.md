@@ -18,7 +18,7 @@ We have created an easy way to allow interaction with any code from markdown fil
 
 Here's the demo!
 
-<video width="640" height="480" controls>
+<video width="960" height="720" controls preload="auto" autoplay loop muted>
   <source src="/images/blog/wapm-playground.mp4" type="video/mp4">
   <source src="/images/blog/wapm-playground.mov" type="video/quicktime">
 </video>
