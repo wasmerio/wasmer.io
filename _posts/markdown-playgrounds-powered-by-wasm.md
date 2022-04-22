@@ -1,9 +1,9 @@
 ---
 title: "Introducing Markdown Playgrounds - Powered by WebAssembly"
 excerpt: "Introducing Markdown Playgrounds - Powered by WebAssembly"
-date: "2022-04-22T12:00:00.000Z"
+date: "2022-04-22T18:00:00.000Z"
 author: Syrus Akbary
-published: false
+published: true
 ---
 
 In [WAPM](https://wapm.io/), we have been thinking about how we can enable live coding on the code snippets inside Markdown Readme files.
