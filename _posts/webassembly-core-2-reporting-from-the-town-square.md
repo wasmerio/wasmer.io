@@ -17,7 +17,9 @@ Or, keep reading...
 It's been a 7-year long journey to the WebAssembly 2022 draft proposal. Initially announced in 2015, the world first experienced WebAssembly in the wild two years later, in March of 2017. As the news of the new spec makes its rounds on the Internet, many developers sing its praises while others meticulously document its shortcomings and wishlist items on public forums. This article highlights, expands, and adds perspective to some interesting reoccurring themes. However, before we dive too deep into the minds of the developer community, and for the benefit of the uninitiated, you can read the summary of all things new in the WebAssembly Core 2 draft spec [here](https://www.w3.org/TR/wasm-core-2).
 
 
-> **The list of new features includes** Exception Handling, SharedArrayBuffer, Fixed-Width SIMD, Tail Calls, Multiple Memories, and WASI improvement.
+> **The list of new features includes:** 
+>
+> Exception Handling, SharedArrayBuffer, Fixed-Width SIMD, Tail Calls, Multiple Memories, and WASI improvement.
 
 
 
