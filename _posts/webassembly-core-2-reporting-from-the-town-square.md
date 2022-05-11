@@ -6,15 +6,13 @@ author: Wiqar Chaudry
 published: false
 ---
 
-**Background**
-
 WebAssembly (Wasm) is a bytecode for the Web. Developers can choose between Javascript or any language that compiles to Wasm for browser apps. Once low-level languages like Rust and C/C++ compile to Wasm, the resulting bytecode executes universally on most modern browsers.
 
 Similar to Javascript and Node, Wasm apps can also support universal execution on servers with a server-side runtime like Wasmer. Now that you're caught up, you should stop what you're doing and immediately start learning and using WebAssembly.
 
 Or, keep reading...
 
-**State of WebAssembly**
+## State of WebAssembly
 
 It's been a 7-year long journey to the WebAssembly 2022 draft proposal. Initially announced in 2015, the world first experienced WebAssembly in the wild two years later, in March of 2017. As the news of the new spec makes its rounds on the Internet, many developers sing its praises while others meticulously document its shortcomings and wishlist items on public forums. This article highlights, expands, and adds perspective to some interesting reoccurring themes. However, before we dive too deep into the minds of the developer community, and for the benefit of the uninitiated, you can read the summary of all things new in the WebAssembly Core 2 draft spec [here](https://www.w3.org/TR/wasm-core-2).
 
@@ -23,15 +21,15 @@ It's been a 7-year long journey to the WebAssembly 2022 draft proposal. Initiall
 
 </aside>
 
-**Wasm discourse**
+## Wasm discourse
 
 WebAssembly and associated toolchain components are very technical, and the discourse surrounding the new spec is not an exception. I've combed through Hacker News, Reddit, Twitter, and other community sites and segmented my observations below.
 
-**Back to the future with the JVM**
+## Back to the future with the JVM
 
 The Java Virtual Machine (JVM) is infamously known for the slogan write once, run everywhere. A common critique for WebAssembly and specifically WebAssembly runtimes is that they are similar to the JVM.
 
-Aren't we just reinventing the wheel?
+**Aren't we just reinventing the wheel?**
 
 True, Java code can be written once and executed everywhere. The modern JVM supports multiple languages. Java and the JVM have served the developer community and enterprises well. However, it is not the solution that takes us forward and into the future.
 
@@ -43,15 +41,15 @@ The JVM simplifies desktop application development and distribution. However, th
 
 If we use the wheel metaphor, I'd ask you to think about using a stone or wooden wheel instead of the modern tires we use on our streets and freeways. WebAssembly is the next evolution of legacy technologies like the JVM and the CLR to answer the question directly.
 
-**Fancy colors and buttons**
+## Fancy colors and buttons
 
 UIs in WebAssembly is a complicated topic. It is impossible to read about WebAssembly and not find DOM access or UI framework support as heated discussion points. I've witnessed complete operating systems GUIs and CAD programs compiled to WebAssembly running in browser environments.
 
-What are the options?
+**What are the options?**
 
 Luckily, there are many solutions available or in the works. Companies like Uno Platform have built a Microsoft Blazor-enabled solution that leverages WebAssembly to deliver pixel-perfect cross-platform UIs. If Microsoft and Blazor are not your thing, use Yew, a Rust-based solution to create UIs with WebAssembly. Finally, if all else fails, you can always write your own ABI just the way you like it.
 
-It seems like a solved problem, so what's the issue?
+**It seems like a solved problem, so what's the issue?**
 
 It's an ABI issue. ABIs or Application Binary Interfaces are the mechanisms that expose system-level capabilities that make executing your Wasm apps possible. There are many ABIs, but WASI (WebAssembly System Interface) and Emscripten are the two most widely used for Wasm apps. WASI is designed for secure, sandboxed code execution and provides limited functionality that does not include GUI support. Yet. Emscripten delivers a broader range of functionality but requires browser execution to provide sandboxing and security guarantees.
 
@@ -59,21 +57,21 @@ There are many solutions to the ABI issue as well. For instance, the community w
 
 We've highlighted a "wait-and-see" and a "do-it-yourself" approach. One approach potentially eliminates Wasm as a choice due to a lack in maturity, while the other introduces additional overhead. WebAssembly is deep technology with a community to match, so there should be many DIY projects to fill the gaps.
 
-Are there lots of DIY projects?
+**Are there lots of DIY projects?**
 
 Yes and no. A lot of projects exist to fill in the gaps. For example, [wit-bindgen](https://github.com/bytecodealliance/wit-bindgen) is an experimental temporary solution for interface types. However, the ecosystem must catch up compared to older technologies like Docker, Kubernetes, and Javascript/Node.
 
-What's the hold-up?
+**What's the hold-up?**
 
 WebAssembly is important, and many companies and groups of people are trying to curate a standard that works and scales. Sometimes consortiums set up a perception that experimentation and project incubation outside official channels might be a waste of time and money with limited returns, so smart people and companies avoid creating waves in the ecosystem.
 
-**The temple of your favorite programming language**
+## The temple of your favorite programming language
 
 We've now entered a religious territory. There is a lot of time spent on the Internet flexing programming skills, and mastery of Javascript, python or whatever language of choice is so great nothing else makes sense. One thing I've learned about other people's religions, don't mess with them. However, there is something to be said about learning something from different thriving ecosystems.
 
 The previous section refers to a fear of creating waves in an ecosystem where the standard is still forming. Perhaps the real worry is the fear of your project being rejected or worse, that your code gets refactored by someone else. Other communities and ecosystems do not have that fear. Javascript, for example, is the epitome of a tale of two cities. It is at the same time the most loved and hated programing language of all time, with a profoundly religious following. There is something to be learned from Javascript and its ecosystem.
 
-What makes the Javascript ecosystem so powerful?
+**What makes the Javascript ecosystem so powerful?**
 
 The answer here is easy.
 
@@ -83,7 +81,7 @@ The answer here is easy.
 
 The proliferation of competitive solutions ensures the survival and evolution of the ecosystem and a cult-like following that welcomes healthy decent.
 
-So what can we learn?
+**So what can we learn?**
 
 The answer here is also easy, but the execution is tricky.
 
@@ -93,7 +91,7 @@ The answer here is also easy, but the execution is tricky.
 
 WebAssembly is important, and we want to make it a universal standard, which requires a proliferation of competitive solutions and ideas.
 
-**Getting started with WebAssembly**
+## Getting started with WebAssembly
 
 The next segment of my journey into the rabbit hole of the Internet comment section is about getting started. However, before we answer how to get started, let's review the companies and products built with WebAssembly.
 
@@ -117,9 +115,9 @@ Here is what worked for me as a non-developer.
 
 Many of you are developers with excellent technical skills and don't need to persuade anyone. You can start just by creating a project.
 
-**Slow Development Cycles**
+## Slow Development Cycles
 
-Finally, is the development cycle for WebAssembly slow, or is the slow pace a perception fueled by our desire for instant gratification?
+**Finally, is the development cycle for WebAssembly slow, or is the slow pace a perception fueled by our desire for instant gratification?**
 
 I'm reminded of an old Ketchup commercial from my childhood in contemplating this question. Heinz, the company behind the commercial, created glass bottles not conducive to the flow of Ketchup and spent millions of dollars on an ad campaign to convince people that good things come to those who wait. You can check out the old video on [youtube.](https://youtu.be/N_vssdys8lk) Years later, the plastic squeeze bottle finally answered the question. Yes, the Ketchup coming out of a glass bottle is not fast enough. The novelty of good advertising eventually wears off, and good old-fashioned innovation prevails.
 
