@@ -1,4 +1,10 @@
-# WebAssembly Core 2 - Reporting From the Town Square
+---
+title: 'WebAssembly Core 2 - Reporting From the Town Square'
+excerpt: 'WebAssembly and associated toolchain components are very technical, and the discourse surrounding the new spec is not an exception.'
+date: '2022-05-11T00:00:00.000Z'
+author: Wiqar Chaudry
+published: false
+---
 
 **Background**
 
