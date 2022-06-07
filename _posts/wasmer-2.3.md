@@ -1,7 +1,7 @@
 ---
 title: "Wasmer 2.3"
 excerpt: "Wasmer 2.3"
-date: "2022-06-08T00:00:00.000Z"
+date: "2022-06-07T12:00:00.000Z"
 author: Syrus Akbary
 published: false
 ---
