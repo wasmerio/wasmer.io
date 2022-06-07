@@ -16,6 +16,9 @@ Here are some of the things that the Wasmer 2.3 release includes:
 - Wasmer compiled to Wasm/WASI! 🎉
 - Upgrade Cranelift to 0.82
 
+> The full Changelog is available here: [https://github.com/wasmerio/wasmer/blob/master/CHANGELOG.md#230---20220606](https://github.com/wasmerio/wasmer/blob/master/CHANGELOG.md#230---20220606)
+
+
 ## A new Stack switcher - Corosensei
 
 Before Wasmer 2.3, WebAssembly calls were using the same stack in the Wasm world as in the host, potentially making it vulnerable to attacks on the stack.
@@ -63,7 +66,7 @@ Now, Wasmer compiles to Wasm/WASI, and we are very excited to show you what you 
 
 And that’s all for the release. If you want to check all the additions, changes, and fixes please don’t hesitate to check our CHANGELOG or reach us:
 
-[[https://github.com/wasmerio/wasmer/blob/master/CHANGELOG.md#230---release-pending]([https://github.com/wasmerio/wasmer/blob/master/CHANGELOG.md#230---release-pending](https://github.com/wasmerio/wasmer/blob/master/CHANGELOG.md#230---20220606)](https://github.com/wasmerio/wasmer/blob/master/CHANGELOG.md#230---20220606))
+[https://github.com/wasmerio/wasmer/blob/master/CHANGELOG.md#230---20220606](https://github.com/wasmerio/wasmer/blob/master/CHANGELOG.md#230---20220606)
 
 ## Upgrade Cranelift to 0.82
 
