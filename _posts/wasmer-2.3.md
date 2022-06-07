@@ -3,7 +3,7 @@ title: "Wasmer 2.3"
 excerpt: "Wasmer 2.3"
 date: "2022-06-07T12:00:00.000Z"
 author: Syrus Akbary
-published: false
+published: true
 ---
 
 Today we are excited to launch the next version of Wasmer before our next big release: 3.0.
