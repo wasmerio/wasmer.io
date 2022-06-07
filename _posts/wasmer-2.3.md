@@ -67,7 +67,7 @@ And that’s all for the release. If you want to check all the additions, change
 
 ## Upgrade Cranelift to 0.82
 
-We updated Wasmer to use the latest version of Cranelift, thanks to that we are able to fully support now SIMD instructions and to use a new experimental compilation strategy using ISLE, which is a new domain specific language (DSL) for instruction selection and machine-code lowering.
+We updated Wasmer to use the latest version of Cranelift. As a result, Wasmer 2.3 fully supports SIMD instructions and uses a new experimental compilation strategy using ISLE. ISLE is a new domain-specific language (DSL) for instruction selection and machine-code lowering created by the Cranelift team.
 
 # About Wasmer
 
