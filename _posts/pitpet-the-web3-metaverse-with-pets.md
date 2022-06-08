@@ -26,7 +26,7 @@ Here we go.
 
 > Photo by [Shubham Dhage](https://unsplash.com/es/@theshubhamdhage?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/web3?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) — so fancy.
 
-There's a common theme. Like Web 1.0 and then Web 2.0, the core premise around Web3 is decentralized Internet control. A peer-to-peer system to democratize the infrastructure, applications, and data currently under the centralized management of large corporations like Meta (who are we kidding, it's still and forever Facebook), Google, Microsoft, etc. With each iteration of the Web, the community of creators and the powers that be, have built new tools and protocols to take us all to the promised land, ~~total anarchy~~ decentralized control over our digital footprint, and the ability to self-govern.
+There's a common theme. Like Web 1.0 and then Web 2.0, the core premise around Web3 is decentralized Internet control. A peer-to-peer system to democratize the infrastructure, applications, and data currently under the centralized management of large corporations like Meta (who are we kidding, it's still and forever Facebook), Google, Microsoft, etc. With each iteration of the Web, the community of creators and the powers that be, have built new tools and protocols to take us all to the promised land, <s>total anarchy</s> decentralized control over our digital footprint, and the ability to self-govern.
 
 **Ownership and Governance**
 
@@ -38,7 +38,7 @@ Thank you, Mark. We know who you are!
 
 ![Pitpet Meta](/images/blog/pitpet/meta.png)
 
-It all started as fun and games. Augmented reality glasses from Google and Snap, some virtual reality headsets from Microsoft, Sony, and Facebook, and before we knew it, we were in the Metaverse. The Metaverse is essentially a virtual environment where you go to have virtual experiences ~~because real life is just too hard~~ because that's what the kids are doing these days.
+It all started as fun and games. Augmented reality glasses from Google and Snap, some virtual reality headsets from Microsoft, Sony, and Facebook, and before we knew it, we were in the Metaverse. The Metaverse is essentially a virtual environment where you go to have virtual experiences <s>because real life is just too hard</s> because that's what the kids are doing these days.
 
 **TL;DR;**
 
