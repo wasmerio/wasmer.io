@@ -3,7 +3,7 @@ title: "PitPet - The Web3 Metaverse of Madness with Pets!"
 excerpt: "PitPet - The Web3 Metaverse of Madness with Pets!"
 date: "2022-06-09T12:00:00.000Z"
 author: Wiqar Chaudry
-published: false
+published: true
 ---
 
 There is a lot of buzz and noise around Web3, the Metaverse, and WebAssembly. During our recent company offsite in Valencia, Spain, the Wasmer team took it upon themselves to demystify life's greatest mysteries.
