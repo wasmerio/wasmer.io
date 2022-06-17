@@ -2,7 +2,7 @@
 title: "WebAssembly On Amazon Lambda: Lessons Learned"
 excerpt: "WebAssembly On Amazon Lambda: Lessons Learned"
 date: "2022-06-17T12:00:00.000Z"
-author: Wiqar Chaudry
+author: Manos
 published: false
 ---
 
