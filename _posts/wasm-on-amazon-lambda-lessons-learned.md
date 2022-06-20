@@ -1,9 +1,9 @@
 ---
 title: "WebAssembly On Amazon Lambda: Lessons Learned"
 excerpt: "WebAssembly On Amazon Lambda: Lessons Learned"
-date: "2022-06-17T12:00:00.000Z"
+date: "2022-06-20T12:00:00.000Z"
 author: Manos
-published: false
+published: true
 ---
 
 At Wasmer we recently did an internal hackathon to see how easy or difficult it might be to host an application with WebAssembly components on AWS Lambda. We split in two teams with the goal of making a funny project with actual software behind it.
