@@ -13,7 +13,7 @@ const cases = [
   },
   {
     text: 'Ask a Question in the Forum',
-    link: 'https://spectrum.chat/wasmer',
+    link: 'https://github.com/wasmerio/wasmer/discussions',
     icon:
       'data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIzMTA0NCIgc3Ryb2tlLXdpZHRoPSIzIiB2aWV3Qm94PSIwIDAgNDggNDIiPgo8cGF0aCBkPSJNMzMuNiwxMlYySDMuNjZ2MjBoNC42N3Y2LjQxTDE1LDIyaDMiLz4KPHBhdGggZD0iTTQ0LjM0LDE2LjAySDIyLjM2djE2Ljg0bDEwLjc1LTAuMDZsNi4wOCw1LjJ2LTUuMTRoNS4xNUM0NC4zNCwzMi44Niw0NC4zNCwxNi4wMiw0NC4zNCwxNi4wMnoiLz4KPC9zdmc+',
   },
