@@ -95,7 +95,9 @@ In Wasmer 3.0 we used the power of [Zig](https://ziglang.org/) for doing cross-c
 This made almost trivial to generate a for macOS from Linux (as an example).
 
 ```bash
-$ wasmer create-exe wasm2wat.wasm --target=x86_64-macos -o ./wasm2wat
+$ wasmer create-exe wasm2wat.wasm --target=x86_64-darwin -o ./wasm2wat
+$ file ./wasm2wat
+./wasm2wat: Mach-O 64-bit executable x86_64
 ```
 
 So by default, if you are cross-compiling we try to use `zig cc` instead of `cc` so we can easily cross compile from one machine to the other with no extra dependencies.
