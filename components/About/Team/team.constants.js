@@ -46,7 +46,8 @@ const team = [
       image: 'unknown.png',
       links: [
         { medium: 'github', handler: 'ptitSeb' },
-      ]
+      ],
+    active: false
   },
   {
     name: 'Teresa Lopez',
@@ -56,6 +57,15 @@ const team = [
       links: [
       ]
   },
+  {
+    name: 'Manos',
+    description:
+      '',
+      image: 'manos.jpeg',
+      links: [
+        { medium: 'github', handler: 'epilys' },
+      ]
+  }
 ];
 
 export default team;
