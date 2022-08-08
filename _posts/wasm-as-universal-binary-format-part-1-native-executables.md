@@ -12,7 +12,7 @@ One of the things we identified that could help broaden the adoption is using th
 
 ![/images/blog/wasm-universal-binary.png](/images/blog/wasm-universal-binary.png)
 
-Given a `program.wasm`, we could ideally generate native binaries (that don’t depend any runtime compilation) that run anywhere:
+Given a `program.wasm`, we could ideally generate native binaries (that don’t depend on any kind of compilation at runtime) that run anywhere:
 
 - Windows: `program.exe`
 - macOS: `./program` (Mach-O 64-bit executable x86_64)
@@ -32,7 +32,9 @@ In this article we will review how we made this possible (thanks to static objec
 ## 🚀 First, let’s try it out!
 
 > If you want to try this on your laptop, please make sure you have the latest version of Wasmer
-> available on your system (at least 3.0.0-beta1)
+> available on your system (at least 3.0.0-beta1).
+> 
+> Check the [install instructions here](https://github.com/wasmerio/wasmer-install).
 
 First, let's download wasm2wat.wasm from wapm:
 
@@ -40,7 +42,7 @@ First, let's download wasm2wat.wasm from wapm:
 $ curl https://registry-cdn.wapm.io/contents/_/wabt/1.0.12/out/wasi/wasm2wat.wasm -o wasm2wat.wasm
 ```
 
-Let's use create-exe (*it requires Zig or Clang installed in your system*):
+Let's use create-exe (*it requires Zig or Clang installed in your system, and Wasmer 3.0.0-beta1*):
 
 ```bash
 $ wasmer create-exe wasm2wat.wasm -o ./wasm2wat
@@ -77,8 +79,8 @@ In a nutshell, this is what happens under the hood when calling `wasmer create-e
 Now, let’s get into some depth on how we made this possible:
 
 1. First, we adapted the engine, allowing Wasmer load code directly from native objects-symbols that are linked at runtime.
-The ObjectFile Engine first generates a native object file for a given .wasm file (`.o` in Linux / macOS or `.obj` in Windows).
-2. Once the object file is generated, we generate a header file that links its contents to certain variables at compilation time and plugs them into the ObjectFile Engine.
+The Engine first generates a native object file for a given .wasm file (`.o` in Linux / macOS or `.obj` in Windows).
+2. Once the object file is generated, we generate a header file that links its contents to certain variables at compilation time and plugs them into the Engine with [`Engine::deserialize_object`](https://github.com/wasmerio/wasmer/blob/master/lib/compiler/src/engine/artifact.rs#L657).
 3. And once that happens, we just need to use the Wasm-C-API that we all love to interact with this Wasm file!
 
 <aside>
@@ -87,9 +89,9 @@ The ObjectFile Engine first generates a native object file for a given .wasm fi
 
 </aside>
 
-## 🙏 Thanks, Zig
+## ⚡️ Zig for Cross-Compilation
 
-In Wasmer 3.0 we used the power of Zig for doing cross-compilation from the C glue code into other machines.
+In Wasmer 3.0 we used the power of [Zig](https://ziglang.org/) for doing cross-compilation from the C glue code into other machines.
 
 This made almost trivial to generate a `.exe` for Windows from macOS or Linux (as an example).
 
