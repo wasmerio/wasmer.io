@@ -3,7 +3,7 @@ title: 'WebAssembly as a Universal Binary Format (Part I: Native executables)'
 excerpt: 'WebAssembly as a Universal Binary Format (Part I: Native executables)'
 date: '2022-08-08T12:00:00.000Z'
 author: Syrus Akbary
-published: false
+published: true
 ---
 
 At Wasmer, we have worked tirelessly on making WebAssembly as widely adopted as possible. Our success as a company depends on it.
