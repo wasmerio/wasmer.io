@@ -22,13 +22,12 @@ Given a `program.wasm`, we could ideally generate native binaries (that don’t 
 
 A binary that is completely sandboxed and with minimal runtime overhead.
 
-> There has been similar alternatives, like the great **αcτµαlly pδrταblε εxεcµταblε** (ape in short) from Justine: [https://justine.lol/ape.html](https://justine.lol/ape.html).
-We’ll review them in the Part II of this article series.
-> 
-
 All that we presented is not just a theoretical idea …it’s already fully working in the latest release of Wasmer (3.0.0-beta) 🎉
 
 In this article we will review how we made this possible (thanks to static objects, Zig, and a lot of love!).
+
+> There has been similar alternatives, like the great **αcτµαlly pδrταblε εxεcµταblε** (ape in short) from [Justine](https://justine.lol/ape.html) to generate multi-platform x86 binaries, or [GraalVM](https://www.graalvm.org/) to generate native executables from Java bytecode.
+> We’ll review them in the Part II of this article series.
 
 ## 🚀 First, let’s try it out!
 
