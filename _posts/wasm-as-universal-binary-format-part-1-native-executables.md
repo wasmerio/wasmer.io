@@ -31,10 +31,9 @@ In this article we will review how we made this possible (thanks to static objec
 
 ## 🚀 First, let’s try it out!
 
-> If you want to try this on your laptop, please make sure you have the latest version of Wasmer
-> available on your system (at least 3.0.0-beta1).
+> If you want to try this on your laptop, please make sure you have the latest beta version of Wasmer installed.
 > 
-> Check the [install instructions here](https://github.com/wasmerio/wasmer-install).
+> `curl https://get.wasmer.io -sSfL | sh -s "3.0.0-beta"`
 
 First, let's download wasm2wat.wasm from wapm:
 
@@ -93,10 +92,10 @@ The Engine first generates a native object file for a given .wasm file (`.o` in
 
 In Wasmer 3.0 we used the power of [Zig](https://ziglang.org/) for doing cross-compilation from the C glue code into other machines.
 
-This made almost trivial to generate a `.exe` for Windows from macOS or Linux (as an example).
+This made almost trivial to generate a for macOS from Linux (as an example).
 
 ```bash
-$ wasmer create-exe wasm2wat.wasm --target=x86_64-windows -o ./wasm2wat.exe
+$ wasmer create-exe wasm2wat.wasm --target=x86_64-macos -o ./wasm2wat
 ```
 
 So by default, if you are cross-compiling we try to use `zig cc` instead of `cc` so we can easily cross compile from one machine to the other with no extra dependencies.
