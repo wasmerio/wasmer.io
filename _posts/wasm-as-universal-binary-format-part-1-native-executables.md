@@ -6,7 +6,7 @@ author: Syrus Akbary
 published: true
 ---
 
-At Wasmer, we have worked tirelessly on making WebAssembly as widely adopted as possible. Our success as a company depends on it.
+At Wasmer, we have worked tirelessly on making WebAssembly as widely adopted as possible.
 
 One of the things we identified that could help broaden the adoption is using the Wasm binaries to create native executables for any given platform or chipset, so **WebAssembly can really become the lingua franca for all the software applications out there**.
 
