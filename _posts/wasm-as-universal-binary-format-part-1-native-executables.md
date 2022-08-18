@@ -106,4 +106,6 @@ So by default, if you are cross-compiling we try to use `zig cc` instead of `cc`
 
 With all these awesome features, we already started the integration of native executables in the Wasmer ecosystem.
 
-Stay tuned to learn why and how we integrated the Native Executables in WAPM!
+Please read the Part II of the article series to see how we integrated the Native Executables into the WebAssembly Package Manager: [WAPM](https://wapm.io):
+
+[WebAssembly as a Universal Binary Format (Part II: WAPM)](https://wasmer.io/posts/wasm-as-universal-binary-format-part-2-wapm)
