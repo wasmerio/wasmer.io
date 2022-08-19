@@ -72,8 +72,8 @@ At Wasmer, we believe there are better ways of distributing software, in a way t
 ## What we need to improve
 
 There are a few things that we are still working to improve, namely:
-1. Windows support is on-going (it'll be read soon... stay tuned!)
-2. The generated executables are a bit fatter than they can. Currently we are embedding a fat static archive "libwasmer.a" in the executable. Ideally we will only include `libwasmer-headless.a` which should only weight a few Mbs more than their Wasm counterparts.
+1. Windows support is on-going (it'll be ready soon... stay tuned!)
+2. The generated executables are a bit fatter than they should be. Currently we are embedding a fat static archive "libwasmer.a" in the executable. Ideally we will only include `libwasmer-headless.a` which should only weight a few Mbs more than their Wasm counterparts.
 
 
 # WAPM
@@ -87,11 +87,10 @@ So, if you are using Python, there is a `python` WAPM package that you can run e
 ![Executables in the Python WAPM package page](/images/blog/wapm-native-executables.png)
 > Executables in the [Python Python package page](https://wapm.io/python/python)
 
+You're using the new macOS M1 machines? → [python-apple-arm64-0.1.0.tar.gz](https://registry-cdn.wapm.io/distribution/exe/python/python/python-apple-arm64-0.1.0.tar.gz)
 
-So, you are in Windows? → wapm.exe on Windows (coming soon!)
+You're using Linux? → [python-linux-x86_64-0.1.0.tar.gz](https://registry-cdn.wapm.io/distribution/exe/python/python/python-linux-x86_64-0.1.0.tar.gz)
 
-You are using the new macOS M1 machines? → [python-apple-arm64-0.1.0.tar.gz](https://registry-cdn.wapm.io/distribution/exe/python/python/python-apple-arm64-0.1.0.tar.gz)
+You're on Windows? → well okay, sorry, but we're working on it ;)
 
-You are in Linux? → [python-linux-x86_64-0.1.0.tar.gz](https://registry-cdn.wapm.io/distribution/exe/python/python/python-linux-x86_64-0.1.0.tar.gz)
-
-We believe Wasmer will make every package developers target WebAssembly first, and let WAPM and Wasmer target every operating systems and chipsets automatically. No more effort is required for the developer… welcome to a new way to handle distribution of binaries at ease thanks to WebAssembly and Wasmer!
+We believe Wasmer will make every package developers target WebAssembly first, and let WAPM and Wasmer target every operating systems and chipsets automatically. No more effort for the developer - welcome to a new way of handling binary distributions at ease thanks to WebAssembly and Wasmer!
