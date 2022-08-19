@@ -10,7 +10,7 @@ In the [first series of the articles](https://wasmer.io/posts/wasm-as-universal-
 
 This was great and very well adopted by the community, but we were missing one big part of the picture: how can we use this new feature to improve the life of developers?
 
-*TL;DR: Using the wasmer compiler all WASI packages published to WAPM will now be compiled to a native executable for all available platforms, so that you don't need to ship a runtime with your wasm files*
+*TL;DR: Using the wasmer compiler all WASI packages published to WAPM will now be compiled to a native executable for all available platforms, so that you don't need to ship a complete Wasm runtime to run your wasm files*
 
 <video width="960" height="720" controls preload="auto" autoplay loop muted>
   <source src="/images/blog/wapm-native-executables.mp4" type="video/mp4">
