@@ -35,9 +35,9 @@ Also, what about doing this retroactively? Let's say you created an application 
 
 ### Portable Executables
 
-To this date, there are some very cool ways that people have been using to solve this (portable executables).
+There are also other interesting solutions that developers have used to create portable executables.
 
-One way has been via ape/cosmopolitan, as it allows to create executables that are “αcτµαlly pδrταblε εxεcµταblε”:
+One of the most popular ones has been via ape/cosmopolitan, as it allows to create executables that are “αcτµαlly pδrταblε εxεcµταblε”:
 
 [https://justine.lol/ape.html](https://justine.lol/ape.html)
 
@@ -53,13 +53,13 @@ To sum up: one Wasm WASI file generates a sandboxed binary for each of the items
 
 Even once you created multiple binaries, you still need to distribute them and make sure they are accessible for people to use.
 
-One way most developers use is Github Releases. Here’s how WABT (a WebAssembly binary toolkit with multiple executable utilities) used Github for their latest release ([version 1.0.29](https://github.com/WebAssembly/wabt/releases/tag/1.0.29)):
+A method most developers use is Github Releases. Here’s how WABT (a WebAssembly binary toolkit with multiple executable utilities) used Github for their latest release ([version 1.0.29](https://github.com/WebAssembly/wabt/releases/tag/1.0.29)):
 
 ![Wabt in Github Releases](/images/blog/wapm-native-executables-github-releases.png)
 
 However, this approach usually means integrating the “Build process” inside of your CI process. That is, you have to build it from multiple operating systems.
 
-Furthermore, while Github is great, it all evolves around the source code, which requires a whole toolchain to be able to build a binary.
+Furthermore, while Github is great, it all revolves around the source code, which requires a whole toolchain to be able to build a binary.
 
 Not only that… **if we look closely we can see that `wabt` is missing the binary for the new macOS ARM chipsets** (M1/M2)!
 
@@ -74,7 +74,7 @@ At Wasmer, we believe there are better ways of distributing software, in a way t
 There are a few things that we are still working to improve, namely:
 
 1. Windows support is on-going (it'll be ready soon... stay tuned!)
-2. The generated executables are a bit fatter than they should be. Currently we are embedding a fat static archive "libwasmer.a" in the executable. Ideally we will only include `libwasmer-headless.a` which should only weight a few Mbs more than their Wasm counterparts.
+2. The generated executables are a bit fatter than they should be. Currently we are embedding a fat static archive "libwasmer.a" in the executable. Ideally we will only include `libwasmer-headless.a` which should only weigh a few Mbs more than their Wasm counterparts.
 
 # WAPM
 
