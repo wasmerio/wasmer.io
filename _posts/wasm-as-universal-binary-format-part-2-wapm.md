@@ -1,7 +1,7 @@
 ---
 title: 'WebAssembly as a Universal Binary Format (Part II: WAPM)'
 excerpt: 'WebAssembly as a Universal Binary Format (Part II: WAPM)'
-date: '2022-08-18T12:00:00.000Z'
+date: '2022-08-19T12:00:00.000Z'
 author: Syrus Akbary
 published: true
 ---
@@ -72,15 +72,15 @@ At Wasmer, we believe there are better ways of distributing software, in a way t
 ## What we need to improve
 
 There are a few things that we are still working to improve, namely:
+
 1. Windows support is on-going (it'll be ready soon... stay tuned!)
 2. The generated executables are a bit fatter than they should be. Currently we are embedding a fat static archive "libwasmer.a" in the executable. Ideally we will only include `libwasmer-headless.a` which should only weight a few Mbs more than their Wasm counterparts.
 
-
 # WAPM
 
-First, we identified all the packages from WAPM that are possible to create as standalone applications (WABT tooling, Python, PHP, ...).
+First, we identified all the WASI packages from WAPM that can be created as standalone applications ([Zig](https://wapm.io/topolarity/zig), [Python](https://wapm.io/python/python), [Trealla](https://wapm.io/guregu/trealla), ...).
 
-Then, for any WASI package uploaded to WAPM we automatically create and publish standalone binaries for each of the platforms that Wasmer supports, so people can start using your software right away (now, or in the future: **you will no longer need to keep track of dependencies, supported platforms or chipsets**!).
+Then we automatically created and published standalone binaries for each of the platforms that Wasmer supports, so people can start using your software right away (now, or in the future: **you will no longer need to keep track of dependencies, supported platforms or chipsets**!).
 
 So, if you are using Python, there is a `python` WAPM package that you can run either via Wasmer (requiring you to install it via the `wapm` cli), or in a completely standalone way!
 
