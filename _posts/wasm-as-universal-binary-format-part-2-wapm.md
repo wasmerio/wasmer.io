@@ -6,11 +6,11 @@ author: Syrus Akbary
 published: true
 ---
 
-In the [first series of the articles](https://wasmer.io/posts/wasm-as-universal-binary-format-part-1-native-executables), we demonstrated how you can create standalone executable files from WebAssembly WASI files, that will work in any operating system; which means we can create a `python.exe` (or `python.out`) from a `python` package, without depending on any WebAssembly Runtime at all (see the [Python package on WAPM](https://wapm.io/python/python))!
+In the [first article in this series](https://wasmer.io/posts/wasm-as-universal-binary-format-part-1-native-executables) we demonstrated how you can create standalone executable files from WebAssembly WASI files that will work in any operating system; which means we can create a `python.exe` (or `python.out`) from a `python` package, without depending on any WebAssembly Runtime at all (see the [Python package on WAPM](https://wapm.io/python/python))!
 
 This was great and very well adopted by the community, but we were missing one big part of the picture: how can we use this new feature to improve the life of developers?
 
-*TL;DR: Using the wasmer compiler all WASI packages published to WAPM will now be compiled to a native executable for all available platforms, so that you don't need to ship a complete Wasm runtime to run your wasm files*
+*TL;DR: Using the wasmer compiler we compile all WASI packages published to WAPM to a native executable for all available platforms, so that you don't need to ship a complete WASM runtime to run your wasm files.*
 
 <video width="960" height="720" controls preload="auto" autoplay loop muted>
   <source src="/images/blog/wapm-native-executables.mp4" type="video/mp4">
