@@ -91,6 +91,17 @@ You're using the new macOS M1 machines? → [python-apple-arm64-0.1.0.tar.gz](ht
 
 You're using Linux? → [python-linux-x86_64-0.1.0.tar.gz](https://registry-cdn.wapm.io/distribution/exe/python/python/python-linux-x86_64-0.1.0.tar.gz)
 
-You're on Windows? → well okay, sorry, but we're working on it ;)
+You're on Windows? → stay tuned! We're working on it ;)
+
+```
+$ tar -xvf python-*-0.1.0.tar.gz
+$ ./python
+Python 3.6.7 (default, Feb 14 2020, 03:17:48)
+[Wasm WASI vClang 9.0.0 (https://github.com/llvm/llvm-project 0399d5a9682b3cef7 on generic
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+```
+
+Et voilá!
 
 We believe Wasmer will make every package developers target WebAssembly first, and let WAPM and Wasmer target every operating systems and chipsets automatically. No more effort for the developer - welcome to a new way of handling binary distributions at ease thanks to WebAssembly and Wasmer!
