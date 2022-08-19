@@ -10,34 +10,32 @@ In the [first series of the articles](https://wasmer.io/posts/wasm-as-universal-
 
 This was great and very well adopted by the community, but we were missing one big part of the picture: how can we use this new feature to improve the life of developers?
 
-*TL;DR: all WASI packages published to WAPM will have a native executable distribution for each chipset and platform… automatically!*
+*TL;DR: Using the wasmer compiler all WASI packages published to WAPM will now be compiled to a native executable for all available platforms, so that you don't need to ship a complete Wasm runtime to run your wasm files*
 
 <video width="960" height="720" controls preload="auto" autoplay loop muted>
   <source src="/images/blog/wapm-native-executables.mp4" type="video/mp4">
   <source src="/images/blog/wapm-native-executables.mov" type="video/quicktime">
 </video>
 
-But… why this is useful for the developers and tech companies?
+But how is this useful for the developers and tech companies?
 
 First, let's analyze some of the problems when distributing applications to your users:
 
 ## Creating a binary for each platform sucks… it really does!
 
-Right now, if you are using Rust, Go, Zig or C/C++ (among others) you will usually need to install a whole toolchain/SDK to create a binary for each platform (Ok, not in *all* cases: Go and Zig handle this very elegantly by owning almost every part of the stack and hiding the complexity away from the user).
+Right now, if you are using Rust, Go, Zig or C/C++ (among others) you will usually need to install a whole toolchain/SDK to create a binary for each platform. Creating binaries for each platform is painful (in some languages more, in some less) and it takes time. Why? Well, you need to:
 
-But in summary: creating binaries for each platform is painful and it takes time. Why? You need to:
-
-1. Find the toolchain (for example, it might not exist... Try to generate a macOS executable from a Linux system for a C project!)
+1. Find the toolchain (it might not exist - try to generate a macOS executable from a Linux system for a C project!)
 2. Install the toolchain in your system (in some cases the toolchains will only run in a specific platform/chipset, so you will also need to set up a VM to run the toolchain)
 3. Adapt some of your application code to make sure it works properly in the desired operating system
 4. Generate a binary
 5. Repeat for each platform and hope it works!
 
-Also, what about doing this retroactively? Let's say you created an application 2 years ago that was able to run on an Intel chipset... how you can make the same old software now run on ARM? You need to recompile everything, making sure the old dependencies used are still available in your current system and hoping that the compilation will be merciful with you and no compilation errors have to be fixed for the new target.
+Also, what about doing this retroactively? Let's say you created an application 2 years ago that was able to run on an Intel chipset - how you can make the same old software now run on ARM? You'd need to recompile everything, making sure the old dependencies used are still available in your current system and hoping that the compilation will be merciful with you and no compilation errors have to be fixed for the new target.
 
 ### Portable Executables
 
-To date, there are some very cool ways that people have been using to solve this (portable executables).
+To this date, there are some very cool ways that people have been using to solve this (portable executables).
 
 One way has been via ape/cosmopolitan, as it allows to create executables that are “αcτµαlly pδrταblε εxεcµταblε”:
 
@@ -61,7 +59,7 @@ One way most developers use is Github Releases. Here’s how WABT (a WebAssembly
 
 However, this approach usually means integrating the “Build process” inside of your CI process. That is, you have to build it from multiple operating systems.
 
-Furthermore, while Github is great, it all evolves around the source code, which requires a whole toolchain to be able to build a binary (please read the “**Creating a binary for each platform sucks**” section we showcased before).
+Furthermore, while Github is great, it all evolves around the source code, which requires a whole toolchain to be able to build a binary.
 
 Not only that… **if we look closely we can see that `wabt` is missing the binary for the new macOS ARM chipsets** (M1/M2)!
 
@@ -74,9 +72,9 @@ At Wasmer, we believe there are better ways of distributing software, in a way t
 ## What we need to improve
 
 There are a few things that we are still working to improve, namely:
-1. Windows support is on-going (it'll be ready soon... stay tuned!)
-2. The generated executables are a bit fatter than they can. Currently we are embedding a fat static archive "libwasmer.a" in the executable. Ideally we will only include `libwasmer-headless.a` which should only weight a few Mbs more than their Wasm counterparts.
 
+1. Windows support is on-going (it'll be ready soon... stay tuned!)
+2. The generated executables are a bit fatter than they should be. Currently we are embedding a fat static archive "libwasmer.a" in the executable. Ideally we will only include `libwasmer-headless.a` which should only weight a few Mbs more than their Wasm counterparts.
 
 # WAPM
 
@@ -89,11 +87,10 @@ So, if you are using Python, there is a `python` WAPM package that you can run e
 ![Executables in the Python WAPM package page](/images/blog/wapm-native-executables.png)
 > Executables in the [Python Python package page](https://wapm.io/python/python)
 
+You're using the new macOS M1 machines? → [python-apple-arm64-0.1.0.tar.gz](https://registry-cdn.wapm.io/distribution/exe/python/python/python-apple-arm64-0.1.0.tar.gz)
 
-So, you are in Windows? → wapm.exe on Windows (coming soon!)
+You're using Linux? → [python-linux-x86_64-0.1.0.tar.gz](https://registry-cdn.wapm.io/distribution/exe/python/python/python-linux-x86_64-0.1.0.tar.gz)
 
-You are using the new macOS M1 machines? → [python-apple-arm64-0.1.0.tar.gz](https://registry-cdn.wapm.io/distribution/exe/python/python/python-apple-arm64-0.1.0.tar.gz)
+You're on Windows? → well okay, sorry, but we're working on it ;)
 
-You are in Linux? → [python-linux-x86_64-0.1.0.tar.gz](https://registry-cdn.wapm.io/distribution/exe/python/python/python-linux-x86_64-0.1.0.tar.gz)
-
-We believe Wasmer will make every package developers target WebAssembly first, and let WAPM and Wasmer target every operating systems and chipsets automatically. No more effort is required for the developer… welcome to a new way to handle distribution of binaries at ease thanks to WebAssembly and Wasmer!
+We believe Wasmer will make every package developers target WebAssembly first, and let WAPM and Wasmer target every operating systems and chipsets automatically. No more effort for the developer - welcome to a new way of handling binary distributions at ease thanks to WebAssembly and Wasmer!
