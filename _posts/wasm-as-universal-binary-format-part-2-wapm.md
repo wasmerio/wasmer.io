@@ -6,14 +6,16 @@ author: Syrus Akbary
 published: true
 ---
 
-In the [first series of the articles](https://wasmer.io/posts/wasm-as-universal-binary-format-part-1-native-executables), we demonstrated how you can create standalone executable files from WebAssembly WASI files, that will work in any operating system; which means we can create a `python.exe` (or `python.out`) from a `python` package, without depending on any WebAssembly Runtime at all (see [Python package on WAPM](https://wapm.io/python/python))!
+In the [first series of the articles](https://wasmer.io/posts/wasm-as-universal-binary-format-part-1-native-executables), we demonstrated how you can create standalone executable files from WebAssembly WASI files, that will work in any operating system; which means we can create a `python.exe` (or `python.out`) from a `python` package, without depending on any WebAssembly Runtime at all (see the [Python package on WAPM](https://wapm.io/python/python))!
 
 This was great and very well adopted by the community, but we were missing one big part of the picture: how can we use this new feature to improve the life of developers?
 
 *TL;DR: all WASI packages published to WAPM will have a native executable distribution for each chipset and platform… automatically!*
 
-![Executables in the Python WAPM package page](/images/blog/wapm-native-executables.png)
-> Executables in the [Python Python package page](https://wapm.io/python/python)
+<video width="960" height="720" controls preload="auto" autoplay loop muted>
+  <source src="/images/blog/wapm-native-executables.mp4" type="video/mp4">
+  <source src="/images/blog/wapm-native-executables.mov" type="video/quicktime">
+</video>
 
 But… why this is useful for the developers and tech companies?
 
@@ -84,10 +86,9 @@ Then, for any WASI package uploaded to WAPM we automatically create and publish 
 
 So, if you are using Python, there is a `python` WAPM package that you can run either via Wasmer (requiring you to install it via the `wapm` cli), or in a completely standalone way!
 
-<video width="960" height="720" controls preload="auto" autoplay loop muted>
-  <source src="/images/blog/wapm-native-executables.mp4" type="video/mp4">
-  <source src="/images/blog/wapm-native-executables.mov" type="video/quicktime">
-</video>
+![Executables in the Python WAPM package page](/images/blog/wapm-native-executables.png)
+> Executables in the [Python Python package page](https://wapm.io/python/python)
+
 
 So, you are in Windows? → wapm.exe on Windows (coming soon!)
 
