@@ -10,7 +10,7 @@ In the [first part](https://wasmer.io/posts/wasm-as-universal-binary-format-part
 
 This was great and very well adopted by the community, but we were missing one big part of the picture: how can we use this new feature to improve the life of developers?
 
-*TL;DR for the lazy readers: all WASI packages published to WAPM will have a native executable distribution for each chipset and platform… automatically!*
+*TL;DR: all WASI packages published to WAPM will have a native executable distribution for each chipset and platform… automatically!*
 
 ![Executables in the Trealla WAPM package page](/images/blog/wapm-native-executables.png)
 > Executables in the [Trealla WAPM package page](https://wapm.io/guregu/trealla)
@@ -63,7 +63,7 @@ Furthermore, while Github is great, it all evolves around the source code, which
 
 Not only that… **if we look closely we can see that `wabt` is missing the binary for the new macOS ARM chipsets** (M1/M2)!
 
-At Wasmer, we believe there are better ways of distributing software, in a way that is still universal for any package and completely agnostic of the toolchain needed, so you can retroactively create new binaries for the same software when new targets emerge.
+At Wasmer, we believe there are better ways of distributing software, in a way that is universal for any package and completely agnostic of the toolchain needed, so you can retroactively create new binaries for the same software when new targets emerge.
 
 <aside>
 ℹ️ Other package managers (such as brew) have solved this problem in a great way (via formulas and bottles - which are just precompiled packages), however with Wasmer you don't even need an SDK or framework dependencies to create bottles for each platform!
