@@ -6,20 +6,20 @@ author: Syrus Akbary
 published: true
 ---
 
-In the [first part](https://wasmer.io/posts/wasm-as-universal-binary-format-part-1-native-executables), I demonstrated how you can create standalone executable files from WebAssembly WASI files, that will work in any operating system; which means we can create a `trealla.exe` (or `trealla.out`) from a `trealla.wasm` file, without depending on any WebAssembly Runtime at all (see [Trealla package on WAPM](https://wapm.io/guregu/trealla))!
+In the [first series of the articles](https://wasmer.io/posts/wasm-as-universal-binary-format-part-1-native-executables), we demonstrated how you can create standalone executable files from WebAssembly WASI files, that will work in any operating system; which means we can create a `python.exe` (or `python.out`) from a `python` package, without depending on any WebAssembly Runtime at all (see [Python package on WAPM](https://wapm.io/python/python))!
 
 This was great and very well adopted by the community, but we were missing one big part of the picture: how can we use this new feature to improve the life of developers?
 
 *TL;DR: all WASI packages published to WAPM will have a native executable distribution for each chipset and platform… automatically!*
 
-![Executables in the Trealla WAPM package page](/images/blog/wapm-native-executables.png)
-> Executables in the [Trealla WAPM package page](https://wapm.io/guregu/trealla)
+![Executables in the Python WAPM package page](/images/blog/wapm-native-executables.png)
+> Executables in the [Python Python package page](https://wapm.io/python/python)
 
 But… why this is useful for the developers and tech companies?
 
 First, let's analyze some of the problems when distributing applications to your users:
 
-## Creating a binary for each platform sucks… and sucks big!
+## Creating a binary for each platform sucks… it really does!
 
 Right now, if you are using Rust, Go, Zig or C/C++ (among others) you will usually need to install a whole toolchain/SDK to create a binary for each platform (Ok, not in *all* cases: Go and Zig handle this very elegantly by owning almost every part of the stack and hiding the complexity away from the user).
 
@@ -69,23 +69,30 @@ At Wasmer, we believe there are better ways of distributing software, in a way t
 ℹ️ Other package managers (such as brew) have solved this problem in a great way (via formulas and bottles - which are just precompiled packages), however with Wasmer you don't even need an SDK or framework dependencies to create bottles for each platform!
 </aside>
 
+## What we need to improve
+
+There are a few things that we are still working to improve, namely:
+1. Windows support is on-going (it'll be read soon... stay tuned!)
+2. The generated executables are a bit fatter than they can. Currently we are embedding a fat static archive "libwasmer.a" in the executable. Ideally we will only include `libwasmer-headless.a` which should only weight a few Mbs more than their Wasm counterparts.
+
+
 # WAPM
 
 First, we identified all the packages from WAPM that are possible to create as standalone applications (WABT tooling, Python, PHP, ...).
 
 Then, for any WASI package uploaded to WAPM we automatically create and publish standalone binaries for each of the platforms that Wasmer supports, so people can start using your software right away (now, or in the future: **you will no longer need to keep track of dependencies, supported platforms or chipsets**!).
 
-So, if you are using trealla, there is a `trealla.wasm` WASI file that you can run either via Wasmer (requiring you to install it), or in a completely standalone way!
+So, if you are using Python, there is a `python` WAPM package that you can run either via Wasmer (requiring you to install it via the `wapm` cli), or in a completely standalone way!
 
 <video width="960" height="720" controls preload="auto" autoplay loop muted>
   <source src="/images/blog/wapm-native-executables.mp4" type="video/mp4">
   <source src="/images/blog/wapm-native-executables.mov" type="video/quicktime">
 </video>
 
-So, you are in Windows? → trealla.exe on Windows (coming soon!)
+So, you are in Windows? → wapm.exe on Windows (coming soon!)
 
-You are using the new macOS M1 machines? → [trealla-apple-arm64-0.1.2.tar.gz](https://registry-cdn.wapm.io/distribution/exe/guregu/trealla/trealla-apple-arm64-0.1.2.tar.gz)
+You are using the new macOS M1 machines? → [python-apple-arm64-0.1.0.tar.gz](https://registry-cdn.wapm.io/distribution/exe/python/python/python-apple-arm64-0.1.0.tar.gz)
 
-You are in Linux? → [trealla-linux-x86_64-0.1.2.tar.gz](https://registry-cdn.wapm.io/distribution/exe/guregu/trealla/trealla-linux-x86_64-0.1.2.tar.gz)
+You are in Linux? → [python-linux-x86_64-0.1.0.tar.gz](https://registry-cdn.wapm.io/distribution/exe/python/python/python-linux-x86_64-0.1.0.tar.gz)
 
-We believe Wasmer will make every package developers target WebAssembly first, and let WAPM and Wasmer target every operating systems and chipsets automatically. No more effort is required for the developer… Welcome to the new world order!
+We believe Wasmer will make every package developers target WebAssembly first, and let WAPM and Wasmer target every operating systems and chipsets automatically. No more effort is required for the developer… welcome to a new way to handle distribution of binaries at ease thanks to WebAssembly and Wasmer!
