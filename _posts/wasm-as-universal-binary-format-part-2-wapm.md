@@ -12,7 +12,7 @@ That means, creating a `trealla.exe` (or `trealla.out`) from a `trealla.wasm` fi
 
 This was great and very well adopted by the community, but we were missing one big part of the picture: how we use this new feature to improve the life of developers?
 
-*TL;DR for the lazy readers: all WASI packages published to WAPM will have a native executable distribution for each chipset and platform… automatically!*
+*TL;DR: all WASI packages published to WAPM will have a native executable distribution for each chipset and platform… automatically!*
 
 ![Executables of Trealla WAPM package page](/images/blog/wapm-native-executables.png)
 > Executables of [Trealla WAPM package page](https://wapm.io/guregu/trealla)
@@ -67,7 +67,7 @@ While Github is great, it all evolves around the source code, which requires a w
 
 Not only that… **if we look closely we can see that wabt is missing the binary for the new macOS ARM chipsets** (M1/M2)!
 
-At Wasmer believe there are better ways of distributing software in a way that is universal for any package, and also completely agnostic of the toolchain needed, so you can retroactively create new binaries for the same software when new targets emerge.
+At Wasmer we believe there are better ways of distributing software in a way that is universal for any package, and also completely agnostic of the toolchain needed, so you can retroactively create new binaries for the same software when new targets emerge.
 
 <aside>
 ℹ️ Other package managers (such as brew) have solved this problem in a great way (via formulas and bottles -which are just precompiled packages), however with Wasm you don't even need sdk/framework dependencies to create bottles for each platform!
@@ -93,4 +93,4 @@ You are using the new macOS M1 machines? → [trealla-apple-arm64-0.1.2.tar.gz](
 
 You are in Linux? → [trealla-linux-x86_64-0.1.2.tar.gz](https://registry-cdn.wapm.io/distribution/exe/guregu/trealla/trealla-linux-x86_64-0.1.2.tar.gz)
 
-This will help any package developers to target WebAssembly first, and let WAPM and Wasmer target new Operating Systems and chipsets automatically. No more effort is required for the developer… welcome to the new world order!
+This will help any package developers to target WebAssembly first, and let WAPM and Wasmer target new Operating Systems and chipsets automatically. No more effort is required for the developer to become available in more systems … welcome to the panacea of software distribution!
