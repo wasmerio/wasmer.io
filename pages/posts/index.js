@@ -44,7 +44,7 @@ export async function getStaticProps() {
     'coverImage',
     'excerpt',
     'published',
-  ]).filter(post => post.published !== false);
+  ]).filter(post => post.published !== false && (!post.language || post.language == "en") );
 
   return {
     props: {
