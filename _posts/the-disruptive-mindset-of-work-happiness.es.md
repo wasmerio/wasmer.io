@@ -10,7 +10,7 @@ Hay trabajos que aparecen súbitamente a medida que la sociedad evoluciona. De a
 
 Cuando digo que me dedico a la *Felicidad organizaciona*l, la gente generalmente me mira alucinada, sonriente pero alucinada. **Trabajo en una start-up tecnológica muy puntera, Wasmer Inc., como “People[1] Happiness Manager” (que literalmente significa *Directora de felicidad de las personas*).**
 
-![/images/blog/team-building-outfinders.jpg](/images/blog/team-building-outfinders.jpg)
+![/images/blog/happy-team-painting.png](/images/blog/happy-team-painting.png)
 
 ### Este artículo pretende adentrarse en la transformación que ya experimentan algunos departamentos de Recursos Humanos hacia una perspectiva centrada en las personas. O cómo estos puestos de trabajo comienzan a enfocarse más en en el bienestar de los equipos y en que los individuos alcancen sus metas con alegría a lo largo de su carrera laboral.
 
