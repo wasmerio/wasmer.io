@@ -1,17 +1,19 @@
+---
 title: "What makes an owner?"
 excerpt: "What makes an owner?"
 date: "2022-09-09T18:00:00.000Z"
 author: Teresa Lopez
 published: false
-
+---
 
 The start-up world is an ecosystem, and due to its main features, it can be very appealing for those personalities inclined to entrepreneurship at different levels. You don’t need to be a founder or a start-up CEO to seek a sense of ownership and feel you are contributing to growing and launching something that could have a significant impact.
 
+
 ### In this article we will approach to the characteristics of an ownership mentality that can be a match to start-ups environments and influence positively in such fast-moving workplaces.
 
-![DALL·E 2022-08-30 05.46.51 - oil painting of a happy WOMAN AND happy MAN, BOTH with the attitude of being in charge, with both fists on their waists.png](What%20makes%20an%20owner%20cf182c01639f4d058d0d97e79e30a889/DALLE_2022-08-30_05.46.51_-_oil_painting_of_a_happy_WOMAN_AND_happy_MAN_BOTH_with_the_attitude_of_being_in_charge_with_both_fists_on_their_waists.png)
+![DALL·E generated image: oil painting of a happy WOMAN AND happy MAN, BOTH with the attitude of being in charge, with both fists on their waists.png](/images/blog/empowering_ownership.png)
 
-For those unfamiliar with start-ups, this is a particular business environment with its dynamics. For more information, you can check this article to get an overall idea. [https://www.forbes.com/advisor/investing/what-is-a-startup/](https://www.forbes.com/advisor/investing/what-is-a-startup/)
+For those unfamiliar with start-ups, this is a particular business environment with its dynamics. For more information, you can [check this](https://www.forbes.com/advisor/investing/what-is-a-startup/) article to get an overall idea.
 
 The life of a start-up is like a marathon with many sprint stages. A company is ****a living organism with its different growth stages and needs.  
 
@@ -43,7 +45,7 @@ Owners are **resilient.** In time, this can become “fortitude,” a desirable
 
 Owners have **accountability.** Each can create an impact in their organizations and take the responsibility of doing so through their performance, success, and failures. When we healthily approach auto criticism, growth is guaranteed. That is one of the most direct ways to interdependence and reach the best version of ourselves.
 
-Owners have **a team vision.** They contribute to the whole. And know that they are serving themselves by serving others. That also means transcending individuality and contributing to company culture, relations, shared experiences, and visions to grow. It also means making decisions by taking into account a large image. This is related to the concept of Ownership that Kaspar L. mentions in his article “Ownership and responsibility in software development teams.” [https://www.linkedin.com/pulse/ownership-responsibility-software-development-teams-kaspar-lyngsie/](https://www.linkedin.com/pulse/ownership-responsibility-software-development-teams-kaspar-lyngsie/) It is defined as “taking the initiative to solve a task in the way you, as a team, believe is best.”
+Owners have **a team vision.** They contribute to the whole. And know that they are serving themselves by serving others. That also means transcending individuality and contributing to company culture, relations, shared experiences, and visions to grow. It also means making decisions by taking into account a large image. This is related to the concept of Ownership that Kaspar L. mentions in his article [“Ownership and responsibility in software development teams”](https://www.linkedin.com/pulse/ownership-responsibility-software-development-teams-kaspar-lyngsie/). It is defined as “taking the initiative to solve a task in the way you, as a team, believe is best.”
 
 These reflections can be a clue to check if we are activating all this sense and attitude around ownership and trying to motivate this in others.
 
