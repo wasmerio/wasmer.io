@@ -13,7 +13,7 @@ The startup world is an ecosystem that can be very appealing for those personali
 
 ![DALL·E generated image: oil painting of a happy WOMAN AND happy MAN, BOTH with the attitude of being in charge, with both fists on their waists.png](/images/blog/empowering_ownership.png)
 
-For those unfamiliar with startups, they are particular business environment with fast-paced dynamics usually revolving around a specific bit of tech. For more information, you can [check this](https://www.forbes.com/advisor/investing/what-is-a-startup/) article to get an overall idea.
+For those unfamiliar with startups, they are particular business environment with fast-paced dynamics usually revolving around a specific bit of tech. I always recommend reading [this awesome article from Forbes](https://www.forbes.com/advisor/investing/what-is-a-startup/) for those interested in learning more about about it.
 
 The life of a startup is like a marathon with many sprint stages. A company is *a living organism* with its different growth stages and needs. There is a lot of diversity and autonomy, which demands excellent coordination and cohesion to implement natural interdependence.
 
