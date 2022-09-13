@@ -15,7 +15,7 @@ The startup world is an ecosystem that can be very appealing for those personali
 
 For those unfamiliar with startups, they are particular business environment with fast-paced dynamics usually revolving around a specific bit of tech. I always recommend reading [this awesome article from Forbes](https://www.forbes.com/advisor/investing/what-is-a-startup/) for those interested in learning more about about it.
 
-The life of a startup is like a marathon with many sprint stages. A company is *a living organism* with its different growth stages and needs. There is a lot of diversity and autonomy, which demands excellent coordination and cohesion to implement natural interdependence.
+The life of a startup is like a marathon with many sprint stages. There is a lot of diversity and autonomy, which demands excellent coordination and cohesion to implement natural interdependence.
 
 As a team member involved in the hiring process, I meet many people with different level of technical capabilities and soft skills.
 
@@ -33,13 +33,13 @@ Being an owner is not just about “owning something” (even though most of the
 
 Here are some characteristics that may help to understand what ownership means and how it relates to company life:
 
-Owners **get involved**. They want to know about the company's path in all aspects. They want to know what is being done, planned, and achieved. What are the projected goals in time? They contribute to reaching milestones by taking responsibility for what can be done from their perspectives in their roles and field. They understand the company's vision and make analyses and contributions with ideas and feedback for a continuous improvement of the whole.
+Owners **get involved**. They want to know about the company's path in all aspects. They want to know what is being done, planned, and achieved. What are the projected goals? They contribute to reaching milestones by taking responsibility for what can be done from their perspectives in their roles and field. They understand the company's vision and make analyses and contributions with ideas and feedback for a continuous improvement of the whole.
 
 Owners **align.** We need to sync continuously to ensure that we share points of view with our teammates to get the best of our shared perspective and agree on the steps we individually can take to get where we want to get. We must be open to feedback during alignment and dare to share feedback with our teammates. Sincere input from the heart will not always please our egos, but it is critical to build and support a healthy company.
 
 Owners **seek context and knowledge**. For example, technical owners usually need to understand and like the product or project and believe in the impact that could able to achieve. Owners whose role relates to other areas of the company must at least enjoy their contribution to the team and the global aspects of the project. We are talking about doing what we love and loving what we do.
 
-Owners have a certain level of **tolerance for uncertainty**. Startups are business based on venture capital, and it's success depends on many factors that would not rely completely on us. That is why staying calm, focused, and happy about the role and the project contributes to the strength of an adventurous mindset.  On the other hand, startups go into the unknown and are continuously dynamic, so the mind that finds solutions must be creative and willing to explore.
+Owners have a certain level of **tolerance for uncertainty**. The success of any startup depends on many factors, many of those not . That is why staying calm, focused, and happy about the role and the project contributes to the strength of an adventurous mindset.  On the other hand, startups go into the unknown and are continuously dynamic, so the mind that finds solutions must be creative and willing to explore.
 
 Owners are **resilient.** With time, this trait could become “fortitude,” a desirable superpower where we can activate our best version during adversity. Owners don’t take failure too seriously to surrender, but they take it seriously enough to embrace it and learn from it.
 
