@@ -1,9 +1,9 @@
 ---
 title: "What makes an owner?"
 excerpt: "What makes an owner?"
-date: "2022-09-09T18:00:00.000Z"
+date: "2022-09-12T18:00:00.000Z"
 author: Teresa Lopez
-published: false
+published: true
 ---
 
 The startup world is an ecosystem that can be very appealing for those personalities inclined to entrepreneurship at different levels. However, you don’t need to be a founder or a startup CEO to seek a sense of ownership and feel you are contributing to growing and launching something that could have a significant impact.
