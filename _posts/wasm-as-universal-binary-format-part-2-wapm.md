@@ -47,6 +47,8 @@ On one hand, both ape and Wasmer rely on a “universal binary interface” to i
 
 On the other hand, since Wasmer relies on WASI it can also offer a full-sandboxed execution when running the binary (this means that by default no files or sockets could be accessed or created by the binary unless explicitly allowed, for example).
 
+> Edit (Sept 23, 2022): Cosmopolitan Libc actually allows sandboxing on Linux and OpenBSD via kernel support, [as pointed out by Justine](https://twitter.com/JustineTunney/status/1560721316319092736).
+
 To sum up: one Wasm WASI file generates a sandboxed binary for each of the items of the OS/chipset matrix.
 
 ## Distributing binaries is painful
