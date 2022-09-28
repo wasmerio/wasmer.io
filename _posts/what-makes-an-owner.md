@@ -47,7 +47,7 @@ Owners have **accountability**. Each can create an impact in their organization
 
 Owners have **a team vision**. They contribute to the whole. And know that they are serving themselves by serving others. That also means transcending individuality and contributing to company culture, relations, shared experiences, and visions to grow. It also means making decisions by taking into account a large image. This is related to the concept of Ownership that Kaspar L. mentions in his article [“Ownership and responsibility in software development teams”](https://www.linkedin.com/pulse/ownership-responsibility-software-development-teams-kaspar-lyngsie/). It is defined as “taking the initiative to solve a task in the way you, as a team, believe is best.” Regarding this kind of initiative mentionede here:
 
-Owners are **proactive** they take action and feel free to make decisions according to the knowledge of their role and a global vision of the path. This requires a certain sense of self-confidence, which can be built with practice, by daring to take certain measured risks. This consistently overcomes the fear of failing.  
+Owners are **proactive**. They take action and feel free to make decisions according to the knowledge of their role and a global vision of the path. This requires a certain sense of self-confidence, which can be built with practice, by daring to take certain measured risks. This consistently overcomes the fear of failing.  
 
 These reflections can be a clue to check if we are activating all this sense and attitude around ownership and trying to motivate this in others.
 
