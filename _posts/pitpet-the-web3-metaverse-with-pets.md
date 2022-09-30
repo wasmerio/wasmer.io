@@ -1,7 +1,8 @@
 ---
-title: "PitPet - The Web3 Metaverse of Madness with Pets!"
-excerpt: "PitPet - The Web3 Metaverse of Madness with Pets!"
-date: "2022-06-09T12:00:00.000Z"
+title: 'PitPet - The Web3 Metaverse of Madness with Pets!'
+excerpt: 'PitPet - The Web3 Metaverse of Madness with Pets!'
+date: '2022-06-09T12:00:00.000Z'
+ogImage: '/images/blog/pitpet/blockchain.jpg'
 author: Wiqar Chaudry
 published: true
 ---

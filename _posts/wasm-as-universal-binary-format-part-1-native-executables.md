@@ -2,6 +2,7 @@
 title: 'WebAssembly as a Universal Binary Format (Part I: Native executables)'
 excerpt: 'WebAssembly as a Universal Binary Format (Part I: Native executables)'
 date: '2022-08-08T12:00:00.000Z'
+ogImage: '/images/blog/wasm-universal-binary.png'
 author: Syrus Akbary
 published: true
 ---
@@ -32,7 +33,7 @@ In this article we will review how we made this possible (thanks to static objec
 ## 🚀 First, let’s try it out!
 
 > If you want to try this on your laptop, please make sure you have the latest beta version of Wasmer installed.
-> 
+>
 > `curl https://get.wasmer.io -sSfL | sh -s "3.0.0-beta"`
 
 First, let's download wasm2wat.wasm from wapm:
@@ -41,7 +42,7 @@ First, let's download wasm2wat.wasm from wapm:
 $ curl https://registry-cdn.wapm.io/contents/_/wabt/1.0.12/out/wasi/wasm2wat.wasm -o wasm2wat.wasm
 ```
 
-Let's use create-exe (*it requires Zig or Clang installed in your system, and Wasmer 3.0.0-beta1*):
+Let's use create-exe (_it requires Zig or Clang installed in your system, and Wasmer 3.0.0-beta1_):
 
 ```bash
 $ wasmer create-exe wasm2wat.wasm -o ./wasm2wat
@@ -78,7 +79,7 @@ In a nutshell, this is what happens under the hood when calling `wasmer create-e
 Now, let’s get into some depth on how we made this possible:
 
 1. First, we adapted the engine, allowing Wasmer load code directly from native objects-symbols that are linked at runtime.
-The Engine first generates a native object file for a given .wasm file (`.o` in Linux / macOS or `.obj` in Windows).
+   The Engine first generates a native object file for a given .wasm file (`.o` in Linux / macOS or `.obj` in Windows).
 2. Once the object file is generated, we generate a header file that links its contents to certain variables at compilation time and plugs them into the Engine with [`Engine::deserialize_object`](https://github.com/wasmerio/wasmer/blob/master/lib/compiler/src/engine/artifact.rs#L657).
 3. And once that happens, we just need to use the Wasm-C-API that we all love to interact with this Wasm file!
 

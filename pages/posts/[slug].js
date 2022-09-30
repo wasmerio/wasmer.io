@@ -18,9 +18,7 @@ export default function PostPage({ post, morePosts, preview }) {
       <Head>
         <title>{post.title}</title>
         <meta name="title" content={post.title} key="title" />
-        {post.ogImage && (
-          <meta property="og:image" content={post.ogImage.url} />
-        )}
+        {post.ogImage && <meta property="og:image" content={post.ogImage} />}
         <link
           rel="stylesheet"
           href="https://unpkg.com/@tailwindcss/typography@0.2.x/dist/typography.min.css"

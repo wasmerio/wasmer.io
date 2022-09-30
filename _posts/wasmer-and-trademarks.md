@@ -1,7 +1,8 @@
 ---
-title: "Wasmer and Trademarks"
-excerpt: "Wasmer and Trademarks"
-date: "2022-03-21T00:00:00.000Z"
+title: 'Wasmer and Trademarks'
+excerpt: 'Wasmer and Trademarks'
+date: '2022-03-21T00:00:00.000Z'
+ogImage: '/images/blog/trademark-message.png'
 author: Syrus Akbary
 published: false
 ---

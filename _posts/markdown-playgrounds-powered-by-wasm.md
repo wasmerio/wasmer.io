@@ -1,7 +1,8 @@
 ---
-title: "Introducing Markdown Playgrounds - Powered by WebAssembly"
-excerpt: "Introducing Markdown Playgrounds - Powered by WebAssembly"
-date: "2022-04-22T18:00:00.000Z"
+title: 'Introducing Markdown Playgrounds - Powered by WebAssembly'
+excerpt: 'Introducing Markdown Playgrounds - Powered by WebAssembly'
+date: '2022-04-22T18:00:00.000Z'
+ogImage: '/images/blog/wapm-playground-rendered.png'
 author: Syrus Akbary
 published: true
 ---
@@ -37,11 +38,12 @@ playground:
   python:
     run: echo $CODE > example.py ; python -i example.py
 ---
+
 ```
 
 The `run` field defines how the code inside the editor will be "run" in the shell.
 
-Once that's added, you will need to add the `playground` tag next to the language for the code section: Instead of using ````python` we will use ````python playground` 
+Once that's added, you will need to add the `playground` tag next to the language for the code section: Instead of using `` python` we will use  ``python playground`
 
 For example, the README.md for Python can look like the following:
 
