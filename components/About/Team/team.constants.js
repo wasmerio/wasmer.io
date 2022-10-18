@@ -40,6 +40,16 @@ const team = [
       ]
   },
   {
+    name: 'Loïc Chevalier',
+    description:
+      '',
+      image: 'unknown.png',
+      links: [
+        { medium: 'github', handler: 'rajdakin' },
+      ],
+    active: false
+  },
+  {
     name: 'Amanieu D\'Antras',
     description:
       'Lead Runtime Developer. Core Rust Developer',
@@ -64,7 +74,8 @@ const team = [
       image: 'manos.jpeg',
       links: [
         { medium: 'github', handler: 'epilys' },
-      ]
+      ],
+    active: false
   }
 ];
 
