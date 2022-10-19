@@ -43,7 +43,7 @@ const team = [
     name: 'Loïc Chevalier',
     description:
       '',
-      image: 'unknown.png',
+      image: 'loic.jpg',
       links: [
         { medium: 'github', handler: 'rajdakin' },
       ],
