@@ -1,7 +1,7 @@
 ---
 title: "Running WebAssembly in OCaml with Wasmer"
 excerpt: "Running WebAssembly in OCaml with Wasmer"
-date: "2022-10-18T18:00:00.000Z"
+date: "2022-10-21T18:00:00.000Z"
 author: Loïc Chevalier
 published: false
 ---
