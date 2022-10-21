@@ -15,7 +15,7 @@ OCaml is a strongly-typed language that is very popular for FinTech, research an
 
 For those main reasons, I wanted to create Wasmer bindings in OCaml, to be able to load any function from any language compiled to WebAssembly, and use them in OCaml.
 
-(Existing prior art is https://github.com/sgrove/wasmer-ocaml but unfortunately, it was only a work in progress and hasn’t been updated for 2 years.)
+(Existing prior art is [github.com/sgrove/wasmer-ocaml](https://github.com/sgrove/wasmer-ocaml) but unfortunately, it was only a work in progress and hasn’t been updated for 2 years.)
 
 So, how you can use WebAssembly in OCaml? First, let’s install Wasmer with OPAM.
 
