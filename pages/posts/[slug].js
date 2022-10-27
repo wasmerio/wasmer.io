@@ -31,7 +31,7 @@ export default function PostPage({ post, morePosts, preview }) {
         />
         <script async src="//cdn.iframe.ly/embed.js" charset="utf-8"></script>
       </Head>
-      <PostComponent title={post.title} author={post.author} date={post.date}>
+      <PostComponent title={post.title} author={post.author} date={post.publishedAt}>
         <div dangerouslySetInnerHTML={{ __html: post.content }} />
       </PostComponent>
     </>
@@ -81,7 +81,7 @@ export async function getStaticProps({ params }) {
     'content',
     'ogImage',
     'coverImage',
-    'published',
+    'status',
   ]);
   const author = getMemberByName(post.author);
   const content = await markdownToHtml(post.content || '');
@@ -98,7 +98,7 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const posts = getAllPosts(['slug', 'published']);
+  const posts = getAllPosts(['slug', 'status']);
 
   return {
     paths: posts.map((post) => {

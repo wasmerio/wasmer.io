@@ -1,8 +1,10 @@
 ---
 title: 'Wasmer Ruby embedding 1.0 take-off'
-excerpt: 'Announcing the Wasmer Ruby embedding 1.0 availability!'
-date: '2021-07-01T10:11:07.123Z'
-author: Ivan Enderlin
+description: 'Announcing the Wasmer Ruby embedding 1.0 availability!'
+publishedAt: '2021-07-01T10:11:07.123Z'
+author:
+  name: 'Ivan Enderlin'
+status: 'published'
 ---
 
 We are thrilled to announce the release of [Wasmer Ruby embedding
@@ -71,14 +73,14 @@ assert { instance.exports.add_one.(1) == 2 }
 
 A few things to note:
 
-* We have introduced a `Store` type. It holds an engine and a
+- We have introduced a `Store` type. It holds an engine and a
   compiler. Similar to the previous version, the default engine is
   JIT, and the default compiler is Cranelift. However, we introduced
   significant performance improvements in the current release… more on
   that later. In future releases, developers will be able to change
   the default engine and compiler.
-* There is a `wat2wasm` (and `wasm2wat`) function, which are handy!
-* The `instance.exports` getter returns an object of type `Exports`:
+- There is a `wat2wasm` (and `wasm2wat`) function, which are handy!
+- The `instance.exports` getter returns an object of type `Exports`:
   our standard API to retrieve exported “externals”, namely
   `Function`, `Global`, `Memory`, and `Table`. So yes, `wasmer-ruby`
   1.0 provides an API for `Global` and `Table` in addition to
@@ -96,7 +98,7 @@ module with `Module.serialize`, and deserialize it with
 ### Symbol, Proc or Lambda as WebAssembly functions
 
 Host functions are expressed outside of WebAssembly but passed to a
-module as imports.  The new `wasmer-ruby` release enables the use of
+module as imports. The new `wasmer-ruby` release enables the use of
 `Symbol`s, `Proc`s or `Lambda`s as host functions.
 
 Let's see an example that also illustrates the new `ImportObject` API
@@ -395,9 +397,9 @@ write more examples!
 Previously, we were supporting only Ruby 2.6. With `wasmer-ruby` 1.0,
 we now support:
 
-* Ruby 2.6,
-* Ruby 2.7, and
-* Ruby 3.0.
+- Ruby 2.6,
+- Ruby 2.7, and
+- Ruby 3.0.
 
 More platforms are also supported with Linux and macOS.
 

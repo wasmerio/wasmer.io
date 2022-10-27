@@ -1,9 +1,10 @@
 ---
-title: "Introducing Markdown Playgrounds - Powered by WebAssembly"
-excerpt: "Introducing Markdown Playgrounds - Powered by WebAssembly"
-date: "2022-04-22T18:00:00.000Z"
-author: Syrus Akbary
-published: true
+title: 'Introducing Markdown Playgrounds - Powered by WebAssembly'
+description: 'Introducing Markdown Playgrounds - Powered by WebAssembly'
+publishedAt: '2022-04-22T18:00:00.000Z'
+author:
+  name: 'Syrus Akbary'
+status: 'published'
 ---
 
 In [WAPM](https://wapm.io/), we have been thinking about how we can enable live coding on the code snippets inside Markdown Readme files.
@@ -37,11 +38,12 @@ playground:
   python:
     run: echo $CODE > example.py ; python -i example.py
 ---
+
 ```
 
 The `run` field defines how the code inside the editor will be "run" in the shell.
 
-Once that's added, you will need to add the `playground` tag next to the language for the code section: Instead of using ````python` we will use ````python playground` 
+Once that's added, you will need to add the `playground` tag next to the language for the code section: Instead of using `` python` we will use  ``python playground`
 
 For example, the README.md for Python can look like the following:
 

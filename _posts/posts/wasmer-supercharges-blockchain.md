@@ -1,9 +1,10 @@
 ---
 title: 'Wasmer Supercharges Blockchain'
-excerpt: 'WebAssembly with Wasmer for Blockchain and Smart Contracts.'
-date: '2021-07-15T00:00:00.000Z'
-author: Wiqar Chaudry
-published: true
+description: 'WebAssembly with Wasmer for Blockchain and Smart Contracts.'
+publishedAt: '2021-07-15T00:00:00.000Z'
+author:
+  name: 'Wiqar Chaudry'
+status: 'published'
 ---
 
 Described initially by a group of researchers in 1991, blockchain gained mass popularity in 2009 when "Satoshi Nakamoto" used it to create the first digital cryptocurrency Bitcoin. Cryptocurrency is the most commonly known utility for blockchain; however, many other use cases like document tracking, monitoring chains of custody for sensitive information, or tracking products in a supply chain can benefit blockchain technologies. (e.g., legal, financial, pharmaceuticals, food production, etc.)

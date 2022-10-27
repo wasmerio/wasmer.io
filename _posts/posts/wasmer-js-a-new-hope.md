@@ -1,9 +1,10 @@
 ---
 title: 'Wasmer-JS: A New Hope'
-excerpt: 'Wasmer-JS: A New Hope'
-date: '2021-12-07T00:00:00.000Z'
-author: Syrus Akbary
-published: true
+description: 'Wasmer-JS: A New Hope'
+publishedAt: '2021-12-07T00:00:00.000Z'
+author:
+  name: 'Syrus Akbary'
+status: 'published'
 ---
 
 Trusted by thousands of developers worldwide, Wasmer is the first production-ready WebAssembly runtime for Python, Go, Ruby, Java, and more.
@@ -84,13 +85,15 @@ let wasi = new WASI({
   args: [],
 });
 
-const moduleBytes = fetch("https://deno.land/x/wasm@v1.0.0-alpha4/tests/demo.wasm");
+const moduleBytes = fetch(
+  'https://deno.land/x/wasm@v1.0.0-alpha4/tests/demo.wasm',
+);
 const module = await WebAssembly.compileStreaming(moduleBytes);
 await wasi.instantiate(module, {});
 
 let exitCode = wasi.start();
 let stdout = wasi.getStdoutString();
- // This should print "hello world (exit code: 0)"
+// This should print "hello world (exit code: 0)"
 console.log(`${stdout}(exit code: ${exitCode})`);
 ```
 
@@ -115,13 +118,13 @@ let wasi = new WASI({
   args: [],
 });
 
-const moduleBytes = fetch("https://deno.land/x/wasm/tests/demo.wasm");
+const moduleBytes = fetch('https://deno.land/x/wasm/tests/demo.wasm');
 const module = await WebAssembly.compileStreaming(moduleBytes);
 await wasi.instantiate(module, {});
 
 let exitCode = wasi.start();
 let stdout = wasi.getStdoutString();
- // This should print "hello world (exit code: 0)"
+// This should print "hello world (exit code: 0)"
 console.log(`${stdout}(exit code: ${exitCode})`);
 ```
 

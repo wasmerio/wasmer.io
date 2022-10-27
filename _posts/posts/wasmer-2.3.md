@@ -1,9 +1,10 @@
 ---
-title: "Wasmer 2.3"
-excerpt: "Wasmer 2.3"
-date: "2022-06-07T12:00:00.000Z"
-author: Syrus Akbary
-published: true
+title: 'Wasmer 2.3'
+description: 'Wasmer 2.3'
+publishedAt: '2022-06-07T12:00:00.000Z'
+author:
+  name: 'Syrus Akbary'
+status: 'published'
 ---
 
 Today we are excited to launch the next version of Wasmer before our next big release: 3.0.
@@ -17,7 +18,6 @@ Here are some of the things that the Wasmer 2.3 release includes:
 - Upgrade Cranelift to 0.82
 
 > The full Changelog is available here: [https://github.com/wasmerio/wasmer/blob/master/CHANGELOG.md#230---20220606](https://github.com/wasmerio/wasmer/blob/master/CHANGELOG.md#230---20220606)
-
 
 ## A new Stack switcher - Corosensei
 
