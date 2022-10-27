@@ -13,7 +13,7 @@ export const PostComponent = ({ title, children, author, date }) => {
             <div className="flex items-center">
               <img
                 className="w-12 h-12 rounded-full bg-lightgrey"
-                src={getImageUrl(author.image)}
+                src={author.image}
                 alt={author.name}
               />
               <div className="ml-4">
