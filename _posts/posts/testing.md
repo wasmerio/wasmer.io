@@ -1,6 +1,6 @@
 ---
 title: 'Testing'
-status: 'published'
+status: 'draft'
 author:
   name: 'Muhammad Tahir Nawaz'
   picture: 'https://avatars.githubusercontent.com/u/41270547?v=4'
