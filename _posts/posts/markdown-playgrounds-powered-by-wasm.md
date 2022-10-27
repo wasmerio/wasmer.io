@@ -4,7 +4,7 @@ description: 'Introducing Markdown Playgrounds - Powered by WebAssembly'
 publishedAt: '2022-04-22T18:00:00.000Z'
 author:
   name: 'Syrus Akbary'
-  picture: '/images/syrus.png'
+  picture: '/images/team/syrus.png'
 status: 'published'
 ---
 
