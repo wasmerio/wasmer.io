@@ -3,6 +3,7 @@ import { getImageUrl } from '../About/Team/components/Avatar/avatar.component';
 import styles from './post.module.css';
 
 export const AvatarComponent = ({ author }) => {
+
   return (
     <img
       className="w-12 h-12 rounded-full bg-lightgrey"

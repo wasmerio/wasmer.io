@@ -1,9 +1,10 @@
 ---
-title: "Wasmer and Trademarks"
-excerpt: "Wasmer and Trademarks"
-date: "2022-03-21T00:00:00.000Z"
-author: Syrus Akbary
-published: false
+title: 'Wasmer and Trademarks'
+description: 'Wasmer and Trademarks'
+publishedAt: '2022-03-21T00:00:00.000Z'
+author:
+  name: 'Syrus Akbary'
+status: 'draft'
 ---
 
 I’m Syrus, founder and CEO of Wasmer.
