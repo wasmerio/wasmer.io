@@ -4,6 +4,7 @@ description: 'Wasmer 2.1 supporting JS, Singlepass in Windows, iOS, LLVM 13, rep
 publishedAt: '2021-12-01T00:00:00.000Z'
 author:
   name: 'Syrus Akbary'
+  picture: '/images/syrus.png'
 status: 'published'
 ---
 

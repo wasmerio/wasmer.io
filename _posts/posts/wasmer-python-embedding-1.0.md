@@ -5,6 +5,7 @@ description: 'Announcing the immediate availability of the Wasmer Python embeddi
 publishedAt: '2021-01-28T15:35:07.322Z'
 author:
   name: 'Ivan Enderlin'
+  picture: '/images/ivan.jpg'
 status: 'published'
 # ogImage:
 #   url: '/public/images/blog/wasmer-python-embedding-1.0/cover.jpg'

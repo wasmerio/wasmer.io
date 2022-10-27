@@ -4,6 +4,7 @@ description: 'Wasmer enables portability for AI and Tiny ML applications.'
 publishedAt: '2021-07-15T00:00:00.000Z'
 author:
   name: 'Wiqar Chaudry'
+  picture: '/images/wiqar.png'
 status: 'published'
 ---
 

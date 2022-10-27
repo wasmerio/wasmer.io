@@ -4,6 +4,7 @@ description: 'WAPM: A Newly Renovated Home For WebAssembly.'
 publishedAt: '2022-03-02T12:00:00.000Z'
 author:
   name: 'Wiqar Chaudry'
+  picture: '/images/wiqar.png'
 status: 'published'
 ---
 

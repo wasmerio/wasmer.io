@@ -4,6 +4,7 @@ description: 'WebAssembly as a Universal Binary Format (Part I: Native executabl
 publishedAt: '2022-08-08T12:00:00.000Z'
 author:
   name: 'Syrus Akbary'
+  picture: '/images/syrus.png'
 status: 'published'
 ---
 

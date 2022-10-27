@@ -4,6 +4,7 @@ description: 'Running WebAssembly in OCaml with Wasmer'
 publishedAt: '2022-10-21T18:00:00.000Z'
 author:
   name: 'Loïc Chevalier'
+  picture: '/images/loic.jpg'
 status: 'published'
 ---
 

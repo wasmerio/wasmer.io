@@ -4,6 +4,7 @@ description: 'What makes an owner?'
 publishedAt: '2022-09-12T18:00:00.000Z'
 author:
   name: 'Teresa Lopez'
+  picture: '/images/tesi.jpeg'
 status: 'published'
 ---
 

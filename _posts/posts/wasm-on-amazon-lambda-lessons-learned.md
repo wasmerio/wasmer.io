@@ -4,6 +4,7 @@ description: 'WebAssembly On Amazon Lambda: Lessons Learned'
 publishedAt: '2022-06-20T12:00:00.000Z'
 author:
   name: 'Manos'
+  picture: '/images/manos.jpeg'
 status: 'published'
 ---
 

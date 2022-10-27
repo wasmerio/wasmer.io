@@ -4,6 +4,7 @@ description: 'Wasmer 2.2: Major Singlepass Improvements'
 publishedAt: '2022-02-28T00:00:00.000Z'
 author:
   name: 'Sébastien Chevalier'
+  picture: '/images/sebastien.jpg'
 status: 'published'
 ---
 

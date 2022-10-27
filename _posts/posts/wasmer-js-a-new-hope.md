@@ -4,6 +4,7 @@ description: 'Wasmer-JS: A New Hope'
 publishedAt: '2021-12-07T00:00:00.000Z'
 author:
   name: 'Syrus Akbary'
+  picture: '/images/syrus.png'
 status: 'published'
 ---
 

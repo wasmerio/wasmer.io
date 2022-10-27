@@ -4,6 +4,7 @@ description: 'Wasmer and Trademarks'
 publishedAt: '2022-03-21T00:00:00.000Z'
 author:
   name: 'Syrus Akbary'
+  picture: '/images/syrus.png'
 status: 'draft'
 ---
 

@@ -4,6 +4,7 @@ description: 'WebAssembly and associated toolchain components are very technical
 publishedAt: '2022-05-11T21:00:00.000Z'
 author:
   name: 'Wiqar Chaudry'
+  picture: '/images/wiqar.png'
 status: 'published'
 ---
 

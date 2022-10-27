@@ -4,6 +4,7 @@ description: 'Announcing the general availability of the Wasmer 2.0'
 publishedAt: '2021-06-02T15:35:07.322Z'
 author:
   name: 'Syrus Akbary'
+  picture: '/images/syrus.png'
 status: 'published'
 ---
 

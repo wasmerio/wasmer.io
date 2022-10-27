@@ -4,6 +4,7 @@ description: 'PitPet - The Web3 Metaverse of Madness with Pets!'
 publishedAt: '2022-06-09T12:00:00.000Z'
 author:
   name: 'Wiqar Chaudry'
+  picture: '/images/wiqar.png'
 status: 'published'
 ---
 

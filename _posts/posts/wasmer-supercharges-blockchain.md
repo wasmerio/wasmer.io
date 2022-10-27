@@ -4,6 +4,7 @@ description: 'WebAssembly with Wasmer for Blockchain and Smart Contracts.'
 publishedAt: '2021-07-15T00:00:00.000Z'
 author:
   name: 'Wiqar Chaudry'
+  picture: '/images/wiqar.png'
 status: 'published'
 ---
 

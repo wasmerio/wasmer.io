@@ -4,6 +4,7 @@ description: 'Announcing the immediate availability of the Wasmer Go embedding 1
 publishedAt: '2021-02-26T10:17:42.123Z'
 author:
   name: 'Ivan Enderlin'
+  picture: '/images/ivan.jpg'
 status: 'published'
 ---
 

@@ -4,6 +4,7 @@ description: 'This article tries to introduce how traditional HR roles are trans
 publishedAt: '2021-12-15T00:00:00.000Z'
 author:
   name: 'Teresa Lopez'
+  picture: '/images/tesi.jpeg'
 status: 'published'
 ---
 

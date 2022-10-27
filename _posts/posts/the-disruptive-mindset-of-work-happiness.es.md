@@ -4,6 +4,7 @@ description: 'Las compañías exitosas del futuro no van a ser capaces de atraer
 publishedAt: '2021-12-15T00:00:00.000Z'
 author:
   name: 'Teresa Lopez'
+  picture: '/images/tesi.jpeg'
 language: spanish
 status: 'published'
 ---

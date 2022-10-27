@@ -4,6 +4,7 @@ description: 'Wasmer 2.3'
 publishedAt: '2022-06-07T12:00:00.000Z'
 author:
   name: 'Syrus Akbary'
+  picture: '/images/syrus.png'
 status: 'published'
 ---
 
