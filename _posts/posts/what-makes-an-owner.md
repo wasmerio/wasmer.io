@@ -12,7 +12,7 @@ The startup world is an ecosystem that can be very appealing for those personali
 
 ### In this article we will review the characteristics of the ownership mentality that can be a match to startups and influence positively in such fast-moving workplaces.
 
-![DALL·E generated image: oil painting of a happy WOMAN AND happy MAN, BOTH with the attitude of being in charge, with both fists on their waists.png](/images/blog/empowering_ownership.png)
+![DALL·E generated image: oil painting of a happy WOMAN AND happy MAN, BOTH with the attitude of being in charge, with both fists on their waists.png](/images/empowering_ownership.png)
 
 For those unfamiliar with startups, they are particular business environment with fast-paced dynamics usually revolving around a specific bit of tech. I recommend reading [this article](https://www.forbes.com/advisor/investing/what-is-a-startup/) from Forbes for learning more about about it.
 
