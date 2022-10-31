@@ -4,7 +4,6 @@ description: 'Wasmer has designed a unique solution to test and document its own
 publishedAt: '2021-07-06T10:32:01.123Z'
 author:
   name: 'Ivan Enderlin'
-  picture: '/images/ivan.jpg'
 status: 'published'
 ---
 

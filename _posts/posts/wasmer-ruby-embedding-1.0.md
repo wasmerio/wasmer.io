@@ -4,7 +4,6 @@ description: 'Announcing the Wasmer Ruby embedding 1.0 availability!'
 publishedAt: '2021-07-01T10:11:07.123Z'
 author:
   name: 'Ivan Enderlin'
-  picture: '/images/ivan.jpg'
 status: 'published'
 ---
 
