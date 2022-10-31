@@ -48,7 +48,7 @@ export async function getStaticProps({ params }) {
         'coverImage',
         'published',
     ]);
-    const author = getMemberByName(caseStudy.author);
+    const author = getMemberByName({name: caseStudy.author});
     const content = await markdownToHtml(caseStudy.content || '');
 
     return {
