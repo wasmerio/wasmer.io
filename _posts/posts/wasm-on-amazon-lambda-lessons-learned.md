@@ -83,7 +83,7 @@ All user interactions in [pitpet.xyz](http://pitpet.xyz) go through a set of rul
 
 (Note: Everything in _italics_ was not actually implemented.)
 
-![petstory-lifetime.excalidraw.svg](/images/blog/pitpet/petstory-lifetime.excalidraw.svg)
+![petstory-lifetime.excalidraw.svg](/images/petstory-lifetime.excalidraw.svg)
 
 - Creating an account is a “birth” even encoded into the blockchain. This gives you basically a “birth hash” that is signed by your account password. So it’s an NFT of your pet.
 - All social interactions are associated with a target “birth hash” and they are encoded in the blockchain.
