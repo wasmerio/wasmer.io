@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './post.module.css';
-import { getImageUrl } from '../About/Team/components/Avatar/avatar.component';
 import { DateFormatter } from '../Date';
 
 export const PostComponent = ({ title, children, author, date }) => {
