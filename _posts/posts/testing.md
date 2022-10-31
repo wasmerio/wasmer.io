@@ -1,6 +1,6 @@
 ---
 title: 'Testing'
-status: 'draft'
+status: 'published'
 author:
   name: 'Muhammad Tahir Nawaz'
   picture: 'https://avatars.githubusercontent.com/u/41270547?v=4'
@@ -10,5 +10,5 @@ coverImage: ''
 publishedAt: '2022-10-31T05:34:38.587Z'
 ---
 
-This is only for testing purposes.
+This is purposes.
 
