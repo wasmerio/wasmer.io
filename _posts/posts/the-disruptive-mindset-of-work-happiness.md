@@ -12,7 +12,7 @@ Some jobs seem to pop up suddenly as society evolves, but they've silently taken
 
 Since I've dedicated myself to Corporate Happiness, I usually get a lovely "flabbergasted smiley expression" when I tell people what I do. **I work in a very revolutionary deep-tech startup, Wasmer, as an Operations and People Happiness Manager.**
 
-![/images/blog/team-building-outfinders.jpg](/images/blog/team-building-outfinders.jpg)
+![/images/team-building-outfinders.jpg](/images/team-building-outfinders.jpg)
 
 ### **This article tries to introduce how traditional HR roles are transforming into more people and teams-oriented positions [[1]](#people) or complemented by functions that highlight wellness as a core need to facilitate company goals joyfully.**
 

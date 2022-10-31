@@ -20,7 +20,7 @@ curl https://get.wasmer.io -sSfL | sh
 
 Or visit our repo: [github.com/wasmerio/wasmer](https://github.com/wasmerio/wasmer)
 
-![/images/blog/wasmer-2.0/wasmer-20.jpg](/images/blog/wasmer-2.0/wasmer-20.jpg)
+![/images/wasmer-20.jpg](/images/wasmer-20.jpg)
 
 ### 2.0... A tale of Edge Cases, Engineers, and Semantic Versioning.
 
@@ -55,11 +55,11 @@ If you decided to switch to Wasmer 2.0 from Wasmer 1.0, you would notice the dif
 - Cranelift runtime speed is 40% faster, thanks to their new backend architecture
 - Deserialization time is very, very fast.
 
-![/images/blog/wasmer-2.0/llvm-runtime-performance.png](/images/blog/wasmer-2.0/llvm-runtime-performance.png)
+![/images/llvm-runtime-performance.png](/images/llvm-runtime-performance.png)
 
-![/images/blog/wasmer-2.0/cranelift-runtime-performance.png](/images/blog/wasmer-2.0/cranelift-runtime-performance.png)
+![/images/cranelift-runtime-performance.png](/images/cranelift-runtime-performance.png)
 
-![/images/blog/wasmer-2.0/deserialization-performance.png](/images/blog/wasmer-2.0/deserialization-performance.png)
+![/images/deserialization-performance.png](/images/deserialization-performance.png)
 
 If you're new to the Wasmer community, you'll be delighted with the incredible performance that you can achieve with Wasmer 2.0, bringing your Wasm programs and libraries very close to native speeds.
 

@@ -24,7 +24,7 @@ Here we go.
 
 ## Web3
 
-![Pitpet Blockchain Web3](/images/blog/pitpet/blockchain.jpg)
+![Pitpet Blockchain Web3](/images/blockchain.jpg)
 
 > Photo by [Shubham Dhage](https://unsplash.com/es/@theshubhamdhage?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/web3?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) — so fancy.
 
@@ -38,7 +38,7 @@ Decentralized ownership and governance are two defining characteristics of Web3.
 
 Thank you, Mark. We know who you are!
 
-![Pitpet Meta](/images/blog/pitpet/meta.png)
+![Pitpet Meta](/images/meta.png)
 
 It all started as fun and games. Augmented reality glasses from Google and Snap, some virtual reality headsets from Microsoft, Sony, and Facebook, and before we knew it, we were in the Metaverse. The Metaverse is essentially a virtual environment where you go to have virtual experiences <s>because real life is just too hard</s> because that's what the kids are doing these days.
 

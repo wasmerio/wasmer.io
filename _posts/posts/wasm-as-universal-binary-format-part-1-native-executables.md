@@ -12,7 +12,7 @@ At Wasmer, we have worked tirelessly on making WebAssembly as widely adopted as 
 
 One of the things we identified that could help broaden the adoption is using the Wasm binaries to create native executables for any given platform or chipset, so **WebAssembly can really become the lingua franca for all the software applications out there**.
 
-![/images/blog/wasm-universal-binary.png](/images/blog/wasm-universal-binary.png)
+![/images/wasm-universal-binary.png](/images/wasm-universal-binary.png)
 
 Given a `program.wasm`, we could ideally generate native binaries (that don’t depend on any kind of compilation at runtime) that run anywhere:
 

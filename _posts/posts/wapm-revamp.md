@@ -20,7 +20,7 @@ We decided to redesign the new WAPM user experience with the community's immedia
 
 Behind every WebAssembly package, there is a developer or maybe multiple developers! It's time to get to know them. Every WAPM account now features a profile page for its members. You can create an account or use your existing account to upload an avatar, add a bio, and provide links to external sites like Github, Twitter, or personal websites.
 
-![WAPM User page](/images/blog/wapm-revamp/user.png)
+![WAPM User page](/images/user.png)
 
 ## Package Experience
 
@@ -28,7 +28,7 @@ It's all about WebAssembly packages, of course. WAPM is optimized to help develo
 
 **Run Packages Online**
 
-![WAPM Shell](/images/blog/wapm-revamp/shell.png)
+![WAPM Shell](/images/shell.png)
 
 A brand-new in-browser terminal experience lets you safely interact with WebAssembly apps online. WAPM automatically detects `run` and `install` commands within package `Readme` and converts them into executable links. Clicking the links runs the `.wasm` files in the browser-based terminal. Using the command line within the terminal unlocks additional features like local filesystem access.
 
@@ -48,7 +48,7 @@ The most critical goals for WAPM are to enable, grow, and expand the WebAssembly
 
 Everything is more fun with friends! Package collaboration enables maintaining and creating WebAssembly packages with other developers a breeze. Just go to your package settings and invite your friends. WAPM automatically invites existing WAPM users by username or email address. If your collaborators are not members of WAPM, don't worry, we'll send them an email invite.
 
-![WAPM Settings](/images/blog/wapm-revamp/settings.png)
+![WAPM Settings](/images/settings.png)
 
 **Namespaces**
 

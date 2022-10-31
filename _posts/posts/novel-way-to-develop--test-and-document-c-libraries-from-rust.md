@@ -383,7 +383,7 @@ $ cargo doc --open
 
 Here is the result:
 
-![C code in Rust documentation](/images/blog/novel-way-to-develop--test-and-document-c-libraries-from-rust/hello.png)
+![C code in Rust documentation](/images/hello.png)
 
 Fantastic! Our example in the Rust documentation is a C program, that
 is actually tested. We are sure the documentation provides correct

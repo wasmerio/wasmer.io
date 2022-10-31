@@ -172,8 +172,8 @@ should be fixed quickly.)
 The results are presented in the following graph:
 
 <figure>
-  <a href="/images/blog/wasmer-python-embedding-1.0/graph-wheel-size.png" target="_blank" title="Open the image at full size">
-    <img src="/images/blog/wasmer-python-embedding-1.0/graph-wheel-size.png" />
+  <a href="/images/graph-wheel-size.png" target="_blank" title="Open the image at full size">
+    <img src="/images/graph-wheel-size.png" />
   </a>
   <figcaption>Size of wheels (in Mb); lower is better.</figcatpion>
 </figure>
@@ -286,8 +286,8 @@ Here is quick benchmark to show how the `Buffer` improves performance
 when reading 1 and 255 bytes from memory (the lower the better):
 
 <figure>
-  <a href="/images/blog/wasmer-python-embedding-1.0/graph-memory-read.png" target="_blank" title="Open the image at full size">
-    <img src="/images/blog/wasmer-python-embedding-1.0/graph-memory-read.png" />
+  <a href="/images/graph-memory-read.png" target="_blank" title="Open the image at full size">
+    <img src="/images/graph-memory-read.png" />
   </a>
   <figcaption>Reading 1 and 255 bytes in memory (in ns).</figcaption>
 </figure>
@@ -464,8 +464,8 @@ our Singlepass, Cranelift and LLVM compilers. Times are given in
 microseconds (μs).
 
 <figure>
-  <a href="/images/blog/wasmer-python-embedding-1.0/graph-compilation.png" target="_blank" title="Open the image at full size">
-    <img src="/images/blog/wasmer-python-embedding-1.0/graph-compilation.png" />
+  <a href="/images/graph-compilation.png" target="_blank" title="Open the image at full size">
+    <img src="/images/graph-compilation.png" />
   </a>
   <figcaption>Create a <code>Module</code> with the JIT engine + the
   Cranelift, LLVM and Singlepass compilers (in μs).</figcaption>
@@ -489,8 +489,8 @@ Singlepass, Cranelift or LLVM compiler. We are going to use a headless
 engine here, so the `wasmer` package alone with no compiler.
 
 <figure>
-  <a href="/images/blog/wasmer-python-embedding-1.0/graph-headless.png" target="_blank" title="Open the image at full size">
-    <img src="/images/blog/wasmer-python-embedding-1.0/graph-headless.png" />
+  <a href="/images/graph-headless.png" target="_blank" title="Open the image at full size">
+    <img src="/images/graph-headless.png" />
   </a>
   <figcaption>Create a <code>Module</code> with the JIT headless
   engine (module is pre-compiled) (in μs).</figcaption>
@@ -511,8 +511,8 @@ executable code. So let’s use it! As we said, we are going to execute
 test. Let’s see how they perform.
 
 <figure>
-  <a href="/images/blog/wasmer-python-embedding-1.0/graph-execution.png" target="_blank" title="Open the image at full size">
-    <img src="/images/blog/wasmer-python-embedding-1.0/graph-execution.png" />
+  <a href="/images/graph-execution.png" target="_blank" title="Open the image at full size">
+    <img src="/images/graph-execution.png" />
   </a>
   <figcaption>Executing <code>console.log("hello")</code> with
   <code>qjs.wasm</code>, compiled with the Cranelift, LLVM and

@@ -44,7 +44,7 @@ The lawyers eventually began the process of creating the foundation itself and I
 
 A few months later, on July 13th, 2020 I received this message on Twitter from a member of the W3C:
 
-![Wasmer Trademark Message](/images/blog/trademark-message.png)
+![Wasmer Trademark Message](/images/trademark-message.png)
 
 As soon as I received that message I contacted the lawyers and realized that:
 

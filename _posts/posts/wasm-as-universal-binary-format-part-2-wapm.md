@@ -59,7 +59,7 @@ Even once you created multiple binaries, you still need to distribute them and m
 
 A method most developers use is Github Releases. Here’s how WABT (a WebAssembly binary toolkit with multiple executable utilities) used Github for their latest release ([version 1.0.29](https://github.com/WebAssembly/wabt/releases/tag/1.0.29)):
 
-![Wabt in Github Releases](/images/blog/wapm-native-executables-github-releases.png)
+![Wabt in Github Releases](/images/wapm-native-executables-github-releases.png)
 
 However, this approach usually means integrating the “Build process” inside of your CI process. That is, you have to build it from multiple operating systems.
 
@@ -88,7 +88,7 @@ Then we automatically created and published standalone binaries for each of the 
 
 So, if you are using Python, there is a `python` WAPM package that you can run either via Wasmer (requiring you to install it via the `wapm` cli), or in a completely standalone way!
 
-![Executables in the Python WAPM package page](/images/blog/wapm-native-executables.png)
+![Executables in the Python WAPM package page](/images/wapm-native-executables.png)
 
 > Executables in the [Python Python package page](https://wapm.io/python/python)
 

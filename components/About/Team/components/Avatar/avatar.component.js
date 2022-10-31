@@ -2,7 +2,7 @@ import React from 'react';
 
 export const getImageUrl = (image) => {
   const unknown = 'unknown.png';
-  return `/images/team/${image ? image : unknown}`;
+  return `/images/${image ? image : unknown}`;
 };
 
 export const AvatarComponent = ({ image, name }) => {

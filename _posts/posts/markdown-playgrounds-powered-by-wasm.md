@@ -66,7 +66,7 @@ print(f"Hello, {name}!")
 The above code snippet produces the Markdown file, and it renders in [WAPM.io](http://wapm.io/)
  like this:
 
-![WAPM Playground rendered](/images/blog/wapm-playground-rendered.png)
+![WAPM Playground rendered](/images/wapm-playground-rendered.png)
 
 If you're familiar with [Jupyter Notebooks](https://jupyter.org/), you might have noticed this concept is very similar. However, there is one exception; WebAssembly powers WAPM markdown playgrounds. It makes it possible to define how to run the code inside the playground, so it's way more pluggable and easy to use!
 
