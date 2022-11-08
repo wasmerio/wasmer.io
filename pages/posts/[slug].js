@@ -111,3 +111,8 @@ export async function getStaticPaths() {
     fallback: false,
   };
 }
+
+
+export const config = {
+  runtime: "nodejs",
+};
