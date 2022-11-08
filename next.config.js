@@ -7,7 +7,7 @@ module.exports = withReactSvg({
     return config;
   },
   experimental: {
-    runtime: 'nodejs',
+    runtime: 'experimental-edge',
   },
   env: {
     GITHUB_API_ACTIVE: process.env.GITHUB_API_ACTIVE ? process.env.GITHUB_API_ACTIVE : false,
