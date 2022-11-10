@@ -61,6 +61,6 @@ export async function getStaticProps() {
 }
 
 
-export const config = {
-  runtime: "nodejs",
-};
+// export const config = {
+//   runtime: "nodejs",
+// };

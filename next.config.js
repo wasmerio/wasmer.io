@@ -6,10 +6,25 @@ module.exports = withReactSvg({
   webpack(config, options) {
     return config;
   },
-  experimental: {
-    runtime: 'experimental-edge',
-  },
+  // experimental: {
+  //   runtime: 'experimental-edge',
+  // },
   env: {
     GITHUB_API_ACTIVE: process.env.GITHUB_API_ACTIVE ? process.env.GITHUB_API_ACTIVE : false,
   }
 });
+
+
+
+// const nextConfig = {
+//     experimental: {
+//       runtime: 'experimental-edge',
+//     },
+//     reactStrictMode: true,
+//     swcMinify: true,
+//     env: {
+//       GITHUB_API_ACTIVE: process.env.GITHUB_API_ACTIVE ? process.env.GITHUB_API_ACTIVE : false,
+//     }
+//   }
+  
+//   module.exports = nextConfig
