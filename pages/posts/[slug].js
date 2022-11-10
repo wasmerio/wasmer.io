@@ -113,6 +113,6 @@ export async function getStaticPaths() {
 }
 
 
-// export const config = {
-//   runtime: "nodejs",
-// };
+export const config = {
+  runtime: "nodejs",
+};
