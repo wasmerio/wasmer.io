@@ -68,3 +68,8 @@ We are transparent in terms of what we do and how we do it. Knowing plans and di
 `);
   return { props: { content } };
 }
+
+
+export const config = {
+  runtime: "nodejs",
+};
