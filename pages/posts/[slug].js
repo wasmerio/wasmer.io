@@ -99,6 +99,7 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
   const posts = getAllPosts(['slug', 'status']);
+  // const posts = [];
 
   return {
     paths: posts.map((post) => {
@@ -110,4 +111,8 @@ export async function getStaticPaths() {
     }),
     fallback: false,
   };
+}
+
+export const config = {
+  runtime: 'experimental-edge',
 }
