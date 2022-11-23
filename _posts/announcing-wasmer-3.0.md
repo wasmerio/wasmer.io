@@ -20,7 +20,7 @@ So, what’s new in Wasmer?
 
 # `wasmer run`
 
-Wasmer run now in steroids. You can now pass any package published to [wapm.io](http://wapm.io) to the wasmer cli! 🎉 
+Wasmer run, now on steroids. You can now pass any package published to [wapm.io](http://wapm.io) to the wasmer cli! 🎉 
 
 For example, `wasmer run python/python` will download and run directly the python package from the [wapm.io](http://wapm.io) package registry. 
 
@@ -28,7 +28,7 @@ For example, `wasmer run python/python` will download and run directly the pytho
 
 > The wasmer CLI running python in the [Warp terminal](https://www.warp.dev/)!
 
-This greatly simplifies the flow for running packages from wapm with wasmer.
+This greatly simplifies the flow for running WASI executables from WAPM with wasmer.
 
 ## Better API and Memory Management
 
@@ -61,7 +61,7 @@ As reviewed in previous blog posts, we revamped the `create-exe` subcommand in W
 Wasmer can now turn a WebAssembly file into a native Windows, Linux or Mac OS executable.
 This enables distributing executables to users, without requiring them to install Wasmer themselfes.
 
-This functionality is implemented on top of [Zig](https://ziglang.org/) cross compilation abilities.
+This functionality is implemented on top of [Zig's](https://ziglang.org/) cross compilation abilities.
 
 You can learn more about how `create-exe` works here:
 
