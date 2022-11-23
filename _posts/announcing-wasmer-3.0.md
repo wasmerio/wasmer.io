@@ -90,6 +90,6 @@ Stay tuned for some updates on WAI soon!
 
 Install the latest version of the Wasmer CLI and let us know your thoughts!
 
-```jsx
+```bash
 curl https://get.wasmer.io -sSfL | sh
 ```
