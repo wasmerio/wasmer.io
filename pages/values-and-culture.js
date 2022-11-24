@@ -31,7 +31,7 @@ export default function ValuesAndCulture({ content }) {
   );
 }
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps() {
   const content = await markdownToHtml(`
 These Values and Culture statements below are much more than company good intentions. They are the result of a lot of learnt lessons, thoughtful leadership, and the will to put in the center of our actions and growth, our core values. This is how we work on a daily basis, a reminder for each of us in the Wasmer Team, and a welcoming honest declaration for those who are joining onboard. 
 

@@ -6,6 +6,9 @@ module.exports = withReactSvg({
   webpack(config, options) {
     return config;
   },
+  experimental: {
+    runtime: 'experimental-edge',
+  },
   env: {
     GITHUB_API_ACTIVE: process.env.GITHUB_API_ACTIVE ? process.env.GITHUB_API_ACTIVE : false,
   }
