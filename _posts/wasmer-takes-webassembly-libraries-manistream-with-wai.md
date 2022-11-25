@@ -60,10 +60,7 @@ impl crate::calculator::Calculator for Calculator {
 
 ```
 
-<aside>
-💡 You can use `cargo expand` to see what’s the expected trait that you should implement. To install it you can do `cargo install cargo-expand`.
-
-</aside>
+💡 You can use `cargo expand` to see the generated code and the `Calculator` trait's definition (`cargo install cargo-expand`).
 
 ### Let’s publish it!
 
