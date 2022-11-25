@@ -2,7 +2,7 @@
 title: "Wasmer takes WebAssembly libraries mainstream with WAI"
 excerpt: "Import WebAssembly libraries just like any other dependency in your project"
 date: "2022-11-25T12:00:00.000Z"
-coverImage: "/public/images/blog/use-wai.md"
+coverImage: "/images/blog/use-wai.png"
 author: Michael Bryan
 published: false
 ---
@@ -16,6 +16,8 @@ WAI builds on top of the official WebAssembly Interface Types specification, and
 > Note: Unfortunately, the maintainers behind `wit-bindgen` [didn’t want to add support](https://github.com/bytecodealliance/wit-bindgen/issues/306) for [Wasmer upstream](https://github.com/bytecodealliance/wit-bindgen/pull/173). [As we previously coined the `wai` extension](https://medium.com/wasmer/introducing-webassembly-interfaces-bb3c05bc671), we decided to reuse this name for the WebAssembly Interfaces project (think of WAI as WASI without the “System”!). We will be very happy to merge the changes upstream if the `wit-bindgen` maintainers change opinion on supporting Wasmer in the future!
 
 The WAI addition to the [WebAssembly Package Manager](https://wapm.io/) streamlines the way developers use WebAssembly in their applications by automatically generating installable packages for your language of choice.
+
+![/images/blog/use-wai.png](/images/blog/use-wai.png)
 
 In fact, you can see it in action right now with the vscode-wasm plugin, used by more than 92 thousand developers worldwide!
 
