@@ -1,11 +1,12 @@
 ---
 title: 'Wasmer enables portable AI'
-excerpt: 'Wasmer enables portability for AI and Tiny ML applications.'
-date: '2021-07-15T00:00:00.000Z'
-author: Wiqar Chaudry
-published: true
+description: 'Wasmer enables portability for AI and Tiny ML applications.'
+publishedAt: '2021-07-15T00:00:00.000Z'
+author:
+  name: 'Wiqar Chaudry'
+  picture: '/images/wiqar.png'
+status: 'published'
 ---
-
 
 Machine learning and AI (ML/AI) enable everyday "things" like Siri/Alexa, Nest thermostats, or more complex applications like autonomous vehicles. Better connectivity (fiber, 5G, etc.), the proliferation of connected devices (IoT), and the need to solve increasingly complex problems in healthcare or cybersecurity are the driving forces behind modern ML/AI applications.
 

@@ -1,16 +1,18 @@
 ---
 title: Wasmer 2.0, It's a big deal!
-excerpt: 'Announcing the general availability of the Wasmer 2.0'
-date: '2021-06-02T15:35:07.322Z'
-author: Syrus Akbary
-published: true
+description: 'Announcing the general availability of the Wasmer 2.0'
+publishedAt: '2021-06-02T15:35:07.322Z'
+author:
+  name: 'Syrus Akbary'
+  picture: '/images/syrus.png'
+status: 'published'
 ---
 
 It's been almost 6-months since we released Wasmer 1.0, and the community support and reception were incredible. Since then, we've been hard at work on the next version of Wasmer.
 
 **Today, we're pleased to announce the general availability of Wasmer 2.0!**
 
-Can't wait to try it? *Go ahead!*
+Can't wait to try it? _Go ahead!_
 
 ```bash
 curl https://get.wasmer.io -sSfL | sh
@@ -18,8 +20,7 @@ curl https://get.wasmer.io -sSfL | sh
 
 Or visit our repo: [github.com/wasmerio/wasmer](https://github.com/wasmerio/wasmer)
 
-![/images/blog/wasmer-2.0/wasmer-20.jpg](/images/blog/wasmer-2.0/wasmer-20.jpg)
-
+![/images/wasmer-20.jpg](/images/wasmer-20.jpg)
 
 ### 2.0... A tale of Edge Cases, Engineers, and Semantic Versioning.
 
@@ -49,17 +50,16 @@ It wouldn't be a new release without shiny performance improvements. The only th
 
 If you decided to switch to Wasmer 2.0 from Wasmer 1.0, you would notice the difference.
 
-- LLVM runtime speed is around ~50% faster when operating with floats (thanks to optimal management of *NaNs*)
+- LLVM runtime speed is around ~50% faster when operating with floats (thanks to optimal management of _NaNs_)
 - Function calls are now much, much quicker, avoiding kernel interaction when possible (thanks to `sigsetjmp` and `siglongjmp`)
 - Cranelift runtime speed is 40% faster, thanks to their new backend architecture
 - Deserialization time is very, very fast.
 
-![/images/blog/wasmer-2.0/llvm-runtime-performance.png](/images/blog/wasmer-2.0/llvm-runtime-performance.png)
+![/images/llvm-runtime-performance.png](/images/llvm-runtime-performance.png)
 
-![/images/blog/wasmer-2.0/cranelift-runtime-performance.png](/images/blog/wasmer-2.0/cranelift-runtime-performance.png)
+![/images/cranelift-runtime-performance.png](/images/cranelift-runtime-performance.png)
 
-![/images/blog/wasmer-2.0/deserialization-performance.png](/images/blog/wasmer-2.0/deserialization-performance.png)
-
+![/images/deserialization-performance.png](/images/deserialization-performance.png)
 
 If you're new to the Wasmer community, you'll be delighted with the incredible performance that you can achieve with Wasmer 2.0, bringing your Wasm programs and libraries very close to native speeds.
 

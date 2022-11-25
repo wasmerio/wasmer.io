@@ -1,9 +1,11 @@
 ---
-title: "Wasmer and Trademarks"
-excerpt: "Wasmer and Trademarks"
-date: "2022-03-21T00:00:00.000Z"
-author: Syrus Akbary
-published: false
+title: 'Wasmer and Trademarks'
+description: 'Wasmer and Trademarks'
+publishedAt: '2022-03-21T00:00:00.000Z'
+author:
+  name: 'Syrus Akbary'
+  picture: '/images/syrus.png'
+status: 'draft'
 ---
 
 I’m Syrus, founder and CEO of Wasmer.
@@ -42,7 +44,7 @@ The lawyers eventually began the process of creating the foundation itself and I
 
 A few months later, on July 13th, 2020 I received this message on Twitter from a member of the W3C:
 
-![Wasmer Trademark Message](/images/blog/trademark-message.png)
+![Wasmer Trademark Message](/images/trademark-message.png)
 
 As soon as I received that message I contacted the lawyers and realized that:
 

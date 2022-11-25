@@ -1,9 +1,11 @@
 ---
 title: 'Wasmer enables FaaS'
-excerpt: 'Build your FaaS platform or application with Wasmer.'
-date: '2021-07-15T00:00:00.000Z'
-author: Wiqar Chaudry
-published: true
+description: 'Build your FaaS platform or application with Wasmer.'
+publishedAt: '2021-07-15T00:00:00.000Z'
+author:
+  name: 'Wiqar Chaudry'
+  picture: '/images/wiqar.png'
+status: 'published'
 ---
 
 Software development has evolved from 3-tier applications to microservices enabled by virtualization and cloud computing. Microservices and containerization dramatically improve the separation of concerns for large software applications. However, microservices are complex and challenging to deploy, orchestrate, manage, and scale.

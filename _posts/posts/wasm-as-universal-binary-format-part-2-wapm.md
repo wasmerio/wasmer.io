@@ -1,16 +1,18 @@
 ---
 title: 'WebAssembly as a Universal Binary Format (Part II: WAPM)'
-excerpt: 'WebAssembly as a Universal Binary Format (Part II: WAPM)'
-date: '2022-08-19T12:00:00.000Z'
-author: Syrus Akbary
-published: true
+description: 'WebAssembly as a Universal Binary Format (Part II: WAPM)'
+publishedAt: '2022-08-19T12:00:00.000Z'
+author:
+  name: 'Syrus Akbary'
+  picture: '/images/syrus.png'
+status: 'published'
 ---
 
 In the [first article in this series](https://wasmer.io/posts/wasm-as-universal-binary-format-part-1-native-executables) we demonstrated how you can create standalone executable files from WebAssembly WASI files that will work in any operating system; which means we can create a `python.exe` (or `python.out`) from a `python` package, without depending on any WebAssembly Runtime at all (see the [Python package on WAPM](https://wapm.io/python/python))!
 
 This was great and very well adopted by the community, but we were missing one big part of the picture: how can we use this new feature to improve the life of developers?
 
-*TL;DR: Using the wasmer compiler we compile all WASI packages published to WAPM to a native executable for all available platforms, so that you don't need to ship a complete WASM runtime to run your wasm files.*
+_TL;DR: Using the wasmer compiler we compile all WASI packages published to WAPM to a native executable for all available platforms, so that you don't need to ship a complete WASM runtime to run your wasm files._
 
 <video width="960" height="720" controls preload="auto" autoplay loop muted>
   <source src="/images/blog/wapm-native-executables.mp4" type="video/mp4">
@@ -57,7 +59,7 @@ Even once you created multiple binaries, you still need to distribute them and m
 
 A method most developers use is Github Releases. Here’s how WABT (a WebAssembly binary toolkit with multiple executable utilities) used Github for their latest release ([version 1.0.29](https://github.com/WebAssembly/wabt/releases/tag/1.0.29)):
 
-![Wabt in Github Releases](/images/blog/wapm-native-executables-github-releases.png)
+![Wabt in Github Releases](/images/wapm-native-executables-github-releases.png)
 
 However, this approach usually means integrating the “Build process” inside of your CI process. That is, you have to build it from multiple operating systems.
 
@@ -86,7 +88,8 @@ Then we automatically created and published standalone binaries for each of the 
 
 So, if you are using Python, there is a `python` WAPM package that you can run either via Wasmer (requiring you to install it via the `wapm` cli), or in a completely standalone way!
 
-![Executables in the Python WAPM package page](/images/blog/wapm-native-executables.png)
+![Executables in the Python WAPM package page](/images/wapm-native-executables.png)
+
 > Executables in the [Python Python package page](https://wapm.io/python/python)
 
 You're using the new macOS M1 machines? → [python-apple-arm64-0.1.0.tar.gz](https://registry-cdn.wapm.io/distribution/exe/python/python/python-apple-arm64-0.1.0.tar.gz)

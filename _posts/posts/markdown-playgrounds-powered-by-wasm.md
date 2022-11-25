@@ -1,9 +1,11 @@
 ---
-title: "Introducing Markdown Playgrounds - Powered by WebAssembly"
-excerpt: "Introducing Markdown Playgrounds - Powered by WebAssembly"
-date: "2022-04-22T18:00:00.000Z"
-author: Syrus Akbary
-published: true
+title: 'Introducing Markdown Playgrounds - Powered by WebAssembly'
+description: 'Introducing Markdown Playgrounds - Powered by WebAssembly'
+publishedAt: '2022-04-22T18:00:00.000Z'
+author:
+  name: 'Syrus Akbary'
+  picture: '/images/syrus.png'
+status: 'published'
 ---
 
 In [WAPM](https://wapm.io/), we have been thinking about how we can enable live coding on the code snippets inside Markdown Readme files.
@@ -37,11 +39,12 @@ playground:
   python:
     run: echo $CODE > example.py ; python -i example.py
 ---
+
 ```
 
 The `run` field defines how the code inside the editor will be "run" in the shell.
 
-Once that's added, you will need to add the `playground` tag next to the language for the code section: Instead of using ````python` we will use ````python playground` 
+Once that's added, you will need to add the `playground` tag next to the language for the code section: Instead of using `` python` we will use  ``python playground`
 
 For example, the README.md for Python can look like the following:
 
@@ -63,7 +66,7 @@ print(f"Hello, {name}!")
 The above code snippet produces the Markdown file, and it renders in [WAPM.io](http://wapm.io/)
  like this:
 
-![WAPM Playground rendered](/images/blog/wapm-playground-rendered.png)
+![WAPM Playground rendered](/images/wapm-playground-rendered.png)
 
 If you're familiar with [Jupyter Notebooks](https://jupyter.org/), you might have noticed this concept is very similar. However, there is one exception; WebAssembly powers WAPM markdown playgrounds. It makes it possible to define how to run the code inside the playground, so it's way more pluggable and easy to use!
 

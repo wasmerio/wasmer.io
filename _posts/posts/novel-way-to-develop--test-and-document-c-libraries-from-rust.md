@@ -1,9 +1,10 @@
 ---
 title: Novel way to Develop, Test and Document C libraries from Rust
-excerpt: 'Wasmer has designed a unique solution to test and document its own C API.'
-date: '2021-07-06T10:32:01.123Z'
-author: Ivan Enderlin
-published: true
+description: 'Wasmer has designed a unique solution to test and document its own C API.'
+publishedAt: '2021-07-06T10:32:01.123Z'
+author:
+  name: 'Ivan Enderlin'
+status: 'published'
 ---
 
 Wasmer [server-side WebAssembly runtime](https://github.com/wasmerio/wasmer) comes in
@@ -53,10 +54,10 @@ Something like:
 #[test]
 fn my_test() {
     #include <assert.h>
-    
+
     int a = 3;
     int b = 1 + 2;
-    
+
     assert(a == b);
 }
 ```
@@ -95,8 +96,7 @@ Close enough! You will notice that we have assertions in C (from
 2. Run it,
 3. Report the outputs as tests.
 
-It's a little bit more verbose because we have to write `int main() {
-… }` etc. That's on purpose, because we might want to add some
+It's a little bit more verbose because we have to write `int main() { … }` etc. That's on purpose, because we might want to add some
 `#include`, or more C code around it. It is also possible to assert on
 the results of the C program. Let's see another example of how to add
 assertions on `stdout` for example:
@@ -239,7 +239,7 @@ use std::path::PathBuf;
 
 fn main() {
     let manifest_dir = env::var("CARGO_MANIFEST_DIR").unwrap();
-    
+
     // Step 1, let's generate the `hello.h` file automatically.
     cbindgen::Builder::new()
         .with_crate(&manifest_dir)
@@ -309,7 +309,7 @@ Let's push the concept further. So far, we are able to write C code
 inside Rust. OK, and let's not forget that Rust has great comments
 where blocks of code can be run as tests, like:
 
-```rust
+````rust
 /// The `hello` function is very polite.
 ///
 /// ```rust
@@ -321,7 +321,7 @@ where blocks of code can be run as tests, like:
 pub fn hello(who: &str) -> String {
     // …
 }
-```
+````
 
 Did you notice the `#` in front of some lines? It's a `rustdoc`'s
 trick that makes it is possible to [hide portions of the
@@ -332,10 +332,9 @@ We can run it with `cargo test --doc`. And we can generate the
 documentation with `cargo doc`. That's really super classic for a Rust
 developer.
 
-But what if we… write… and test… C code… with `cargo test` and `cargo
-doc`? I really love your way of thinking dear reader! Let's try that!
+But what if we… write… and test… C code… with `cargo test` and `cargo doc`? I really love your way of thinking dear reader! Let's try that!
 
-```rust
+````rust
 /// The `hello` function is very polite.
 ///
 /// ```rust
@@ -361,7 +360,7 @@ doc`? I really love your way of thinking dear reader! Let's try that!
 pub extern "C" fn hello(who: *const c_char) -> *const c_char {
     // …
 }
-```
+````
 
 OK. Let's test it. Are you anxious?
 
@@ -383,7 +382,7 @@ $ cargo doc --open
 
 Here is the result:
 
-![C code in Rust documentation](/images/blog/novel-way-to-develop--test-and-document-c-libraries-from-rust/hello.png)
+![C code in Rust documentation](/images/hello.png)
 
 Fantastic! Our example in the Rust documentation is a C program, that
 is actually tested. We are sure the documentation provides correct

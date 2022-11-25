@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './post.module.css';
-import { getImageUrl } from '../About/Team/components/Avatar/avatar.component';
 import { DateFormatter } from '../Date';
 
 export const PostComponent = ({ title, children, author, date }) => {
@@ -13,7 +12,7 @@ export const PostComponent = ({ title, children, author, date }) => {
             <div className="flex items-center">
               <img
                 className="w-12 h-12 rounded-full bg-lightgrey"
-                src={getImageUrl(author.image)}
+                src={author.image}
                 alt={author.name}
               />
               <div className="ml-4">

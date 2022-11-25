@@ -1,9 +1,11 @@
 ---
-title: "Running WebAssembly in OCaml with Wasmer"
-excerpt: "Running WebAssembly in OCaml with Wasmer"
-date: "2022-10-21T18:00:00.000Z"
-author: Loïc Chevalier
-published: true
+title: 'Running WebAssembly in OCaml with Wasmer'
+description: 'Running WebAssembly in OCaml with Wasmer'
+publishedAt: '2022-10-21T18:00:00.000Z'
+author:
+  name: 'Loïc Chevalier'
+  picture: '/images/loic.jpg'
+status: 'published'
 ---
 
 **TL;DR**
@@ -40,17 +42,17 @@ let () =
         i32.const 1
         i32.add)
       (export "add_one" (func $add_one_f)))|} in
-  
+
   print_endline "Creating the store...";
   let engine = Engine.new_ () in
   let store = Store.new_ engine in
-  
+
   print_endline "Compiling the module...";
   let module_ = Module.new_ store wasm in
-  
+
   print_endline "Creating imports...";
   let imports = Extern.Vec.make_empty_null () in
-  
+
   print_endline "Instanciating the module...";
   match Instance.new_ store module_ imports with
   | Error _ -> print_endline "> Error instanciating the module!"; failwith "Invalid module!"
@@ -58,16 +60,16 @@ let () =
   print_endline "Retrieving exports...";
   let exports = Extern.Vec.make_new () in
   Instance.exports instance exports;
-  
+
   let add_one_f = Extern.to_func (Extern.Vec.get_element exports 0) in
   if Func.is_null add_one_f then
     (print_endline "> Error instanciating the module!"; failwith "Invalid module!");
-  
+
   print_endline "Calling the `add_one` function...";
   let arg = Val.of_i32 1l in
   let args = Val.Vec.of_list [arg] in
   let results = Val.Vec.make_uninit 1 in
-  
+
   match Func.call add_one_f args results with
   | Some _ -> print_endline "> Error calling the function!"; failwith "Invalid function!"
   | None ->
@@ -158,20 +160,20 @@ let () =
 		"rust-wasm/target/wasm32-unknown-unknown/release/rust_integration.wasm" in
 	let engine = Engine.new_ () in
 	let store = Store.new_ engine in
-	
+
 	let real_module = Module.new_ store wasm in
-	
+
 	let print_str_functype = Valkind.[I32; I32] %-> Valkind.[] in
 	let print_str_func = Func.new_ store print_str_functype print_str in
-	
+
 	let imports = Extern.Vec.of_list [Extern.of_func print_str_func] in
 	match Instance.new_unsafe store real_module imports with
 	| Error _ -> print_endline "> Error instanciating module!"; failwith "Invalid module!"
 	| Ok instance ->
-	
+
 	let exports_raw = Extern.Vec.make_new () in
 	Instance.exports instance exports_raw;
-	
+
 	let exported_funcs, (*exported_globals*)_, (*exported_tables*)_, exported_memories =
 		Extern.Vec.split_kind exports_raw in
 	let run_func, memory0 = match exported_funcs, exported_memories with
@@ -179,10 +181,10 @@ let () =
 		| _ -> print_endline "> Error accessing exports (no function)!";
 				 failwith "Invalid instance!" in
 	memory_ref := Some memory0;
-	
+
 	let args = Val.Vec.make_empty_null () in
 	let results = Val.Vec.make_empty_null () in
-	
+
 	match Func.call run_func args results with
 	| Some trap ->
 		print_endline "> Error calling the function!";
@@ -191,7 +193,7 @@ let () =
 		print_endline (Message.to_string msg);
 		failwith "Invalid function!"
 	| None ->
-	
+
 	print_endline "Done.";;
 ```
 

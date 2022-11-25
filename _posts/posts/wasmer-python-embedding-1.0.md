@@ -1,9 +1,11 @@
 ---
 title: 'Wasmer Python embedding 1.0'
-excerpt: 'Announcing the immediate availability of the Wasmer Python embedding 1.0 version!'
+description: 'Announcing the immediate availability of the Wasmer Python embedding 1.0 version!'
 # coverImage: '/public/images/blog/wasmer-python-embedding-1.0/cover.jpg'
-date: '2021-01-28T15:35:07.322Z'
-author: Ivan Enderlin
+publishedAt: '2021-01-28T15:35:07.322Z'
+author:
+  name: 'Ivan Enderlin'
+status: 'published'
 # ogImage:
 #   url: '/public/images/blog/wasmer-python-embedding-1.0/cover.jpg'
 ---
@@ -20,15 +22,15 @@ to introduce the 1.0 version with a stable API, lightning
 performances, cross-compilation, three compilers, two engines, and
 many more advanced features. Let’s dig in!
 
-* [Light by default](#light-by-default)
-* [Pick your best compiler on the fly](#pick-your-best-compiler-on-the-fly)
-* [Improved and simplified API](#improved-and-simplified-api)
-* [Faster memory operations](#faster-memory-operations)
-* [Cross-compilation](#cross-compilation)
-* [WASI](#wasi)
-* [Ready to use on major platforms and architectures](#ready-to-use-on-major-platforms-and-architectures)
-* [Documentation and examples](#documentation-and-examples)
-* [Discovering compiler capabilities with a benchmark](#discovering-compiler-capabilities-with-a-benchmark)
+- [Light by default](#light-by-default)
+- [Pick your best compiler on the fly](#pick-your-best-compiler-on-the-fly)
+- [Improved and simplified API](#improved-and-simplified-api)
+- [Faster memory operations](#faster-memory-operations)
+- [Cross-compilation](#cross-compilation)
+- [WASI](#wasi)
+- [Ready to use on major platforms and architectures](#ready-to-use-on-major-platforms-and-architectures)
+- [Documentation and examples](#documentation-and-examples)
+- [Discovering compiler capabilities with a benchmark](#discovering-compiler-capabilities-with-a-benchmark)
 
 ### Light by default
 
@@ -37,8 +39,8 @@ By default, the
 package comes as _light_ as possible, the rest are opt-in
 features. `wasmer` provides by default:
 
-*   the entire Wasmer runtime,
-*   2 headless engines.
+- the entire Wasmer runtime,
+- 2 headless engines.
 
 What’s an engine? An _engine_ is responsible to drive the
 _compilation_ from a WebAssembly module to executable code, and the
@@ -154,10 +156,10 @@ when running `pip install wasmer` for example.
 We thought it would be interesting to see how light the wheels are
 now. To do that, we have fetch the size of the:
 
-* `wasmer` wheel alone (with headless engines),
-* `wasmer` + `wasmer-compiler-singlepass` wheels,
-* `wasmer` + `wasmer-compiler-cranelift` wheels,
-* `wasmer` + `wasmer-compiler-llvm` wheels.
+- `wasmer` wheel alone (with headless engines),
+- `wasmer` + `wasmer-compiler-singlepass` wheels,
+- `wasmer` + `wasmer-compiler-cranelift` wheels,
+- `wasmer` + `wasmer-compiler-llvm` wheels.
 
 We have computed those sizes for 3 platforms (macOS, Linux, and
 Windows) and 2 architectures (`amd64` and `aarch64`). (On Linux
@@ -169,8 +171,8 @@ should be fixed quickly.)
 The results are presented in the following graph:
 
 <figure>
-  <a href="/images/blog/wasmer-python-embedding-1.0/graph-wheel-size.png" target="_blank" title="Open the image at full size">
-    <img src="/images/blog/wasmer-python-embedding-1.0/graph-wheel-size.png" />
+  <a href="/images/graph-wheel-size.png" target="_blank" title="Open the image at full size">
+    <img src="/images/graph-wheel-size.png" />
   </a>
   <figcaption>Size of wheels (in Mb); lower is better.</figcatpion>
 </figure>
@@ -195,7 +197,7 @@ as imports or as exports. Well, this is now straighforward.
 To simplify the declaration of imports, we provide an `ImportObject`
 API. It works as follows:
 
-```python
+````python
 from wasmer import engine, wat2wasm, Store, Module, ImportObject, Function, FunctionType, Type, Instance
 from wasmer_compiler_cranelift import Compiler
 
@@ -257,7 +259,7 @@ instance = Instance(module, import_object)
 
 # And finally, call the `add_one` exported function!
 assert instance.exports.add_one(41) == 42
-```
+````
 
 Again, this is straighforward and brings no surprise. This is one new
 feature amongst many others.
@@ -283,8 +285,8 @@ Here is quick benchmark to show how the `Buffer` improves performance
 when reading 1 and 255 bytes from memory (the lower the better):
 
 <figure>
-  <a href="/images/blog/wasmer-python-embedding-1.0/graph-memory-read.png" target="_blank" title="Open the image at full size">
-    <img src="/images/blog/wasmer-python-embedding-1.0/graph-memory-read.png" />
+  <a href="/images/graph-memory-read.png" target="_blank" title="Open the image at full size">
+    <img src="/images/graph-memory-read.png" />
   </a>
   <figcaption>Reading 1 and 255 bytes in memory (in ns).</figcaption>
 </figure>
@@ -346,7 +348,7 @@ that prints its arguments, its environment variables, and that lists
 the content of its current working directory.
 
 ```python
-from wasmer import engine, wasi, Store, Module, ImportObject, Instance  
+from wasmer import engine, wasi, Store, Module, ImportObject, Instance
 from wasmer_compiler_cranelift import Compiler
 
 # As usual, let's fetch some bytes and compile the module.
@@ -461,8 +463,8 @@ our Singlepass, Cranelift and LLVM compilers. Times are given in
 microseconds (μs).
 
 <figure>
-  <a href="/images/blog/wasmer-python-embedding-1.0/graph-compilation.png" target="_blank" title="Open the image at full size">
-    <img src="/images/blog/wasmer-python-embedding-1.0/graph-compilation.png" />
+  <a href="/images/graph-compilation.png" target="_blank" title="Open the image at full size">
+    <img src="/images/graph-compilation.png" />
   </a>
   <figcaption>Create a <code>Module</code> with the JIT engine + the
   Cranelift, LLVM and Singlepass compilers (in μs).</figcaption>
@@ -486,8 +488,8 @@ Singlepass, Cranelift or LLVM compiler. We are going to use a headless
 engine here, so the `wasmer` package alone with no compiler.
 
 <figure>
-  <a href="/images/blog/wasmer-python-embedding-1.0/graph-headless.png" target="_blank" title="Open the image at full size">
-    <img src="/images/blog/wasmer-python-embedding-1.0/graph-headless.png" />
+  <a href="/images/graph-headless.png" target="_blank" title="Open the image at full size">
+    <img src="/images/graph-headless.png" />
   </a>
   <figcaption>Create a <code>Module</code> with the JIT headless
   engine (module is pre-compiled) (in μs).</figcaption>
@@ -508,8 +510,8 @@ executable code. So let’s use it! As we said, we are going to execute
 test. Let’s see how they perform.
 
 <figure>
-  <a href="/images/blog/wasmer-python-embedding-1.0/graph-execution.png" target="_blank" title="Open the image at full size">
-    <img src="/images/blog/wasmer-python-embedding-1.0/graph-execution.png" />
+  <a href="/images/graph-execution.png" target="_blank" title="Open the image at full size">
+    <img src="/images/graph-execution.png" />
   </a>
   <figcaption>Executing <code>console.log("hello")</code> with
   <code>qjs.wasm</code>, compiled with the Cranelift, LLVM and
@@ -530,12 +532,12 @@ between Cranelift and Singlepass deeper.
 
 This benchmark confirms what we said earlier:
 
-* The Singlepass compiler provides a fast compilation but a slower
+- The Singlepass compiler provides a fast compilation but a slower
   execution, which can be perfect for small/simple WebAssembly
   modules,
-* The Cranelift compiler provides a good balance between compilation
+- The Cranelift compiler provides a good balance between compilation
   and execution time,
-* The LLVM compiler provides a slow but optimised compilation, and a
+- The LLVM compiler provides a slow but optimised compilation, and a
   very fast execution, which is perfect for complex WebAssembly modules.
 
 The fact that `wasmer` comes with headless engines (with no compiler)
@@ -579,10 +581,10 @@ proposals yet, so it’s not a blocker. But we still have work!
 
 The packages are available on pypi:
 
-* [`wasmer`](https://pypi.org/project/wasmer/),
-* [`wasmer-compiler-cranelift`](https://pypi.org/project/wasmer-compiler-cranelift/),
-* [`wasmer-compiler-llvm`](https://pypi.org/project/wasmer-compiler-llvm/),
-* [`wasmer-compiler-singlepass`](https://pypi.org/project/wasmer-compiler-singlepass/).
+- [`wasmer`](https://pypi.org/project/wasmer/),
+- [`wasmer-compiler-cranelift`](https://pypi.org/project/wasmer-compiler-cranelift/),
+- [`wasmer-compiler-llvm`](https://pypi.org/project/wasmer-compiler-llvm/),
+- [`wasmer-compiler-singlepass`](https://pypi.org/project/wasmer-compiler-singlepass/).
 
 Wheels for `aarch64` aren’t published on pypi (because it doesn’t
 fulfill [the `manylinux2010` policy regarding binary wheels, see the

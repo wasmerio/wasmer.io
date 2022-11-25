@@ -1,16 +1,18 @@
 ---
-title: "The disruptive mindset of Work Happiness"
-excerpt: "This article tries to introduce how traditional HR roles are transforming into more people and teams-oriented positions or complemented by functions that highlight wellness as a core need to facilitate company goals joyfully."
-date: "2021-12-15T00:00:00.000Z"
-author: Teresa Lopez
-published: true
+title: 'The disruptive mindset of Work Happiness'
+description: 'This article tries to introduce how traditional HR roles are transforming into more people and teams-oriented positions or complemented by functions that highlight wellness as a core need to facilitate company goals joyfully.'
+publishedAt: '2021-12-15T00:00:00.000Z'
+author:
+  name: 'Teresa Lopez'
+  picture: '/images/tesi.jpeg'
+status: 'published'
 ---
 
 Some jobs seem to pop up suddenly as society evolves, but they've silently taken shape and waited their turn. Social needs emerge, become visible, and reflect a change that – intentionally or subconsciously – requires new approaches and solutions, as is the case for my role.
 
 Since I've dedicated myself to Corporate Happiness, I usually get a lovely "flabbergasted smiley expression" when I tell people what I do. **I work in a very revolutionary deep-tech startup, Wasmer, as an Operations and People Happiness Manager.**
 
-![/images/blog/team-building-outfinders.jpg](/images/blog/team-building-outfinders.jpg)
+![/images/team-building-outfinders.jpg](/images/team-building-outfinders.jpg)
 
 ### **This article tries to introduce how traditional HR roles are transforming into more people and teams-oriented positions [[1]](#people) or complemented by functions that highlight wellness as a core need to facilitate company goals joyfully.**
 
@@ -28,7 +30,7 @@ Implementing a Happiness and Wellness Culture can be romantic or counterintuitiv
 
 Suppose such a conflict emerges in the company or within us. In that case, the opportunity arises to **identify our limited concepts to select what mindsets serve us happiness** and which one is causing us pain. There is a lot of work to do. The evidence shows that wellness, creativity, and productivity can work together and are integral to a good result. That's why I say Company Happiness is a disruptive and paradigm-changing view.
 
-In all organizations with human interaction, we can expect conflicts, misunderstandings, and changes in the mood. We all contend with our inner chaos, so don't underestimate the group effect for the good and the bad.  Once we consider this, it may be beneficial to foresee and take care of everybody's mental wellbeing and implement fundamental tools as part of the company policies. While transitioning to the happiness paradigm, a joyful way of working is at the core of the company vision and team management. However, happiness managers must prepare for and overcome the biggest challenge,  managers' skepticism.
+In all organizations with human interaction, we can expect conflicts, misunderstandings, and changes in the mood. We all contend with our inner chaos, so don't underestimate the group effect for the good and the bad. Once we consider this, it may be beneficial to foresee and take care of everybody's mental wellbeing and implement fundamental tools as part of the company policies. While transitioning to the happiness paradigm, a joyful way of working is at the core of the company vision and team management. However, happiness managers must prepare for and overcome the biggest challenge, managers' skepticism.
 
 We sometimes have to display figures and graphics to stimulate new perspectives due to the conscious or subconscious conflict between productivity and wellness mentioned above, but not my case. Before meeting Wasmer's CEO Syrus Akbary in person, I found his article "[Achieve your goals, happily](https://syrusakbary.medium.com/achieve-your-goals-happily-e2f82663bda)" with curiosity, and I immediately thought there could be a vision match. It was the case. Since I joined Wasmer, we have been working closely together defining company values accurately, communication, team building, and an overall wellness plan we will share soon.
 
@@ -40,7 +42,7 @@ Our resilience resides in believing in the capabilities of humankind to learn, t
 
 I will continue sharing my thoughts about implementing this *People* and *Happiness* view at Wasmer in the upcoming articles. This is the beginning of an exciting journal. I am looking forward to sharing more ideas and topics, stay tuned. ;)
 
------
+---
 
 <div id="people">
   [1] People: refers to the people in an organization, the group of individuals, but it is also the name of the People Area, formerly known as the traditional Human Resources Dep in some companies, with a different perspective focused on individuals and teams as the essential value contributors of an organization. For more information, I recommend reading this article: <a href="https://www.greenhouse.io/blog/hr-reinvented-the-new-people-teams" target="_blank">www.greenhouse.io/blog/hr-reinvented-the-new-people-teams</a>.

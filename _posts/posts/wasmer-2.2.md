@@ -1,21 +1,22 @@
 ---
-title: "Wasmer 2.2: Major Singlepass Improvements"
-excerpt: "Wasmer 2.2: Major Singlepass Improvements"
-date: "2022-02-28T00:00:00.000Z"
-author: Sébastien Chevalier
-published: true
+title: 'Wasmer 2.2: Major Singlepass Improvements'
+description: 'Wasmer 2.2: Major Singlepass Improvements'
+publishedAt: '2022-02-28T00:00:00.000Z'
+author:
+  name: 'Sébastien Chevalier'
+  picture: '/images/sebastien.jpg'
+status: 'published'
 ---
 
 The Wasmer 2.2 release features significant advancements shaping up to impact our Web3 and blockchain community in a big way. Wasmer is reintroducing Aarch64 compatibility for our Singlepass compiler. With the newly overhauled Singlepass, Web3 and blockchain developers can efficiently run Wasmer Runtime with Singepass on Windows, Linux, and macOS. The new release also fully supports the much anticipated Apple M1 processor.
 
 > **Special thanks to our sponsors:** Interchain Foundation, Confio GmbH, Near, Terra, Spacemesh, and Hot-G.
-> 
 
 Keep reading to learn how the new version stacks up against the previous and take advantage of it.
 
 ## Faster is better. Let's dig in a bit on performance benchmarks.
 
-There are many ways to measure "performance,"  like security, compilation speed, or code execution time, to name a few. For this article, we selected execution speed with ***CoreMark***®, an industry-standard benchmark that measures the performance of central processing units (CPU) and embedded microcontrollers (MCU).
+There are many ways to measure "performance," like security, compilation speed, or code execution time, to name a few. For this article, we selected execution speed with **_CoreMark_**®, an industry-standard benchmark that measures the performance of central processing units (CPU) and embedded microcontrollers (MCU).
 
 CoreMark compiles to a WebAssembly program and returns a single number representing a CoreMark score for generated code efficiency; the higher the number, the better. To help contextualize the results, we'll test Singlepass against the previous v0.17 release and the Cranelift compiler.
 
@@ -71,20 +72,20 @@ Caching is disabled as it could interfere with the test and return an inaccurate
 </tbody>
 </table>
 
-
 The results are impressive. Singlepass performance between v0.17 and v2.0 has increased by ~25%, and Cranelift has nearly doubled its performance with an increase of ~90%.
 
 ### Linux ARM64 Benchmarks
 
 We executed the same test using a simple ODroid N2 SBC with the following Aarch64 results.
-<!-- 
+
+<!--
 | compiler | v0.17 | v1.02 | v2.2 |
 | --- | --- | --- | --- |
 | Singlepass | 708.086147 | N/A | 2514.896935 |
 | CraneLift | N/A | 4609.121989 | 7225.574132 |
 | LLVM | N/A | N/A | 7992.215658 |
  -->
- 
+
  <table>
 <thead>
 <tr>
@@ -129,7 +130,7 @@ Without further ado...
 | Singlepass | 11490.887496 |
 | Cranelift | 27183.440174 |
  -->
- 
+
  <table>
 <thead>
 <tr>
@@ -161,7 +162,7 @@ Let’s prove it with “TiDB in wasm”. The wasm file is a massive 70MB wasm t
 time ./wasmer run main.wasm --singlepass --disable-cache -i blah
 ```
 
-The `-i blah` is a trick to not actually run the TiDB interpreter (as you need to “ctrl-c” to exit it), so the time measured will only be the compilation time. You can download that file there: 
+The `-i blah` is a trick to not actually run the TiDB interpreter (as you need to “ctrl-c” to exit it), so the time measured will only be the compilation time. You can download that file there:
 
 [main.wasm](https://registry-cdn.wapm.io/contents/lucklove/tidb/0.1.6/main.wasm)
 
@@ -204,7 +205,6 @@ Here is the result of the benchmarks, the “real” part of time (the lower, th
 </tr>
 </tbody>
 </table>
-
 
 So here, we have a massive difference in compile-time, with Singlepass being 140 to 160 times faster than Cranelift, and even more, compared to LLVM. Here, the simpler approach of Singlepass, which doesn’t try to optimize register allocation, pays off!
 

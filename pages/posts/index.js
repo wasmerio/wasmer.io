@@ -16,10 +16,10 @@ export default function Index({ allPosts }) {
           <HeroPost
             title={heroPost.title}
             coverImage={heroPost.coverImage}
-            date={heroPost.date}
+            date={heroPost.publishedAt}
             author={heroPost.author}
             slug={heroPost.slug}
-            excerpt={heroPost.excerpt}
+            excerpt={heroPost.description}
           />
         )}
         {morePosts.length > 0 && <MoreStories posts={morePosts} />}
@@ -42,14 +42,15 @@ export async function getStaticProps() {
     'slug',
     'author',
     'coverImage',
-    'excerpt',
-    'published',
-  ]).filter(post => post.published !== false && (!post.language || post.language == "en") );
+    'description',
+    'status',
+  ]).filter(post => post.status !== "draft" && (!post.language || post.language == "en") );
 
   return {
     props: {
       allPosts: allPosts.map((post) => {
         const author = getMemberByName(post.author);
+
         return {
           ...post,
           author,

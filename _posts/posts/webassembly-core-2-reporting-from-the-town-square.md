@@ -1,9 +1,11 @@
 ---
 title: 'WebAssembly Core 2 - Reporting From the Town Square'
-excerpt: 'WebAssembly and associated toolchain components are very technical, and the discourse surrounding the new spec is not an exception.'
-date: '2022-05-11T21:00:00.000Z'
-author: Wiqar Chaudry
-published: true
+description: 'WebAssembly and associated toolchain components are very technical, and the discourse surrounding the new spec is not an exception.'
+publishedAt: '2022-05-11T21:00:00.000Z'
+author:
+  name: 'Wiqar Chaudry'
+  picture: '/images/wiqar.png'
+status: 'published'
 ---
 
 WebAssembly (Wasm) is a bytecode for the Web. Developers can choose between Javascript or any language that compiles to Wasm for browser apps. Once low-level languages like Rust and C/C++ compile to Wasm, the resulting bytecode executes universally on most modern browsers.
@@ -16,12 +18,9 @@ Or, keep reading...
 
 It's been a 7-year long journey to the WebAssembly 2022 draft proposal. Initially announced in 2015, the world first experienced WebAssembly in the wild two years later, in March of 2017. As the news of the new spec makes its rounds on the Internet, many developers sing its praises while others meticulously document its shortcomings and wishlist items on public forums. This article highlights, expands, and adds perspective to some interesting reoccurring themes. However, before we dive too deep into the minds of the developer community, and for the benefit of the uninitiated, you can read the summary of all things new in the WebAssembly Core 2 draft spec [here](https://www.w3.org/TR/wasm-core-2).
 
-
-> **The list of new features includes:** 
+> **The list of new features includes:**
 >
 > Exception Handling, SharedArrayBuffer, Fixed-Width SIMD, Tail Calls, Multiple Memories, and WASI improvement.
-
-
 
 ## Wasm discourse
 
