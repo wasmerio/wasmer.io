@@ -2,6 +2,7 @@
 title: "Wasmer takes WebAssembly libraries mainstream with WAI"
 excerpt: "Import WebAssembly libraries just like any other dependency in your project"
 date: "2022-11-25T12:00:00.000Z"
+coverImage: "/public/images/blog/use-wai.md"
 author: Michael Bryan
 published: false
 ---

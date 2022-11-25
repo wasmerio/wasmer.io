@@ -76,7 +76,16 @@ const team = [
         { medium: 'github', handler: 'epilys' },
       ],
     active: false
-  }
+  },
+  {
+    name: 'Michael Bryan',
+    description:
+      '',
+      image: 'michael.jpeg',
+      links: [
+        { medium: 'github', handler: 'Michael-F-Bryan' },
+      ]
+  },
 ];
 
 export default team;
