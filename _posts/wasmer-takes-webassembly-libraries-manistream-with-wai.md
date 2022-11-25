@@ -11,13 +11,13 @@ Integrating with other languages and distributing binaries has always raised the
 
 Today we are happy to announce WAI - WebAssembly Interfaces along with its integration in WAPM, the WebAssembly Package Manager, and the packager: [wasmer-pack](https://github.com/wasmerio/wasmer-pack).
 
+![/images/blog/use-wai.png](/images/blog/use-wai.png)
+
 WAI builds on top of the official WebAssembly Interface Types specification, and it’s first working implementation: `wit-bindgen`.
 
 > Note: Unfortunately, the maintainers behind `wit-bindgen` [didn’t want to add support](https://github.com/bytecodealliance/wit-bindgen/issues/306) for [Wasmer upstream](https://github.com/bytecodealliance/wit-bindgen/pull/173). [As we previously coined the `wai` extension](https://medium.com/wasmer/introducing-webassembly-interfaces-bb3c05bc671), we decided to reuse this name for the WebAssembly Interfaces project (think of WAI as WASI without the “System”!). We will be very happy to merge the changes upstream if the `wit-bindgen` maintainers change opinion on supporting Wasmer in the future!
 
 The WAI addition to the [WebAssembly Package Manager](https://wapm.io/) streamlines the way developers use WebAssembly in their applications by automatically generating installable packages for your language of choice.
-
-![/images/blog/use-wai.png](/images/blog/use-wai.png)
 
 In fact, you can see it in action right now with the vscode-wasm plugin, used by more than 92 thousand developers worldwide!
 
@@ -29,7 +29,7 @@ These define the **W**eb**A**ssembly **I**nterfaces your library will expose, an
 
 First, create a new Rust project and add [the `wai-bindgen-rust` crate](https://lib.rs/wai-bindgen-rust) as a dependency.
 
-```
+```bash
 $ cargo new --lib tutorial-01
 $ cd tutorial-01
 $ cargo add wai-bindgen-rust
@@ -94,11 +94,11 @@ crate-type = ["cdylib", "rlib"]
 
 And publish!
 
-```console
+```bash
 $ cargo wapm
 ```
 
-Publishing requires installing `wapm` with [the Wasmer installer](https://docs.wasmer.io/ecosystem/wapm/getting-started) and the `[cargo wapm](https://github.com/wasmerio/cargo-wapm)`  helper installed (`cargo install cargo-wapm`). If you haven't already, make sure to run `wapm login` to log into your WAPM account.
+Publishing requires installing `wapm` with [the Wasmer installer](https://docs.wasmer.io/ecosystem/wapm/getting-started) and the [`cargo wapm`](https://github.com/wasmerio/cargo-wapm) helper installed (`cargo install cargo-wapm`). If you haven't already, make sure to run `wapm login` to log into your WAPM account.
 
 *Note: WAI also works with other languages, such as C or C++. If you want to publish packages to wapm with it, you will need to use `wapm publish` instead of `cargo wapm`.*
 
@@ -108,7 +108,7 @@ Let's add this `wai/tutorial-01` package to a JavaScript project.
 
 First, we'll need to create a new JavaScript package and add the `wai/tutorial-01` package as a dependency.
 
-```console
+```bash
 $ wasmer add --yarn wai/tutorial-01
 ```
 
@@ -116,7 +116,7 @@ This runs `yarn add` under the hood. Depending on the project, you might use the
 
 Now, let's create a script.
 
-```jsx
+```js
 import { bindings } from "wai/tutorial-01";
 
 async function main() {
@@ -130,7 +130,7 @@ main();
 
 Or, if you want to do it in python:
 
-```console
+```bash
 $ wasmer add --pip wai/tutorial-01
 ```
 
