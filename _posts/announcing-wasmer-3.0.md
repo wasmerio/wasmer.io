@@ -59,7 +59,7 @@ This has significantly improved startup performance!
 As reviewed in previous blog posts, we revamped the `create-exe` subcommand in Wasmer.
 
 Wasmer can now turn a WebAssembly file into a native Windows, Linux or Mac OS executable.
-This enables distributing executables to users, without requiring them to install Wasmer themselfes.
+This enables distributing executables to users, without requiring them to install Wasmer themselves.
 
 This functionality is implemented on top of [Zig's](https://ziglang.org/) cross compilation abilities.
 
