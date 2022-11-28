@@ -66,7 +66,9 @@ impl crate::calculator::Calculator for Calculator {
 
 ### Let’s publish it!
 
-We'll need to update `Cargo.toml` so this package can be published to WAPM.
+Publishing requires installing `wapm` with [the Wasmer installer](https://docs.wasmer.io/ecosystem/wapm/getting-started) and the [`cargo wapm`](https://github.com/wasmerio/cargo-wapm)  helper installed (`cargo install cargo-wapm`). If you haven't already, make sure to run `wapm login` to log into your WAPM account (don't forget to [sign up][sign-up] if you haven't already).
+
+Now we're set up, we'll need to update `Cargo.toml` so this package can be published to WAPM.
 
 ```toml
 # Cargo.toml
@@ -97,8 +99,6 @@ And publish!
 ```console
 $ cargo wapm
 ```
-
-Publishing requires installing `wapm` with [the Wasmer installer](https://docs.wasmer.io/ecosystem/wapm/getting-started) and the `[cargo wapm](https://github.com/wasmerio/cargo-wapm)`  helper installed (`cargo install cargo-wapm`). If you haven't already, make sure to run `wapm login` to log into your WAPM account.
 
 *Note: WAI also works with other languages, such as C or C++. If you want to publish packages to wapm with it, you will need to use `wapm publish` instead of `cargo wapm`.*
 
@@ -148,3 +148,5 @@ If you've been hesitant to use WebAssembly because it's hard to get started, go 
 WAPM uses the [Wasmer Pack](https://github.com/wasmerio/wasmer-pack) project to generate these native packages. Feel free to browse the source code, or create tickets on the issue tracker if you have any questions.
 
 We'd love to hear from projects looking to integrate WAPM packages into their own apps. If this sounds like you, reach out [on Slack](https://slack.wasmer.io/), by [email](mailto:engineering@wasmer.io), or the Wasmer Pack issue tracker, and we'll help you get started.
+
+[sign-up]: https://wapm.io/signup
