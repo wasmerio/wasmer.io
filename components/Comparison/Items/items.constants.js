@@ -102,3 +102,23 @@ export const lucet = [
     items: [null],
   },
 ];
+
+export const wasmedge = [
+  {
+    label: 'Wasmer',
+    labelColor: 'text-secondary',
+    itemsColor: 'bg-secondary shadow-lightpurple',
+    items: wasmerItems,
+  },
+  {
+    label: 'WasmEdge',
+    labelColor: 'text-grey-60',
+    itemsColor: 'bg-lightgrey',
+    items: [
+      <Rust key={1} />,
+      <C key={2} />,
+      <Python key={3} />,
+      <GO key={4} />,
+    ],
+  },
+];
