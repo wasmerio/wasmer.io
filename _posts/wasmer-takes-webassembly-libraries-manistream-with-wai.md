@@ -1,25 +1,31 @@
 ---
 title: "Wasmer takes WebAssembly libraries mainstream with WAI"
 excerpt: "Import WebAssembly libraries just like any other dependency in your project"
-date: "2022-11-25T12:00:00.000Z"
+date: "2022-12-02T10:00:00.000Z"
 coverImage: "/images/blog/use-wai.png"
 author: Michael Bryan
-published: false
+published: true
 ---
 
 Integrating with other languages and distributing binaries has always raised the WebAssembly's barrier to entry for the average developer, and at Wasmer our goal is to make trivial creating universal libraries that work anywhere.
 
-Today we are happy to announce WAI - WebAssembly Interfaces along with its integration in WAPM, the WebAssembly Package Manager, and the packager: [wasmer-pack](https://github.com/wasmerio/wasmer-pack).
-
-WAI builds on top of the official WebAssembly Interface Types specification, and it’s first working implementation: `wit-bindgen`.
-
-> Note: Unfortunately, the maintainers behind `wit-bindgen` [didn’t want to add support](https://github.com/bytecodealliance/wit-bindgen/issues/306) for [Wasmer upstream](https://github.com/bytecodealliance/wit-bindgen/pull/173). [As we previously coined the `wai` extension](https://medium.com/wasmer/introducing-webassembly-interfaces-bb3c05bc671), we decided to reuse this name for the WebAssembly Interfaces project (think of WAI as WASI without the “System”!). We will be very happy to merge the changes upstream if the `wit-bindgen` maintainers change opinion on supporting Wasmer in the future!
-
-The WAI addition to the [WebAssembly Package Manager](https://wapm.io/) streamlines the way developers use WebAssembly in their applications by automatically generating installable packages for your language of choice.
+Today, we are happy to announce [Wasmer Pack](https://github.com/wasmerio/wasmer-pack), a tool which integrates with [the WebAssembly Package Manager](https://wapm.io/) and [WebAssembly Interfaces](https://github.com/wasmerio/wai) ("WAI") to create packages that can be imported from other languages.
 
 ![/images/blog/use-wai.png](/images/blog/use-wai.png)
 
-In fact, you can see it in action right now with the vscode-wasm plugin, used by more than 92 thousand developers worldwide!
+> **Note:** WAI builds on top of [the WebAssembly Interface Types specification][interface-types] and its first working implementation, `wit-bindgen`. Unfortunately, the maintainers behind `wit-bindgen` [were reluctant][issue-306] to allow [integration of Wasmer][pull-173] upstream, so we've forked the project under a new name.
+>
+> A key difference between WAI and `wit-bindgen` is the focus on stability - people should be able to start using WAI right now.
+
+The WAI addition to the [WebAssembly Package Manager](https://wapm.io/) streamlines the way developers use WebAssembly in their applications by automatically generating installable packages for your language of choice.
+
+In fact, you can see it in action right now with [the `vscode-wasm` plugin][vscode-wasm], used by more than 94 thousand developers worldwide!
+
+[component-model]: https://github.com/WebAssembly/component-model
+[interface-types]: https://github.com/WebAssembly/interface-types/blob/main/proposals/interface-types/Explainer.md
+[issue-306]: https://github.com/bytecodealliance/wit-bindgen/issues/306
+[pull-173]: https://github.com/bytecodealliance/wit-bindgen/pull/173
+[vscode-wasm]: https://marketplace.visualstudio.com/items?itemName=dtsvet.vscode-wasm
 
 ## How Do I Create a Universal WebAssembly Library with Rust and WAI?
 
@@ -100,7 +106,7 @@ And publish!
 $ cargo wapm
 ```
 
-*Note: WAI also works with other languages, such as C or C++. If you want to publish packages to wapm with it, you will need to use `wapm publish` instead of `cargo wapm`.*
+*Note: WAI also works with other languages, such as C or C++. If you want to publish packages to WAPM with it, you will need to use `wapm publish` instead of `cargo wapm`.*
 
 ## Consuming WAPM Packages in your codebase
 
@@ -143,7 +149,7 @@ print("2+2 = ", calculator.add(2.0, 2.0))
 
 ## What's Next?
 
-If you've been hesitant to use WebAssembly because it's hard to get started, go ahead and check out [our tutorial series](https://wasmerio.github.io/wasmer-pack/user-docs/tutorial/01-hello-world.html)!
+If you've been hesitant to use WebAssembly because it's hard to get started, go ahead and check out [our tutorial series](https://wasmerio.github.io/wasmer-pack/user-docs/)!
 
 WAPM uses the [Wasmer Pack](https://github.com/wasmerio/wasmer-pack) project to generate these native packages. Feel free to browse the source code, or create tickets on the issue tracker if you have any questions.
 

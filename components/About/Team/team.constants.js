@@ -81,7 +81,7 @@ const team = [
     name: 'Michael Bryan',
     description:
       '',
-      image: 'michael.jpeg',
+      image: 'michael.png',
       links: [
         { medium: 'github', handler: 'Michael-F-Bryan' },
       ]
