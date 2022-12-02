@@ -21,7 +21,7 @@ The WAI addition to the [WebAssembly Package Manager](https://wapm.io/) streamli
 
 In fact, you can see it in action right now with [the `vscode-wasm` plugin][vscode-wasm] which uses the automatically generated [wabt WAI bindings](https://wapm.io/wasmer/wabt), used by more than 94 thousand developers worldwide!
 
-*WAPM is not tied to just the WAI format though, we are working to allow integrating **any kind of Wasm bindings** into the Package Manager (such as [Extism](https://extism.org/))... if maintain a binding format we want to hear from you!*
+*WAPM is not tied to just the WAI format though, we are working to allow integrating **any kind of Wasm bindings** into the Package Manager (such as [Extism](https://extism.org/))... if you maintain a binding format we want to hear from you!*
 
 [component-model]: https://github.com/WebAssembly/component-model
 [interface-types]: https://github.com/WebAssembly/interface-types/blob/main/proposals/interface-types/Explainer.md
