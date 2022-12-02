@@ -11,6 +11,8 @@ Integrating with other languages and distributing binaries has always raised the
 
 Today, we are happy to announce [Wasmer Pack](https://github.com/wasmerio/wasmer-pack), a tool which integrates with [the WebAssembly Package Manager](https://wapm.io/) and [WebAssembly Interfaces](https://github.com/wasmerio/wai) ("WAI") to create packages that can be imported from other languages.
 
+*WAPM is not tied to just the WAI format though, we are working tirelessly to allow **any kind of Wasm bindings** in the Package Manager (such as [Extism](https://extism.org/))... if maintain a binding format and would like to integrate it please let us know!*
+
 ![/images/blog/use-wai.png](/images/blog/use-wai.png)
 
 > **Note:** WAI builds on top of [the WebAssembly Interface Types specification][interface-types] and its first working implementation, `wit-bindgen`. Unfortunately, the maintainers behind `wit-bindgen` [were reluctant][issue-306] to allow [integration of Wasmer][pull-173] upstream, so we've forked the project under a new name.
