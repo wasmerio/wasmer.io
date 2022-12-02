@@ -1,10 +1,10 @@
 ---
 title: "Wasmer takes WebAssembly libraries mainstream with WAI"
 excerpt: "Import WebAssembly libraries just like any other dependency in your project"
-date: "2022-11-25T12:00:00.000Z"
+date: "2022-12-02T10:00:00.000Z"
 coverImage: "/images/blog/use-wai.png"
 author: Michael Bryan
-published: false
+published: true
 ---
 
 Integrating with other languages and distributing binaries has always raised the WebAssembly's barrier to entry for the average developer, and at Wasmer our goal is to make trivial creating universal libraries that work anywhere.
