@@ -19,7 +19,7 @@ Today, we are happy to announce [Wasmer Pack](https://github.com/wasmerio/wasmer
 
 The WAI addition to the [WebAssembly Package Manager](https://wapm.io/) streamlines the way developers use WebAssembly in their applications by automatically generating installable packages for your language of choice.
 
-In fact, you can see it in action right now with [the `vscode-wasm` plugin][vscode-wasm], used by more than 94 thousand developers worldwide!
+In fact, you can see it in action right now with [the `vscode-wasm` plugin][vscode-wasm] which uses the automatically generated [wabt WAI bindings](https://wapm.io/wasmer/wabt), used by more than 94 thousand developers worldwide!
 
 *WAPM is not tied to just the WAI format though, we are working to allow integrating **any kind of Wasm bindings** into the Package Manager (such as [Extism](https://extism.org/))... if maintain a binding format we want to hear from you!*
 
