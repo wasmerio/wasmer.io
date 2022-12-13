@@ -6,8 +6,7 @@ author: Teresa Lopez
 published: false
 ---
 
-
-![Untitled](Happiness%20for%20success%20Embracing%20failure%20in%20our%20lif%20993b2e34c72749daa4cc9ba9439c21ae/Untitled.png)
+![Happiness - Kintsugi Wasmer Mug](/images/blog/happiness-for-success-embracing-failure/kintsugi_mug.png)
 
 Can you imagine a CV in which, along with experience and skills, the most significant blunders we have made at work appear? Go ahead, remember the first botch that pops into your head.
 
@@ -47,7 +46,7 @@ Effectively. We had the mentality, the opportunity and a lot of broken cups. I h
 
 For those of you who haven't heard of Kintsugi, I invite you to investigate one of the most beautiful tangible examples of what artistically expressed resilience means. It is an art that involves exquisite technique, excellent care, and patience. We obviously weren't even going to touch what a restoration like that really entails. “Our kindergarten kintsugi” was more of a morning team-building exercise, sharing the mindset of being able to carefully and carefully put the broken pieces back together and create something beautiful and meaningful. Maybe that is the reflection of a company that keeps going and a human being that continually learns.
 
-![Untitled](Happiness%20for%20success%20Embracing%20failure%20in%20our%20lif%20993b2e34c72749daa4cc9ba9439c21ae/Untitled%201.png)
+![Wasmer Team working in Kintsugi](/images/blog/happiness-for-success-embracing-failure/kintsugi_team.png)
 
 ## Accept the mistake and take your power back
 
@@ -55,7 +54,8 @@ True vulnerability is tied to honesty and acceptance.
 
 The fear of being wrong and the trauma of past mistakes (the associated guilt or shame) inhibit us from taking risks and being creative: this prevents us from taking charge of matters and projects. Entrepreneurship needs the attitude of being willing to be wrong. The learning that reconstruction entails expands us because it places us in a new and unknown place.
 
-![Paige Bradley "Expansion" .jpg](Happiness%20for%20success%20Embracing%20failure%20in%20our%20lif%20993b2e34c72749daa4cc9ba9439c21ae/Paige_Bradley_Expansion_.jpg)
+![Paige Bradley "Expansion"](/images/blog/happiness-for-success-embracing-failure/paige-bradley-expansion.jpg)
+
 
 > “Expansion” - Bronze and Electricity by artist  Paige Bradley. Source: [www.paigebradley.com](http://www.paigebradley.com) *PRESS RELEASE  – London, 26 June 2014*
 > 
