@@ -1,11 +1,12 @@
 import Head from 'next/head';
 
 import { MoreStories, HeroPost } from '../../components/Post';
-import { getAllPosts, getMemberByName } from '../../lib/api';
+import client from '../../client';
 
 export default function Index({ allPosts }) {
   const heroPost = allPosts[0];
   const morePosts = allPosts.slice(1);
+
   return (
     <>
       <Head>
@@ -16,10 +17,10 @@ export default function Index({ allPosts }) {
           <HeroPost
             title={heroPost.title}
             coverImage={heroPost.coverImage}
-            date={heroPost.date}
+            date={heroPost.publishedAt}
             author={heroPost.author}
-            slug={heroPost.slug}
-            excerpt={heroPost.excerpt}
+            slug={heroPost.slug.current}
+            excerpt={heroPost.title}
           />
         )}
         {morePosts.length > 0 && <MoreStories posts={morePosts} />}
@@ -35,26 +36,24 @@ export default function Index({ allPosts }) {
   );
 }
 
-export async function getStaticProps() {
-  const allPosts = getAllPosts([
-    'title',
-    'date',
-    'slug',
-    'author',
-    'coverImage',
-    'excerpt',
-    'published',
-  ]).filter(post => post.published !== false && (!post.language || post.language == "en") );
-
+export async function getServerSideProps() {
+  const posts = await client.fetch(`
+    *[_type == "post" && publishedAt < now()] | order(publishedAt desc){
+      _id,
+      title,
+      author->{
+      name,
+      image
+    },
+    description,
+    mainImage,
+    slug,
+    publishedAt,
+    }
+  `)
   return {
     props: {
-      allPosts: allPosts.map((post) => {
-        const author = getMemberByName(post.author);
-        return {
-          ...post,
-          author,
-        };
-      }),
-    },
-  };
+      allPosts: posts
+    }
+  }
 }

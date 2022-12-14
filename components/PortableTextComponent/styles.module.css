@@ -1,0 +1,35 @@
+
+
+.pre-tag {
+    background-color: #231044;
+    font-size: .9rem;
+    color: #e2e8f0;
+    overflow-x: auto;
+    line-height: 1.7142857;
+    margin-top: 1.7142857em;
+    margin-bottom: 1.7142857em;
+    border-radius: 0.375rem;
+    padding-top: 0.8571429em;
+    padding-right: 1.1428571em;
+    padding-bottom: 0.8571429em;
+    padding-left: 1.1428571em;
+    margin: 0;
+    display: block;
+    white-space: pre;
+  }
+  
+  .code-tag {
+    background-color: transparent;
+    border-width: 0;
+    border-radius: 0;
+    padding: 0;
+    font-weight: 400;
+    color: inherit;
+    font-size: inherit;
+    font-family: inherit;
+    line-height: inherit;
+    display: block;
+    background: #002451;
+    border: 1px solid #ccc;
+  }
+  
