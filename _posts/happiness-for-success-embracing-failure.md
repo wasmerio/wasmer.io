@@ -14,7 +14,7 @@ On the other hand, have you ever been in a leadership position or in front of a 
 
 I remember one time in which, in a crowded workshop, they asked me a question that I did not know how to answer. To my surprise, instead of feeling insecure, the recognition of my ignorance made me feel quite professional. To sum it up, I was very present and interested in my student's question, and I fully accepted that I did not know the answer, so I naturally neutralized any possible judgment against my curious student or me, and replied:
 
-– “Well, I don't know. But I find it an exciting question. And since we're here to learn, I'm going to investigate. And when I find out, I'll tell you. But if you find out before, share it if you want. “
+–Well, I don't know. But I find it an exciting question. And since we're here to learn, I'm going to investigate. And when I find out, I'll tell you. But if you find out before, share it if you want. 
 
 I don't even remember the question today. But I remember perfectly how everyone was generally surprised and relaxed. Perhaps we are so used to “authority” figures keeping up appearances that rectifying or acknowledging ignorance is considered a weakness. But it is the opposite, humility is always a sign of strength. And authenticity touches people. At that moment, we felt more like a team. Neither the teacher, nor the most Senior of the Seniors, nor your CEO knows everything. Luckily...
 
@@ -38,7 +38,7 @@ I have many fun tasks at Wasmer, and one of them is to build a team and brand im
 
 The next day, when we passed the checkout, Syrus said to me:
 
-–'I've had an idea for broken cups. Let’s keep them!
+–I've had an idea for broken cups. Let’s keep them!
 More or less by telepathy, I guessed what he was thinking:
 –Are we going to make Kintsugi?!
 
@@ -57,7 +57,7 @@ The fear of being wrong and the trauma of past mistakes (the associated guilt or
 ![Paige Bradley "Expansion"](/images/blog/happiness-for-success-embracing-failure/paige-bradley-expansion.jpg)
 
 
-> “Expansion” - Bronze and Electricity by artist  Paige Bradley. Source: [www.paigebradley.com](http://www.paigebradley.com) *PRESS RELEASE  – London, 26 June 2014*
+> “Expansion” - Bronze and Electricity by artist Paige Bradley. Source: [www.paigebradley.com](http://www.paigebradley.com) *PRESS RELEASE  – London, 26 June 2014*
 > 
 
 We must be careful and be sure we are practicing acceptance and not resignation. They are very different inner positions (perspectives) and feed different feelings and actions. In resignation, the sense of defeat or being forced to live with circumstances persists; there is really no mental or emotional control. Instead, in true acceptance, there is no resistance. I look at what's there and stop fighting or running to do something that can improve my mood and situation.
@@ -75,6 +75,7 @@ That is why we have to give them a new meaning so we can learn and avoid extra p
 I can think of many lessons from how we have been facing Wasmer’s weaknesses to become stronger. For now I will give three examples:
 
  **We acknowledge these individual vulnerabilities and cracks in 1:1 meetings** with our manager every two weeks and with the People manager (myself ;) ) once a month. The feedback is reciprocal. The areas for improvement are exposed in the most honest way possible while taking care of the person in front of us.
+ 
 **Need for alignment and commitment.** We started paying particular attention to this in the Leadership Syncs and later realized that it was vital for the team and the projects to feel continuously aligned and committed. So it has been extrapolated to other types of project meetings.
 
 **Reinforce and remember our achievements, strengths, and values.** It is not about beating ourselves up, but rather the opposite, staying motivated, knowing in balance that we have a lot to improve, but at the same time, personal and professional success stories are behind us, as well as tools to repeat those successes and create new ones.
