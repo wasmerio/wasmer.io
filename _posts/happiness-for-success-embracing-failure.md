@@ -39,7 +39,9 @@ I have many fun tasks at Wasmer, and one of them is to build a team and brand im
 The next day, when we passed the checkout, Syrus said to me:
 
 > "–I've had an idea for broken cups. Let’s keep them!"
-> More or less by telepathy, I guessed what he was thinking:
+
+More or less by telepathy, I guessed what he was thinking:
+
 > "–Are we going to make Kintsugi?!"
 
 Effectively. We had the mentality, the opportunity and a lot of broken cups. I had been in a workshop that very well explained the philosophy underlying this Japanese art of recomposing ceramic pieces with resin and gold dust
