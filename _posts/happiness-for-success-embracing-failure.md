@@ -26,7 +26,7 @@ A good leader, partner, or teacher does not need to pretend to know everything t
 
 To open and expose ourselves authentically, we must accept our vulnerability. The apparent imperfection is a treasure because it offers the possibility of learning, experience, and growth. And very important for teams: it's a “golden” opportunity to connect with others (who aren't perfect either, they know it and don't care that much). Here also opens the door of interdependence and mutual aid.
 
-## Only those who know they don’t know can learn**. And those who analyse themselves in a a healthy way, and take action, get over…**
+## Only those who realize the things they don’t know, can learn. And those who analyse themselves in a a healthy way, and take action, get over…
 
 and contribute to the improvement of others.
 
@@ -38,9 +38,9 @@ I have many fun tasks at Wasmer, and one of them is to build a team and brand im
 
 The next day, when we passed the checkout, Syrus said to me:
 
-–I've had an idea for broken cups. Let’s keep them!
-More or less by telepathy, I guessed what he was thinking:
-–Are we going to make Kintsugi?!
+> "–I've had an idea for broken cups. Let’s keep them!"
+> More or less by telepathy, I guessed what he was thinking:
+> "–Are we going to make Kintsugi?!"
 
 Effectively. We had the mentality, the opportunity and a lot of broken cups. I had been in a workshop that very well explained the philosophy underlying this Japanese art of recomposing ceramic pieces with resin and gold dust
 
