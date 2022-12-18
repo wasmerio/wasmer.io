@@ -18,7 +18,7 @@ I remember one time in which, in a crowded workshop, they asked me a question th
 
 I don't even remember the question today. But I remember perfectly how everyone was generally surprised and relaxed. Perhaps we are so used to “authority” figures keeping up appearances that rectifying or acknowledging ignorance is considered a weakness. But it is the opposite, humility is always a sign of strength. And authenticity touches people. At that moment, we felt more like a team. Neither the teacher, nor the most Senior of the Seniors, nor your CEO knows everything. Luckily...
 
-### ***In this article, we will talk about how it can be valuable for ourselves and teams to recognize and accept our "weaknesses and imperfections". Our ignorance and even the mistakes we make (and will make) are adverse experiences that can make us progress and connect with others**.*
+***In this article, we will talk about how it can be valuable for ourselves and teams to recognize and accept our "weaknesses and imperfections". Our ignorance and even the mistakes we make (and will make) are adverse experiences that can make us progress and connect with others.***
 
 When we find ourselves in a moment like the unanswered question in class, and reach that point of unexpected security, it means that we have matured. We have integrated a bunch of skills and experiences in our way and no longer need to maintain the appearance of invulnerability. Wherever we have arrived or will arrive depends on our ability or inability to learn along the way. This flexible attitude is what generates true self-confidence.
 
