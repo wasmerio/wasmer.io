@@ -1,37 +1,15 @@
-import React from 'react';
-import Head from 'next/head';
-import markdownToHtml from '../lib/markdownToHtml';
-import styles from '../components/Post/post.module.css';
+import Head from "next/head";
+import React from "react";
 
-export default function ValuesAndCulture({ content }) {
-  return (
-    <>
-      <Head>
-        <title>Wasmer - Values & Culture</title>
-        <meta name="title" content="Wasmer - Values & Culture" key="title" />
-        <link
-          rel="stylesheet"
-          href="https://unpkg.com/@tailwindcss/typography@0.2.x/dist/typography.min.css"
-        />
-      </Head>
-      <div className="container my-page">
-        <h2 className="text-2xl font-bold text-left md:text-center mb-12">
-          Values and Culture
-        </h2>
-        <div className="flex items-center justify-center">
-          <article className={styles.root}>
-            <div
-              dangerouslySetInnerHTML={{ __html: content }}
-              className="prose mt-4"
-            />
-          </article>
-        </div>
-      </div>
-    </>
-  );
-}
+import styles from "../components/Post/post.module.css";
+import markdownToHtml from "../lib/markdownToHtml";
 
-export async function getServerSideProps() {
+export const config = {
+  runtime: "experimental-edge",
+};
+
+export const getServerSideProps = async () => {
+  console.log(" /values-and-culture page");
   const content = await markdownToHtml(`
 These Values and Culture statements below are much more than company good intentions. They are the result of a lot of learnt lessons, thoughtful leadership, and the will to put in the center of our actions and growth, our core values. This is how we work on a daily basis, a reminder for each of us in the Wasmer Team, and a welcoming honest declaration for those who are joining onboard. 
 
@@ -67,4 +45,33 @@ We do what we love and love what we do. That is reflected in what is built. We c
 We are transparent in terms of what we do and how we do it. Knowing plans and direction provides us with context and security. Don't be afraid to ask.
 `);
   return { props: { content } };
-}
+};
+const ValuesAndCulture = ({ content }) => {
+  return (
+    <>
+      <Head>
+        <title>Wasmer - Values & Culture</title>
+        <meta name="title" content="Wasmer - Values & Culture" key="title" />
+        <link
+          rel="stylesheet"
+          href="https://unpkg.com/@tailwindcss/typography@0.2.x/dist/typography.min.css"
+        />
+      </Head>
+      <div className="container my-page">
+        <h2 className="text-2xl font-bold text-left md:text-center mb-12">
+          Values and Culture
+        </h2>
+        <div className="flex items-center justify-center">
+          <article className={styles.root}>
+            <div
+              dangerouslySetInnerHTML={{ __html: content }}
+              className="prose mt-4"
+            />
+          </article>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default ValuesAndCulture;
