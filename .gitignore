@@ -45,3 +45,6 @@ out
 ### environment ###
 .env
 .env.*
+
+# others
+diff.patch
