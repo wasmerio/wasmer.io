@@ -1,9 +1,35 @@
-import Head from 'next/head';
+import Head from "next/head";
 
-import { MoreStories, HeroPost } from '../../components/Post';
-import client from '../../client';
+import client from "../../client";
+import { HeroPost, MoreStories } from "../../components/Post";
 
-export default function Index({ allPosts }) {
+export const config = {
+  runtime: "experimental-edge",
+};
+
+export const getServerSideProps = async () => {
+  const posts = await client.fetch(`
+    *[_type == "post" && publishedAt < now()] | order(publishedAt desc){
+      _id,
+      title,
+      author->{
+      name,
+      image
+    },
+    description,
+    mainImage,
+    slug,
+    publishedAt,
+    }
+  `);
+  return {
+    props: {
+      allPosts: posts,
+    },
+  };
+};
+
+const Index = ({ allPosts }) => {
   const heroPost = allPosts[0];
   const morePosts = allPosts.slice(1);
 
@@ -27,33 +53,15 @@ export default function Index({ allPosts }) {
       </div>
       <div className="container">
         <h3>Old Blog</h3>
-        <p>You can also find more posts in previous blog:&nbsp;
-        <b><a href="https://medium.com/wasmer">Wasmer Old Medium Blog</a></b>
+        <p>
+          You can also find more posts in previous blog:&nbsp;
+          <b>
+            <a href="https://medium.com/wasmer">Wasmer Old Medium Blog</a>
+          </b>
         </p>
         <br />
       </div>
     </>
   );
-}
-
-export async function getServerSideProps() {
-  const posts = await client.fetch(`
-    *[_type == "post" && publishedAt < now()] | order(publishedAt desc){
-      _id,
-      title,
-      author->{
-      name,
-      image
-    },
-    description,
-    mainImage,
-    slug,
-    publishedAt,
-    }
-  `)
-  return {
-    props: {
-      allPosts: posts
-    }
-  }
-}
+};
+export default Index;
