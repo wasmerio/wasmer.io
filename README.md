@@ -26,6 +26,11 @@ Clone the project
 
 Make sure you have Node.js versions v14.21.1 and v16.18.1 installed
 
+- clean the folder 
+```bash
+rm -rf node_modules .vercel/ package-lock.json
+```
+
 - In the terminal, switch to Node 14 and run the command 
 ```bash
 npx @cloudflare/next-on-pages --experimental-minify 
@@ -35,3 +40,4 @@ npx @cloudflare/next-on-pages --experimental-minify
 npx wrangler pages dev .vercel/output/static --compatibility-flags=streams_enable_constructors --compatibility-flags=no_global_navigator
 ```
 - Visit the site at localhost:8788
+
