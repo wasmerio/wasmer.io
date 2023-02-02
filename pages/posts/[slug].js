@@ -12,13 +12,13 @@ import { PostComponent } from "../../components/Post";
 export const config = {
   runtime: "experimental-edge",
 };
-// export const getStaticPaths = async () => {
-//   return {
-//     paths: [], //indicates that no page needs be created at build time
-//     fallback: "blocking", //indicates the type of fallback
-//   };
-// };
-export const getServerSideProps = async (context) => {
+export const getStaticPaths = async () => {
+  return {
+    paths: [], //indicates that no page needs be created at build time
+    fallback: "blocking", //indicates the type of fallback
+  };
+};
+export const getStaticProps = async (context) => {
   const { slug = "" } = context.params;
   const post = await client.fetch(
     `

@@ -7,7 +7,7 @@ export const config = {
   runtime: "experimental-edge",
 };
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const posts = await client.fetch(`
     *[_type == "post" && publishedAt < now()] | order(publishedAt desc){
       _id,
