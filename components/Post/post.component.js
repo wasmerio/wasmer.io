@@ -1,7 +1,8 @@
 import React from 'react';
-import styles from './post.module.css';
+
 import { urlFor } from '../../utils/sanity.util';
 import { DateFormatter } from '../Date';
+import styles from './post.module.css';
 
 export const PostComponent = ({ title, children, author, date }) => {
   return (
@@ -23,7 +24,7 @@ export const PostComponent = ({ title, children, author, date }) => {
                 </div>
               </div>
             </div>
-            <div class="prose mt-4">{children}</div>
+            <div className="prose mt-4">{children}</div>
           </article>
         </div>
       </div>

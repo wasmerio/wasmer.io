@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Script from 'next/script';
 import React from 'react';
 import 'intersection-observer/intersection-observer';
 import { FooterComponent, NavComponent } from '../components';
@@ -110,6 +111,9 @@ function App({ Component, pageProps }) {
           name="msapplication-TileImage"
           content="/images/icons/ms-icon-144x144.png"
         />
+      </Head>
+      <Script>
+
         <script
           dangerouslySetInnerHTML={{
             __html: `!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -147,7 +151,7 @@ window.intercomSettings = {
             __html: `(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/mfr59yjl';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();`,
           }}
         />
-      </Head>
+      </Script>
       <NavComponent />
       <Component {...pageProps} />
       <FooterComponent />

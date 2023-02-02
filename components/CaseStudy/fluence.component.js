@@ -1,4 +1,5 @@
 import React from 'react';
+
 import styles from './casestudy.module.css';
 
 export const FluenceComponent = () => {
@@ -39,7 +40,7 @@ export const FluenceComponent = () => {
                         Given the complexity that Fluence needed to abstract, the Fluence team placed a heavy bet on WebAssembly. Initially, Java-heavy bias led Fluence down the path of compiling WebAssembly bytecode into Java bytecode for the JVM. However, the team quickly realized the limitations of this approach and the future potential for WebAssembly. As a result, the company ultimately settled on Wasmer as the server-side runtime for WebAssembly applications.
                     </p><br></br>
                 </div>
-                <div class={`text-left ${styles.caseStudyBottom}`}>
+                <div className={`text-left ${styles.caseStudyBottom}`}>
                     <h3>Why Wasmer</h3><br></br>
                     <p>
                         Fluence carefully considered different runtimes as options for running server-side WebAssembly. Ultimately, Wasmer was selected as the company's default WebAssembly Runtime. Its support for language integrations and LLVM, closely aligned with Fluence's need to expand and normalize APIs across many languages. In addition to Wasmer's technical alignment with Fluence's vision, the company also cited superior community support and team responsiveness as deciding factors.

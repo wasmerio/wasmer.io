@@ -1,4 +1,5 @@
 import React from 'react';
+
 import styles from './casestudy.module.css';
 
 export const HotgComponent = () => {
@@ -35,7 +36,7 @@ export const HotgComponent = () => {
                     HOT-G required a solution for creating a container with universal execution, out-of-the-box sandboxing and security, and the ability to interface with low-level hardware. Their team tried several solutions like Emscripten and LLVM. However, they found the tight coupling between Emscripten and browsers a non-starter to their edge deployment needs. Ultimately, the team at HOT-G selected the Wasmer runtime for edge execution for WebAssembly.
                     </p><br></br>
                 </div>
-                <div class={`text-left ${styles.caseStudyBottom}`}>
+                <div className={`text-left ${styles.caseStudyBottom}`}>
                     <h3>Why Wasmer</h3><br></br>
                     <p>
                     HOT-G carefully considered different interpreters and runtimes as options for running server-side WebAssembly. Interpreters presented a larger payload for smaller IoT devices, and the team found them challenging to work with and extend. Wasmer provided HOT-G with a lightweight runtime and multiple compilation options. Tooling to precompile WebAssembly to architecture-specific formats enables HOT-G to write once and deploy anywhere without any runtime overhead. Additional applications like WAPM, Wasmer's WebAssembly Package manager help HOT-G realize its open-source community-driven mission for Tiny ML.

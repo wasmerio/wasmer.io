@@ -1,6 +1,7 @@
 import ErrorPage from "next/error";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import Script from "next/script";
 
 import { PortableText } from "@portabletext/react";
 
@@ -11,6 +12,12 @@ import { PostComponent } from "../../components/Post";
 export const config = {
   runtime: "experimental-edge",
 };
+// export const getStaticPaths = async () => {
+//   return {
+//     paths: [], //indicates that no page needs be created at build time
+//     fallback: "blocking", //indicates the type of fallback
+//   };
+// };
 export const getServerSideProps = async (context) => {
   const { slug = "" } = context.params;
   const post = await client.fetch(
@@ -60,8 +67,10 @@ const PostPage = ({ post }) => {
           rel="stylesheet"
           href="https://jmblog.github.io/color-themes-for-highlightjs/css/themes/tomorrow-night-blue.css"
         />
-        <script async src="//cdn.iframe.ly/embed.js" charset="utf-8"></script>
       </Head>
+      <Script>
+        <script async src="//cdn.iframe.ly/embed.js"></script>
+      </Script>
       <PostComponent
         title={post.title}
         author={post.author}

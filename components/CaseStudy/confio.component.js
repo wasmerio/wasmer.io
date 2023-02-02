@@ -1,4 +1,5 @@
 import React from 'react';
+
 import styles from './casestudy.module.css';
 
 export const ConfioComponent = () => {
@@ -47,7 +48,7 @@ export const ConfioComponent = () => {
                         Given the complexity that Confio needed to abstract, their team placed a calculated bet on WebAssembly and Wasmer as their server-side WebAssembly runtime.
                     </p><br></br>
                 </div>
-                <div class={`text-left ${styles.caseStudyBottom}`}>
+                <div className={`text-left ${styles.caseStudyBottom}`}>
                     <h3>Why Wasmer</h3><br></br>
                     <p>
                         Confio's smart contracts allow blockchain developers to add new functionality to their blockchain at runtime. The engineering team at Confio quickly realized that some containerization and sandboxing technology were required to ensure the host machine's safety. WebAssembly was a natural choice since one of its core features is default sandboxing. WebAssembly applications require explicit permission and interfaces to access host machine data and resources.
