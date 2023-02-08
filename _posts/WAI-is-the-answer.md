@@ -14,9 +14,7 @@ published: true
 
 **That’s right** we at Wasmer move your packages for free
 
-<aside style="background: #d1fae5; border-radius: 10px; padding: 10px; margin: 10px 0px ">
-🗒️ Note: Package refers to a library/executable that you might have developed for a certain language
-</aside>
+> 🗒️ Note: Package refers to a library/executable that you might have developed for a certain language
 
 # What are we going to do?
 
@@ -65,13 +63,28 @@ The WAI project has a variety of code generators, however the one we’ll be usi
 You will need to install several CLI tools.
 
 - [The Rust toolchain](https://rustup.rs/) so we can compile Rust code
-  - `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
+
+```console
+  $ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+
 - the `wasm32-unknown-unknown` target so Rust knows how to compile to WebAssembly
-  - `rustup target add wasm32-unknown-unknown`
+
+```console
+  $ rustup target add wasm32-unknown-unknown
+```
+
 - [The Wasmer runtime](https://docs.wasmer.io/ecosystem/wasmer/getting-started) so we can interact with WAPM
-  - `curl https://get.wasmer.io -sSfL | sh`
-- [the `cargo wapm` sub-command](https://lib.rs/cargo-wapm) for publishing to WAPM
-  - `cargo install cargo-wapm`
+
+```console
+  $ curl https://get.wasmer.io -sSfL | sh
+```
+
+- [The `cargo wapm` sub-command](https://lib.rs/cargo-wapm) for publishing to WAPM
+
+```console
+  $ cargo install cargo-wapm
+```
 
 Once you've installed those tools, you'll want to create a new account on [wapm.io](https://wapm.io/signup) so we have somewhere to publish our code to.
 
@@ -90,22 +103,13 @@ $ cd sgp4
 
 In order to publish to WAPM, we’ll need to populate the project’s `Cargo.toml` file with some extra metadata.
 
-<aside style="background: #d9f99d; border-radius: 10px; padding: 10px; margin: 10px 0px ">
-💡 Some required attributes by WAPM are <b>name</b>, <b>description</b> and <b>version</b>.
-
-</aside>
+> 💡 Some required attributes by WAPM are **name**, **description** and **version**.
 
 Another property to update is `crate-type`. This can take various arguments such as `cdylib` , `rlib` , etc. For more info on [linkage](https://doc.rust-lang.org/reference/linkage.html).
 
-<aside style="background: #e2e8f0; border-radius: 10px; padding: 10px; margin: 10px 0px ">
-🔗 <span style="color: maroon"><b>crate-type</b></span> here specifies the kind of linkage we want. We’ll be using <span style="color: #ea580c"><b>cdylib</b></span> for generating a <span><i>C Dynamic Library</i></span> which will be further used to generate a <span style="color: #4f46e5"><b>*.wasm</b></span> binary.
+> 🔗 **crate-type** here specifies the kind of linkage we want. We’ll be using **cdylib** for generating a C Dynamic Library which will be further used to generate a **.wasm** binary.
 
-</aside>
-
-<aside style="background: #fde68a; border-radius: 10px; padding: 10px; margin: 10px 0px">
-⚠️ We will also introduce a package rename in our dependencies, otherwise we’d get naming conflicts as our package is also named `sgp4`. Therefore, we refer to the original `sgp4` rust crate as `original`.
-
-</aside>
+> ⚠️ We will also introduce a package rename in our dependencies, otherwise we’d get naming conflicts as our package is also named `sgp4`. Therefore, we refer to the original `sgp4` rust crate as `original`.
 
 ```toml
 # Cargo.toml
@@ -195,10 +199,7 @@ wgs72: func() -> geopotential
 iau-epoch-to-sidereal-time: func(epoch: float64) -> float64
 ```
 
-<aside style="background: #c7d2fe; border-radius: 10px; padding: 10px; margin: 10px 0px">
-💡 For the full code check this <a href="https://github.com/wasmerio/sgp4">repository</a>
-
-</aside>
+> 💡 For the full code check this [repository](https://github.com/wasmerio/sgp4)
 
 ### Using the WAI File
 
@@ -209,10 +210,7 @@ We want to tell the `wai_bindgen_rust` crate that this crate exports `sgp4.wai` 
 wai_bindgen_rust::export!("sgp4.wai");
 ```
 
-<aside style="background: #fed7aa; border-radius: 10px; padding: 10px; margin: 10px 0px">
-💡 Note: <span style="color: #4f46e5"><b>sgp4.wai</b></span> is relative to the crate's root - the folder containing your <span style="color: #854d0e"><b>Cargo.toml</b></span> file
-
-</aside>
+> 💡 Note: **sgp4.wai** is relative to the crate's root - the folder containing your **Cargo.toml** file
 
 Now, As we included this `sgp4.wai` in our `lib.rs`. We can do a `cargo expand` as a smoke test to see if the glue code gets generated.
 
@@ -270,10 +268,7 @@ error[E0412]: cannot find type `Sgp4` in module `super`
 
 So it looks like we need to create `Sgp4`,`Constants`, `Elements` and `ResonanceState`.
 
-<aside style="background: #fed7aa; border-radius: 10px; padding: 10px; margin: 10px 0px">
-💡 Note: The type <span style="color: #854d0e"><b>Sgp4</b></span> is a special type as it contains the top level functions we defined and it can't have a <span style="color: #dc2626"><b>static</b></span> modifier for initialisation, only member functions.
-
-</aside>
+> 💡 Note: The type **Sgp4** is a special type as it contains the top level functions we defined and it can't have a **static** modifier for initialisation, only member functions.
 
 - **`Sgp4`**
 
@@ -336,10 +331,7 @@ So it looks like we need to create `Sgp4`,`Constants`, `Elements` and `Resonance
 
 All of the types we’ve implemented are just wrappers around the corresponding struct from the original `sgp4` crate. We can implement the `From` trait to make converting back and forth easier.
 
-<aside style="background: #c7d2fe; border-radius: 10px; padding: 10px; margin: 10px 0px">
-🔗 The <span style="color: #3b82f6"><b>From</b></span> implementations can be found <a href="https://github.com/wasmerio/sgp4/blob/main/src/lib.rs#L256-L428">here</a>
-
-</aside>
+> 🔗 The **From** implementations can be found [here](https://github.com/wasmerio/sgp4/blob/main/src/lib.rs#L256-L428)
 
 ## Publishing to WAPM
 
@@ -387,9 +379,7 @@ Successfully published package `dynamite-bud/sgp4@0.1.0`
 2023-02-07T10:33:26.705101Z  INFO publish: cargo_wapm: Published! pkg="sgp4"
 ```
 
-<aside style="background: #ddd6fe; border-radius: 10px; padding: 10px; margin: 10px 0px">
-🎉 Yaay……
-</aside>
+> 🎉 Yaaay! We’ve published our package to WAPM!
 
 As you see my package is published at [wapm.io](https://wapm.io/dynamite-bud/sgp4@0.1.0). You’ll also see that the `Python` and `JavaScript` bindings were automatically generated.
 
@@ -420,7 +410,7 @@ Our `package.json` would be updated to this
 
 Let’s try a sample [test case](https://github.com/neuromorphicsystems/sgp4/blob/f0d3ec1a7c69d6f2d3a56e21b061814cd6987505/test_cases.toml#L70-L99) from `original` crate.
 
-```jsx
+```js
 // main.js
 
 const { bindings } = require('@dynamite-bud/sgp4');
@@ -533,10 +523,7 @@ In this article, we learned many things about the Wasmer ecosystem such as:
 
 And **congratulations**, with the gracious powers of WebAssembly and Wasmer ; now you have published not one but three packages.
 
-<aside style="background: #cffafe; border-radius: 10px; padding: 10px; margin: 10px 0px">
-🏋🏼 Exercise Time
-
-</aside>
+> 🏋🏼 **Exercise Time**
 
 Here, is a WAI file for you to experiment with and make a library for yourself.
 
@@ -570,10 +557,7 @@ sub: func(a: complex, b: complex) -> complex
 
 Using this WAI file you can make a complex number calculator that can add, subtract and multiply while preserving the history of all the operations performed.
 
-<aside style="background: #ddd6fe; border-radius: 10px; padding: 10px; margin: 10px 0px">
-💡 Don’t forget to publish to WAPM 🚀
-
-</aside>
+> 💡 Don’t forget to publish to WAPM 🚀
 
 ## Appendix
 
