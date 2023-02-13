@@ -10,7 +10,7 @@ published: true
 
 “**Sir, we are here to move your package.**”
 
-![https://www.movingsolutions.in/blog/wp-content/uploads/2021/02/iba-approved-packers-and-movers-in-ghaziabad-and-noida.jpg](https://www.movingsolutions.in/blog/wp-content/uploads/2021/02/iba-approved-packers-and-movers-in-ghaziabad-and-noida.jpg)
+![packers and movers](/images/blog/packers-and-movers.jpg)
 
 **That’s right** we at Wasmer move your packages for free
 
@@ -48,17 +48,18 @@ for (let elements of elementsArr) {
 
 Here we used the official introductory example from original `sgp4`.
 
-## What is WAI ?
+**Tutorial Outline:**
 
-[WAI](https://github.com/wasmerio/wai) or WebAssembly Interfaces is an _“[Interface Definition Language](https://en.wikipedia.org/wiki/Interface_description_language) (IDL)”_ like Protobufs or WebIDL, for interaction with multiple languages.
+1. Installation and Environment Setup
+2. Create and use the WAI
+3. Library Implementation
+4. Publish to WAPM
+5. Using the package from JavaScript
+6. Conclusion
 
-Files for WAI use the `*.wai` extension.
+## Installation
 
-The WAI project has a variety of code generators, however the one we’ll be using today is `wai_bindgen_rust`. This Rust crate uses macros to take a WAI file and generate all the glue code we need to implement a WebAssembly module in Rust.
-
-## Let’s Port!
-
-### Installation
+### Environment Setup
 
 You will need to install several CLI tools.
 
@@ -127,7 +128,19 @@ wai-bindgen-rust = "0.2.2"
 original = { version = "0.8.2", package = "sgp4" }
 ```
 
-### The WAI File
+## Create and use WAI
+
+### What is WAI ?
+
+[WAI](https://github.com/wasmerio/wai) or WebAssembly Interfaces is an _“[Interface Definition Language](https://en.wikipedia.org/wiki/Interface_description_language) (IDL)”_ like Protobufs or WebIDL, for interaction with multiple languages.
+
+Files for WAI use the `*.wai` extension.
+
+The WAI project has a variety of code generators, however the one we’ll be using today is `wai_bindgen_rust`. This Rust crate uses macros to take a WAI file and generate all the glue code we need to implement a WebAssembly module in Rust.
+
+> Let’s Port! 🪄
+
+### Creating the WAI file
 
 Now let’s create a `sgp4.wai` file for our library for defining what our generated library should have.
 
@@ -201,9 +214,9 @@ iau-epoch-to-sidereal-time: func(epoch: float64) -> float64
 
 > 💡 For the full code check this [repository](https://github.com/wasmerio/sgp4)
 
-### Using the WAI File
+### Using the WAI file
 
-We want to tell the `wai_bindgen_rust` crate that this crate exports `sgp4.wai` so that it can generate glue code for this `wai` file.
+We want to tell the `wai_bindgen_rust` crate that this crate exports `sgp4.wai` so that it can generate glue code for this [`wai`](https://github.com/wasmerio/sgp4/blob/main/sgp4.wai) file.
 
 ```rust
 // lib.rs
@@ -227,11 +240,11 @@ unsafe extern "C" fn __wai_bindgen_sgp4_constants_initial_state(arg0: i32) -> i3
 ...
 ```
 
-### Library Implementation
+## Library Implementation
 
 Let’s run `cargo check` and use the error messages to see what we need to do next.
 
-```
+```console
 $ cargo check
 
 error[E0412]: cannot find type `ResonanceState` in module `super`
@@ -385,7 +398,7 @@ As you see my package is published at [wapm.io](https://wapm.io/dynamite-bud/sgp
 
 ![WAPM package Upload](/images/blog/wapm-io-package-upload.png)
 
-### Using the Package from JavaScript 🌏
+## Using the Package from JavaScript 🌏
 
 Let’s initialise an empty directory and install the JavaScript package for `sgp4`.
 
@@ -512,7 +525,7 @@ $ node main.js
 Test passed
 ```
 
-# Conclusion
+## Conclusion
 
 In this article, we learned many things about the Wasmer ecosystem such as:
 
@@ -521,9 +534,9 @@ In this article, we learned many things about the Wasmer ecosystem such as:
 - How to configure your package for WAPM
 - Ported your library to JavaScript and Python
 
-And **congratulations**, with the gracious powers of WebAssembly and Wasmer ; now you have published not one but three packages.
+And **congratulations**, with the gracious powers of WebAssembly and Wasmer; Now you have published not one but three packages.
 
-> 🏋🏼 **Exercise Time**
+### 🏋🏼 **Exercise Time**
 
 Here, is a WAI file for you to experiment with and make a library for yourself.
 
