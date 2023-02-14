@@ -22,69 +22,60 @@ const team = [
   },
   {
     name: 'Wiqar Chaudry',
-    description:
-      'Product Manager. Passionate about fixing human problems.',
-      image: 'wiqar.png',
-      links: [
-        { medium: 'twitter', handler: '@wiqarc' },
-        { medium: 'github', handler: 'wchaudry' },
-      ]
+    description: 'Product Manager. Passionate about fixing human problems.',
+    image: 'wiqar.png',
+    links: [
+      { medium: 'twitter', handler: '@wiqarc' },
+      { medium: 'github', handler: 'wchaudry' },
+    ],
   },
   {
     name: 'Sébastien Chevalier',
     description:
       'Software Engineer. Open source enthusiast and author of box86/box64, He likes to push ARM CPU to their limits.',
-      image: 'sebastien.jpg',
-      links: [
-        { medium: 'github', handler: 'ptitSeb' },
-      ]
+    image: 'sebastien.jpg',
+    links: [{ medium: 'github', handler: 'ptitSeb' }],
   },
   {
     name: 'Loïc Chevalier',
-    description:
-      '',
-      image: 'loic.jpg',
-      links: [
-        { medium: 'github', handler: 'rajdakin' },
-      ],
-    active: false
+    description: '',
+    image: 'loic.jpg',
+    links: [{ medium: 'github', handler: 'rajdakin' }],
+    active: false,
   },
   {
-    name: 'Amanieu D\'Antras',
-    description:
-      'Lead Runtime Developer. Core Rust Developer',
-      image: 'unknown.png',
-      links: [
-        { medium: 'github', handler: 'ptitSeb' },
-      ],
-    active: false
+    name: "Amanieu D'Antras",
+    description: 'Lead Runtime Developer. Core Rust Developer',
+    image: 'unknown.png',
+    links: [{ medium: 'github', handler: 'ptitSeb' }],
+    active: false,
   },
   {
     name: 'Teresa Lopez',
     description:
       'People and Ops. I love encouraging people, teams, and innovative projects to reach their full potential and shine.',
-      image: 'tesi.jpeg',
-      links: [
-      ]
+    image: 'tesi.jpeg',
+    links: [],
   },
   {
     name: 'Manos',
-    description:
-      '',
-      image: 'manos.jpeg',
-      links: [
-        { medium: 'github', handler: 'epilys' },
-      ],
-    active: false
+    description: '',
+    image: 'manos.jpeg',
+    links: [{ medium: 'github', handler: 'epilys' }],
+    active: false,
   },
   {
     name: 'Michael Bryan',
+    description: '',
+    image: 'michael.png',
+    links: [{ medium: 'github', handler: 'Michael-F-Bryan' }],
+  },
+  {
+    name: 'Rudra',
     description:
-      '',
-      image: 'michael.png',
-      links: [
-        { medium: 'github', handler: 'Michael-F-Bryan' },
-      ]
+      'Software Engineering Intern at Wasmer. Passionate about WebAssembly.',
+    image: 'rudra.jpg',
+    links: [{ medium: 'github', handler: 'dynamite-bud' }],
   },
 ];
 
