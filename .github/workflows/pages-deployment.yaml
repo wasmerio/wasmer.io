@@ -5,13 +5,13 @@ jobs:
     permissions:
       contents: read
       deployments: write
-    name: Deploy to Cloudflare Pages
+    name: Direct Upload to Cloudflare Pages
     steps:
       - name: Checkout
         uses: actions/checkout@v3
       # Run your project's build step
-      # - name: Build
-      #   run: npm install && npm run build
+      - name: Build
+        run: npm install && npm run build
       - name: Publish
         uses: cloudflare/pages-action@1
         with:
