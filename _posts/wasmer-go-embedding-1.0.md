@@ -21,12 +21,16 @@ thousands of installations, it's our great pleasure to introduce the
 better performance, cross-compilation, two compilers, two engines, and
 many more advanced features!
 
-* [Improved and simplified API](#improved-and-simplified-api)
-* [Compilers and Engines](#compilers-and-engines)
-* [Cross-compilation](#cross-compilation)
-* [WASI](#wasi)
-* [Ready to use on major platforms and
-  architectures](#ready-to-use-on-major-platforms-and-architectures)
+- [Improved and simplified API](#improved-and-simplified-api)
+  - [A word about host functions](#a-word-about-host-functions)
+  - [A word about exported functions](#a-word-about-exported-functions)
+- [Compilers and Engines](#compilers-and-engines)
+  - [Cranelift has new companions: Singlepass and LLVM!](#cranelift-has-new-companions-singlepass-and-llvm)
+  - [JIT and Native engines](#jit-and-native-engines)
+- [Cross-compilation](#cross-compilation)
+- [WASI](#wasi)
+- [Ready to use on major platforms and architectures](#ready-to-use-on-major-platforms-and-architectures)
+- [Conclusion](#conclusion)
 
 ## Improved and simplified API
 
@@ -128,7 +132,6 @@ A couple of interesting things can be seen here:
    “externals”: `Function`, `Memory` etc., i.e. any type that
    implements the `IntoExtern` interface, to a given namespace (here
    `math`),
-   
 6. The `Exports` API allows to read any kinds of exports, including
    multiple memories.
 
@@ -226,8 +229,8 @@ name.
 i.e. a function that can be invoked as `addOne(42)`. It's actually an
 alias of `GetRawFunction(name).Native()` (including error handling):
 
-* A _raw function_ is represented by the type `Function`,
-* A _native function_ is represented by the type `NativeFunction`.
+- A _raw function_ is represented by the type `Function`,
+- A _native function_ is represented by the type `NativeFunction`.
 
 The `Function` type provides more information about the function
 itself, whilst `NativeFunction` serves the purpose of being easy to
@@ -262,12 +265,11 @@ various contexts.
 The Wasmer runtime provides 3 compilers to compile the WebAssembly
 modules into executable codes:
 
-* Singlepass: Super fast compilation times, slow execution times. Not
+- Singlepass: Super fast compilation times, slow execution times. Not
   prone to JIT-bombs,
-  
-* Cranelift: Fast compilation times, fast execution times,
+- Cranelift: Fast compilation times, fast execution times,
 
-* LLVM: Slow compilation times, very fast execution times (close to
+- LLVM: Slow compilation times, very fast execution times (close to
   native).
 
 Previously, `wasmer-go` was providing only one compiler:
@@ -313,9 +315,9 @@ The Wasmer runtime also provides 3 engines to compile _and_ to execute
 WebAssembly modules. Let's only keep 2 engines in this article. In a
 nutshell:
 
-* The JIT engine stores the executable code in memory,
+- The JIT engine stores the executable code in memory,
 
-* The Native engine stores the executable code in a native shared
+- The Native engine stores the executable code in a native shared
   library object (`.so`, `.dylib`, or `.dll` files depending on the
   Operating System it runs),
 
@@ -498,16 +500,16 @@ aims at being run anywhere.
 `wasmer-go` embeds the Wasmer runtime as native shared object library
 (`.so`, `.dylib` etc.) for the following platforms:
 
-* Linux on `amd64`,
-* Linux on `arm64`,
-* Darwin on `amd64`.
+- Linux on `amd64`,
+- Linux on `arm64`,
+- Darwin on `amd64`.
 
 More is coming very soon, like Windows, Linux with `musl`, and more!
 
 If you want to use a custom configuration of Wasmer, we've got you
 covered with the `custom_wasmer_runtime` build tag.
 
-```shell
+```shell-session
 $ # Configure cgo.
 $ export CGO_CFLAGS="-I/path/to/include/"
 $ export CGO_LDFLAGS="-Wl,-rpath,/path/to/lib/ -L/path/to/lib/ -lwasmer_go"

@@ -65,25 +65,25 @@ You will need to install several CLI tools.
 
 - [The Rust toolchain](https://rustup.rs/) so we can compile Rust code
 
-```console
+```shell-session
   $ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
 - the `wasm32-unknown-unknown` target so Rust knows how to compile to WebAssembly
 
-```console
+```shell-session
   $ rustup target add wasm32-unknown-unknown
 ```
 
 - [The Wasmer runtime](https://docs.wasmer.io/ecosystem/wasmer/getting-started) so we can interact with WAPM
 
-```console
+```shell-session
   $ curl https://get.wasmer.io -sSfL | sh
 ```
 
 - [The `cargo wapm` sub-command](https://lib.rs/cargo-wapm) for publishing to WAPM
 
-```console
+```shell-session
   $ cargo install cargo-wapm
 ```
 
@@ -227,7 +227,7 @@ wai_bindgen_rust::export!("sgp4.wai");
 
 Now, As we included this `sgp4.wai` in our `lib.rs`. We can do a `cargo expand` as a smoke test to see if the glue code gets generated.
 
-```console
+```shell-session
 $  cargo expand
 ```
 
@@ -244,7 +244,7 @@ unsafe extern "C" fn __wai_bindgen_sgp4_constants_initial_state(arg0: i32) -> i3
 
 Let’s run `cargo check` and use the error messages to see what we need to do next.
 
-```console
+```shell-session
 $ cargo check
 
 error[E0412]: cannot find type `ResonanceState` in module `super`

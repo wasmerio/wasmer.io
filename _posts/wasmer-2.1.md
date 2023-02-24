@@ -1,7 +1,7 @@
 ---
-title: "Wasmer 2.1"
-excerpt: "Wasmer 2.1 supporting JS, Singlepass in Windows, iOS, LLVM 13, reproducible builds and many more features"
-date: "2021-12-01T00:00:00.000Z"
+title: 'Wasmer 2.1'
+excerpt: 'Wasmer 2.1 supporting JS, Singlepass in Windows, iOS, LLVM 13, reproducible builds and many more features'
+date: '2021-12-01T00:00:00.000Z'
 author: Syrus Akbary
 published: true
 ---
@@ -19,7 +19,7 @@ After a few months of work, we are super happy to announce the general availabil
 
 Wasmer 2.1 also kicks off the company's transition to a milestone-driven public roadmap and delivery process
 
-*[Click here](https://github.com/wasmerio/wasmer/milestones) for more information on current and future milestones.*
+_[Click here](https://github.com/wasmerio/wasmer/milestones) for more information on current and future milestones._
 
 Below is a summary of some new features and highlights.
 
@@ -33,6 +33,7 @@ You can now run in the browser your Rust projects using Wasmer just by doing:
 [dependencies]
 wasmer = { version = "2.1.0", default-features=false, features=["js-default"]}
 ```
+
 **Stay tuned for a detailed blog post on how to use it!**
 
 ## Virtual Filesystem
@@ -77,20 +78,20 @@ Deterministic builds are a critical feature for many of our customers in the Web
 We couldn't be happier about the new language integrations of Wasmer created by our awesome community.
 The integrations allow developers to WebAssembly in even more languages:
 
-* [Wasmer Lisp](https://github.com/helmutkian/cl-wasm-runtime): Were you interested in using WebAssembly from a functional language? This is for you!
-* [Wasmer Crystal](https://github.com/naqvis/wasmer-crystal): [Crystal](https://crystal-lang.org/) is a Ruby-like language with C-like performance
+- [Wasmer Lisp](https://github.com/helmutkian/cl-wasm-runtime): Were you interested in using WebAssembly from a functional language? This is for you!
+- [Wasmer Crystal](https://github.com/naqvis/wasmer-crystal): [Crystal](https://crystal-lang.org/) is a Ruby-like language with C-like performance
 
 # Install Wasmer now
 
 If you already have Wasmer installed, you can upgrade to 2.1 by running
 
-```shell
+```shell-session
 wasmer self-update
 ```
 
 If you are installing Wasmer for the first time, you can use one of the methods listed below:
 
-```shell
+```shell-session
 # Using Shell (macOS and Linux):
 curl https://get.wasmer.io -sSfL | sh
 
