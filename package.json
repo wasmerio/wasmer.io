@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "next",
-    "build": "next build && next export -o out && cp _redirects out/",
+    "build": "GITHUB_API_ACTIVE=true next build && next export -o out && cp _redirects out/",
     "start": "next start",
     "linter": "eslint '{components,pages}/**/*.js' --max-warnings=0",
     "fixer": "eslint --fix {components,pages}/**/*.js",
