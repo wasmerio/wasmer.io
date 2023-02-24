@@ -17,6 +17,7 @@ import "prismjs/components/prism-python";
 import "prismjs/components/prism-javascript";
 import "prismjs/components/prism-typescript";
 import "prismjs/components/prism-cpp";
+import "prismjs/components/prism-ebnf";
 import "prismjs/components/prism-shell-session";
 
 import "prismjs/themes/prism-tomorrow.css";
