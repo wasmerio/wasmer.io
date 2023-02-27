@@ -1,7 +1,7 @@
 ---
 title: 'WAI is the Answer !!!'
 excerpt: 'Porting libraries to npm and pip made easy with WAI'
-date: '2023-02-08T13:30:37.390Z'
+date: '2023-02-27T13:30:37.390Z'
 author: Rudra
 published: true
 ---
