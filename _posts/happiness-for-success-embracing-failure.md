@@ -2,6 +2,7 @@
 title: "Happiness for success: Embracing failure in our life and teams"
 excerpt: "In this article, we will talk about how it can be valuable for ourselves and teams to recognize and accept our \"weaknesses and imperfections\". Our ignorance and even the mistakes we make (and will make) are adverse experiences that can make us progress and connect with others."
 date: "2022-12-16T12:00:00.000Z"
+coverImage: '/images/blog/happiness-for-success-embracing-failure/kintsugi_mug.png'
 author: Teresa Lopez
 published: true
 ---
