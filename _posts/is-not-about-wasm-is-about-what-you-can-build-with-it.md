@@ -8,8 +8,7 @@ published: false
 
 This article is an open reflection on the importance of thinking of **technology as an enabler** to new products and horizons, **and not as a driver itself**. On this article I’ll review how I’ve fallen on the mistake of prioritizing tech over product many times and how I got back delivering value by focusing back on the customer.
 
-If the long-term opportunities enabled by some technology advancement are greater than the short term gains enabled by the product powered by the technology, you may easily get blinded by the technology itself (very relatable to AI nowadays, isn’t it?).
-So it’s very critical, specially for startups, to find the right balance between short and long term thinking (product vs tech).
+At the end is critical (and specially so for startups) to find the right balance between short and long term thinking (in this case: *product vs tech*).
 
 > Growth it’s about focused short term imbalance to achieve long term balance.
 
@@ -21,7 +20,7 @@ Wasmer started as a need I myself had. I maintained the [GraphQL Python](https:/
 
 After analyzing the whole GraphQL ecosystem, I realized that the same process was repeated N+1 times in different languages (_bonus points if you got the [dataloader reference](https://github.com/graphql/dataloader)!_): GraphQL-Go, Juniper/GraphQL-Rust, GraphQL ruby, … they all were porting the JS reference API to different languages!
 
-So I thought Wasm could solve this use problem way more elegantly: one universal library that can be used in any programming language (**_here we go: here’s Wasmer first product use case!_**).
+So I thought Wasm could solve this use problem way more elegantly: one universal library that can be used in any programming language (**_here we go: Wasmer first product use case!_**).
 
 However, as I dug more and more on the ecosystem I realized that Wasm could become way more powerful than what I initially thought: once you remove the barriers for running software anywhere, all software ecosystems just suddenly become part of your arena.
 
@@ -80,7 +79,7 @@ In any case, here are the **_first principles_** that I believe will make Wasm i
 
 Now that we have identified the first principles that make the technology great, we are ready to understand what we can deliver with this new superpowers.
 
-## Is about what you can do Wasm!
+## Is about what you can do with Wasm!
 
 Wasm enables great new markets, if we analyze those based on the first principles.
 
