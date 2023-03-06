@@ -59,7 +59,7 @@ https://www.youtube.com/watch?v=oeqPrUmVz-o
 >
 > […]
 >
-> As we have tried to come up for an strategy and a vision for Apple, it started with what incredible benefits can we give to the customer. Where we can take the customer.
+> As we have tried to come up for an strategy and a vision for Apple, it started with: What incredible benefits can we give to the customer? Where we can take the customer?
 > – <cite>Steve Jobs</cite>
 
 And now, we are ready to do a similar analogy: it's not about Wasm (even if without it I would have probably never written this article).
