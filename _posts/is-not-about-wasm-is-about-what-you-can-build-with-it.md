@@ -47,7 +47,7 @@ Probably not that many, but if I ask if you know what **Docker** is I bet my hor
 
 You may not know this, but Docker _used_ all of the technologies I previously mentioned to build one thing that completely dominated the computing ecosystem: a CLI app with great ergonomics to containerize applications that run in any place in the cloud easily. It was not about LXC, cgroups or namespaces… it was about the _ONE_ product that delivered them cohesively in a masterpiece software and ultra-polished experience for the developer.
 
-But lets continue with the same rhetoric: how many of you know what Emscripten, WebGL or Wasm are, but… did you know that a $20B company was created by taking advantage solely on this technologies: [Figma](https://www.theverge.com/2022/11/8/23445821/figma-adobe-acquisition-design-vr-ai-meta)?
+But lets continue with the same rhetoric: how many of you know what Emscripten, WebGL or Wasm are, but… did you know that a $20B company was created by taking advantage solely on these technologies: [Figma](https://www.theverge.com/2022/11/8/23445821/figma-adobe-acquisition-design-vr-ai-meta)?
 
 From the provided examples it’s easy to realize that Technology ≠ Product, although the former always enable great advancements on the latter. So a great product must have great technology to shine on the long term, but a great product must always come first. **_Tech without a good product is nothing_**. Technology is an enabler, a good product should always be the driver.
 
