@@ -97,12 +97,12 @@ In my point of view, here are the main products that will take advantage of the 
 - Compute pipelines
 - Web3
   - Smart Contracts
-  - The computing decentralization engines of the future (Dfinity is an example of this)
-- Universal software stores (aka: WAPM, App Stores or more)
+  - The computing decentralization engines of the future ([Dfinity](https://dfinity.org/) is an example of this)
+- Universal software stores (aka: [WAPM](https://wapm.io/), App Stores or more)
 - Universal IR (one language to bind all languages together, more powerful than GraalVM)
 
 As such, we shouldn’t be blinded by Wasm as a technology, but by the products that are now possible with it. Great examples of already successful products built on it are: [Google Earth](https://web.dev/earth-webassembly/), [Figma](https://www.figma.com/blog/webassembly-cut-figmas-load-time-by-3x/), the [Disney App](https://medium.com/disney-streaming/introducing-the-disney-application-development-kit-adk-ad85ca139073), Cloudflare Workers and even the [Cloudflare 1.1.1.1 DNS](https://blog.cloudflare.com/big-pineapple-intro/), but also many more…
 
 And, on that note, I can’t be more excited to show what we have been working on in the last year at Wasmer.
 
-Stay tuned for more Wasmer updates… let’s always remember that a good product always wins!
+Stay tuned for more Wasmer updates!
