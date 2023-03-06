@@ -62,9 +62,9 @@ https://www.youtube.com/watch?v=oeqPrUmVz-o
 > As we have tried to come up for an strategy and a vision for Apple, it started with what incredible benefits can we give to the customer. Where we can take the customer.
 > – <cite>Steve Jobs</cite>
 
-And now, we are ready to do a similar analogy: is not about Wasm (even if without it I would have probably never written this article).
+And now, we are ready to do a similar analogy: it's not about Wasm (even if without it I would have probably never written this article).
 
-## Is not about Wasm, silly!
+## It's not about Wasm, silly!
 
 Wasm is an incredible technology. However, Wasm by itself doesn’t bring us anywhere, Wasm is an enabler (but if Wasm did not exist, other technology will probably come to play: perhaps LLVM IR, asm.js, NaCL or even RISC-V may have been the choice for this universal layer).
 
