@@ -12,6 +12,7 @@
     "postinstall": "husky install"
   },
   "dependencies": {
+    "@remark-embedder/core": "^3.0.1",
     "classnames": "^2.2.6",
     "copy-to-clipboard": "^3.3.1",
     "date-fns": "^2.16.1",
