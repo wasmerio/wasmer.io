@@ -8,7 +8,7 @@ published: false
 
 This article is an open reflection on the importance of thinking of **technology as an enabler** to new products and horizons, **and not as a driver itself**. On this article I’ll review how I’ve fallen on the mistake of prioritizing tech over product many times and how I got back delivering value by focusing back on the customer.
 
-At the end is critical (and specially so for startups) to find the right balance between short and long term thinking (in this case: *product vs tech*).
+At the end it is critical (and specially so for startups) to find the right balance between short and long term thinking (in this case: *product vs tech*).
 
 > Growth it’s about focused short term imbalance to achieve long term balance.
 
