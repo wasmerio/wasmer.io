@@ -1,8 +1,8 @@
 ---
-title: "Wasmer takes WebAssembly libraries mainstream with WAI"
-excerpt: "Import WebAssembly libraries just like any other dependency in your project"
-date: "2022-12-02T10:00:00.000Z"
-coverImage: "/images/blog/use-wai.png"
+title: 'Wasmer takes WebAssembly libraries mainstream with WAI'
+excerpt: 'Import WebAssembly libraries just like any other dependency in your project'
+date: '2022-12-02T10:00:00.000Z'
+coverImage: '/images/blog/use-wai.png'
 author: Michael Bryan
 published: true
 ---
@@ -21,7 +21,7 @@ The WAI addition to the [WebAssembly Package Manager](https://wapm.io/) streamli
 
 In fact, you can see it in action right now with [the `vscode-wasm` plugin][vscode-wasm] which uses the automatically generated [wabt WAI bindings](https://wapm.io/wasmer/wabt), used by more than 94 thousand developers worldwide!
 
-*WAPM is not tied to just the WAI format though, we are working to allow integrating **any kind of Wasm bindings** into the Package Manager (such as [Extism](https://extism.org/))... if you maintain a binding format we want to hear from you!*
+_WAPM is not tied to just the WAI format though, we are working to allow integrating **any kind of Wasm bindings** into the Package Manager (such as [Extism](https://extism.org/))... if you maintain a binding format we want to hear from you!_
 
 [component-model]: https://github.com/WebAssembly/component-model
 [interface-types]: https://github.com/WebAssembly/interface-types/blob/main/proposals/interface-types/Explainer.md
@@ -74,7 +74,7 @@ impl crate::calculator::Calculator for Calculator {
 
 ### Let’s publish it!
 
-Publishing requires installing `wapm` with [the Wasmer installer](https://docs.wasmer.io/ecosystem/wapm/getting-started) and the [`cargo wapm`](https://github.com/wasmerio/cargo-wapm)  helper installed (`cargo install cargo-wapm`). If you haven't already, make sure to run `wapm login` to log into your WAPM account (don't forget to [sign up][sign-up] if you haven't already).
+Publishing requires installing `wapm` with [the Wasmer installer](https://docs.wasmer.io/ecosystem/wapm/getting-started) and the [`cargo wapm`](https://github.com/wasmerio/cargo-wapm) helper installed (`cargo install cargo-wapm`). If you haven't already, make sure to run `wapm login` to log into your WAPM account (don't forget to [sign up][sign-up] if you haven't already).
 
 Now we're set up, we'll need to update `Cargo.toml` so this package can be published to WAPM.
 
@@ -95,7 +95,6 @@ Now we need to tell the Rust compiler to generate a `cdylib` ("C-compatible
 dynamic library"). It's also a good idea to add the `rlib` crate type so
 integration tests can import the library as a Rust dependency.
 
-
 ```toml
 # Cargo.toml
 [lib]
@@ -104,11 +103,11 @@ crate-type = ["cdylib", "rlib"]
 
 And publish!
 
-```console
+```shell-session
 $ cargo wapm
 ```
 
-*Note: WAI also works with other languages, such as C or C++. If you want to publish packages to WAPM with it, you will need to use `wapm publish` instead of `cargo wapm`.*
+_Note: WAI also works with other languages, such as C or C++. If you want to publish packages to WAPM with it, you will need to use `wapm publish` instead of `cargo wapm`._
 
 ## Consuming WAPM Packages in your codebase
 
@@ -116,7 +115,7 @@ Let's add this `wai/tutorial-01` package to a JavaScript project.
 
 First, we'll need to create a new JavaScript package and add the `wai/tutorial-01` package as a dependency.
 
-```console
+```shell-session
 $ wasmer add --yarn wai/tutorial-01
 ```
 
@@ -125,12 +124,12 @@ This runs `yarn add` under the hood. Depending on the project, you might use the
 Now, let's create a script.
 
 ```jsx
-import { bindings } from "wai/tutorial-01";
+import { bindings } from 'wai/tutorial-01';
 
 async function main() {
-	const calculator = await bindings.calculator();
-	const four = calculator.add(2, 2);
-	console.log("2 + 2 =", four);
+  const calculator = await bindings.calculator();
+  const four = calculator.add(2, 2);
+  console.log('2 + 2 =', four);
 }
 
 main();
@@ -138,7 +137,7 @@ main();
 
 Or, if you want to do it in python:
 
-```console
+```shell-session
 $ wasmer add --pip wai/tutorial-01
 ```
 
