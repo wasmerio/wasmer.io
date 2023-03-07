@@ -12,7 +12,9 @@
     "postinstall": "husky install"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.13",
     "classnames": "^2.2.6",
+    "clsx": "^1.2.1",
     "copy-to-clipboard": "^3.3.1",
     "date-fns": "^2.16.1",
     "eslint-plugin-prettier": "^3.1.4",
@@ -37,14 +39,16 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.17.0",
+    "autoprefixer": "^10.4.13",
     "eslint": "^8.13.0",
     "eslint-plugin-react": "^7.29.4",
     "husky": "^5.0.0-beta.0",
     "pinst": "^2.0.0",
+    "postcss": "^8.4.21",
     "postcss-flexbugs-fixes": "4.2.1",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.1.2",
-    "tailwindcss": "^1.7.4"
+    "tailwindcss": "^3.2.7"
   },
   "license": "MIT"
 }
