@@ -3,7 +3,7 @@ title: 'It’s not about Wasm, its about what you can build with it!'
 excerpt: 'It’s not about Wasm, its about what you can build with it!'
 date: '2023-03-07T18:00:00.000Z'
 author: Syrus Akbary
-published: false
+published: true
 ---
 
 This article is an open reflection on the importance of thinking of **technology as an enabler** to new products and horizons, **and not as a driver itself**. On this article I’ll review how I’ve fallen on the mistake of prioritizing tech over product many times and how I got back delivering value by focusing back on the customer.
