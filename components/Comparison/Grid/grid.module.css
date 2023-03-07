@@ -19,7 +19,7 @@
 }
 
 .root :global(.label) {
-  @apply relative text-small leading-none font-semibold flex items-center whitespace-no-wrap h-dot-3;
+  @apply relative text-small leading-none font-semibold flex items-center whitespace-nowrap h-dot-3;
 }
 
 .root :global(.label) span {

@@ -1,13 +1,14 @@
-import React, { Component } from 'react';
-import handleViewport from 'react-in-viewport';
-import { ColorDots } from '../../ColorDots/color-dots.component';
-import { isMobile } from '../../../utils';
-import { LanguageComponent } from '../../Languages/language.component';
-import { AsciinemaComponent, SnippetComponent } from './../../../components/';
-import languages from './../../Languages/languages.constants';
-import { StepperComponent } from './components/Stepper/stepper.component';
-import scenario from './install.data';
-import styles from './install.module.css';
+import React, { Component } from "react";
+import handleViewport from "react-in-viewport";
+
+import { AsciinemaComponent, SnippetComponent } from "./../../../components/";
+import { isMobile } from "../../../utils";
+import languages from "./../../Languages/languages.constants";
+import { ColorDots } from "../../ColorDots/color-dots.component";
+import { LanguageComponent } from "../../Languages/language.component";
+import { StepperComponent } from "./components/Stepper/stepper.component";
+import scenario from "./install.data";
+import styles from "./install.module.css";
 
 const Asciinema = handleViewport(AsciinemaComponent);
 
@@ -15,7 +16,7 @@ export class InstallComponent extends Component {
   state = {
     play: false,
     fontSettings: {
-      fontFamily: 'Zeitung Mono Pro',
+      fontFamily: "Zeitung Mono Pro",
       fontSize: 17,
     },
   };
@@ -42,10 +43,10 @@ export class InstallComponent extends Component {
               </div>
               <p className="text-xs mt-6">
                 <span className="opacity-50">
-                  Wasmer is also available on Windows.{' '}
+                  Wasmer is also available on Windows.{" "}
                 </span>
                 <a
-                  className="underline whitespace-no-wrap opacity-50 hover:opacity-75 transition transition-opacity duration-200"
+                  className="underline whitespace-nowrap opacity-50 hover:opacity-75 transition-all duration-200"
                   href="https://github.com/wasmerio/wasmer/releases"
                 >
                   Download it here
@@ -56,13 +57,13 @@ export class InstallComponent extends Component {
               <Asciinema
                 options={{
                   theme: {
-                    foreground: '#ffffff',
-                    background: '#231044',
-                    black: '#fdf6e3',
-                    color0: '#231044',
-                    color1: '#ff005b',
-                    green: '#02C39A',
-                    cyan: '#4AB3FF',
+                    foreground: "#ffffff",
+                    background: "#231044",
+                    black: "#fdf6e3",
+                    color0: "#231044",
+                    color1: "#ff005b",
+                    green: "#02C39A",
+                    cyan: "#4AB3FF",
                   },
                   cols: 43,
                   rows: 16,

@@ -1,7 +1,8 @@
-import React from 'react';
-import styles from './post.module.css';
-import { getImageUrl } from '../About/Team/components/Avatar/avatar.component';
-import { DateFormatter } from '../Date';
+import React from "react";
+
+import { getImageUrl } from "../About/Team/components/Avatar/avatar.component";
+import { DateFormatter } from "../Date";
+import styles from "./post.module.css";
 
 export const PostComponent = ({ title, children, author, date }) => {
   return (
