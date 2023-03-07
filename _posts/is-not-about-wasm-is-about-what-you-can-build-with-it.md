@@ -1,7 +1,7 @@
 ---
 title: 'It’s not about Wasm, its about what you can build with it!'
 excerpt: 'It’s not about Wasm, its about what you can build with it!'
-date: '2023-03-06T18:00:00.000Z'
+date: '2023-03-07T18:00:00.000Z'
 author: Syrus Akbary
 published: false
 ---
@@ -20,7 +20,7 @@ Wasmer started as a need I myself had. I maintained the [GraphQL Python](https:/
 
 After analyzing the whole GraphQL ecosystem, I realized that the same process was repeated N+1 times in different languages (_bonus points if you got the [dataloader reference](https://github.com/graphql/dataloader)!_): GraphQL-Go, Juniper/GraphQL-Rust, GraphQL ruby, … they all were porting the JS reference API to different languages!
 
-So I thought Wasm could solve this use problem way more elegantly: one universal library that can be used in any programming language (**_here we go: Wasmer first product use case!_**).
+So I thought WebAssembly could solve this use problem way more elegantly: one universal library that can be used in any programming language (**_here we go: Wasmer first product use case!_**).
 
 However, as I dug more and more on the ecosystem I realized that Wasm could become way more powerful than what I initially thought: once you remove the barriers for running software anywhere, all software ecosystems just suddenly become part of your arena.
 
