@@ -14,7 +14,7 @@ In my previous [article](https://wasmer.io/posts/WAI-is-the-answer), I explained
 
 ## Testing in WAI
 
-Testing for WAI has been made easier using an automated testing framework `[wasmer-pack-testing](https://crates.io/crates/wasmer-pack-testing)`. This crate automatically discovers the tests for available language configurations for WAI and runs the tests correspondingly.
+Testing for WAI has been made easier using an automated testing framework [`wasmer-pack-testing`](https://crates.io/crates/wasmer-pack-testing). This crate automatically discovers the tests for available language configurations for WAI and runs the tests correspondingly.
 
 It uses `jest` for JavaScript/Typescript and `pytest` for Python.
 
@@ -31,9 +31,7 @@ This testing framework allows for both **logical checks** using unit tests and *
 
 In this tutorial, we will test the recently published `rustfft` package. This package demonstrates the portability and logical computation power of WebAssembly that can be harnessed using WAI.
 
-<aside style="background: #fef08a; border-radius: 0.4rem; padding: 4px; font-weight: 500;">
-<span style="background: white; padding: 4px; border-radius: 9999px; margin: 0 2px 0 0">💡</span> RustFFT is a high-performance FFT library written in pure Rust.
-</aside>
+> 💡 RustFFT is a high-performance FFT library written in pure Rust.
 
 ### Environment Setup
 
