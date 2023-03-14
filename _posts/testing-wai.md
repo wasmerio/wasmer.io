@@ -60,7 +60,7 @@ The default testing using `cargo test` only runs the tests that are written usin
 3. Finally, let's write an integration test to generate bindings and test them against the appropriate target.
 
    ```rust
-   // tests/sgp4-integration-tests.rs
+   // tests/rustfft-integration-tests.rs
    use anyhow::Error;
    use tracing_subscriber::EnvFilter;
 
@@ -80,7 +80,7 @@ To enable our testing suite to discover which targets to generate bindings for, 
 Now let’s create a blank `rustfft.test.js` in the crate directory.
 
 ```shell-session
-$ touch sgp4.test.js
+$ touch rustfft.test.js
 ```
 
 Running the tests will generate a testing package (note the `package.json`) and bindings for your test to use.
@@ -214,7 +214,7 @@ In this tutorial, we got to know how to testing your published packages with WAI
 
 ## Appendix
 
-- [`rustfft`](https://wapm.io/dynamite-bud/sgp4) on [WAPM](https://wapm.io)
+- [`rustfft`](https://wapm.io/dynamite-bud/rustfft) on [WAPM](https://wapm.io)
 - [`rustfft`](https://crates.io/crates/rustfft) on [crates.io](https://crates.io)
 - [`wasmer-pack-testing`](https://docs.rs/wasmer-pack-testing/latest/wasmer_pack_testing/) on [docs.rs](https://docs.rs)
 - [`jest`](https://jestjs.io/) testing suite for JavaScript
