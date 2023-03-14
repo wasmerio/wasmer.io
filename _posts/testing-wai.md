@@ -10,7 +10,7 @@ published: true
 
 ![https://images.unsplash.com/photo-1597279393696-d5701aee7bf7?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb](https://images.unsplash.com/photo-1597279393696-d5701aee7bf7?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb)
 
-In my previous [article](https://wasmer.io/posts/WAI-is-the-answer), I explained how to port a package from Rust for the JavaScript ecosystem. These published packages need testing in their own ecosystems for the package verification and identification of any possible bugs.
+In my previous [article](https://wasmer.io/posts/WAI-is-the-answer), I explained how to port a Rust package for use in the JavaScript ecosystem. However, these published packages need to be tested within their own ecosystems to verify their functionality and identify any potential bugs.
 
 ## Testing in WAI
 
