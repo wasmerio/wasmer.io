@@ -16,9 +16,9 @@ In my previous [article](https://wasmer.io/posts/WAI-is-the-answer), I explained
 
 Testing for WAI has been made easier using an automated testing framework [`wasmer-pack-testing`](https://crates.io/crates/wasmer-pack-testing). This crate automatically discovers the tests for available language configurations for WAI and runs the tests correspondingly.
 
-It uses `jest` for JavaScript/Typescript and `pytest` for Python.
+wasmer-pack-testing uses `jest` for JavaScript/Typescript and `pytest` for Python.
 
-This testing framework allows for both **logical checks** using unit tests and **code generation** using snapshot testing.
+This testing framework allows for both **logical checks** through unit tests and **code generation** using snapshot testing.
 
 ## Tutorial Outline
 
@@ -29,13 +29,13 @@ This testing framework allows for both **logical checks** using unit tests and *
 
 ### Introduction
 
-In this tutorial, we will test the recently published `rustfft` package. This package demonstrates the portability and logical computation power of WebAssembly that can be harnessed using WAI.
+In this tutorial, we will test the recently published `rustfft` package, which demonstrates the portability and logical computation power of WebAssembly. WAI can be used to harness that power!
 
 > 💡 RustFFT is a high-performance FFT library written in pure Rust.
 
 ### Environment Setup
 
-The default testing using `cargo test` only runs the tests that are written using the `test` macro in the library files. For running integration tests we can create a new file in a separate tests directory.
+The default testing using `cargo test` only runs the tests that are written using the `test` macro in the library files.To run integration tests, we can create a new file in a separate `tests` directory.
 
 1. Create an integration tests file
 
@@ -43,7 +43,7 @@ The default testing using `cargo test` only runs the tests that are written usin
    $ mkdir tests && touch tests/rustfft-integration-tests.rs
    ```
 
-2. Let’s update our `cargo.toml` to tell it that we are providing a custom test harness.
+2. Let’s update our `cargo.toml` to indicate that we are providing a custom test harness.
 
    ```toml
    # Cargo.toml
@@ -57,7 +57,7 @@ The default testing using `cargo test` only runs the tests that are written usin
    harness = false
    ```
 
-3. Finally, set up the integration tests to generate bindings and test for the appropriate target.
+3. Finally, let's write an integration test to generate bindings and test them against the appropriate target.
 
    ```rust
    // tests/sgp4-integration-tests.rs
@@ -75,15 +75,15 @@ The default testing using `cargo test` only runs the tests that are written usin
 
 ### Bindings Generation
 
-For our testing suite to discover which targets to generate bindings for let’s create a blank JavaScript test file in our crate directory (the one with `Cargo.toml`) that `autodiscover()` can use.
+To enable our testing suite to discover which targets to generate bindings for, let's create a blank JavaScript test file in the crate directory (the one with `Cargo.toml`) that `autodiscover()` can use.
 
-Now let’s create a blank `rustfft.test.js` in our main directory.
+Now let’s create a blank `rustfft.test.js` in the crate directory.
 
 ```shell-session
 $ touch sgp4.test.js
 ```
 
-Running the tests will generate a testing package (note the `package.json``) and bindings for your test to use.
+Running the tests will generate a testing package (note the `package.json`) and bindings for your test to use.
 
 ```shell-session
 $ cargo test
@@ -165,7 +165,7 @@ test('dft test len 4', async () => {
 });
 ```
 
-Running the `cargo test` now will automatically run the `jest` test for us.
+Running `cargo test` now will automatically run the `jest` test from above for us.
 
 ```shell-session
 Finished test [unoptimized + debuginfo] target(s) in 0.46s
@@ -206,11 +206,11 @@ Ran all test suites.
 
 ```
 
-We see here that our tests are ran using the `jest` testing suite and pass for both the test cases.
+We see here that our tests run using the `jest` testing suite and both test cases pass successfully.
 
 ## Conclusion
 
-In this tutorial, we got to know how to testing your published packages with WAI. The testing was done using JavaScript. This testing also concludes that our logic internally is working correctly and correct bindings are being generated for our package in JavaScript
+In this tutorial, we got to know how to testing your published packages with WAI. The testing was done using JavaScript. This testing also concludes that our logic internally is working correctly and correct bindings are being generated for our package in JavaScript.
 
 ## Appendix
 
