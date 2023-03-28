@@ -17,16 +17,15 @@ export default function PostPage({ post, morePosts, preview }) {
 
   console.log("🚀 ~ file: [slug].js:18 ~ PostPage ~ ogImageUrl:", ogImageUrl);
   return (
-    <div>
+    <>
       <Head>
         <title>{post.title}</title>
         <meta name="title" content={post.title} key="title" />
-        {!post?.ogImage ? null : (
-          <meta
-            property="og:image"
-            // content={`https://wasmer.io${post?.ogImage?.url}`}
-            content={ogImageUrl}
-          />
+        {!post?.ogImage?.url ? null : (
+          <>
+            <meta property="og:image" content={ogImageUrl} />
+            <meta name="twitter:image" content={ogImageUrl} />
+          </>
         )}
         <link
           rel="stylesheet"
@@ -41,7 +40,7 @@ export default function PostPage({ post, morePosts, preview }) {
       <PostComponent title={post.title} author={post.author} date={post.date}>
         <div dangerouslySetInnerHTML={{ __html: post.content }} />
       </PostComponent>
-    </div>
+    </>
   );
 }
 // export default function Post({ post, morePosts, preview }) {
