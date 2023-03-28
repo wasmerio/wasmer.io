@@ -1,11 +1,10 @@
-import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
 import Head from 'next/head';
-
-import { getCaseStudyBySlug, getAllCaseStudies, getMemberByName } from '../lib/api';
-import markdownToHtml from '../lib/markdownToHtml';
+import { useRouter } from 'next/router';
 
 import { PostComponent } from '../components/Post';
+import { getAllCaseStudies, getCaseStudyBySlug, getMemberByName } from '../lib/api';
+import markdownToHtml from '../lib/markdownToHtml';
 
 export default function CaseStudyPage({ caseStudy }) {
     const router = useRouter();

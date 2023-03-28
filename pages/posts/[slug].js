@@ -1,24 +1,33 @@
-import ErrorPage from 'next/error';
-import Head from 'next/head';
-import { useRouter } from 'next/router';
+import ErrorPage from "next/error";
+import Head from "next/head";
+import { useRouter } from "next/router";
 
-import { PostComponent } from '../../components/Post';
+import { PostComponent } from "../../components/Post";
 // import { PostBody, PostTitle, PostHeader } from '../../components/Post'
-import { getAllPosts, getMemberByName, getPostBySlug } from '../../lib/api';
-import markdownToHtml from '../../lib/markdownToHtml';
+import { getAllPosts, getMemberByName, getPostBySlug } from "../../lib/api";
+import markdownToHtml from "../../lib/markdownToHtml";
 
 export default function PostPage({ post, morePosts, preview }) {
   const router = useRouter();
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
+  const domainUrl =
+    process.env.NEXT_PUBLIC_DOMAIN_URL || `http://localhost:3000`;
+  const ogImageUrl = `${domainUrl}${post?.ogImage?.url}`;
+
+  console.log("🚀 ~ file: [slug].js:19 ~ PostPage ~ ogImageUrl:", ogImageUrl)
   return (
     <>
       <Head>
         <title>{post.title}</title>
         <meta name="title" content={post.title} key="title" />
-        {post.ogImage && (
-          <meta property="og:image" content={post.ogImage.url} />
+        {!post?.ogImage ? null : (
+          <meta
+            property="og:image"
+            // content={`https://wasmer.io${post?.ogImage?.url}`}
+            content={ogImageUrl}
+          />
         )}
         <link
           rel="stylesheet"
@@ -73,17 +82,17 @@ export default function PostPage({ post, morePosts, preview }) {
 
 export async function getStaticProps({ params }) {
   const post = getPostBySlug(params.slug, [
-    'title',
-    'date',
-    'slug',
-    'author',
-    'content',
-    'ogImage',
-    'coverImage',
-    'published',
+    "title",
+    "date",
+    "slug",
+    "author",
+    "content",
+    "ogImage",
+    "coverImage",
+    "published",
   ]);
   const author = getMemberByName(post.author);
-  const content = await markdownToHtml(post.content || '');
+  const content = await markdownToHtml(post.content || "");
 
   return {
     props: {
@@ -97,7 +106,7 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const posts = getAllPosts(['slug', 'published']);
+  const posts = getAllPosts(["slug", "published"]);
 
   return {
     paths: posts.map((post) => {
