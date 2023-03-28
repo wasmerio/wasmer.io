@@ -1,12 +1,11 @@
-import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
 import Head from 'next/head';
-
-// import { PostBody, PostTitle, PostHeader } from '../../components/Post'
-import { getPostBySlug, getAllPosts, getMemberByName } from '../../lib/api';
-import markdownToHtml from '../../lib/markdownToHtml';
+import { useRouter } from 'next/router';
 
 import { PostComponent } from '../../components/Post';
+// import { PostBody, PostTitle, PostHeader } from '../../components/Post'
+import { getAllPosts, getMemberByName, getPostBySlug } from '../../lib/api';
+import markdownToHtml from '../../lib/markdownToHtml';
 
 export default function PostPage({ post, morePosts, preview }) {
   const router = useRouter();
