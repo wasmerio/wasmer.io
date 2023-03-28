@@ -25,7 +25,7 @@ export default function PostPage({ post, morePosts, preview }) {
         title={title}
         description={description}
         url={url}
-        ogImage={ogImageUrl}
+        ogImage={ogImage}
       />
       <Head>
         <link
