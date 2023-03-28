@@ -17,7 +17,7 @@ export default function PostPage({ post, morePosts, preview }) {
 
   console.log("🚀 ~ file: [slug].js:18 ~ PostPage ~ ogImageUrl:", ogImageUrl);
   return (
-    <>
+    <div>
       <Head>
         <title>{post.title}</title>
         <meta name="title" content={post.title} key="title" />
@@ -41,7 +41,7 @@ export default function PostPage({ post, morePosts, preview }) {
       <PostComponent title={post.title} author={post.author} date={post.date}>
         <div dangerouslySetInnerHTML={{ __html: post.content }} />
       </PostComponent>
-    </>
+    </div>
   );
 }
 // export default function Post({ post, morePosts, preview }) {
