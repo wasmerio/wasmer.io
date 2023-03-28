@@ -12,11 +12,9 @@ export default function PostPage({ post, morePosts, preview }) {
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
-  const domainUrl =
-    process.env.NEXT_PUBLIC_DOMAIN_URL || `http://localhost:3000`;
+  const domainUrl = "https://wasmer.io";
   const ogImageUrl = `${domainUrl}${post?.ogImage?.url}`;
 
-  console.log("🚀 ~ file: [slug].js:19 ~ PostPage ~ ogImageUrl:", ogImageUrl)
   return (
     <>
       <Head>
