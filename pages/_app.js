@@ -1,16 +1,10 @@
-import Head from 'next/head';
-import React from 'react';
-import 'intersection-observer/intersection-observer';
-import { FooterComponent, NavComponent } from '../components';
-import '../assets/fonts/Gilroy/Gilroy.css';
-import '../assets/fonts/Zeitung/Zeitung.css';
-import '../assets/styles/index.css';
+import "intersection-observer/intersection-observer";
 import "prismjs/prism.js";
-import 'prismjs/components/prism-clike';
-import 'prismjs/components/prism-javascript';
-import 'prismjs/components/prism-rust';
-import 'prismjs/components/prism-toml';
-import 'prismjs/components/prism-jsx';
+import "prismjs/components/prism-clike";
+import "prismjs/components/prism-javascript";
+import "prismjs/components/prism-rust";
+import "prismjs/components/prism-toml";
+import "prismjs/components/prism-jsx";
 import "prismjs/components/prism-c";
 import "prismjs/components/prism-bash";
 import "prismjs/components/prism-python";
@@ -19,10 +13,21 @@ import "prismjs/components/prism-typescript";
 import "prismjs/components/prism-cpp";
 import "prismjs/components/prism-ebnf";
 import "prismjs/components/prism-shell-session";
-
 import "prismjs/themes/prism-tomorrow.css";
 
+import "../assets/fonts/Gilroy/Gilroy.css";
+import "../assets/fonts/Zeitung/Zeitung.css";
+import "../assets/styles/index.css";
+
+import Head from "next/head";
+import { useRouter } from "next/router";
+import React from "react";
+
+import { FooterComponent, NavComponent } from "../components";
+
 function App({ Component, pageProps }) {
+  const router = useRouter();
+  const isBlogpost = router.pathname.includes("/posts/");
   return (
     <>
       <Head>
@@ -42,14 +47,18 @@ function App({ Component, pageProps }) {
           content="webassembly, wasm, heroku, cloudflare, docker"
           key="keywords"
         />
-        <meta
-          name="twitter:image"
-          content="https://wasmer.io/images/og-image.png"
-        />
-        <meta
-          property="og:image"
-          content="https://wasmer.io/images/og-image.png"
-        />
+        {isBlogpost ? null : (
+          <>
+            <meta
+              name="twitter:image"
+              content="https://wasmer.io/images/og-image.png"
+            />
+            <meta
+              property="og:image"
+              content="https://wasmer.io/images/og-image.png"
+            />
+          </>
+        )}
         <link rel="shortcut icon" href="/images/icons/favicon-32x32.png" />
         <link
           rel="apple-touch-icon"
