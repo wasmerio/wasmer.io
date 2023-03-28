@@ -1,6 +1,11 @@
 import Head from "next/head";
 
-const SEO = ({ title, description, url, ogImage }) => {
+const SEO = ({
+  title,
+  description,
+  url,
+  ogImage = "https://wasmer.io/images/og-image.png",
+}) => {
   return (
     <Head>
       <title>{title}</title>
