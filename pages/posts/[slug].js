@@ -3,6 +3,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 
 import { PostComponent } from "../../components/Post";
+import SEO from "../../components/SEO";
 // import { PostBody, PostTitle, PostHeader } from '../../components/Post'
 import { getAllPosts, getMemberByName, getPostBySlug } from "../../lib/api";
 import markdownToHtml from "../../lib/markdownToHtml";
@@ -13,20 +14,20 @@ export default function PostPage({ post, morePosts, preview }) {
     return <ErrorPage statusCode={404} />;
   }
   const domainUrl = "https://wasmer.io";
-  const ogImageUrl = `${domainUrl}${post?.ogImage?.url}`;
+  const ogImage = `${domainUrl}${post?.ogImage?.url}`;
+  const title = post?.title;
+  const description = post?.excerpt;
+  const url = `${domainUrl}/posts/${post?.slug}`;
 
-  console.log("🚀 ~ file: [slug].js:18 ~ PostPage ~ ogImageUrl:", ogImageUrl);
   return (
     <>
+      <SEO
+        title={title}
+        description={description}
+        url={url}
+        ogImage={ogImageUrl}
+      />
       <Head>
-        <title>{post.title}</title>
-        <meta name="title" content={post.title} key="title" />
-        {!post?.ogImage?.url ? null : (
-          <>
-            <meta property="og:image" content={ogImageUrl} />
-            <meta name="twitter:image" content={ogImageUrl} />
-          </>
-        )}
         <link
           rel="stylesheet"
           href="https://unpkg.com/@tailwindcss/typography@0.2.x/dist/typography.min.css"
