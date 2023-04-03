@@ -9,68 +9,67 @@ author: Michael Bryan
 published: false
 ---
 
-Welcome to a new chapter in server-side development with WebAssembly! We are
-presenting WCGI, a technology that here to combines the strength of WebAssembly
-with the portability and simplicity of CGI, offering a fresh perspective on
-serverless applications.
+Welcome to the future of server-side development with WebAssembly! Introducing
+WCGI, a groundbreaking technology that marries the power of WebAssembly with the
+versatility and simplicity of CGI, paving the way for a new era in serverless
+applications.
 
-The premise behind WCGI is simple - take an existing CGI program and compile it
-to WebAssembly - the real magic lies in how `wasmer` runs that WebAssembly.
+WCGI is built on a straightforward idea: take an existing CGI program and
+compile it to WebAssembly. The real innovation, however, lies in how `wasmer`
+runs that WebAssembly.
 
-Some of WCGI's strengths are
+Here are some of WCGI's highlights:
 
-- Leverage 20+ years of application and library development without needing to
-  learn yet another web framework
-- Distribution and release management becomes trivial - just publish your
-  package to WAPM!
-- Lower cold start times - instantiating a WebAssembly module is orders of
-  magnitude faster than other serverless technologies
-- Significantly smaller release artifacts - WAPM packages only contain your
-  business logic and static assets. There's no need to distribute a HTTP stack
-  or bulky Docker containers
-- Supports any language that can use WASI
-  - AssemblyScript
-  - C & C++
-  - Go
-  - JavaScript
-  - PHP
-  - Python
-  - Ruby
-  - Rust
-  - Swift
-- Secure by default - WebAssembly code runs inside a sandbox and a new instance
-  is created per request
+- Benefit from decades of application and library development without learning
+  another web framework
+- Simplify distribution and release management by publishing your package on
+  WAPM
+- Enjoy faster cold start times as WebAssembly module instantiation is much
+  quicker than other serverless technologies
+- Reduce release artifact size – WAPM packages only contain your business logic
+  and static assets, eliminating the need for an HTTP stack or bulky Docker
+  containers
+- Use any language compatible with WASI, such as AssemblyScript, C, C++, Go,
+  JavaScript, PHP, Python, Ruby, Rust, or Swift
+- Experience enhanced security – WebAssembly code runs in a sandbox, with one
+  instance per request
 
-Imagine using a Wordpress installation without having to worry if the attackers
-might get into your system.
 
-Imagine no more... It. Just Works.
+Picture a Wordpress installation without worrying about attackers breaking into
+your system.
+
+With WCGI, it's a reality.
 
 (video of Wasmer running WordPress)
 
-## **The Why Behind WCGI**
+## The Why Behind WCGI
 
-As wasmer has been delving into serverless solutions, we encountered a crucial
-design decision - do we build our own framework and lock developers into a
-walled garden or do we adopt an open standard that lets them leverage existing
+When venturing into serverless solutions at Wasmer, we faced a crucial question:
+should we create our own framework and risk locking developers into a walled
+garden, or should we adopt an open standard that allows them to utilize existing
 code?
 
-CGI is closely aligned with the goal of executing a program per HTTP request.
-Intriguingly, CGI can outperform many other serverless solutions (such as WSGI
-in Python/Ruby or NodeJS) in terms of scalability and latency.
+CGI's alignment with the goal of executing a program per HTTP request makes it a
+compelling choice. Interestingly, CGI can outperform many other serverless
+solutions (such as WSGI in Python/Ruby or NodeJS) in terms of scalability and
+latency.
 
-It also closely mirrors the workers proposal from the **[Winter Community
+Furthermore, it also closely mirrors the workers proposal from the **[Winter
+Community
 Group](https://wintercg.org/)**.
 
-Take running PHP programs on servers, for example. We have two primary options:
+Consider the challenge of running PHP programs on servers. We have two primary
+options:
 
-1. Wrap the PHP interpreter with a custom layer for each HTTP call.
-2. Use the existing PHP-CGI program and simply compile it to Wasm.
+1. Wrap the PHP interpreter with a custom layer that instruments each HTTP call.
+2. Use the existing `php-cgi` program and simply compile it to Wasm.
 
-Option 2 is the more expedient approach for enabling any web application on
-Wasmer.
+Option 2 is not only faster, but it also enables any web application on Wasmer
+more efficiently.
 
-## ****Creating a WCGI Application with Rust****
+By embracing WCGI, those seeking to achieve greater efficiency, security, and flexibility in server-side development can truly benefit from this innovative approach.
+
+## Creating a WCGI Application with Rust
 
 To create a WCGI application using Rust, first add the **`cgi`** crate as a
 dependency in your **`Cargo.toml`** file:
@@ -231,7 +230,6 @@ $ wasmer run-unstable wasmer/wcgi-php-template
 
 We can't wait to see what you create next with WCGI!
 
-
 ## In Summary…
 
 WCGI represents a refined approach to server-side development, integrating the
@@ -240,4 +238,4 @@ technology has the potential to reshape the landscape of serverless
 applications, providing developers with a powerful and versatile solution for
 their projects.
 
-Watch this space.
+Watch this space 😉
