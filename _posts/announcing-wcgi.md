@@ -20,19 +20,13 @@ runs that WebAssembly.
 
 Here are some of WCGI's highlights:
 
-- Benefit from decades of application and library development without learning
-  another web framework
-- Simplify distribution and release management by publishing your package on
-  WAPM
-- Enjoy faster cold start times as WebAssembly module instantiation is much
-  quicker than other serverless technologies
-- Reduce release artifact size – WAPM packages only contain your business logic
+- Benefit from decades of CGI application and library development, use any language
+  compilable to WASI (AssemblyScript, C, C++, Go, PHP, Python, ...)
+- Reduced package size: packages will only contain your business logic
   and static assets, eliminating the need for an HTTP stack or bulky Docker
   containers
-- Use any language compatible with WASI, such as AssemblyScript, C, C++, Go,
-  JavaScript, PHP, Python, Ruby, Rust, or Swift
-- Experience enhanced security – WebAssembly code runs in a sandbox, with one
-  instance per request
+- Completely sandboxed execution: WebAssembly code runs in a sandbox, with one
+  isolated instance per request
 
 
 Picture a Wordpress installation without worrying about attackers breaking into
