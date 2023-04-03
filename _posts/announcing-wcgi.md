@@ -186,7 +186,7 @@ env = ["DOCUMENT_ROOT=/app", "SCRIPT_FILENAME=/app/index.php"]
 
 You can now run this with `wasmer run-unstable`:
 
-```toml
+```bash
 $ wasmer run-unstable .
 ```
 
