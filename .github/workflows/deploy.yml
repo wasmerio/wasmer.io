@@ -29,4 +29,4 @@ jobs:
           mv public public.bak
           mv out public
       - name: Publish
-        run: wasmer-deploy publish --publish-package --token=${{ secrets. }} --registry=https://wapm.dev/ --non-interactive
+        run: wasmer-deploy publish --publish-package --token=${{ secrets.WAPM_DEV_TOKEN }} --registry=https://wapm.dev/ --non-interactive
