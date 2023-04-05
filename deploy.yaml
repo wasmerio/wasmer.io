@@ -1,0 +1,8 @@
+name: Michael-F-Bryan/wasmer-io
+workload:
+  runner: !web_proxy
+    source: !webc
+      repository: https://wapm.dev/
+      namespace: Michael-F-Bryan
+      name: wasmer-io
+  capabilities: {}
