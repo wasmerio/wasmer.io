@@ -148,7 +148,7 @@ $ mkdir app
 $ echo '<? print("Hello, World!"); ?>' > app/index.php
 ```
 
-Now we need to create a `wapm.toml` file.
+Now we need to create a `wasmer.toml` file.
 
 This is a bit longer than the Rust one because we need to set some environment
 variables that tell `php-cgi` which script to invoke. We also want the `app/`
