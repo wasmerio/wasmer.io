@@ -1,5 +1,5 @@
 [package]
-name = "Michael-F-Bryan/wasmer-io"
+name = "wasmer/wasmer-io"
 version = "0.2.0"
 description = "The wasmer.io website"
 
