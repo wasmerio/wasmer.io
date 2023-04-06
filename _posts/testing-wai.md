@@ -77,13 +77,13 @@ To enable our testing suite to discover which targets to generate bindings for, 
 
 Now let’s create a blank `rustfft.test.js` in the crate directory.
 
-```shell-session
+```bash
 $ touch rustfft.test.js
 ```
 
 Running the tests will generate a testing package (note the `package.json`) and bindings for your test to use.
 
-```shell-session
+```bash
 $ cargo test
 $ tree .
 .
@@ -165,7 +165,7 @@ test('dft test len 4', async () => {
 
 Running `cargo test` now will automatically run the `jest` test from above for us.
 
-```shell-session
+```bash
 Finished test [unoptimized + debuginfo] target(s) in 0.46s
      Running unittests src/lib.rs (target/debug/deps/rustfft-e1e8db73703fde9b)
 

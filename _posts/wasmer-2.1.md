@@ -85,13 +85,13 @@ The integrations allow developers to WebAssembly in even more languages:
 
 If you already have Wasmer installed, you can upgrade to 2.1 by running
 
-```shell-session
+```bash
 wasmer self-update
 ```
 
 If you are installing Wasmer for the first time, you can use one of the methods listed below:
 
-```shell-session
+```bash
 # Using Shell (macOS and Linux):
 curl https://get.wasmer.io -sSfL | sh
 
