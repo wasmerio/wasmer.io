@@ -59,7 +59,7 @@ jobs:
 
       - name: Publish package
         run: |
-          wasmer config set registry.url https://registry.wapm.dev/
-          wasmer publish
+          wapm config set registry.url https://registry.wapm.dev/
+          wapm publish
         env:
-          WASMER_TOKEN: ${{ secrets.WAPM_DEV_TOKEN }}
+          WAPM_REGISTRY_TOKEN: ${{ secrets.WAPM_DEV_TOKEN }}
