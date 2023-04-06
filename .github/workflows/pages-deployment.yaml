@@ -40,7 +40,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Install dependencies
+      - name: Build
         run: pnpm run build
 
       - name: Publish
