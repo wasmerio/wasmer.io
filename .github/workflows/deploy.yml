@@ -57,8 +57,6 @@ jobs:
       - name: Setup Wasmer
         uses: wasmerio/setup-wasmer@v1
 
-      - name: Publish to WAPM
-        uses: wasmerio/wapm-publish@v1
-        with:
-          token: ${{ secrets.WAPM_DEV_TOKEN }}
-          registry: https://registry.wapm.dev/
+      - name: Publish package
+        run: |
+          wasmer publish --token ${{ secrets.WAPM_DEV_TOKEN }} --registry https://registry.wapm.dev/
