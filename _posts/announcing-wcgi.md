@@ -1,7 +1,10 @@
 ---
 title: "Announcing WCGI: WebAssembly + CGI"
+ogImage: 
+    url: '/images/blog/wcgi-thumb.png'
 excerpt: "WCGI - Revolutionizing Server Development with WebAssembly and CGI"
 date: "2023-04-06T12:00:00.000Z"
+coverImage: '/images/blog/wcgi-thumb.png'
 author: Michael Bryan
 published: false
 ---
@@ -36,6 +39,9 @@ curl https://get.wasmer.io -sSfL | sh -s "v3.2.0-beta.2"
 mkdir db
 wasmer run-unstable wasmer/wcgi-wordpress-demo --mapdir=/db:db
 ```
+
+> We are trialing the new runner architecture via `wasmer run-unstable`.
+  In the future you would simply use `wasmer run`
 
 ----
 
@@ -137,8 +143,9 @@ $ wasmer run-unstable .
 
 ## Creating a WCGI Application in PHP
 
-Using a version of `php-cgi` compiled to WebAssembly, Wasmer can now run PHP
-websites using WCGI.
+PHP-CGI was first introduced by Rafael Fernández López.
+Thanks to his original version of `php-cgi` compiled to WebAssembly & WASI,
+Wasmer can now run PHP websites using WCGI.
 
 First, create a new repository and copy
 [php-cgi.wasm](https://github.com/wasmerio/wcgi-php-template/raw/main/php-cgi.wasm)
