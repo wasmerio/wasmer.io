@@ -55,7 +55,7 @@ jobs:
       #   run: wasmer-deploy publish --publish-package --token=${{ secrets.WAPM_DEV_TOKEN }} --registry=https://registry.wapm.dev/ --non-interactive
 
       - name: Setup Wasmer
-        uses: wasmerio/setup-wasmer@v1
+        uses: wasmerio/setup-wasmer@v2
         with:
           version: "v3.2.0-beta.2"
 
