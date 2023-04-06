@@ -15,9 +15,9 @@ versatility and simplicity of CGI.
 
 Here are some of WCGI's highlights:
 
-- **Reuse** your existing CGI applications by compiling them to WASI
+- You can **reuse** your existing CGI applications by compiling them to WASI
   (AssemblyScript, C, C++, Go, PHP, Python, ...)
-- **Ultra-small packages** that will only contain your business logic
+- Ship **ultra-small packages** that will only contain your business logic
   and static assets, no HTTP stack or bulky Docker containers
 - Completely **sandboxed execution**: WebAssembly code runs in a sandbox, with one
   isolated instance per request
