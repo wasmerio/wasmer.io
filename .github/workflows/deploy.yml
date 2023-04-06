@@ -56,11 +56,9 @@ jobs:
 
       - name: Setup Wasmer
         uses: wasmerio/setup-wasmer@v1
+        with:
+          version: "v3.2.0-beta.2"
 
       - name: Publish package
         run: |
-          cp wasmer.toml wapm.toml
-          wapm config set registry.url https://registry.wapm.dev/
-          wapm publish
-        env:
-          WAPM_REGISTRY_TOKEN: ${{ secrets.WAPM_DEV_TOKEN }}
+          wasmer publish --token ${{ secrets.WAPM_DEV_TOKEN }} --registry https://registry.wapm.dev/
