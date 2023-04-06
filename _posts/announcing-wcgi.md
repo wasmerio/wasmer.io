@@ -230,6 +230,8 @@ This package is also available [on WAPM](https://wapm.dev/wasmer/wcgi-php-templa
 $ wasmer run-unstable wasmer/wcgi-php-template
 ```
 
+*You can find in Github sourcecode for the [Wordpress Wasmer pacakage](https://github.com/wasmerio/wcgi-wordpress-demo), and the [PHP WCGI template](https://github.com/wasmerio/wcgi-php-template)*.
+
 We can't wait to see what you create next with WCGI!
 
 ## In Summary…
