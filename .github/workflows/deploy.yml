@@ -10,17 +10,39 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Install Rust
-        uses: actions/checkout@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
         with:
-          toolchain: stable
-      - name: Install the Deploy CLI
-        uses: actions-rs/install@v0.1
+          node-version: 16
+
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        id: pnpm-install
         with:
-          crate: wasmer-deploy-cli
-          version: latest
-      - name: Build the website
-        run: npm install && npm run build
+          version: 7
+          run_install: false
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build
+        run: pnpm run build
+
       # This is a hack for https://github.com/wasmerio/wasmer/issues/3744
       # Ideally, we would just have `"public" = "out"` under the `[fs]` table
       # in `wasmer.toml`
@@ -28,5 +50,14 @@ jobs:
         run: |
           mv public public.bak
           mv out public
-      - name: Publish
-        run: wasmer-deploy publish --publish-package --token=${{ secrets.WAPM_DEV_TOKEN }} --registry=https://registry.wapm.dev/ --non-interactive
+
+      # - name: Publish
+      #   run: wasmer-deploy publish --publish-package --token=${{ secrets.WAPM_DEV_TOKEN }} --registry=https://registry.wapm.dev/ --non-interactive
+
+      - name: Setup Wasmer
+        uses: wasmerio/setup-wasmer@v1
+
+      - name: Publish to WAPM
+        uses: wasmerio/wapm-publish@v1
+        with:
+          token: ${{ secrets.WAPM_DEV_TOKEN }}
