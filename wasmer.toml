@@ -1,6 +1,6 @@
 [package]
 name = "wasmer/wasmer-io"
-version = "0.2.0"
+version = "0.2.1"
 description = "The wasmer.io website"
 
 [dependencies]

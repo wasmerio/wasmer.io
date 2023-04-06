@@ -6,7 +6,7 @@ excerpt: "WCGI - Revolutionizing Server Development with WebAssembly and CGI"
 date: "2023-04-06T12:00:00.000Z"
 coverImage: '/images/blog/wcgi-thumb.png'
 author: Michael Bryan
-published: false
+published: true
 ---
 
 Welcome to the future of server-side development with WebAssembly!<br />
