@@ -59,6 +59,7 @@ jobs:
 
       - name: Publish package
         run: |
+          cp wasmer.toml wapm.toml
           wapm config set registry.url https://registry.wapm.dev/
           wapm publish
         env:
