@@ -3,6 +3,9 @@ on:
     branches:
       - "master"
 
+env:
+  RUST_BACKTRACE: full
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -11,13 +14,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Install Node.js
-        uses: actions/setup-node@v3
+      - name: Install Rust
+        uses: actions/checkout@v3
         with:
-          node-version: 16
+          toolchain: stable
 
-      - uses: pnpm/action-setup@v2
-        name: Install pnpm
+      - name: Rust cache
+        uses: Swatinem/rust-cache@v2
+        with:
+          cache-on-failure: true
+
+      - name: Install the Deploy CLI
+        run: command -v wasmer-deploy &>/dev/null || cargo install --verbose --debug --locked wasmer-deploy-cli
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
         id: pnpm-install
         with:
           version: 7
@@ -51,14 +62,5 @@ jobs:
           mv public public.bak
           mv out public
 
-      # - name: Publish
-      #   run: wasmer-deploy publish --publish-package --token=${{ secrets.WAPM_DEV_TOKEN }} --registry=https://registry.wapm.dev/ --non-interactive
-
-      - name: Setup Wasmer
-        uses: wasmerio/setup-wasmer@v2
-        with:
-          version: "v3.2.0-beta.2"
-
-      - name: Publish package
-        run: |
-          wasmer publish --token ${{ secrets.WAPM_DEV_TOKEN }} --registry https://registry.wapm.dev/
+      - name: Publish
+        run: wasmer-deploy publish --publish-package --token=${{ secrets.WAPM_DEV_TOKEN }} --non-interactive
