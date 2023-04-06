@@ -509,7 +509,7 @@ More is coming very soon, like Windows, Linux with `musl`, and more!
 If you want to use a custom configuration of Wasmer, we've got you
 covered with the `custom_wasmer_runtime` build tag.
 
-```shell-session
+```bash
 $ # Configure cgo.
 $ export CGO_CFLAGS="-I/path/to/include/"
 $ export CGO_LDFLAGS="-Wl,-rpath,/path/to/lib/ -L/path/to/lib/ -lwasmer_go"

@@ -103,7 +103,7 @@ crate-type = ["cdylib", "rlib"]
 
 And publish!
 
-```shell-session
+```bash
 $ cargo wapm
 ```
 
@@ -115,7 +115,7 @@ Let's add this `wai/tutorial-01` package to a JavaScript project.
 
 First, we'll need to create a new JavaScript package and add the `wai/tutorial-01` package as a dependency.
 
-```shell-session
+```bash
 $ wasmer add --yarn wai/tutorial-01
 ```
 
@@ -137,7 +137,7 @@ main();
 
 Or, if you want to do it in python:
 
-```shell-session
+```bash
 $ wasmer add --pip wai/tutorial-01
 ```
 
