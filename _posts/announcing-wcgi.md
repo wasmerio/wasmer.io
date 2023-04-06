@@ -29,7 +29,7 @@ your system. With WCGI, now this a reality!
 
 https://www.youtube.com/watch?v=euYWW4vZqxg
 
-#### Try it locally
+#### Try Wordpress locally with Wasmer
 
 ```shell
 # Install wasmer beta 2
