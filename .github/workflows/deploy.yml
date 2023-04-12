@@ -19,13 +19,11 @@ jobs:
         with:
           toolchain: stable
 
-      - name: Rust cache
-        uses: Swatinem/rust-cache@v2
-        with:
-          cache-on-failure: true
-
       - name: Install the Deploy CLI
-        run: command -v wasmer-deploy &>/dev/null || cargo install --verbose --debug --locked wasmer-deploy-cli
+        uses: actions-rs/install@v0.1
+        with:
+          crate: wasmer-deploy-cli
+          version: 0.1.2
 
       - name: Install pnpm
         uses: pnpm/action-setup@v2
