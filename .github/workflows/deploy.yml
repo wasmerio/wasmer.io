@@ -63,4 +63,4 @@ jobs:
           mv out public
 
       - name: Publish
-        run: wasmer-deploy publish --publish-package --token=${{ secrets.WAPM_DEV_TOKEN }} --non-interactive
+        run: wasmer-deploy publish --publish-package --registry https://registry.wapm.dev/graphql --token=${{ secrets.WAPM_DEV_TOKEN }} --non-interactive
