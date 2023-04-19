@@ -6,9 +6,9 @@ author: Sébastien Chevalier
 published: false
 ---
 
-Today we are incredibly excited to announce the release of [Wasmer Runtime v3.2](https://github.com/wasmerio/wasmer/releases/tag/v3.2.0).
+Today we are incredibly excited to announce the release of Wasmer Runtime v3.2.
 
-This release has been in the oven for a few months. Here are the main highlights:
+This release has been cooking in the oven for a few months. Here are the main highlights:
 
 - Support for RISC-V chipsets
 - WASI improvements
@@ -24,7 +24,7 @@ One of the main promises of WebAssembly is to run software anywhere, with no bou
 
 We would like to give a big shoutout and thanks to [Toru Nayuki](https://github.com/tnayuki), who created the [initial implementation PR](https://github.com/wasmerio/wasmer/pull/2800) that sparked our interest in RISC-V.
 
-A few months after the initial PR was opened, we were able to get our hands on a RISC-V board. And some tests and dependency updates later, today we are very excited to see how anyone can now Wasmer fully in RISC-V chipsets! (with both of our compilers: Cranelift and LLVM!)
+A few months after the initial PR was opened, we were able to get our hands on a RISC-V board. And some tests and dependency updates later, we are now very excited to see how anyone can use Wasmer fully in RISC-V chipsets! (with support in both compilers: Cranelift and LLVM!)
 
 <video width="960" height="720" controls preload="auto" autoplay loop muted>
   <source src="/images/blog/wordpress-on-riscv.mp4" type="video/mp4">
@@ -36,7 +36,7 @@ Download the executable for Linux RISC-V from Github:
 
 [https://github.com/wasmerio/wasmer/releases/download/v3.2.0/wasmer-linux-riscv64.tar.gz](https://github.com/wasmerio/wasmer/releases/download/v3.2.0/wasmer-linux-riscv64.tar.gz)
 
-Or use the Wasmer installer:
+Or simply use the Wasmer installer:
 
 ```bash
 curl https://get.wasmer.io -sSfL | sh
@@ -54,7 +54,7 @@ We also added extra testing coverage with basic programs to assure that compatib
 
 A few weeks ago, we announced support for a new standard: WCGI. Now this support lands officially in the stable Wasmer release.
 
-Feel free to read more about WCGI here: [https://wasmer.io/posts/announcing-wcgi](https://wasmer.io/posts/announcing-wcgi)
+Read more about WCGI here: [https://wasmer.io/posts/announcing-wcgi](https://wasmer.io/posts/announcing-wcgi)
 
 ## New Runner Architecture
 
