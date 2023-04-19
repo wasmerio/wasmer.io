@@ -3,7 +3,7 @@ title: 'Wasmer 3.2'
 excerpt: 'Wasmer 3.2'
 date: '2023-04-18T12:00:00.000Z'
 author: Sébastien Chevalier
-published: false
+published: true
 ---
 
 Today we are incredibly excited to announce the release of Wasmer Runtime v3.2.
