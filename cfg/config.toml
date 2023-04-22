@@ -1,0 +1,31 @@
+[general]
+host = "::"
+port = 80
+root = "public"
+
+[advanced]
+
+[[advanced.redirects]]
+source = "http://localhost/a" # https://get.wasmer.io/ 
+destination = "https://raw.githubusercontent.com/wasmerio/wasmer-install/master/install.sh"
+kind = 301
+
+[[advanced.redirects]]
+source = "https://get.wasmer.io/"
+destination = "https://raw.githubusercontent.com/wasmerio/wasmer-install/master/install.sh"
+kind = 301
+
+[[advanced.redirects]]
+source = "https://win.wasmer.io/"
+destination = "https://raw.githubusercontent.com/wasmerio/wasmer-install/master/install.ps1"
+kind = 301
+
+[[advanced.redirects]]
+source = "https://slack.wasmer.io/"
+destination = "https://join.slack.com/t/wasmerians/shared_invite/zt-d977b9f8-82yuv7JjOxy1RppGsstf8Q"
+kind = 301
+
+[[advanced.redirects]]
+source = "http://swag.wasmer.io/"
+destination = "https://syrus348547.typeform.com/to/KdW2gEPd"
+kind = 301
