@@ -1,10 +1,10 @@
 ---
 title: 'GPT-4 at Wasmer'
 ogImage:
-  url: '/images/blog/GPT-4.jpeg'
+  url: '/images/blog/GPT-4.png'
 excerpt: 'GPT-4, paving the way for the future of knowledge sharing'
 date: '2023-04-28T12:00:00.000Z'
-coverImage: '/images/blog/GPT-4.jpeg'
+coverImage: '/images/blog/GPT-4.png'
 author: Rudra
 published: true
 ---
