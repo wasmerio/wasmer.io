@@ -6,11 +6,6 @@ root = "public"
 [advanced]
 
 [[advanced.redirects]]
-source = "http://localhost/a" # https://get.wasmer.io/ 
-destination = "https://raw.githubusercontent.com/wasmerio/wasmer-install/master/install.sh"
-kind = 301
-
-[[advanced.redirects]]
 source = "https://get.wasmer.io/"
 destination = "https://raw.githubusercontent.com/wasmerio/wasmer-install/master/install.sh"
 kind = 301
