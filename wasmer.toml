@@ -7,4 +7,5 @@ description = "The wasmer.io website"
 "sharrattj/static-web-server" = "1"
 
 [fs]
-public = "public"
+"public" = "public"
+"cfg" = "cfg"
