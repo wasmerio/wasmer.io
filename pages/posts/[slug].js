@@ -36,7 +36,7 @@ export default function PostPage({ post, morePosts, preview }) {
           rel="stylesheet"
           href="https://jmblog.github.io/color-themes-for-highlightjs/css/themes/tomorrow-night-blue.css"
         />
-        <script async src="//cdn.iframe.ly/embed.js" charset="utf-8"></script>
+        <script async src="//cdn.iframe.ly/embed.js" charSet="utf-8"></script>
       </Head>
       <PostComponent title={post.title} author={post.author} date={post.date}>
         <div dangerouslySetInnerHTML={{ __html: post.content }} />
