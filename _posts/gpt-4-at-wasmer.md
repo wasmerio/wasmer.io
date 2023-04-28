@@ -1,7 +1,7 @@
 ---
-title: 'GPT-4 at Wasmer'
-excerpt: 'GPT-4, paving the way for the future of knowledge sharing'
-date: '2023-04-28T12:00:00.000Z'
+title: "GPT-4 at Wasmer"
+excerpt: "GPT-4, paving the way for the future of knowledge sharing"
+date: "2023-04-28T12:00:00.000Z"
 author: Rudra
 published: true
 ---
