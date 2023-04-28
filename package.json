@@ -38,6 +38,7 @@
     "remark": "^13.0.0",
     "remark-autolink-headings": "^6.0.1",
     "remark-directive": "^2.0.1",
+    "remark-gfm": "^3.0.1",
     "remark-highlight.js": "^6.0.0",
     "remark-html": "^13.0.1",
     "remark-parse": "^10.0.1",
