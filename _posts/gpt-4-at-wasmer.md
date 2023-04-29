@@ -28,7 +28,7 @@ In ancient times, there was a clash between Sikhs and Mughals. Sikh Guru prayed 
 
 If you don’t know hindi, no worries. The lines mentioned above mean, “Oh goddess, you’re the arrow and the sword that pierce and cut. You’re the conch shell, the mace, but you also the **gun** and the **canon**".
 
-Guru understood that **the power is the same but forms differ and evolve throughout time**.
+Guru understood that **the power remains constant but forms differ and evolve throughout time**.
 
 We can do a similar analogy with knowledge, where information was initially conveyed through mouth, then writing on stones/caves, then manuscripts and books, then digitally through various mediums like pdfs, articles, videos, tutorials, How-Tos, etc.
 
@@ -38,7 +38,7 @@ Recently, a new tool was unleashed that challenges how information is normally t
 
 Today, ChatGPT is the result of hard work and evolution of human knowledge through the passage of time.
 
-We at **Wasmer** use ChatGPT in various tasks such as code reviews, documentation, tests development, writing articles, etc.
+We at **Wasmer** use ChatGPT in various tasks such as code reviews, documentation, tests development, help with writing articles, etc.
 
 Because these tasks too have evolved like asking questions from a neighbour/friend to consulting the internet and now AI tools getting you the near perfect answer for any FAQ you might have or how article writing is evolving from verbal stories to AI generated content.
 
@@ -46,7 +46,7 @@ We find its use cases in the following aspects:
 
 ### Non-Technical use cases
 
-- **Articles**: Writing articles and distributing your knowledge is an integral part of the Wasmer’s culture. ChatGPT has significantly reduced the time it takes to publish our articles, both internally and externally.
+- **Articles**: Writing articles and distributing your knowledge is an integral part of the Wasmer’s culture. ChatGPT has significantly reduced the time it takes to publish our articles, both internally and externally as it can provide quick feedback on what might need to be improved towards readability
 - **FAQs**: Generating FAQs using ChatGPT gives us the context of user’s perspective for our products
 - **Project boilerplate setup**: Writing documents for setup and installation is also an area where ChatGPT shines
 - **How-Tos and Tutorials**: One of the most important task for an open-source product is to have a lot of examples and tutorials. ChatGPT assists us in structuring and sometimes writing examples too.
@@ -73,4 +73,4 @@ Another tool similar to ChatGPT for programming is GitHub Copilot.
 
 I believe that today's cutting-edge and blazingly fast innovations will fuel the advancement of knowledge and computing in the future. Embracing these technologies is essential for our growth as developers, managers, and as individuals.
 
-Another example of progression is the transition from bare metal to hypervisors, virtual machines, Docker, and now the WebAssembly System Interface (WASI). This evolutionary journey is shaping the future of technology. Therefore, at Wasmer, we are dedicated to being at the forefront of these advancements, ensuring that we continue to pave the way for a brighter, more efficient tomorrow.
+Another example of progression is the transition from bare metal to hypervisors, virtual machines, Docker, and now WebAssembly. This evolutionary journey is shaping the future of technology. Therefore, at Wasmer, we are dedicated to being at the forefront of these advancements, ensuring that we continue to pave the way for a brighter, more efficient tomorrow.
