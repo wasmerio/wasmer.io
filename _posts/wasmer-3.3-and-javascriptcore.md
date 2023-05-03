@@ -3,20 +3,20 @@ title: 'Wasmer 3.3 - Running WebAssembly 2.5x faster with JavascriptCore'
 excerpt: 'Wasmer 3.3 - Running WebAssembly 2.5x faster with JavascriptCore'
 date: '2023-05-03T12:00:00.000Z'
 author: Syrus Akbary
-published: false
+published: true
 ---
 
 The power of Wasmer relies on **delivering one universal API to run WebAssembly** programs anywhere. On that quest, we worked hard to extend Wasmer by adding support for *more backends*, starting with JavaScriptCore. Today are incredibly excited to ship JSC support in Wasmer v3.3.
 
 Now you can use `wasmer` to run WebAssembly programs in macOS and Linux, powered by the same engine behind the Safari browser: `JavaScriptCore`. 
 
-> We were hoping to have native support as well on iOS, but unfortunately as of the latest release of iOS: 16.4.1 WebAssembly is no longer available in JavaScriptCore. Once Apple enables it, you should be able to use Wasmer via JSC in iOS!
+> We were hoping to have native support as well on iOS, but unfortunately Apple disabled WebAssembly in JSC for iOS 16.4.x. Once Apple enables it, you should be able to use Wasmer via JSC in iOS!
 
 Thanks to JavascriptCore we have been able to achieve incredible speed (**2.5x faster than Cranelift!**) in a M1 Max chip (see [Performance](#performance) section for more info)
 
 The `jsc` feature makes possible using Wasmer on macOS with a minimal dependency chain (no compilers or JITs will be included in the final macOS binary whatsoever, it will be using JavaScriptCore, already included by default in the system library!).
 
-Supporting JavaScriptCore in Wasmer had another side effect: since Wasmer supports wasm-c-api, you can now get a **fully working wasm-c-api API for JavascriptCore**! Download the release here: [insert url]
+Supporting JavaScriptCore in Wasmer had another side effect: since Wasmer supports wasm-c-api, you can now get a **fully working wasm-c-api API for JavascriptCore**! Download the release here: https://github.com/wasmerio/wasmer/releases/tag/v3.3.0 ([Intel](https://github.com/wasmerio/wasmer/releases/download/v3.3.0/wasmer-darwin-amd64-jsc.zip), [M1/M2](https://github.com/wasmerio/wasmer/releases/download/v3.3.0/wasmer-darwin-arm64-jsc.zip))
 
 As of the latest release (`v3.3.0`), Wasmer supports the following runtime backends:
 
