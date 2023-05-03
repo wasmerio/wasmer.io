@@ -32,7 +32,7 @@ As of the latest release (`v3.3.0`), Wasmer supports the following runtime backe
     [https://wasmer.io/posts/wasmer-js-a-new-hope](https://wasmer.io/posts/wasmer-js-a-new-hope)
     
 
-> Would you like to have V8 or Wasmi support in Wasmer and see how each engine performs against each other? Cast your vote! [The first backend to reach 20 votes](https://github.com/wasmerio/wasmer/discussions/3839) will be implemented within two weeks! (yeah, you read well… that’s how easy is to create new backends in Wasmer)
+> Would you like to have V8 or Wasmi support in Wasmer and see how each engine performs against each other? Cast your vote! [The first backend to reach 20 votes](https://github.com/wasmerio/wasmer/discussions/3839) will be fully implemented and available in the next version of Wasmer!
 
 We aim for Wasmer to become the **universal API layer to use WebAssembly anywhere**, no matter what engine you want to use under the hood. Wasmer will make a breeze for you to switch between the backend of your choosing: LLVM, Cranelift, Singlepass, JavaScriptCore…
 
