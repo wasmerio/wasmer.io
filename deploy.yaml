@@ -1,10 +1,11 @@
+---
 name: wasmer/wasmer-io
 workload:
   runner:
     web_proxy:
       source:
         webc:
-          repository: "https://wapm.dev/"
+          repository: "https://wapm.io/"
           namespace: wasmer
           name: wasmer-io
-  capabilities: {}
+          tag: 0.5.1
