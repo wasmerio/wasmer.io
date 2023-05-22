@@ -49,16 +49,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build
-        run: pnpm run build
-
-      # This is a hack for https://github.com/wasmerio/wasmer/issues/3744
-      # Ideally, we would just have `"public" = "out"` under the `[fs]` table
-      # in `wasmer.toml`
-      - name: wasmerio/wasmer#3744 Hack
-        run: |
-          mv public public.bak
-          mv out public
-
-      - name: Publish
-        run: wasmer-deploy publish --publish-package --registry https://registry.wapm.dev/graphql --token=${{ secrets.WAPM_DEV_TOKEN }} --non-interactive
+      - name: Build and publish
+        run: ./deploy.sh
+        env:
+          WASMER_TOKEN: ${{ secrets.WAPM_PROD_TOKEN }}
