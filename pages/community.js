@@ -6,13 +6,13 @@ import {
   ContactComponent,
   TrustedByComponent,
   LinkComponent,
-} from '../components';
+} from '../old-components';
 import {
   ContributeComponent,
   HeroComponent,
   JoinComponent,
   LearnComponent,
-} from '../components/Community';
+} from '../old-components/Community';
 
 export default function CommunityPage() {
   return (

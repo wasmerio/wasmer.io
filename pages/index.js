@@ -5,14 +5,14 @@ import {
   TrustedByComponent,
   ContactComponent,
   LinkComponent,
-} from '../components';
+} from '../old-components';
 import {
   ExplainerComponent,
   HeroComponent,
   InstallComponent,
   TestimonialsComponent,
   UseCaseComponent,
-} from '../components/Index/';
+} from '../old-components/Index/';
 
 export default function IndexPage() {
   return (

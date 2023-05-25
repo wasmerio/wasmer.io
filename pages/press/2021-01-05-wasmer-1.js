@@ -1,8 +1,8 @@
 import React from 'react';
 import Head from 'next/head';
 
-import { ContactComponent, LinkComponent } from '../../components';
-import { PressComponent } from '../../components/Press';
+import { ContactComponent, LinkComponent } from '../../old-components';
+import { PressComponent } from '../../old-components/Press';
 
 export default function AboutPage() {
   return (

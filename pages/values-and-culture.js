@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import markdownToHtml from '../lib/markdownToHtml';
-import styles from '../components/Post/post.module.css';
+import styles from '../old-components/Post/post.module.css';
 
 export default function ValuesAndCulture({ content }) {
   return (

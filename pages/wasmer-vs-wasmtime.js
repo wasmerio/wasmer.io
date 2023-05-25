@@ -5,7 +5,7 @@ import {
   TrustedByComponent,
   ContactComponent,
   LinkComponent,
-} from '../components';
+} from '../old-components';
 import {
   HeroComponent,
   QuoteComponent,
@@ -14,8 +14,8 @@ import {
   BarsHorizontalComponent,
   ItemsComponent,
   TableComponent,
-} from '../components/Comparison';
-import { wasmtime } from '../components/Comparison/Items/items.constants';
+} from '../old-components/Comparison';
+import { wasmtime } from '../old-components/Comparison/Items/items.constants';
 
 export default function WasmerWasmtimePage() {
   const competitorName = 'Wasmtime';

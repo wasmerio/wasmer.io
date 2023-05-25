@@ -2,9 +2,9 @@ import ErrorPage from "next/error";
 import Head from "next/head";
 import { useRouter } from "next/router";
 
-import { PostComponent } from "../../components/Post";
-import SEO from "../../components/SEO";
-// import { PostBody, PostTitle, PostHeader } from '../../components/Post'
+import { PostComponent } from "../../old-components/Post";
+import SEO from "../../old-components/SEO";
+// import { PostBody, PostTitle, PostHeader } from '../../old-components/Post'
 import { getAllPosts, getMemberByName, getPostBySlug } from "../../lib/api";
 import markdownToHtml from "../../lib/markdownToHtml";
 

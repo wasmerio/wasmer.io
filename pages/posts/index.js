@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-import { MoreStories, HeroPost } from '../../components/Post';
+import { MoreStories, HeroPost } from '../../old-components/Post';
 import { getAllPosts, getMemberByName } from '../../lib/api';
 
 export default function Index({ allPosts }) {

@@ -3,11 +3,11 @@ import Head from 'next/head';
 import {
     TrustedByComponent,
     OpenSourceComponent,
-} from '../components';
+} from '../old-components';
 import {
     HeroComponent,
     GridComponent
-} from '../components/Comparison'
+} from '../old-components/Comparison'
 
 export default function WasmerOpenSourceProgram() {
     return (

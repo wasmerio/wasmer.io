@@ -23,7 +23,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import React from "react";
 
-import { FooterComponent, NavComponent } from "../components";
+import { FooterComponent, NavComponent } from "../old-components";
 
 function App({ Component, pageProps }) {
   const router = useRouter();

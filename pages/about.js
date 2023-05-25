@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 
-import { IntroComponent, TeamComponent } from '../components/About';
+import { IntroComponent, TeamComponent } from '../old-components/About';
 
 export default function AboutPage() {
   return (
