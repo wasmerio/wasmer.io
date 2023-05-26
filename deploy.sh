@@ -13,7 +13,7 @@ pnpm run build
 # This is a hack for https://github.com/wasmerio/wasmer/issues/3744
 # Ideally, we would just have `"public" = "out"` under the `[fs]` table
 # in `wasmer.toml`
-rm -r public.bak
+rm -rf public.bak
 mv public public.bak
 mv out public
 
