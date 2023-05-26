@@ -45,12 +45,12 @@ $ wasmer run --net curl/curl -- http://neverssl.com
 
 But not only `curl`... we also got `bash`, `CPython`, `tokio`, `hyper`, `axum`, `static-web-server` and many more apps and libraries running on WASIX. Even [this very own website](https://wapm.io/wasmer/wasmer-io) runs on WASIX!
 
-Did you got as excited reading this as we did working on it? Continue reading to learn more about WASIX and how you can use it!
+Did you get as excited reading this as we did working on it? Continue reading to learn more about WASIX and how you can use it!
 
 
 ## So, what exactly is WASIX?
 
-WASIX is the long term stabilization and support of the existing WASI ABI *plus* additional non-invasive syscall extensions that complete the missing gaps sufficiently enough to enable real, practical and useful applications to be compiled and used **now**. It aims to speed up the ecosystem around WASI so that the Wasm’ification of code bases around the world can really start ***today!*** And it does so without any *breaking change* to `wasi_preview1`.
+WASIX is the long term stabilization and support of the existing WASI ABI *plus* additional non-invasive syscall extensions that complete the missing gaps sufficiently enough to enable real, practical and useful applications to be compiled and used **now**. It aims to speed up the ecosystem around WASI so that the Wasm’ification of code bases around the world can really start ***today!*** And it does so without any *breaking changes* to `wasi_preview1`.
 
 WASIX:
 - It’s a **toolchain**:
@@ -69,7 +69,7 @@ WASIX:
     - UDP, TCP
     - Multicast, Anycast
     - RAW sockets
-- current directory support (`chdir`)
+- changing the current directory (`chdir`)
 - `setjmp` / `longjmp` support (used extensively in `libc` ) via `asyncify` wizardy
 - `pthreads` support
 - process forking (`fork` and `vfork` )
@@ -100,7 +100,7 @@ When you run `wasmer run syrusakbary/python` a new subprocess is created/forked.
 
 ----
 
-# So, how can you start use WASIX?
+# So, how can you start using WASIX?
 
 <a id="rust"></a>
 
@@ -133,7 +133,7 @@ Sample Rust applications that you can compile to Wasm with WASIX:
 
 ## C/C++
 
-We are working in a toolchain for C that will make a breeze compile your C applications to WASIX.
+We are working on a toolchain for C that will make it a breeze to compile your C applications to WASIX.
 
 Meanwhile, you can use wasix-libc to compile your C/C++ programs to WASIX.
 
