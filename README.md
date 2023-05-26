@@ -1,5 +1,10 @@
 # wasmer.io
 
+This website is made with Next.js.
+You can run it locally with `wasmer run-unstable https://wapm.io/wasmer/wasmer-io --net --verbose`.
+
+Then go to http://localhost/ and see the website!
+
 ## How to develop
 - fetch sources
 - run ```yarn install``` to install dependencies

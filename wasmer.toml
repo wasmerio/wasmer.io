@@ -2,9 +2,10 @@
 name = "wasmer/wasmer-io"
 version = "0.6.1"
 description = "The wasmer.io website"
+readme = "README.md"
 
 [dependencies]
-"sharrattj/static-web-server" = "1"
+"wasmer/static-web-server" = "1"
 
 [fs]
 "public" = "public"

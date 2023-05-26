@@ -21,19 +21,16 @@ The ambition of WASI is a great one and we continue to support it, but it's slow
 
 ### 🥁 Drumroll
 
-Because of this, the Wasmer team and key community members have been working relentlessly to enhance the existing WASI ABI, *stabilizing it* and making it *more compatible with POSIX* programs.
+The Wasmer team and key community members have been working relentlessly to enhance the existing WASI ABI, *stabilizing it* and making it *more compatible with POSIX* programs.
 
 **Today, we are incredibly excited to launch WASIX!**
 
 WASIX is ready **today** for the community to build ***awesome*** apps and complete their runtimes: supporting threads, Berkeley *sockets*, *forking* and many more things that have been available for almost all the life of POSIX.
 
-We want WebAssembly to be widely adopted, and we believe this step will pave the way by making it easier to compile and run any apps into Wasm.
-
+We believe this step will pave the way by making it easier to compile any apps into Wasm, to run them anywhere.
 And here’s the proof: `curl` fully running on WASIX! 🚀 
 
 ```bash
-# Install Wasmer v4.0.0-alpha.1
-$ curl https://get.wasmer.io -sSfL | sh -s "v4.0.0-alpha.1"
 # Run curl compiled to WASIX with Wasmer!
 $ wasmer run --net curl/curl -- http://neverssl.com
 
@@ -44,7 +41,7 @@ $ wasmer run --net curl/curl -- http://neverssl.com
 [...]
 ```
 
-> Note: you will need Wasmer `4.0.0-alpha.1` to run it.
+> Note: You will need [Wasmer `4.0.0-alpha.1`](https://github.com/wasmerio/wasmer/releases/tag/v4.0.0-alpha.1) to run it
 
 But not only `curl`... we also got `bash`, `CPython`, `tokio`, `hyper`, `axum`, `static-web-server` and many more apps and libraries running on WASIX. Even [this very own website](https://wapm.io/wasmer/wasmer-io) runs on WASIX!
 
