@@ -6,14 +6,14 @@ excerpt: "WASIX extends the WASI proposal to build useful and productive applica
 date: "2023-05-26T12:00:00.000Z"
 coverImage: '/images/blog/wcgi-thumb.png'
 author: Syrus Akbary
-published: true
+published: false
 ---
 
 Today we are very excited to launch a new initiative that will start shaping the future of WebAssembly on both the browser and the server.
 
-WASI was announced about 4 years ago and was a great push to move the Wasm community forward. It got everyone so excited that even the founder of Docker tweeted about it: 
+WASI was announced about 4 years ago and was a great push to move the Wasm community forward. It got everyone so excited that even Solomon, the founder of Docker tweeted about it: 
 
-[https://twitter.com/solomonstre/status/1111004913222324225?s=20](https://twitter.com/solomonstre/status/1111004913222324225?s=20)
+https://twitter.com/solomonstre/status/1111004913222324225?s=20
 
 > Note: Solomon Hykes is also an investor in Wasmer
 
@@ -127,7 +127,7 @@ Sample Rust applications that you can compile to Wasm with WASIX:
 
 - Static-web-server - `wasmer run wasmer/static-web-server`
   Uses tokio/mio under the hood.
-  Source: https://github.com/john-sharratt/static-web-server
+  <br />Source: https://github.com/john-sharratt/static-web-server
 - Tantivy
 - Leptos
 - Anything else… literally. Even if it uses threads or anything else.
@@ -146,13 +146,13 @@ https://github.com/wasix-org/wasix-libc
 Here are some C applications that we compiled to WASIX:
 
 - Bash - `wasmer run sharrattj/bash`
-  Source: https://github.com/wasix-org/bash
+  <br />Source: https://github.com/wasix-org/bash
 - Dash - `wasmer run sharrattj/dash`
-  Source: https://github.com/wasix-org/dash/tree/master 
+  <br />Source: https://github.com/wasix-org/dash/tree/master 
 - Curl - `wasmer run curl/curl`
-  Source: https://github.com/wasix-org/curl
+  <br />Source: https://github.com/wasix-org/curl
 - CPython - `wasmer run wasmer/python`
-  Source: https://github.com/wasix-org/curl
+  <br />Source: https://github.com/wasix-org/curl
 
 ----
 
