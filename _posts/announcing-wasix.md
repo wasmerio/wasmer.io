@@ -1,12 +1,12 @@
 ---
 title: "Announcing WASIX"
 ogImage: 
-    url: '/images/blog/wcgi-thumb.png'
+    url: '/images/blog/announcing-wasix.png'
 excerpt: "WASIX extends the WASI proposal to build useful and productive applications today with full POSIX compatibility"
-date: "2023-05-26T12:00:00.000Z"
-coverImage: '/images/blog/wcgi-thumb.png'
+date: "2023-05-30T12:00:00.000Z"
+coverImage: '/images/blog/.png'
 author: Syrus Akbary
-published: false
+published: true
 ---
 
 Today we are very excited to launch a new initiative that will start shaping the future of WebAssembly on both the browser and the server.
@@ -133,6 +133,8 @@ Sample Rust applications that you can compile to Wasm with WASIX:
 - Leptos
 - Anything else… literally. Even if it uses threads or anything else.
 
+See more examples here: https://wasix.org/docs/language-guide/rust/examples
+
 <a id="ccpp"></a>
 
 ## C/C++
@@ -154,6 +156,8 @@ Here are some C applications that we compiled to WASIX:
   <br />Source: https://github.com/wasix-org/curl
 - CPython - `wasmer run wasmer/python`
   <br />Source: https://github.com/wasix-org/curl
+
+See more examples here: https://wasix.org/docs/language-guide/c/examples
 
 ----
 
