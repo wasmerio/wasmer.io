@@ -161,6 +161,15 @@ See more examples here: https://wasix.org/docs/language-guide/c/examples
 
 ----
 
+## Better together
+
+WASIX was started by just Wasmer, but we don't want it to stay that way!
+
+We welcome all interested parties to help us evolve and improve the specification, 
+and are hopeful that other runtimes will add support soon.
+
+Check out the [Community and Governance](https://wasix.org/docs/community-and-governance) docs, and join the [WASIX Discord](https://discord.com/invite/rWCBJ7tH82) to get in touch.
+
 ## In summary...
 
 We got `curl`, `cpython`, `bash`, `tokio`, `axum`, and many more programs with minimal-to-no-modifications compiling to Wasm/WASIX.
