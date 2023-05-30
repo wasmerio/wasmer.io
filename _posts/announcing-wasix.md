@@ -164,7 +164,7 @@ WASIX was started by just Wasmer, but we don't want it to stay that way!
 We welcome all interested parties to help us evolve and improve the specification, 
 and are hopeful that other runtimes will add support soon.
 
-Join the [WASIX Discord](https://discord.com/invite/rWCBJ7tH82) to get in touch.
+Check out the [Community and Governance](https://wasix.org/docs/community-and-governance) docs, and join the [WASIX Discord](https://discord.com/invite/rWCBJ7tH82) to get in touch.
 
 ## In summary...
 
