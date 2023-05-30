@@ -151,11 +151,11 @@ Here are some C applications that we compiled to WASIX:
 - Bash - `wasmer run sharrattj/bash`
   <br />Source: https://github.com/wasix-org/bash
 - Dash - `wasmer run sharrattj/dash`
-  <br />Source: https://github.com/wasix-org/dash/tree/master 
+  <br />Source: https://github.com/wasix-org/dash
 - Curl - `wasmer run curl/curl`
   <br />Source: https://github.com/wasix-org/curl
 - CPython - `wasmer run wasmer/python`
-  <br />Source: https://github.com/wasix-org/curl
+  <br />Source: https://github.com/wasix-org/python
 
 See more examples here: https://wasix.org/docs/language-guide/c/examples
 
