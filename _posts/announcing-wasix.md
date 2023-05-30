@@ -102,6 +102,10 @@ When you run `wasmer run syrusakbary/python` a new subprocess is created/forked.
 
 # So, how can you start using WASIX?
 
+Please note that this is a preview release of the WASIX toolchains.
+Building code isn't trivial yet, and there are quite a few implementation kinks to iron out.
+But we'll be working hard to make WASIX as easy to use as any other build target!
+
 <a id="rust"></a>
 
 ## Rust
